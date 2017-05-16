@@ -31,7 +31,6 @@ public class ResultToBean {
 				此时,getColumnName(3) == "description";而getColumnLabel(3) == "relatedDescription"。
 				如果你想将ResultSet的结果映射到HashMap中，注意一定使用getColumnLabel，而不要用getColumnName。*/
 				columnNames[i] = rsmd.getColumnLabel(i + 1);  // rsmd.getColumnLabel(i) 就是输出 响应的的列名
-				System.out.println(columnNames[i]);
 				//所以columnNaes 存放的就是 所有的列的名字
 			}
 
@@ -42,14 +41,11 @@ public class ResultToBean {
 				for (int i = 0; i < counts; i++) {
 					// 根据 rs 列名 ，组装javaBean里边的其中一个set方法，object 就是数据库第一行第一列的数据了
 					Object value = rs.getObject(columnNames[i]);
-					System.out.println(value);
 					//这里是获取数据库字段的类型
 					Class<?> dbType = value.getClass();
-					System.out.println(dbType.getSimpleName());
 					//设置参数类型，此类型应该跟javaBean 里边的类型一样，而不是取数据库里边的类型
 					field = clazz.getDeclaredField(columnNames[i]);
 					Class<?> beanType = field.getType();
-					System.out.println(beanType.getSimpleName());
 					
 					//如果发生从数据库获取到得类型跟javaBean类型不同，先按String类型取  然后在转换为 具体的类型
 					if(beanType!=dbType){
@@ -70,9 +66,6 @@ public class ResultToBean {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
-		if(lists.get(0)==null){
-			System.out.println("!null");
 		}
 		return lists;
 	}

@@ -17,10 +17,17 @@ public class ClothDaoTest {
 		cloth.setSize("S;M;L;XL;XXL");
 		cloth.setStore_id(1);
 		cloth.setTotalnum(59);
-		cloth.setType("衣服");
 		cloth.setVersion("潮流款;小清新;均码");
 		
 		ClothDaoImpl clothdao = new ClothDaoImpl();
 		clothdao.add(cloth);
+	}
+	
+	@Test
+	public void findClothTest(){
+		ClothDaoImpl clothdao = new ClothDaoImpl();
+		Cloth cloth = clothdao.find("秋衣男款");
+		System.out.println(cloth.getCloth_id());
+		System.out.println(cloth.getPrice());
 	}
 }

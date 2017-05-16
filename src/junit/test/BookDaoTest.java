@@ -9,7 +9,7 @@ public class BookDaoTest {
 	@Test
 	public void addTest(){
 		Book book = new Book();
-		book.setType("书籍");
+	/*	book.setType("书籍");*/
 		book.setAuthor("wowo");
 		book.setImages("c://user/1.jpg");
 		book.setBookname("java web");
@@ -30,11 +30,11 @@ public class BookDaoTest {
 	@Test
 	public void updateTest(){
 		Book book = new Book();
-		book.setBook_id(3);
+		book.setBook_id(1);
 		book.setTotalnum(25);
 		book.setPrice(40);
 		book.setVersion("有电子书;有光盘;没光盘");
-		book.setDescription("改改改");
+		book.setDescription("2改");
 		BookDaoImpl bookdao = new BookDaoImpl();
 		bookdao.update(book);
 	}

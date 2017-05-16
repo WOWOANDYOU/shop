@@ -8,6 +8,7 @@ import java.util.List;
 import cn.edu.zhku.jsj.dao.ClothDao;
 import cn.edu.zhku.jsj.daomain.Cloth;
 import cn.edu.zhku.jsj.web.utils.JdbcUtil;
+import cn.edu.zhku.jsj.web.utils.ResultToBean;
 
 public class ClothDaoImpl implements ClothDao {
 	@Override
@@ -41,7 +42,28 @@ public class ClothDaoImpl implements ClothDao {
 	
 	@Override
 	public Cloth find(String cloth_name){
-		return null;
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		con = JdbcUtil.getCon();
+		Cloth cloth = null;
+		List<Cloth> clothlist;
+		try{
+			String sql = "select * from cloth where clothname=?";
+			pres = con.prepareStatement(sql);
+			pres.setString(1, cloth_name);
+			rs = pres.executeQuery();
+			
+			clothlist = ResultToBean.getBeanList(Cloth.class, rs); //调工具类 （封装 数据到 bean的工具类）
+			for(Cloth clothitem:clothlist){
+				cloth = clothitem;
+			}
+			return cloth;
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}finally{
+			JdbcUtil.release(con, pres, rs);
+		}
 	}
 	
 	@Override

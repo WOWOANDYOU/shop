@@ -2,8 +2,8 @@ package cn.edu.zhku.jsj.daomain;
 
 public class Book {
 	private int book_id;
-	private String type;//记录种类
-	private String bookname;
+	/*private String type;//记录种类
+*/	private String bookname;
 	private String author;
 	private String press;//出版社
 	private float price;
@@ -25,12 +25,7 @@ public class Book {
 	public void setBook_id(int book_id) {
 		this.book_id = book_id;
 	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
+	
 	public String getBookname() {
 		return bookname;
 	}

@@ -70,7 +70,6 @@ public class BookDaoImpl implements BookDao {
 				book.setStore_id(rs.getInt("B_store_id"));
 				book.setVersion(rs.getString("B_version"));
 				
-				book.setType("书");  //数据库 没有该字段
 			}
 		}catch(Exception e){
 			throw new RuntimeException(e);
@@ -106,8 +105,6 @@ public class BookDaoImpl implements BookDao {
 				book.setTotalnum(rs.getInt("totalnum"));
 				book.setStore_id(rs.getInt("B_store_id"));
 				book.setVersion(rs.getString("B_version"));
-				book.setType("书");  //数据库 没有该字段
-				
 				list.add(book);
 			}
 		}catch(Exception e){
@@ -126,8 +123,7 @@ public class BookDaoImpl implements BookDao {
 		ResultSet rs = null;
 		con = JdbcUtil.getCon();
 		try{
-			int book_id = book.getBook_id();
-			String sql = "update book set totalnum=?,B_price=?,B_version=?,B_description=? where book_id=?";
+			String sql = "update book set totalnum=?,price=?,version=?,description=? where book_id=?";
 			pres = con.prepareStatement(sql);
 			pres.setInt(1, book.getTotalnum());
 			pres.setFloat(2, book.getPrice());

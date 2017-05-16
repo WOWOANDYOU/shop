@@ -28,8 +28,19 @@ public class BookDaoTest {
 	}
 	
 	@Test
+	public void updateTest(){
+		Book book = new Book();
+		book.setBook_id(3);
+		book.setTotalnum(25);
+		book.setPrice(40);
+		book.setVersion("有电子书;有光盘;没光盘");
+		book.setDescription("改改改");
+		BookDaoImpl bookdao = new BookDaoImpl();
+		bookdao.update(book);
+	}
+	@Test
 	public void deleteTest(){
 		BookDaoImpl bookdao = new BookDaoImpl();
-		bookdao.delete(2);
+		bookdao.delete(3);
 	}
 }

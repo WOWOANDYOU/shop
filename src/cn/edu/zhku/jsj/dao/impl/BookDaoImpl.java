@@ -3,6 +3,7 @@ package cn.edu.zhku.jsj.dao.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.LinkedList;
 import java.util.List;
 
 import cn.edu.zhku.jsj.dao.BookDao;
@@ -66,23 +67,83 @@ public class BookDaoImpl implements BookDao {
 				book.setPress(rs.getString("press"));
 				book.setPrice(rs.getFloat("B_price"));
 				book.setTotalnum(rs.getInt("totalnum"));
+				book.setStore_id(rs.getInt("B_store_id"));
+				book.setVersion(rs.getString("B_version"));
+				
+				book.setType("书");  //数据库 没有该字段
 			}
 		}catch(Exception e){
 			throw new RuntimeException(e);
 		}finally{
 			JdbcUtil.release(con, pres, rs);
 		}
-		return null;
+		return book;
 		
 	}
 	@Override
 	public List<Book> findAll(){
-		return null;
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		con = JdbcUtil.getCon();
+		List<Book> list = new LinkedList<Book>();
+		Book book = null;
+		try{
+			String sql = "select * from book";
+			pres = con.prepareStatement(sql);			
+			rs = pres.executeQuery();
+			
+ 			while(rs.next()){
+				book = new Book();
+				book.setAuthor(rs.getString("author"));
+				book.setImages(rs.getString("B_images"));
+				book.setBook_id(rs.getInt("book_id"));
+				book.setBookname(rs.getString("bookname"));
+				book.setDescription(rs.getString("B_description"));
+				book.setISBN(rs.getString("ISBN"));
+				book.setPress(rs.getString("press"));
+				book.setPrice(rs.getFloat("B_price"));
+				book.setTotalnum(rs.getInt("totalnum"));
+				book.setStore_id(rs.getInt("B_store_id"));
+				book.setVersion(rs.getString("B_version"));
+				book.setType("书");  //数据库 没有该字段
+				
+				list.add(book);
+			}
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}finally{
+			JdbcUtil.release(con, pres, rs);
+		}
+		return list;
 	}
 	
 	@Override
 	public boolean update(Book book){ 
-		return false;
+		boolean b = false;
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		con = JdbcUtil.getCon();
+		try{
+			int book_id = book.getBook_id();
+			String sql = "update book set totalnum=?,B_price=?,B_version=?,B_description=? where book_id=?";
+			pres = con.prepareStatement(sql);
+			pres.setInt(1, book.getTotalnum());
+			pres.setFloat(2, book.getPrice());
+			pres.setString(3, book.getVersion());
+			pres.setString(4, book.getDescription());
+			pres.setInt(5, book.getBook_id());
+			int num =  pres.executeUpdate();
+			if(num!=0){
+				b = true;
+			}
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}finally{
+			JdbcUtil.release(con, pres, rs);
+		}
+		return b;
 	}
 	
 	@Override

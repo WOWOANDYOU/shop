@@ -3,3 +3,4 @@ select * from book;
 select * from user;
 select * from store;
 select * from cloth;
+select * from food;

@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.List;
 
+import javax.management.RuntimeErrorException;
+
 import cn.edu.zhku.jsj.dao.ClothDao;
 import cn.edu.zhku.jsj.daomain.Cloth;
 import cn.edu.zhku.jsj.web.utils.JdbcUtil;
@@ -59,7 +61,7 @@ public class ClothDaoImpl implements ClothDao {
 				cloth = clothitem;
 			}
 			return cloth;
-		}catch(Exception e){
+		}catch(Exception e){ 
 			throw new RuntimeException(e);
 		}finally{
 			JdbcUtil.release(con, pres, rs);
@@ -68,16 +70,74 @@ public class ClothDaoImpl implements ClothDao {
 	
 	@Override
 	public List<Cloth> findAll(){
-		return null;
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		con = JdbcUtil.getCon();
+		Cloth cloth = null;
+		List<Cloth> clothlist;
+		try{
+			String sql = "select * from cloth";
+			pres = con.prepareStatement(sql);
+			rs = pres.executeQuery();
+			
+			clothlist = ResultToBean.getBeanList(Cloth.class, rs); //调工具类 （封装 数据到 bean的工具类）
+			return clothlist;
+		}catch(Exception e){ 
+			throw new RuntimeException(e);
+		}finally{
+			JdbcUtil.release(con, pres, rs);
+		}
 	}
 	
 	@Override
 	public boolean update(Cloth cloth){
-		return false;
+		boolean b = false;
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		con = JdbcUtil.getCon();
+		try{
+			String sql = "update cloth set version=?,price=?,totalnum=?,description=? where cloth_id=?";
+			pres = con.prepareStatement(sql);
+			pres.setString(1, cloth.getVersion());
+			pres.setFloat(2, cloth.getPrice());
+			pres.setInt(3, cloth.getTotalnum());
+			pres.setString(4, cloth.getDescription());
+			pres.setInt(5, cloth.getCloth_id());
+			
+			int num = pres.executeUpdate();
+			if(num!=0){
+				b = true;
+			}
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}finally{
+			JdbcUtil.release(con, pres, rs);
+		}
+		return b;
 	}
 	
 	@Override
-	public boolean delete(Cloth cloth){
-		return false;
+	public boolean delete(int cloth_id){
+		boolean b = false;
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		con = JdbcUtil.getCon();
+		try{
+			String sql = "delete from cloth where cloth_id=?";
+			pres = con.prepareStatement(sql);
+			pres.setInt(1, cloth_id);
+			int num = pres.executeUpdate();
+			if(num!=0){
+				b = true;
+			}
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}finally{
+			JdbcUtil.release(con, pres, rs);
+		}
+		return b;
 	}
 }	

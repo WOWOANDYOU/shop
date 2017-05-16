@@ -28,6 +28,10 @@
 		
 		
 		数据库中 增加了 商品的库存字段  以及 商品图片 用户添加头像  （保存用户头像）
+		
+		修改了 衣服表的 size 字段的长度 （长度增加，由于varchar设置太短，导致数据插不入）
+		alter table cloth modify size varchar(100);
+		
 	1.3 为应用创建相应库和表
 		
 		create database shop;
@@ -92,7 +96,7 @@
 		C_version varchar(100),   
 		C_price float,
 		totalnum int,
-		size varchar(10),  
+		size varchar(100),  
 		color varchar(10),        
 		C_images varchar(255),
 		C_description varchar(100),

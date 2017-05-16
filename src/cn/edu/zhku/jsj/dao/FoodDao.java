@@ -10,10 +10,10 @@ public interface FoodDao {
 
 	Food find(String food_name);
 
-	List<Food> find();
+	List<Food> findAll();
 
 	boolean update(Food food);
 
-	boolean delete(Food food);
+	boolean delete(int food_id);
 
 }

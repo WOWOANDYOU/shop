@@ -2,8 +2,8 @@ package cn.edu.zhku.jsj.daomain;
 
 public class Food {
 	private int food_id;
-	private String type;//记录种类
-	private String foodname;
+	/*private String type;//记录种类
+*/	private String foodname;
 	private float price;
 	private String images;//记住 食物的各种图片
 	private String description;
@@ -21,12 +21,7 @@ public class Food {
 	public void setFood_id(int food_id) {
 		this.food_id = food_id;
 	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
+	
 	public String getFoodname() {
 		return foodname;
 	}

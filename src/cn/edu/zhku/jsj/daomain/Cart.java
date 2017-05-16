@@ -1,4 +1,4 @@
-package cn.edu.zhku.jsj.daomain;
+﻿package cn.edu.zhku.jsj.daomain;
 
 public class Cart {
 	private int cart_id;

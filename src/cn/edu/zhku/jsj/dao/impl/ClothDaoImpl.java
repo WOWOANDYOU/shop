@@ -59,7 +59,7 @@ public class ClothDaoImpl implements ClothDao {
 				cloth = clothitem;
 			}
 			return cloth;
-		}catch(Exception e){
+		}catch(Exception e){ 
 			throw new RuntimeException(e);
 		}finally{
 			JdbcUtil.release(con, pres, rs);

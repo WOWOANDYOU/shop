@@ -9,6 +9,7 @@ public interface BookDao {
 	//添加图书
 	int add(Book book);
 
+
 	List<Book> findBook(String book_name);
 
 	List<Book> findAll();

@@ -46,6 +46,7 @@ public class BookDaoImpl implements BookDao {
 	
 	@Override
 	public List<Book> findBook(String book_name){
+
 		Connection con = null;
 		PreparedStatement pres = null;
 		ResultSet rs = null;
@@ -72,6 +73,7 @@ public class BookDaoImpl implements BookDao {
 				book.setStore_id(rs.getInt("B_store_id"));
 				book.setVersion(rs.getString("B_version"));
 				list.add(book);
+				
 			}
 		}catch(Exception e){
 			throw new RuntimeException(e);

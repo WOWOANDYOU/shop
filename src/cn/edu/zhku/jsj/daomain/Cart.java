@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿package cn.edu.zhku.jsj.daomain;
+=======
+package cn.edu.zhku.jsj.daomain;
+>>>>>>> 3bf1954899b0a9111d3e3346e221f3803295c2a9
 
 public class Cart {
 	private int cart_id;

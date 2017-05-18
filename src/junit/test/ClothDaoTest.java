@@ -26,7 +26,7 @@ public class ClothDaoTest {
 	
 	@Test
 	public void findClothTest(){
-		Cloth cloth = clothdao.find("秋衣款");
+		Cloth cloth = (Cloth) clothdao.find("秋衣款");
 		
 	}
 	@Test

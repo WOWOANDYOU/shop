@@ -2,8 +2,13 @@ package cn.edu.zhku.jsj.daomain;
 
 public class Cloth {
 	private int cloth_id;
+<<<<<<< HEAD
 	/*private String type;//记录种类
 */	private String clothname;
+=======
+	private String type;//记录种类
+	private String clothname;
+>>>>>>> 3bf1954899b0a9111d3e3346e221f3803295c2a9
 	private float price;
 	private String color;  //颜色选择
 	private String size;
@@ -24,7 +29,16 @@ public class Cloth {
 	public void setCloth_id(int cloth_id) {
 		this.cloth_id = cloth_id;
 	}
+<<<<<<< HEAD
 	
+=======
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+>>>>>>> 3bf1954899b0a9111d3e3346e221f3803295c2a9
 	public String getClothname() {
 		return clothname;
 	}

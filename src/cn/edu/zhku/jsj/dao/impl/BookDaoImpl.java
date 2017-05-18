@@ -44,16 +44,19 @@ public class BookDaoImpl implements BookDao {
 	}
 	
 	@Override
-	public Book findBook(String book_name){
+	public List<Book> findBook(String book_name){
 		Connection con = null;
 		PreparedStatement pres = null;
 		ResultSet rs = null;
 		con = JdbcUtil.getCon();
+		List<Book> list = new LinkedList<Book>();
 		Book book = null;
 		try{
-			String sql = "select * from book where book_name=?";
+			/*String find_muzzy = "%?%";*/
+			/*pres.setString(1, "%"+filename+"%");   //模糊查询 的预编译设置参数 要 如此设置
+*/			String sql = "select * from book where book_name like ";
 			pres = con.prepareStatement(sql);
-			pres.setString(1, book_name);
+			pres.setString(1, "%"+book_name+"%");
 			
 			rs = pres.executeQuery();
 			if(rs.next()){
@@ -69,14 +72,14 @@ public class BookDaoImpl implements BookDao {
 				book.setTotalnum(rs.getInt("totalnum"));
 				book.setStore_id(rs.getInt("B_store_id"));
 				book.setVersion(rs.getString("B_version"));
-				
+				list.add(book);
 			}
 		}catch(Exception e){
 			throw new RuntimeException(e);
 		}finally{
 			JdbcUtil.release(con, pres, rs);
 		}
-		return book;
+		return list;
 		
 	}
 	@Override

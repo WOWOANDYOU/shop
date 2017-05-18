@@ -9,23 +9,26 @@ import org.junit.Test;
 
 import cn.edu.zhku.jsj.dao.impl.UserDaoImpl;
 import cn.edu.zhku.jsj.daomain.User;
+import cn.edu.zhku.jsj.service.BusinessService;
+import cn.edu.zhku.jsj.service.impl.BusinessServiceImpl;
 import cn.edu.zhku.jsj.web.utils.JdbcUtil;
 
 public class UserDaoTest {
 	@Test
 	public void addTest(){
 		User user = new User();
-		user.setUser_id("叨叨就是刀刀");
-		user.setNickname("我就是我");
+		user.setUser_id("我就是叨叨");
+		user.setNickname("我就wowo");
 		user.setPassword("123");
-		user.setPhonenum("12345678911");
-		user.setEmail("12123@sina.com");
-		user.setAddress("广东省哈市");
+		user.setPhonenum("123456789");
+		user.setEmail("12123@github.com");
+		user.setAddress("广东省广州市");
 		user.setRole(1);  
 		user.setCardID(null);
-		user.setImage("c://haha.jpg");
-		UserDaoImpl userdao = new UserDaoImpl();
-		userdao.add(user);
+		user.setImage("c://haha2.jpg");
+		/*UserDaoImpl userdao = new UserDaoImpl();*/
+		BusinessService bus = new BusinessServiceImpl();
+		bus.adduser(user);
 	}
 	
 	@Test

@@ -8,7 +8,7 @@ public class DaoFactory {
 	private static Properties prop = new Properties();
 	private DaoFactory(){
 		try{
-			InputStream in = DaoFactory.class.getClassLoader().getResourceAsStream("cn/itcast/factory/dao.properties");//查找具有给定名称的资源。
+			InputStream in = DaoFactory.class.getClassLoader().getResourceAsStream("cn/edu/zhku/jsj/factory/dao.properties");//查找具有给定名称的资源。
 			prop.load(in);//从输入流中读取属性列表（键和元素对）。
 		}catch (Exception e) {
 			throw new RuntimeException(e);

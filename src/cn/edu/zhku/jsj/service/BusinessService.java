@@ -5,12 +5,16 @@ import cn.edu.zhku.jsj.daomain.Cloth;
 import cn.edu.zhku.jsj.daomain.Food;
 import cn.edu.zhku.jsj.daomain.Store;
 import cn.edu.zhku.jsj.daomain.User;
+import cn.edu.zhku.jsj.exception.UserexistException;
 
 public interface BusinessService {
 
 	//普通用户注册
-	int adduser(User user);
-
+	int adduser(User user) throws UserexistException;
+	
+	//用户登录
+	User login(String user_id,String password);
+	
 	//普通用户变为 店家
 	int addshopkeeper(User user);
 

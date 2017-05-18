@@ -10,7 +10,7 @@ public interface UserDao {
 	//注册时查找 是否已经存在
 	User find(String user_id);
 
-	//用户登录
+	//用户登录时的查找
 	User find(String user_id, String password);
 
 }

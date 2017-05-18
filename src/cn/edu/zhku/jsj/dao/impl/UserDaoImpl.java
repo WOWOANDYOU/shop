@@ -43,12 +43,71 @@ public class UserDaoImpl implements UserDao {
 	//注册时查找 是否已经存在
 	@Override
 	public User find(String user_id){
-		return null;
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		con = JdbcUtil.getCon();
+		
+		try{
+			String sql="select * from user where user_id=?";
+			pres = con.prepareStatement(sql);  
+			pres.setString(1, user_id);
+			rs = pres.executeQuery();
+			while(rs.next()){
+				User user=new User();
+				user.setUser_id(rs.getString("user_id"));
+				user.setAddress(rs.getString("adress"));
+				user.setCardID(rs.getString("cardID"));
+				user.setEmail(rs.getString("email"));
+				user.setImage(rs.getString("image"));
+				user.setNickname(rs.getString("nickname"));
+				user.setPassword(rs.getString("password"));
+				user.setRole(rs.getInt("role"));
+				user.setPhonenum(rs.getString("phonenum"));
+				return user;
+			}
+			return null;
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}finally{
+			JdbcUtil.release(con, pres, rs);
+		}
+		
 	}
 	
-	//用户登录
+	//用户登录时查找
 	@Override
 	public User find(String user_id,String password){
-		return null;
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		con = JdbcUtil.getCon();
+		
+		try{
+			String sql="select * from user where user_id=?,password=?";
+			pres = con.prepareStatement(sql);  
+			pres.setString(1, user_id);
+			pres.setString(2, password);
+			rs = pres.executeQuery();
+			while(rs.next()){
+				User user=new User();
+				user.setUser_id(rs.getString("user_id"));
+				user.setAddress(rs.getString("adress"));
+				user.setCardID(rs.getString("cardID"));
+				user.setEmail(rs.getString("email"));
+				user.setImage(rs.getString("image"));
+				user.setNickname(rs.getString("nickname"));
+				user.setPassword(rs.getString("password"));
+				user.setRole(rs.getInt("role"));
+				user.setPhonenum(rs.getString("phonenum"));
+				return user;
+			}
+			return null;
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}finally{
+			JdbcUtil.release(con, pres, rs);
+		}
+		
 	}
 }

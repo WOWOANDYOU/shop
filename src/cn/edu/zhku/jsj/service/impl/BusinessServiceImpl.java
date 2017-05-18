@@ -13,8 +13,10 @@ import cn.edu.zhku.jsj.daomain.Cloth;
 import cn.edu.zhku.jsj.daomain.Food;
 import cn.edu.zhku.jsj.daomain.Store;
 import cn.edu.zhku.jsj.daomain.User;
+import cn.edu.zhku.jsj.exception.UserexistException;
 import cn.edu.zhku.jsj.factory.DaoFactory;
 import cn.edu.zhku.jsj.service.BusinessService;
+import cn.edu.zhku.jsj.web.utils.Md5;
 
 public class BusinessServiceImpl implements BusinessService {
 	private UserDao user_dao = DaoFactory.getInstance().createDao(UserDao.class); 
@@ -29,9 +31,23 @@ public class BusinessServiceImpl implements BusinessService {
 	
 	//普通用户注册
 	@Override
-	public int adduser(User user){
+	public int adduser(User user) throws UserexistException{
+		String user_id=user.getUser_id();
+		//判断用户是否存在
+		if(user_dao.find(user_id)!=null){
+			throw new UserexistException("用户已经存在");
+		}
+		//采用md5码为用户密码加密
+		String password=Md5.md5(user.getPassword());
+		user.setPassword(password);
+		//用户数据添加到数据库中
 		int num = user_dao.add(user);
 		return num;
+	}
+	
+	//用户登录
+	public User login(String user_id,String password){
+		return user_dao.find(user_id, password);
 	}
 	//普通用户变为 店家
 	@Override

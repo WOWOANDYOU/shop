@@ -12,7 +12,7 @@ import cn.edu.zhku.jsj.daomain.Book;
 import cn.edu.zhku.jsj.daomain.Cloth;
 import cn.edu.zhku.jsj.daomain.Food;
 
-public class Client_selectService {
+public class Client_FuzzySelectService {
 	private BookDao bd=new BookDaoImpl(); 
 	private FoodDao fd=new FoodDaoImpl();
 	private ClothDao cd=new ClothDaoImpl();

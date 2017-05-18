@@ -16,8 +16,11 @@ div{
 
 .header,.header2{
 	text-align: center;
-	font-size: 20;
+	font-size: 15;
 	font-weight:100;
+}
+.header{
+	background-color:#f5f5f5;
 }
 .header_left,.header2_left{
 	float:left;
@@ -46,4 +49,35 @@ div{
 	color:#ffffff;
 	weight:200;
 	border:0;
+}
+
+.body_type_b1{
+	border-right:none;
+}
+.body_type_b3{
+	border-left:none;
+	}
+
+.body_type_b1,.body_type_b2,.body_type_b3{
+	border:1 solid black;
+	border-bottom:none;
+	width:450;
+	background-color:white;
+	font-size:30;
+	font-family:宋体;
+	weight:500;
+	color:black;
+}
+.body_type_b1_action,.body_type_b2_action,.body_type_b3_action{
+	border:1 solid black;
+	border-bottom:none;
+	width:450;
+	background-color:red;
+	font-size:30;
+	font-family:宋体;
+	weight:500;
+	color:#ffffff;
+}
+.body_type_selected{
+	display:none;
 }

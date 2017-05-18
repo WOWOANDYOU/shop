@@ -1,5 +1,7 @@
 package junit.test;
 
+import java.util.List;
+
 import org.junit.Test;
 
 import cn.edu.zhku.jsj.dao.impl.FoodDaoImpl;
@@ -20,7 +22,7 @@ public class FoodDaoTest {
 	}
 	@Test
 	public void findTest(){
-		Food food = fooddao.find("只松鼠");
+		List<Food> food = fooddao.find("只松鼠");
 	}
 	
 	@Test

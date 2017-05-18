@@ -12,8 +12,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <title>My JSP 'index.jsp' starting page</title>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/public/CSS/index.css">
   </head>
-  <frameset rows="5%,95%" frameborder="no">
+  <frameset rows="5%,15%,80%" frameborder="no">
 	<frame src="header.jsp">
+	<frame src="header2.jsp">
 	<frame src="body.jsp">
 	</frameset>
   <body>

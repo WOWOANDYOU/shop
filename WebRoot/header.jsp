@@ -18,7 +18,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  	<ul class="header_ul">
  	<li class="header_left">
  		<div class="header_left_browser">
- 	  		<a class="header_left_browser_a" href="${pageContext.request.contextPath}/login.jsp">亲，请登录</a>
+ 	  		<a class="header_left_browser_a" href="servlet/login_frameCtrlservlet">亲，请登录</a>
  	 	</div>
  		<div class="header_left_user">
  			<a class="header_left_user_a" href="${pageContext.request.contextPath}/UserInfo.jsp">${sessionScope.nickname}</a>

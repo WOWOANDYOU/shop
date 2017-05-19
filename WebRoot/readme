@@ -38,6 +38,26 @@
 		GitHub中 同原项目 同步：
 		添加一个中间远端：
 		git remote add upstream https://github.com/WOWOANDYOU/shop.git
+		
+		如何将工作量push 到自己的GitHub 远端：
+			你做完一部分工作后
+			1：git add filename
+			2:git commit -m "xxx"
+			3：push 到你自己的远端时 
+				<1：git fetch orgin master:tmp(从你远端抓取数据 查看远端是否与你保持同步)
+				<2:git diff tmp (查看差别)
+				<3:git merge tmp (融合分支)
+			4： git push (推到你的远端)
+			
+		如何获取原项目 的最新版本：
+		1： 添加原项目的远端地址到你本地
+			git remote add upstream git@github.com:WOWOANDYOU/shop.git
+		2: 获取原项目远端 最新版内容：
+			git fetch upstream (检查 upstream 端分支 以及各分支的更新)
+		3：切换到你本地主分支（git checkout master）
+		4:合并 将原项目更新 到本地
+			git merge upstream/master
+		
 		git fetch upstream  抓取 数据
 		git checkout master
 		 合并

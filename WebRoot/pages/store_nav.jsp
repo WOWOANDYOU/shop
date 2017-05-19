@@ -11,9 +11,10 @@
 
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath }/css/store.css">
-
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/store.js">
+</script>
 </head>
-<body>
+<body onload="changeTitle(${store.storename})"> 
 	<div id="container">
 		<div id="store_nav_big">
 			<div id="store_nav">

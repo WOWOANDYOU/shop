@@ -31,40 +31,117 @@ body{
 	background-color: #ffffff;
 }
 #mid_up{
-	width:52px;
+	float:left;
+	width:100%;
+	height:52px;
 }
 #mid_up_left{
-	width:200px;
-	/* margin-left:-10px; */ 
+	width:220px;
+	float:left;
+	margin-left:-10px; 
 }
 #mid_up_right_search{
 	float:right;
-	width:370px;
+	background: #f40 none repeat scroll 0 0;
+    height: 23px;
+    margin-top: 12px;
+    padding: 3px;
+    width: 360px;
 }
+#search_panel{
+	position: relative;
+}
+#search_button{
+	float: right;
+}
+.form_class{
+	margin:0;
+	padding: 0;
+}
+.btn_search_class{
+	background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 0 none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    letter-spacing: 3px;
+    line-height: 23px;
+    outline: 0 none;
+    padding-left: 2px;
+    width: 74px;
+   /*  */
+}
+#search_text_field{
+	width: 282px;
+}
+.input_class{
+	background-color: #fff;
+    border: 0 none;
+    color: #000;
+    font-size: 100%;
+    height: 24px;
+    line-height: 18px;
+    overflow-y: visible;
+    vertical-align: middle;
+    width: 100%;
+}
+
 #mid_down{
-	height:28px;
+	height:26px;
 	width:950px;
-	margin-top:-8px; 
-	margin-left:17px;
 }
 .left_span{
 	float: left;
-	/* color: #888a80; */
+	color: #888a80;
 }
 .right_span{
 	float: right;
+}
+
+#store_info_div{
+	width:100%;
+	height: 150px;
+}
+#store_name_div{
+	width:950px;
+	margin:auto;
+	height:120px;
+}
+#store_name_div_up{
+	height: 95px;
+	width:100%;
+}
+#store_name_div_down{
+	height: 25px;
+	width:100%;
+}
+#store_nav_down_2{
+	width:100%;
+	height:30px;
+}
+#store_nav_down_2_mid{
+	width:950px;
+	margin:auto;
+	height:30px;
 }
 #store_nav{
 	margin:auto;
 	width:100%;
 	height:35px;
 	background-color: #f5f5f5;
+	
 }
 #store_nav_div{
 	margin:auto;
 	text-align:center;
 	width:950px;
 	height:35px;
+	
+}
+#store_div{
+	position:absolute;
+	/* 让该块脱离文件流 就是可以浮起来 不影响其他块
+	使用绝对定位的nav层前面的或者后面的层会认为这个层并不存在，也就是在z方向上，它是相对独立出来的，丝毫不影响到其它z方向的层。 */
 }
 ul,li{
 	list-style:outside none none;
@@ -113,11 +190,79 @@ ul,li,a:hover{
 
 #store_nav_down {
 	display: none;
-	/* position: absolute; */
+	background-color: #ffffff;
+	position:relative; top:1px;
 }
-#store_div:hover #store_nav_down{
-	display: block;  
+/* #store_div:hover #store_nav_down{
+	display: block; 
+} */
+.li_down:hover #store_nav_down{
+	display: block; 
 }
 #store_nav_down a:hover{
 	background-color: #dfdfdf;
+}
+
+.store_ul_nav_left{
+	float:left;
+	margin-top:4px;
+}
+
+
+#again_store_nav_big{
+	width:100%;
+	height:30px;
+	background-color: #000000;
+}	
+
+#again_store_nav_big_mid{
+	width:950px;
+	margin:auto;
+}
+.ul_1{
+	float:left;
+}
+.ul_2{
+	float:right;
+}
+.li_1_again{
+	width:80px;
+	float:left;
+}
+.li_2_again{
+	width:80px;
+	float:right;
+}
+.li_2_again{
+	margin-top:-9px;
+}
+
+#again_hidden_2{
+	display: none;
+}
+.li_2_again:hover #again_hidden_2{
+	display: block; 
+}
+.li_1_again:hover #again_hidden_2{
+	display: block; 
+}
+#again_store_to_keeper{
+	background-color: #000000;
+	position: absolute;
+	margin-left:15px;
+}
+#again_store_to_keeper a{
+	color:#ffffff;
+}
+#again_store_to_keeper a:hover {
+	color:#fb7728;
+}
+.ul_1{
+	margin-top:5px;
+}
+.li_1_again{
+	background-color:#000000;
+}
+.li_1_again a{
+	color:#ffffff;
 }

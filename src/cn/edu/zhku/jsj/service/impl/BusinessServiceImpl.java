@@ -47,7 +47,8 @@ public class BusinessServiceImpl implements BusinessService {
 	
 	//用户登录
 	public User login(String user_id,String password){
-		return user_dao.find(user_id, password);
+		String userpassword=Md5.md5(password);
+		return user_dao.find(user_id,userpassword);
 	}
 	//普通用户变为 店家
 	@Override

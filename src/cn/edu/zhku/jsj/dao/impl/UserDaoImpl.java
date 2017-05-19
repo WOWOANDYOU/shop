@@ -56,7 +56,7 @@ public class UserDaoImpl implements UserDao {
 			while(rs.next()){
 				User user=new User();
 				user.setUser_id(rs.getString("user_id"));
-				user.setAddress(rs.getString("adress"));
+				user.setAddress(rs.getString("address"));
 				user.setCardID(rs.getString("cardID"));
 				user.setEmail(rs.getString("email"));
 				user.setImage(rs.getString("image"));
@@ -82,17 +82,17 @@ public class UserDaoImpl implements UserDao {
 		PreparedStatement pres = null;
 		ResultSet rs = null;
 		con = JdbcUtil.getCon();
-		
 		try{
-			String sql="select * from user where user_id=?,password=?";
+			String sql="select * from user where user_id=? and password=?";
 			pres = con.prepareStatement(sql);  
 			pres.setString(1, user_id);
 			pres.setString(2, password);
 			rs = pres.executeQuery();
+			User user=null;
 			while(rs.next()){
-				User user=new User();
+				user = new User();
 				user.setUser_id(rs.getString("user_id"));
-				user.setAddress(rs.getString("adress"));
+				user.setAddress(rs.getString("address"));
 				user.setCardID(rs.getString("cardID"));
 				user.setEmail(rs.getString("email"));
 				user.setImage(rs.getString("image"));
@@ -100,9 +100,8 @@ public class UserDaoImpl implements UserDao {
 				user.setPassword(rs.getString("password"));
 				user.setRole(rs.getInt("role"));
 				user.setPhonenum(rs.getString("phonenum"));
-				return user;
 			}
-			return null;
+			return user;
 		}catch(Exception e){
 			throw new RuntimeException(e);
 		}finally{

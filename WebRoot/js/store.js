@@ -19,7 +19,7 @@ function isInput(value){
 	}
 }
 function checkoutfilename(){
-	var foodfilename = document.getElementById("foodpicture");
+	var foodfilename = document.getElementById("images");
 	var filename = foodfilename.value;
 	if(!filename || !(filename.endsWith('.jpg') || filename.endsWith('.png') || filename.endsWith('.gif') || filename.endsWith('.jpeg'))){
 		alert("只能上传 jpg jpeg gif 以及 png 的图片文件");

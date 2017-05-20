@@ -204,10 +204,10 @@
 									<div id="again_store_to_keeper">
 										<a href="进入可以修改店铺信息的页面  modify_store.jsp">店铺管理</a>
 										<div id="again_hidden_2">
-											<a href="add_goods.jsp">添加商品</a><br> 
-											<a	href="modify_store.jsp">店铺管理</a><br>
+											<a href="${pageContext.request.contextPath }/pages/add_goods.jsp">添加商品</a><br> 
+											<a	href="${pageContext.request.contextPath }/pages/modify_store.jsp">店铺管理</a><br>
 											<!-- 可能会出现的错误  user_id含有中文   参数为中文-->
-											<a href="store_order_manage.jsp?user_id=${user.user_id}">订单管理</a>
+											<a href="${pageContext.request.contextPath }/pages/store_order_manage.jsp?user_id=${user.user_id}">订单管理</a>
 										</div>
 									</div>
 								</li>

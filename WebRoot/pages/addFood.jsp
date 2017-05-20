@@ -12,8 +12,9 @@
 		<div id="add_food_in_down">
 			<form
 				action="${pageContext.request.contextPath }/servlet/AddFoodServlet"
-				method="post" onsubmit="return checkoutfilename()">
-				<input type="hidden" value="${store.store_id }">
+				method="post" onsubmit="return checkoutfilename()"
+				enctype="multipart/form-data">
+				<input type="hidden" value="${store.store_id }" name="store_id">
 				<!-- 记住商品是属于哪家店铺的 所以添加商品前要 在session域存一个 store对象 -->
 				<table border="0px">
 					<tr>
@@ -25,23 +26,24 @@
 					</tr>
 					<tr>
 						<th>商品单价：</th>
-						<td><input type="text" name="foodprice"></td>
-						<td><span> <font style="color:red;">${errormap.foodprice }</font>
+						<td><input type="text" name="price"></td>
+						<td><span> <font style="color:red;">${errormap.price }</font>
 						</span></td>
 					</tr>
 					<tr>
 						<th>商品库存：</th>
-						<td><input type="text" name="foodtotalnum"></td>
-						<td><span><font style="color:red;">${errormap.foodtotalnum }</font></span></td>
+						<td><input type="text" name="totalnum"></td>
+						<td><span><font style="color:red;">${errormap.totalnum }</font></span></td>
 					</tr>
 					<tr>
 						<th>商品描述：</th>
-						<td><textarea name="fooddescription" rows="5" cols="40"></textarea></td>
-						<td><span><font style="color:red;">${errormap.fooddescription }</font></span></td>
+						<td><textarea name="description" rows="5" cols="40"></textarea></td>
+						<td><span><font style="color:red;">${errormap.description }</font></span></td>
 					</tr>
 					<tr>
 						<th>商品图片：</th>
-						<td><input type="file" name="foodpicture" id="foodpicture"></td>
+						<td><input type="file" name="images" id="images"></td>
+						<td><span>${message }</span></td>
 					</tr>
 					<tr>
 						<td colspan="2" align="center"><input type="submit"

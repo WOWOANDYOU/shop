@@ -11,9 +11,10 @@
 
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath }/css/store.css">
-
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/store.js">
+</script>
 </head>
-<body>
+<body onload="changeTitle(${store.storename})"> 
 	<div id="container">
 		<div id="store_nav_big">
 			<div id="store_nav">
@@ -177,7 +178,8 @@
 					<div id="again_store_nav_big_mid">
 						<ul class="ul_1">
 							<li class="li_1_again"><a href="">首页</a></li>
-							<li class="show_store_info.jsp?store_id=${store_id }"><a href="">关于我们</a></li>
+							
+							<li class="li_1_again"><a href="${pageContext.request.contextPath }/pages/show_store_info.jsp?store_id=${store_id }">关于我们</a></li>
 							
 							<!-- 分类显示 不好做先 不做 -->
 							<%-- <li class="li_1_again">
@@ -193,25 +195,28 @@
 										<a href="store_order_manage.jsp?user_id=${user.user_id}">订单管理</a>
 									</div>
 								</div>
-							</li> --%>
+							</li>  --%>
 
 						</ul>
 						<ul class="ul_2">
-							<c:if test="${user.role==2 }">   如果是店主那么 显示管理店铺的 操作
+							<%-- <c:if test="${user.role==2 }">   如果是店主那么 显示管理店铺的 操作 --%>
 							<li class="li_2_again">
 									<div id="again_store_to_keeper">
 										<a href="进入可以修改店铺信息的页面  modify_store.jsp">店铺管理</a>
 										<div id="again_hidden_2">
-											<a href="modify_store.jsp">货物管理</a><br> <a
-												href="modify_store.jsp">店铺管理</a><br>
+											<a href="add_goods.jsp">添加商品</a><br> 
+											<a	href="modify_store.jsp">店铺管理</a><br>
 											<!-- 可能会出现的错误  user_id含有中文   参数为中文-->
 											<a href="store_order_manage.jsp?user_id=${user.user_id}">订单管理</a>
 										</div>
 									</div>
 								</li>
-							</c:if>
+							<%-- </c:if> --%>
 						</ul>
 					</div>
 				</div>
 			</div>
+			
+		</div>
+	
 			

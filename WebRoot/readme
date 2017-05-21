@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 ﻿1.搭建环境
-=======
-1.搭建环境
->>>>>>> 3bf1954899b0a9111d3e3346e221f3803295c2a9
 	1.1 导开发包
 		mysql驱动
 		
@@ -36,7 +32,6 @@
 		修改了 衣服表的 size 字段的长度 （长度增加，由于varchar设置太短，导致数据插不入）
 		alter table cloth modify size varchar(100);
 		
-<<<<<<< HEAD
 		数据库重大改变！！为了方便 将数据库每个表 的字段 与 bean的属性一一对应！
 
 		
@@ -53,10 +48,6 @@
 		
 		use shop;
 		drop database shop;
-=======
-	1.3 为应用创建相应库和表
-		
->>>>>>> 3bf1954899b0a9111d3e3346e221f3803295c2a9
 		create database shop;
 		use shop;
 		
@@ -93,7 +84,6 @@
 		author varchar(20),
 		press varchar(20),
 		totalnum int,
-<<<<<<< HEAD
 		price float,
 		version varchar(100),   
 		images varchar(255),
@@ -101,41 +91,22 @@
 		description varchar(100),
 		store_id int,
 		foreign key (store_id) references store(store_id)
-=======
-		B_price float,
-		B_version varchar(100),   
-		B_images varchar(255),
-		ISBN varchar(20),
-		B_description varchar(100),
-		B_store_id int,
-		foreign key (B_store_id) references store(store_id)
->>>>>>> 3bf1954899b0a9111d3e3346e221f3803295c2a9
 		);
 		
 		create table food(
 		food_id int primary key auto_increment,
 		foodname varchar(20),
-<<<<<<< HEAD
 		price float,
 		totalnum int,
 		images varchar(255),
 		description varchar(100),
 		store_id int,
 		foreign key (store_id ) references store(store_id)
-=======
-		F_price float,
-		totalnum int,
-		F_images varchar(255),
-		F_description varchar(100),
-		F_store_id int,
-		foreign key (F_store_id ) references store(store_id)
->>>>>>> 3bf1954899b0a9111d3e3346e221f3803295c2a9
 		);
 		
 		create table cloth(
 		cloth_id int primary key auto_increment,
 		clothname varchar(20),
-<<<<<<< HEAD
 		version varchar(100),   
 		price float,
 		totalnum int,
@@ -145,17 +116,6 @@
 		description varchar(100),
 		store_id int,
 		foreign key (store_id ) references store(store_id)
-=======
-		C_version varchar(100),   
-		C_price float,
-		totalnum int,
-		size varchar(100),  
-		color varchar(10),        
-		C_images varchar(255),
-		C_description varchar(100),
-		C_store_id int,
-		foreign key (C_store_id ) references store(store_id)
->>>>>>> 3bf1954899b0a9111d3e3346e221f3803295c2a9
 		);
 		
 		create table cart(

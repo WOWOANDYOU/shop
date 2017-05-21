@@ -10,10 +10,10 @@ li{
 	display:inline;
 	list-style:none;
 }
-div{
-	display:inline;
-}
 
+table{
+	text-align:center;
+}
 .header,.header2{
 	text-align: center;
 	font-size: 15;
@@ -50,7 +50,22 @@ div{
 	weight:200;
 	border:0;
 }
-
+.body{
+	text-align:center;
+	border:1px solid green;
+}
+.body_type{
+	width:1320px;
+	height:50px;
+	margin:1px auto;
+	border:1px solid red;
+}
+.body_good{
+	width:1320px;
+	height:500px;
+	margin:1px auto;
+	border:1px solid red;
+}
 .body_type_b1{
 	border-right:none;
 }
@@ -61,7 +76,7 @@ div{
 .body_type_b1,.body_type_b2,.body_type_b3{
 	border:1 solid black;
 	border-bottom:none;
-	width:450;
+	width:432;
 	background-color:white;
 	font-size:30;
 	font-family:宋体;
@@ -71,7 +86,7 @@ div{
 .body_type_b1_action,.body_type_b2_action,.body_type_b3_action{
 	border:1 solid black;
 	border-bottom:none;
-	width:450;
+	width:432;
 	background-color:red;
 	font-size:30;
 	font-family:宋体;
@@ -80,4 +95,23 @@ div{
 }
 .body_type_selected{
 	display:none;
+}
+
+.body_good_more{
+	text-align:center;
+	float:right;
+	width:65;
+	height:20;
+	font-size:20;
+	font-family:黑体;
+	weight:300;
+	padding:10;
+	border:1px solid red;
+}
+.body_good_total{
+	text-align:center;
+	width:1320px;
+	height:435px;
+	border:1px solid blue;
+	margin:auto;
 }

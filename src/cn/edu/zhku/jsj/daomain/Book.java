@@ -7,7 +7,7 @@ public class Book {
 	private String author;
 	private String press;//出版社
 	private float price;
-	private String version;//记录用户定义的标签,用";"隔开 取数据的时候用String数组：String [] v = version.split(";");
+	private String version;//记录用户定义的标签,用","隔开 取数据的时候用<c:forTokens> 标签 
 	private String images; //记住各种书的 图片
 	private String ISBN;
 	private String description;

@@ -44,6 +44,7 @@ public class ClothDaoImpl implements ClothDao {
 	
 	@Override
 	public List<Cloth> find(String cloth_name){
+
 		Connection con = null;
 		PreparedStatement pres = null;
 		ResultSet rs = null;

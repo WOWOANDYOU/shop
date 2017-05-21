@@ -16,5 +16,4 @@ public interface FoodDao {
 
 	boolean delete(int food_id);
 
-
 }

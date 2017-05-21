@@ -47,6 +47,7 @@ public class BookDaoImpl implements BookDao {
 	@Override
 	public List<Book> findBook(String book_name){
 
+
 		Connection con = null;
 		PreparedStatement pres = null;
 		ResultSet rs = null;
@@ -55,6 +56,7 @@ public class BookDaoImpl implements BookDao {
 		Book book=null;
 		try{
 			String sql = "select * from book where bookname like ?";
+
 			pres = con.prepareStatement(sql);
 			pres.setString(1, "%"+book_name+"%");
 			

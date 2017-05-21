@@ -7,7 +7,7 @@ public class Cloth {
 	private float price;
 	private String color;  //颜色选择
 	private String size;
-	private String version;
+	private String version;//记录用户定义的标签,用","隔开 取数据的时候用<c:forTokens> 标签 
 	private String images;//记住衣服 的各种图片
 	private String description;
 	private int store_id;  //外键 记住是那哪店的商品

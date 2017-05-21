@@ -6,13 +6,12 @@
 	<div class="add_good_in">
 		<div class="add_good_in_up">
 			<div id="div_font_class">
-				<font style="font-size:18px;color:#ff4400">请完善上架食品信息:</font>
+				<font style="font-size:18px;color:#ff4400">请完善上架衣服信息:</font>
 			</div>
 		</div>
-		<div calss="clear"></div>
 		<div class="add_good_in_down">
 			<form
-				action="${pageContext.request.contextPath }/servlet/AddFoodServlet"
+				action="${pageContext.request.contextPath }/servlet/AddClothServlet"
 				method="post" onsubmit="return checkoutfilename()"
 				enctype="multipart/form-data">
 				<input type="hidden" value="${store.store_id }" name="store_id">
@@ -20,15 +19,33 @@
 				<table border="0px">
 					<tr>
 						<!-- 光标离开 后触发js函数 onblur="isInput(this.value)" -->
-						<th>商品名称：</th>
-						<td><input type="text" name="foodname"></td>
-						<td><span> <font style="color:red;">${errormap.foodname }</font>
+						<th>衣服名称：</th>
+						<td><input type="text" name="clothname"></td>
+						<td><span> <font style="color:red;">${errormap.clothname }</font>
 						</span></td>
 					</tr>
 					<tr>
-						<th>商品单价：</th>
+						<th>衣服单价：</th>
 						<td><input type="text" name="price" placeholder="输入数字即可"></td>
 						<td><span> <font style="color:red;">${errormap.price }</font>
+						</span></td>
+					</tr>
+					<tr>
+						<th>衣服码数：</th> <!--  L,m,s -->
+						<td><input type="text" name="size" placeholder="码数之间用逗号隔开"></td>
+						<td><span> <font style="color:red;">${errormap.size }</font>
+						</span></td>
+					</tr>
+					<tr>
+						<th>衣服颜色：</th> <!--  L,m,s -->
+						<td><input type="text" name="color" placeholder="颜色之间用逗号隔开"></td>
+						<td><span> <font style="color:red;">${errormap.color }</font>
+						</span></td>
+					</tr>
+					<tr>
+						<th>衣服款式：</th> <!-- 什么版本 清新版 帅气版啊之类的 -->
+						<td><input type="text" name="version" placeholder="款式之间用逗号隔开"></td>
+						<td><span> <font style="color:red;">${errormap.version }</font>
 						</span></td>
 					</tr>
 					<tr>
@@ -42,9 +59,21 @@
 						<td><span><font style="color:red;">${errormap.description }</font></span></td>
 					</tr>
 					<tr>
-						<th>商品图片：</th>
-						<td><input type="file" name="images" id="images"></td>
+						<th>衣服图片：</th>
+						<td>
+							<input type="file" name="images" id="images">
+							
+						</td>
+						<!-- <td><input type="file" name="images" id="images"></td> -->
 						<td><span>${message }</span></td>
+					</tr>
+					<tr>
+						<th>
+							<input type="button" value="继续添加图片" onclick="fileadd()"><br>
+						</th>
+						<td>
+							<div id="addfile"></div>
+						</td>
 					</tr>
 					<tr>
 						<td colspan="2" align="center"><input type="submit"

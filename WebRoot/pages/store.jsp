@@ -8,6 +8,9 @@
 		
 		暂且 先把所有的 商品信息 存在一个 list  goodlist  里边 然后展现
 		展示区 每四个 商品一行
+		
+		在前台页面中 顾客点击中 该店的商品 跳到 商品具体信息展示页面 点击进入店铺 那么就跳到 一个servlet(或者 店家 点击 进入我的店铺 同样先跳到 一个servlet中)
+		在这个servlet 中 先检索出所有商品  由于 商品 有 食物 衣服 书籍 三类 所以 用 三个list 分类展示 到店铺首页
 	-->
 		<div id="show_goods_div_big">
 			<%-- <c:forEach var="good" items="goodlist" varStatus="status">
@@ -20,9 +23,9 @@
 			<!-- <ul>
 				
 			</ul> -->
-			<div id="clear"></div>
+		
 			<div id="show_goods_div">
-				<c:forEach var="good" items="goodlist">
+				<c:forEach var="good" items="${goodlist }">
 					<div class="show_goods_div_in">
 						<div class="good_img"></div>
 						<div class="good_descrition"></div>

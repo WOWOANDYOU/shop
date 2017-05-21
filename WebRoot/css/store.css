@@ -283,6 +283,10 @@ ul,li,a:hover{
 	width:950px;
 	margin:auto;
 }
+#add_store_in_in{
+	width:350px;
+	margin:auto;
+}
 #add_store_in_left{
 	width:170px;
 	float:left;
@@ -313,35 +317,56 @@ ul,li,a:hover{
 
 
 /*添加食品页面的样式*/
-#add_food_big{
+/* #add_food_big{
 	width:100%;
 	background-color: #f5f5f5;
 	margin-top:10px;
+} */
+.add_good_big{
+	width:100%;
+	background-color: #f7f7f7;
+	margin-top:10px;
 }
-#add_food_in{
+/* #add_food_in{
 	width:950px;
 	margin-top:10px;
 	background-color: #f0f0f0;
 	height:400px;
 	margin:auto;
+} */
+.add_good_in{
+	width:950px;
+	margin-top:10px;
+	background-color: #f5f5f5;
+	/* height:400px; */
+	margin:auto;
 }
-#add_food_in_up{
+/* #add_food_in_up{
 	width:100%;
 	height:30px;
 	margin:auto;
-}
+} */
 
+.add_good_in_up{
+	width:950px;
+	height:30px;
+	margin:auto;
+}
 #div_font_class{
 	margin-top:10px;
 	margin-left:-150px;
 	float:left;
 }
-#add_food_in_down{
+/* #add_food_in_down{
 	width:100%;
-	/* height:400px; */
+	height:400px;
+	margin:auto;
+} */
+.add_good_in_down{
+	width:100%;
+	/* height:500px; */
 	margin:auto;
 }
-
 
 /*店铺展示css*/
 #show_goods_div_big{
@@ -362,7 +387,7 @@ ul,li,a:hover{
 }
 
 
-#clear{
+.clear{
 	clear:both;
 }
 

@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import cn.edu.zhku.jsj.dao.impl.UserDaoImpl;
 import cn.edu.zhku.jsj.daomain.User;
+import cn.edu.zhku.jsj.exception.UserexistException;
 import cn.edu.zhku.jsj.service.BusinessService;
 import cn.edu.zhku.jsj.service.impl.BusinessServiceImpl;
 import cn.edu.zhku.jsj.web.utils.JdbcUtil;
@@ -28,7 +29,12 @@ public class UserDaoTest {
 		user.setImage("c://haha2.jpg");
 		/*UserDaoImpl userdao = new UserDaoImpl();*/
 		BusinessService bus = new BusinessServiceImpl();
-		bus.adduser(user);
+		try {
+			bus.adduser(user);
+		} catch (UserexistException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	@Test

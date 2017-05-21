@@ -13,4 +13,9 @@ public interface UserDao {
 	//用户登录时的查找
 	User find(String user_id, String password);
 
+	//忘记登录密码查询时
+	User find(String user_id, String phonenum, String email) ;
+	
+	// 忘记密码时，修改密码
+    int change(String user_id, String password);
 }

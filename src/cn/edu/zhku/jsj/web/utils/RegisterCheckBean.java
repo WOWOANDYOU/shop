@@ -161,16 +161,7 @@ public class RegisterCheckBean {
 			errors.put("address", "地址不能为空");
 		}
 		
-		//检验身份认证
-		if(this.cardID==null||this.cardID.trim().equals("")){
-			isOK=false;
-			errors.put("cardID", "身份认证不能为空");
-		}else{
-			if(!this.cardID.matches("\\d{18}")){
-				isOK=false;
-				errors.put("cardID", "身份认证不是一个合法身份证");
-			}
-		}
+		
 			
 		
 		

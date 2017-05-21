@@ -56,6 +56,19 @@ public class BusinessServiceImpl implements BusinessService {
 		int num = user_dao.add(user);
 		return num;
 	}
+	
+	//忘记密码时，查询用户是否存在
+	public User check(String user_id,String phonenum,String email){
+		User user=user_dao.find(user_id, phonenum, email);
+		return user;
+	}
+	
+	//用户忘记密码，修改密码
+	public int changePassword(String user_id,String password){
+		int num=user_dao.change(user_id, password);
+		return num;
+	}
+	
 	//开店铺   
 	@Override
 	public int addStore(Store store){

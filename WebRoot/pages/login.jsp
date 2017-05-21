@@ -92,6 +92,7 @@ body {
 						<td><input type="submit" value="登录"></td>
 						<td><input type="button" value="注册" onclick="dump()"></td>
 					</tr>
+					<tr><td></td><td></td><td><a href="${pageContext.request.contextPath }/pages/checkchangepassword.jsp" style="cursor: pointer">忘记密码</a></td></tr>
 
 				</table>
 			</form>

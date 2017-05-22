@@ -21,7 +21,7 @@
 <body>
 	<div class="header2">
 		<ul>
-			<li class="header2_left"><a href="index.jsp" target="_top">
+			<li class="header2_left"><a href="${pageContext.request.contextPath }/pages/user/index.jsp" target="_top">
 					<img alt="商城图标"
 					src="${pageContext.request.contextPath}/images/taobao.jpg"
 					style="width:145;height:48;text-align:center;">

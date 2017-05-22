@@ -18,7 +18,7 @@ public class login_frameCtrlservlet extends HttpServlet {
 			throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		out.println("<script>");
-		out.println("window.top.location.href='../login.jsp'");
+		out.println("window.top.location.href='/pages/user/login.jsp'");
 		out.println("</script>");
 		out.flush();
 		out.close();

@@ -60,7 +60,7 @@ public class Partial_servelet extends HttpServlet {
 			request.getSession().setAttribute("body_type_b2", "body_type_b2");
 			request.getSession().setAttribute("body_type_b1", "body_type_b1");
 		}
-		RequestDispatcher rd = request.getRequestDispatcher("../body.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/pages/user/body.jsp");
 		rd.forward(request, response);
 		out.flush();
 		out.close();

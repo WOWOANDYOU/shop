@@ -25,11 +25,11 @@ public class RegisterServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		//将表的数据提交到RegisterCheckBean
 		RegisterCheckBean bean=RegisterCheckBeanUtil.registerBean(request, RegisterCheckBean.class);
-	
+		
 		//检验用户注册提交的数据
 		if(bean.validate()!=true){
 			request.getSession().setAttribute("RegisterCheckBean", bean);
-			request.getRequestDispatcher("/pages/register.jsp").forward(request, response);
+			request.getRequestDispatcher("/pages/user/register.jsp").forward(request, response);
 			return;
 		}
 		User user=new User();
@@ -38,16 +38,16 @@ public class RegisterServlet extends HttpServlet {
 			BeanUtils.copyProperties(user, bean);
 			register.adduser(user);
 			request.setAttribute("message", "注册成功");
-			request.getRequestDispatcher("/pages/message.jsp").forward(request, response);;
+			request.getRequestDispatcher("/pages/user/message.jsp").forward(request, response);;
 			return;
 		} catch (UserexistException e) {
 			bean.getErrors().put("user_id","用户已存在");
 			request.getSession().setAttribute("RegisterCheckBean", bean);
-			request.getRequestDispatcher("/pages/register.jsp").forward(request, response);;
+			request.getRequestDispatcher("/pages/user/register.jsp").forward(request, response);;
 		}catch(Exception e){
 			e.printStackTrace();
 			request.setAttribute("message", "对不起，服务器出错，注册失败");
-			request.getRequestDispatcher("/pages/message.jsp").forward(request, response);;
+			request.getRequestDispatcher("/pages/user/message.jsp").forward(request, response);;
 		}
 	}
 

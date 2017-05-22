@@ -53,7 +53,7 @@ public class index_servlet extends HttpServlet {
 				"body_type_b1_action");
 		request.getSession().setAttribute("body_type_b2", "body_type_b2");
 		request.getSession().setAttribute("body_type_b3", "body_type_b3");
-		RequestDispatcher rd = request.getRequestDispatcher("../index.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/pages/user/index.jsp");
 		rd.forward(request, response);
 		out.flush();
 		out.close();

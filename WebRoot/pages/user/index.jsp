@@ -14,9 +14,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	href="${pageContext.request.contextPath }/public/CSS/index.css">
 </head>
 <frameset rows="5%,15%,80%" frameborder="no">
-	<frame src="header.jsp" name="view_header" >
-	<frame src="header2.jsp" name="view_header2">
-	<frame src="body.jsp" name="view_body" >
+	<frame src="${pageContext.request.contextPath }/pages/user/header.jsp" name="view_header" >
+	<frame src="${pageContext.request.contextPath }/pages/user/header2.jsp" name="view_header2">
+	<frame src="${pageContext.request.contextPath }/pages/user/body.jsp" name="view_body" >
 </frameset>
 <body>
 </body>

@@ -23,13 +23,13 @@
 					<c:when
 						test="${empty sessionScope.login_result||sessionScope.login_result=='false'}">
 						<div class="header_left_browser">
-							<a class="header_left_browser_a" href="login.jsp" target="_top">亲，请登录</a>
+							<a class="header_left_browser_a" href="${pageContext.request.contextPath }/pages/user/login.jsp" target="_top">亲，请登录</a>
 						</div>
 					</c:when>
 					<c:otherwise>
 						<div class="header_left_user">
 							<a class="header_left_user_a"
-								href="${pageContext.request.contextPath}/UserInfo.jsp"
+								href="${pageContext.request.contextPath}/pages/user/UserInfo.jsp"
 								target="_top">${sessionScope.nickname}</a>
 						</div>
 					</c:otherwise>
@@ -37,12 +37,12 @@
 			<li class="header_right">
 				<div class="header_right_order" style="display:inline">
 					<a class="header_right_order_a"
-						href="${pageContext.request.contextPath}/Order.jsp?user_id=${user_id}"
+						href="${pageContext.request.contextPath}/pages/user/Order.jsp?user_id=${user_id}"
 						target="_top"> 我的订单</a>
 				</div>
 				<div class="header_right_merchant" style="display:inline">
 					<a class="header_right_merchant_a"
-						href="${pageContext.request.contextPath}/merchant.jsp?user_id=${user_id}"
+						href="${pageContext.request.contextPath}/pages/shopkeeper/merchant.jsp?user_id=${user_id}"
 						target="_top"> 卖家中心</a>
 				</div>
 			</li>

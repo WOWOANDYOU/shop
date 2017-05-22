@@ -33,7 +33,7 @@ public class FuzzySelect_servlet extends HttpServlet {
 		request.setAttribute("list_f", list_f);
 		List<Cloth> list_c = CsS.select_c(str);
 		request.setAttribute("list_c", list_c);
-		RequestDispatcher rd = request.getRequestDispatcher("../show.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/pages/user/show.jsp");
 		rd.forward(request, response);
 		out.flush();
 		out.close();

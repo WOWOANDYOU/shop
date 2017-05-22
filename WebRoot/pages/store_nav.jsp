@@ -38,29 +38,29 @@
 					<ul id="nav_ul_2">
 						<li>
 							<div>
-								<a href="${pageContext.request.contextPath }/index.jsp">商城首页</a>
+								<a href="${pageContext.request.contextPath }/pages/user/index.jsp">商城首页</a>
 							</div>
 						</li>
 						<li>
 							<div class="li_down">
 								<c:choose>
 									<c:when test="${empty user}">
-										<a href="${pageContext.request.contextPath }/pages/login.jsp">我的小号</a>
+										<a href="${pageContext.request.contextPath }/pages/user/login.jsp">我的小号</a>
 									</c:when>
 									<c:otherwise>
 										<a
-											href="${pageContext.request.contextPath }/pages/showOrder.jsp">我的小号</a>
+											href="${pageContext.request.contextPath }/pages/user/showOrder.jsp">我的小号</a>
 									</c:otherwise>
 								</c:choose>
 								<ul>
 									<li class="li_hover"><c:choose>
 											<c:when test="${empty user}">
 												<a
-													href="${pageContext.request.contextPath }/pages/login.jsp">已买宝贝</a>
+													href="${pageContext.request.contextPath }/pages/user/login.jsp">已买宝贝</a>
 											</c:when>
 											<c:otherwise>
 												<a
-													href="${pageContext.request.contextPath }/pages/showOrder.jsp">已买宝贝</a>
+													href="${pageContext.request.contextPath }/pages/user/showOrder.jsp">已买宝贝</a>
 											</c:otherwise>
 										</c:choose></li>
 								</ul>
@@ -70,11 +70,11 @@
 							<div class="li_down">
 								<c:choose>
 									<c:when test="${empty user}">
-										<a href="${pageContext.request.contextPath }/pages/login.jsp">购物车</a>
+										<a href="${pageContext.request.contextPath }/pages/shopkeeper/login.jsp">购物车</a>
 									</c:when>
 									<c:otherwise>
 										<a
-											href="${pageContext.request.contextPath }/pages/showCartGood.jsp">购物车</a>
+											href="${pageContext.request.contextPath }/pages/shopkeeper/showCartGood.jsp">购物车</a>
 									</c:otherwise>
 								</c:choose>
 							</div>
@@ -83,45 +83,45 @@
 							<div id="store_div">
 								<c:choose>
 									<c:when test="${empty user}">
-										<a href="${pageContext.request.contextPath }/pages/login.jsp">卖家中心</a>
+										<a href="${pageContext.request.contextPath }/pages/user/login.jsp">卖家中心</a>
 									</c:when>
 									<c:when test="${not empty user && user.role == 1}">
 										<!-- 1表示 顾客 还没有开店 -->
 										<a
-											href="${pageContext.request.contextPath }/pages/Builestore.jsp">卖家中心</a>
+											href="${pageContext.request.contextPath }/pages/shopkeeper/Builestore.jsp">卖家中心</a>
 									</c:when>
 									<c:otherwise>
-										<a href="${pageContext.request.contextPath }/pages/store.jsp">卖家中心</a>
+										<a href="${pageContext.request.contextPath }/pages/shopkeeper/store.jsp">卖家中心</a>
 									</c:otherwise>
 								</c:choose>
 
 								<div id="store_nav_down">
 									<c:choose>
 										<c:when test="${empty user}">
-											<a href="${pageContext.request.contextPath }/pages/login.jsp">免费开店</a>
+											<a href="${pageContext.request.contextPath }/pages/shopkeeper/login.jsp">免费开店</a>
 											<br>
 										</c:when>
 										<c:when test="${not empty user && user.role == 2}">
 											<!-- 判断其是否为店家 2表示 为店家 那么进入店铺 -->
-											<a href="${pageContext.request.contextPath }/pages/store.jsp">免费开店</a>
+											<a href="${pageContext.request.contextPath }/pages/shopkeeper/store.jsp">免费开店</a>
 										</c:when>
 										<c:otherwise>
 											<a
-												href="${pageContext.request.contextPath }/pages/Builestore.jsp">免费开店</a>
+												href="${pageContext.request.contextPath }/pages/shopkeeper/Builestore.jsp">免费开店</a>
 										</c:otherwise>
 									</c:choose>
 
 									<c:choose>
 										<c:when test="${empty user}">
-											<a href="${pageContext.request.contextPath }/pages/login.jsp">已卖货品</a>
+											<a href="${pageContext.request.contextPath }/pages/shopkeeper/login.jsp">已卖货品</a>
 										</c:when>
 										<c:when test="${not empty user && user.role == 2}">
 											<!-- 判断其是否为店家 2表示 为店家 那么进入店铺 -->
-											<a href="${pageContext.request.contextPath }/pages/store.jsp">已卖货品</a>
+											<a href="${pageContext.request.contextPath }/pages/shopkeeper/store.jsp">已卖货品</a>
 										</c:when>
 										<c:otherwise>
 											<a
-												href="${pageContext.request.contextPath }/pages/Builestore.jsp">已卖货品</a>
+												href="${pageContext.request.contextPath }/pages/shopkeeper/Builestore.jsp">已卖货品</a>
 										</c:otherwise>
 									</c:choose>
 								</div>

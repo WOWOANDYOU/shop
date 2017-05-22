@@ -62,6 +62,8 @@
 		git checkout master
 		 合并
 		git merge upstream/master
+		
+		本地更新后 git push 将更新推送到自己远端
 
 		
 	1.3 为应用创建相应库和表

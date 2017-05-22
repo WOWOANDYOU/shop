@@ -18,13 +18,13 @@ public class AddGoodsServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String category = request.getParameter("category");
 		if(category!=null && category.trim().equals("1")){  //1 表示食品类
-			request.getRequestDispatcher("/pages/addFood.jsp").forward(request, response);
+			request.getRequestDispatcher("/pages/shopkeeper/addFood.jsp").forward(request, response);
 			return;
 		}else if(category!=null && category.trim().equals("2")){ //2 表示衣服类
-			request.getRequestDispatcher("/pages/addCloth.jsp").forward(request, response);
+			request.getRequestDispatcher("/pages/shopkeeper/addCloth.jsp").forward(request, response);
 			return;
 		}else{
-			request.getRequestDispatcher("/pages/addBook.jsp").forward(request, response);
+			request.getRequestDispatcher("/pages/shopkeeper/addBook.jsp").forward(request, response);
 			return;
 		}
 	}

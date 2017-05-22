@@ -25,10 +25,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 
 				<div>
-					<a href="" target="_blank">${ }</a>
+					<a href="" target="_blank"></a>
 				</div>
 				<div>
-					<a href="" target="_blank">${ }</a>
+					<a href="" target="_blank"></a>
 				</div>
 			</li>
 		</ul>

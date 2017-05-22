@@ -73,8 +73,7 @@
 										<a href="${pageContext.request.contextPath }/pages/shopkeeper/login.jsp">购物车</a>
 									</c:when>
 									<c:otherwise>
-										<a
-											href="${pageContext.request.contextPath }/pages/shopkeeper/showCartGood.jsp">购物车</a>
+										<a href="${pageContext.request.contextPath }/pages/shopkeeper/showCartGood.jsp">购物车</a>
 									</c:otherwise>
 								</c:choose>
 							</div>
@@ -98,7 +97,11 @@
 								<div id="store_nav_down">
 									<c:choose>
 										<c:when test="${empty user}">
+<<<<<<< HEAD:WebRoot/pages/store_nav.jsp
 											<a href="${pageContext.request.contextPath }/pages/shopkeeper/login.jsp">免费开店</a>
+=======
+											<a href="${pageContext.request.contextPath }/pages/user/login.jsp">免费开店</a>
+>>>>>>> upstream/master:WebRoot/pages/shopkeeper/store_nav.jsp
 											<br>
 										</c:when>
 										<c:when test="${not empty user && user.role == 2}">
@@ -113,7 +116,11 @@
 
 									<c:choose>
 										<c:when test="${empty user}">
+<<<<<<< HEAD:WebRoot/pages/store_nav.jsp
 											<a href="${pageContext.request.contextPath }/pages/shopkeeper/login.jsp">已卖货品</a>
+=======
+											<a href="${pageContext.request.contextPath }/pages/user/login.jsp">已卖货品</a>
+>>>>>>> upstream/master:WebRoot/pages/shopkeeper/store_nav.jsp
 										</c:when>
 										<c:when test="${not empty user && user.role == 2}">
 											<!-- 判断其是否为店家 2表示 为店家 那么进入店铺 -->
@@ -159,7 +166,7 @@
 							<span class="left_span"> <span class="left_span"></span> <span
 								class="left_span">店铺：</span> <span class="left_span">${user }</span>
 								<span class="left_span"> <a
-									href="${pageContext.request.contextPath }/pages/store.jsp">进入店铺</a>
+									href="${pageContext.request.contextPath }/pages/shopkeeper/store.jsp">进入店铺</a>
 							</span>
 							</span> <span class="right_span"></span>
 						</p>
@@ -179,7 +186,7 @@
 						<ul class="ul_1">
 							<li class="li_1_again"><a href="">首页</a></li>
 							
-							<li class="li_1_again"><a href="${pageContext.request.contextPath }/pages/show_store_info.jsp?store_id=${store_id }">关于我们</a></li>
+							<li class="li_1_again"><a href="${pageContext.request.contextPath }/pages/shopkeeper/show_store_info.jsp?store_id=${store_id }">关于我们</a></li>
 							
 							<!-- 分类显示 不好做先 不做 -->
 							<%-- <li class="li_1_again">
@@ -204,10 +211,10 @@
 									<div id="again_store_to_keeper">
 										<a href="进入可以修改店铺信息的页面  modify_store.jsp">店铺管理</a>
 										<div id="again_hidden_2">
-											<a href="${pageContext.request.contextPath }/pages/add_goods.jsp">添加商品</a><br> 
-											<a	href="${pageContext.request.contextPath }/pages/modify_store.jsp">店铺管理</a><br>
+											<a href="${pageContext.request.contextPath }/pages/shopkeeper/add_goods.jsp">添加商品</a><br> 
+											<a	href="${pageContext.request.contextPath }/pages/shopkeeper/modify_store.jsp">店铺管理</a><br>
 											<!-- 可能会出现的错误  user_id含有中文   参数为中文-->
-											<a href="${pageContext.request.contextPath }/pages/store_order_manage.jsp?user_id=${user.user_id}">订单管理</a>
+											<a href="${pageContext.request.contextPath }/pages/shopkeeper/store_order_manage.jsp?user_id=${user.user_id}">订单管理</a>
 										</div>
 									</div>
 								</li>

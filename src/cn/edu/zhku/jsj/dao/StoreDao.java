@@ -28,5 +28,7 @@ public interface StoreDao {
 	boolean delete(Food food);
 
 	boolean delete(Cloth cloth);
+	//查找店铺名为storename的店铺
+	List<Store> find(String storename);
 
 }

@@ -13,7 +13,11 @@
 <base href="<%=basePath%>">
 <title>My JSP 'index.jsp' starting page</title>
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath }/public/CSS/index.css">
+	href="${pageContext.request.contextPath }/css/index.css">
+<script type="text/javascript"
+	src="${pageContext.request.contextPath }/js/header.js">
+	
+</script>
 </head>
 
 <body>
@@ -23,14 +27,22 @@
 					<c:when
 						test="${empty sessionScope.login_result||sessionScope.login_result=='false'}">
 						<div class="header_left_browser">
-							<a class="header_left_browser_a" href="${pageContext.request.contextPath }/pages/user/login.jsp" target="_top">亲，请登录</a>
+							<a class="header_left_browser_a"
+								href="${pageContext.request.contextPath }/pages/user/login.jsp"
+								target="_top">亲，请登录</a>
 						</div>
 					</c:when>
 					<c:otherwise>
 						<div class="header_left_user">
-							<a class="header_left_user_a"
-								href="${pageContext.request.contextPath}/pages/user/UserInfo.jsp"
-								target="_top">${sessionScope.nickname}</a>
+							<div class="header_left_user_d-image">
+								<img class="header_left_user_image" alt="头像"
+									src="${sessionScope.user.image }">
+							</div>
+							<div class="header_left_user_d-a">
+								<a class="header_left_user_a"
+									href="${pageContext.request.contextPath}/pages/user/UserInfo.jsp"
+									target="_top" onMouseOver="showUserInfo()">${sessionScope.user.nickname}</a>
+							</div>
 						</div>
 					</c:otherwise>
 				</c:choose>

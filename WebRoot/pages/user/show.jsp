@@ -11,26 +11,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <base href="<%=basePath%>">
 <title>My JSP 'show.jsp' starting page</title>
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath }/public/CSS/index.css">
+	href="${pageContext.request.contextPath }/css/index.css">
 </head>
 
 <body>
+<c:forEach items="${sessionScope.list_c }" var="c">
 	<div>
 		<ul>
 			<li>
 				<div>
-					<a href="" target="_blank"> <img alt="" src="">
+					<a href="" target="_blank"> <img alt="" src="${c.images }">
 					</a>
 				</div>
 
 				<div>
-					<a href="" target="_blank"></a>
+					<a href="" target="_blank">${ }</a>
 				</div>
 				<div>
-					<a href="" target="_blank"></a>
+					<a href="" target="_blank">${ }</a>
 				</div>
 			</li>
 		</ul>
 	</div>
+</c:forEach>
 </body>
 </html>

@@ -13,9 +13,9 @@
 <base href="<%=basePath%>">
 <title>My JSP 'body.jsp' starting page</title>
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath }/public/CSS/index.css">
+	href="${pageContext.request.contextPath }/css/index.css">
 <script type="text/javascript"
-	src="${pageContext.request.contextPath }/public/JS/body.js">
+	src="${pageContext.request.contextPath }/js/body.js">
 	
 </script>
 </head>
@@ -80,7 +80,9 @@
 				<div class="body_good_more">
 					<a href="servlet/Type_Show_servlet?type='Cloth'">更多</a>
 				</div>
-				<br><br><br>
+				<br>
+				<br>
+				<br>
 				<div class="body_good_total">
 					<c:forEach var="c" items="${sessionScope.body_list_c}">
 						<ul>
@@ -125,5 +127,13 @@
 			</c:if>
 		</div>
 	</div>
+	
+	
+
+
+<c:forTokens items="google,runoob,taobao" delims="," var="name" begin="1" end="2">
+   <c:out value="${name}"/><p>
+</c:forTokens>
+
 </body>
 </html>

@@ -43,7 +43,7 @@ food.setStore_id(1);//测试用 由于 还没有店主登录进来  所以先 �
 					BusinessService bus = new BusinessServiceImpl();
 					int num = bus.addFood(food);
 					if(num!=0){
-						request.setAttribute("message", "商品上架成功,3秒后返回 <meta http-equiv='refresh' content='3;url=/shop/pages/store.jsp'");
+						request.setAttribute("message", "商品上架成功,3秒后返回 <meta http-equiv='refresh' content='3;url=/shop/pages/shopkeeper/store.jsp'");
 						request.setAttribute("prepath", "/pages/shopkeeper/store.jsp");
 						request.getRequestDispatcher("/pages/message.jsp").forward(request, response);
 						return;

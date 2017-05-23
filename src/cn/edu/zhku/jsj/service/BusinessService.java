@@ -1,5 +1,7 @@
 package cn.edu.zhku.jsj.service;
 
+import java.util.List;
+
 import cn.edu.zhku.jsj.daomain.Book;
 import cn.edu.zhku.jsj.daomain.Cloth;
 import cn.edu.zhku.jsj.daomain.Food;
@@ -35,5 +37,10 @@ public interface BusinessService {
 
 	// 添加 衣服
 	int addCloth(Cloth cloth);
+	
+	//店铺 展现所有 商品 （三种商品）
+	List<Book> findstorebook(int store_id);
+	List<Cloth> findstorecloth(int store_id);
+	List<Food> findstorefood(int store_id);
 
 }

@@ -16,5 +16,7 @@ public interface BookDao {
 	boolean update(Book book);
 
 	boolean delete(int book_id);
+	
+	List<Book> findBook(int store_id);
 
 }

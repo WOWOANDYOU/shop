@@ -12,6 +12,8 @@ public interface FoodDao {
 
 	List<Food> findAll();
 
+	List<Food> findFood(int store_id);
+	
 	boolean update(Food food);
 
 	boolean delete(int food_id);

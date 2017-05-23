@@ -128,4 +128,24 @@ public class FoodDaoImpl implements FoodDao {
 		}
 		return b;
 	}
+
+	@Override
+	public List<Food> findFood(int store_id) {
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		con = JdbcUtil.getCon();
+		try{
+			String sql = "select * from food where store_id=?";
+			pres = con.prepareStatement(sql);
+			pres.setInt(1, store_id);
+			rs = pres.executeQuery();
+			List<Food> foodlist = ResultToBean.getBeanList(Food.class, rs);
+			return foodlist;
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}finally{
+			JdbcUtil.release(con, pres, rs);
+		}
+	}
 }	

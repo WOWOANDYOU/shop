@@ -1,5 +1,7 @@
 package cn.edu.zhku.jsj.service.impl;
 
+import java.util.List;
+
 import cn.edu.zhku.jsj.dao.BookDao;
 import cn.edu.zhku.jsj.dao.CartDao;
 import cn.edu.zhku.jsj.dao.ClothDao;
@@ -96,6 +98,22 @@ public class BusinessServiceImpl implements BusinessService {
 		int num = cloth_dao.add(cloth);
 		return num;
 	}
-	
-	 
+
+	@Override
+	public List<Book> findstorebook(int store_id) {
+		List<Book> booklist = book_dao.findBook(store_id);
+		return booklist;
+	}
+
+	@Override
+	public List<Cloth> findstorecloth(int store_id) {
+		List<Cloth> clothlist = cloth_dao.findCloth(store_id);
+		return clothlist;
+	}
+
+	@Override
+	public List<Food> findstorefood(int store_id) {
+		List<Food> foodlist = food_dao.findFood(store_id);
+		return foodlist;
+	}
 }

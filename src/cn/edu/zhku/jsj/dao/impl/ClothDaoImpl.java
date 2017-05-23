@@ -140,4 +140,28 @@ public class ClothDaoImpl implements ClothDao {
 		}
 		return b;
 	}
+
+	@Override
+	public List<Cloth> findCloth(int store_id) {
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		con = JdbcUtil.getCon();
+		Cloth cloth = null;
+		List<Cloth> clothlist;
+		try{
+			String sql = "select * from cloth where store_id=?";
+			pres = con.prepareStatement(sql);
+			pres.setInt(1, store_id);
+			rs = pres.executeQuery();
+			
+			clothlist = ResultToBean.getBeanList(Cloth.class, rs); //调工具类 （封装 数据到 bean的工具类）
+			
+			return clothlist;
+		}catch(Exception e){ 
+			throw new RuntimeException(e);
+		}finally{
+			JdbcUtil.release(con, pres, rs);
+		}
+	}
 }	

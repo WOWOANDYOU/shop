@@ -12,6 +12,8 @@ public interface ClothDao {
 
 	List<Cloth> findAll();
 
+	List<Cloth> findCloth(int store_id);
+	
 	boolean update(Cloth cloth);
 
 	boolean delete(int cloth_id);

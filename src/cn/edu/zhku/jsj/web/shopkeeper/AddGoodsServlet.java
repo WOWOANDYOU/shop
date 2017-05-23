@@ -19,6 +19,7 @@ public class AddGoodsServlet extends HttpServlet {
 		String category = request.getParameter("category");
 		if(category!=null && category.trim().equals("1")){  //1 表示食品类
 			request.getRequestDispatcher("/pages/shopkeeper/addFood.jsp").forward(request, response);
+
 			return;
 		}else if(category!=null && category.trim().equals("2")){ //2 表示衣服类
 			request.getRequestDispatcher("/pages/shopkeeper/addCloth.jsp").forward(request, response);

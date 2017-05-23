@@ -30,7 +30,7 @@ public class AddFoodServlet extends HttpServlet {
 				FoodFormBean formbean = (FoodFormBean) map2.get("formbean");
 				if(formbean!=null){
 					request.setAttribute("errormap", formbean.getErrormap());
-					request.getRequestDispatcher("/pages/addFood.jsp").forward(request, response);
+					request.getRequestDispatcher("/pages/shopkeeper/addFood.jsp").forward(request, response);
 					return;
 				}else{
 					Food food = (Food) map2.get("food");
@@ -44,7 +44,7 @@ food.setStore_id(1);//测试用 由于 还没有店主登录进来  所以先 �
 					int num = bus.addFood(food);
 					if(num!=0){
 						request.setAttribute("message", "商品上架成功,3秒后返回 <meta http-equiv='refresh' content='3;url=/shop/pages/store.jsp'");
-						request.setAttribute("prepath", "/pages/store.jsp");
+						request.setAttribute("prepath", "/pages/shopkeeper/store.jsp");
 						request.getRequestDispatcher("/pages/message.jsp").forward(request, response);
 						return;
 					}
@@ -53,7 +53,7 @@ food.setStore_id(1);//测试用 由于 还没有店主登录进来  所以先 �
 			} catch (FileSizeLimitExceededException e) {
 				e.printStackTrace();
 				request.setAttribute("message", "文件太大！");
-				request.setAttribute("prepath", "/pages/addFood.jsp");
+				request.setAttribute("prepath", "/pages/shopkeeper/addFood.jsp");
 				request.getRequestDispatcher("/pages/message.jsp").forward(request, response);
 				return;
 			}

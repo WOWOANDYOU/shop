@@ -85,7 +85,9 @@ public class WebUtil {
 					}
 				}
 			}
-			book.setImages(savefilename);
+			int substringnum = savefilename.lastIndexOf(",");
+			String savefilename2 = savefilename.substring(0, substringnum);
+			book.setImages(savefilename2);
 			map.put("book", book);
 			return map;
 		}catch (FileUploadBase.FileSizeLimitExceededException e) {
@@ -214,7 +216,9 @@ public class WebUtil {
 						}
 					}
 				}
-				cloth.setImages(savefilename);
+				int substringnum = savefilename.lastIndexOf(",");
+				String savefilename2 = savefilename.substring(0, substringnum);
+				cloth.setImages(savefilename2);
 				map.put("cloth", cloth);
 				return map;
 			}catch (FileUploadBase.FileSizeLimitExceededException e) {

@@ -113,7 +113,6 @@ public class WebUtil {
 					if(item.isFormField()){
 						String name = item.getFieldName();  //username=aaa  description=bbb
 						String value = item.getString("UTF-8");
-						/*System.out.println(name+"  "+value);*/
 						BeanUtils.setProperty(formbean, name, value);//将数据 封住到 formbean中 以便检查数据
 						BeanUtils.setProperty(food, name, value);// 将每个 普通输入项 数据封装到bean里 输入项的名字应该与bean属性名保持一致
 					}else{
@@ -177,7 +176,6 @@ public class WebUtil {
 					if(item.isFormField()){
 						String name = item.getFieldName();  //username=aaa  description=bbb
 						String value = item.getString("UTF-8");
-						System.out.println(name+" "+value);
 						BeanUtils.setProperty(formbean, name, value);
 						BeanUtils.setProperty(cloth, name, value);// 将每个 普通输入项 数据封装到bean里 输入项的名字应该与bean属性名保持一致
 					}else{
@@ -226,29 +224,8 @@ public class WebUtil {
 			}
 		}
 		
+		
 		private static String generateredUuidname(String filename) {
 			return UUID.randomUUID().toString()+"_"+filename;
 		}
-		
-		//从request 中获取数据 将form表单提交过来的数据 
-		/*public static <T> T getDatatoForm(HttpServletRequest request,Class<T> beanClass){
-			try{
-				T bean = beanClass.newInstance();
-				 Enumeration ele = request.getParameterNames();
-				 if(ele!=null){
-					 System.out.println("ele!=null");
-					 String name = (String) ele.nextElement();
-					 System.out.println(name);
-				 }
-				 while(ele.hasMoreElements()){
-					String name = (String) ele.nextElement();
-					String value = request.getParameter(name);
-					System.out.println(name+"  "+value);
-				 	BeanUtils.setProperty(bean, name, value);//调用 beanutils 开发包中的 设置 属性值的方法  对bean 对象 的 name变量记住的属性 赋予 value变量记住的值
-				 }
-				 return bean;
-			}catch(Exception e){
-				throw new RuntimeException(e);
-			}
-		}*/
 }

@@ -32,18 +32,18 @@ public class ChangePassword extends HttpServlet implements Servlet {
 		if(password==null||password.trim().equals("")){
 			
 			session.setAttribute("message", "密码不能为空");
-			request.getRequestDispatcher("/pages/changepassword.jsp").forward(request, response);
+			request.getRequestDispatcher("/pages/user/changepassword.jsp").forward(request, response);
 			return;
 		}else{
 			if(!password.matches("\\d{8,16}")){	
 				session.setAttribute("message", "密码必须为数字组成的8-16位");
-				request.getRequestDispatcher("/pages/changepassword.jsp").forward(request, response);
+				request.getRequestDispatcher("/pages/user/changepassword.jsp").forward(request, response);
 				return;
 			}
 		}
 		if(!password.equals(password2)){
 			session.setAttribute("message", "两次密码不一致");
-			request.getRequestDispatcher("/pages/changepassword.jsp").forward(request, response);
+			request.getRequestDispatcher("/pages/user/changepassword.jsp").forward(request, response);
 			return;
 		}
 	//修改密码

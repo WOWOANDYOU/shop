@@ -9,7 +9,7 @@
 <script type="text/javascript">
 	function dump() {
 
-		window.location.href = "${pageContext.request.contextPath}/pages/register.jsp";
+		window.location.href = "${pageContext.request.contextPath}/pages/user/register.jsp";
 	}
 </script>
 <script type="text/javascript">
@@ -28,7 +28,7 @@ body {
 
 #container {
 	width: 980px;
-	background-image: url("../images/login.GIF");
+	background-image: url("${pageContext.request.contextPath}/images/login.GIF");
 	width: 1340px;
 	height: 540px;
 	margin: 5px 0 0 13px;
@@ -39,7 +39,7 @@ body {
 }
 
 #form table {
-	background-image: url("../images/login1.GIF");
+	background-image: url("${pageContext.request.contextPath}/images/login1.GIF");
 	width: 428px;
 	height: 298px;
 	position: absolute;

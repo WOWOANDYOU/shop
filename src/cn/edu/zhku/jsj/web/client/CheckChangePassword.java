@@ -36,11 +36,11 @@ public class CheckChangePassword extends HttpServlet {
 		session.setAttribute("email", email);
 		if(user==null){
 			request.getSession().setAttribute("message", "该用户不存在，请检查");
-			request.getRequestDispatcher("/pages/checkchangepassword.jsp").forward(request, response);
+			request.getRequestDispatcher("/pages/user/checkchangepassword.jsp").forward(request, response);
 			return;
 		}
 		session.removeAttribute("message");
-		request.getRequestDispatcher("/pages/changepassword.jsp").forward(request, response);
+		request.getRequestDispatcher("/pages/user/changepassword.jsp").forward(request, response);
 		
 	}
 

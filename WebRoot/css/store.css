@@ -397,7 +397,7 @@ ul,li,a:hover{
 }
 .show_goods_div_in{
 	width:225px;
-	height:360px;
+	height:340px;
 	float:left;
 	margin-top: 15px;
 	margin-left:15px;
@@ -425,7 +425,7 @@ ul,li,a:hover{
 /*店铺商品具体展现*/
 .good_img{
 	width:220px;
-	height: 270px;
+	height: 250px;
 	margin: auto;
 }
 .good_descrition{
@@ -439,7 +439,7 @@ ul,li,a:hover{
 	margin: auto;
 }
 .good_price{
-	width:100px;
+	width:90px;
 	height: 40px;
 	float:left;
 }

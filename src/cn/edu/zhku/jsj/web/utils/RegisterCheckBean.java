@@ -161,10 +161,6 @@ public class RegisterCheckBean {
 			errors.put("address", "地址不能为空");
 		}
 		
-		
-			
-		
-		
 		return isOK;
 	}
 }

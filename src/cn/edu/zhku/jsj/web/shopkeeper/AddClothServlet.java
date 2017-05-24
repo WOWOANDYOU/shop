@@ -37,7 +37,7 @@ public class AddClothServlet extends HttpServlet {
 			request.getRequestDispatcher("/pages/shopkeeper/store.jsp").forward(request, response);
 			return;
 		}
-		request.removeAttribute("formuuidnum");
+		request.getSession().removeAttribute("formuuidnum");
 		String imgsavepath = this.getServletContext().getRealPath("/images");
 		try {
 			Map map2 = WebUtil.doUploadCloth(request, imgsavepath);
@@ -52,7 +52,7 @@ public class AddClothServlet extends HttpServlet {
 				//图片 由于用 UUID 名  数据库 存放路径 大小设为 255 最多 可能只能存 5张图片
 				
 				
-cloth.setStore_id(1);//测试用 由于 还没有店主登录进来  所以先 手动 赋值为 一个存在的店铺  到时候要删除！！
+cloth.setStore_id(2);//测试用 由于 还没有店主登录进来  所以先 手动 赋值为 一个存在的店铺  到时候要删除！！
 
 				BusinessService bus = new BusinessServiceImpl();
 				int num = bus.addCloth(cloth);

@@ -11,7 +11,7 @@
 		</div>
 		<div class="add_good_in_down">
 			<form
-				action="${pageContext.request.contextPath }/servlet/AddClothServlet"
+				action="${pageContext.request.contextPath }/servlet/AddClothServlet?uuid=${formuuidnum}"
 				method="post" onsubmit="return checkoutfilename()"
 				enctype="multipart/form-data">
 				<input type="hidden" value="${store.store_id }" name="store_id">

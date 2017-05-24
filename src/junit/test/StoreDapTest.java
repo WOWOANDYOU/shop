@@ -10,7 +10,7 @@ public class StoreDapTest {
 	public void addTest(){
 		Store sto = new Store();
 		sto.setStorename("美宜佳");
-		sto.setOwner_id("叨叨就是刀刀");
+		sto.setOwner_id("我就是叨叨");
 		sto.setDescription("这是一家便利店");
 		
 		StoreDaoImpl storedao = new StoreDaoImpl();

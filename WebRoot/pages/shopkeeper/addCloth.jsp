@@ -76,13 +76,9 @@
 						</td>
 					</tr>
 					<tr>
-<<<<<<< HEAD
-						<td colspan='2' align="center"><input type="submit"
-							value="发布"> <input type="reset" value="重置"></td>
-=======
+
 						<td colspan="2" align="center"><input type="submit"
 							value="发布" id="submit"> <input type="reset" value="重置"></td>
->>>>>>> upstream/master
 					</tr>
 				</table>
 			</form>
@@ -90,6 +86,5 @@
 	</div>
 </div>
 <!-- <font style="font-size:18px;color:#ff4400">请完善上架食品信息:</font> -->
-</div>
 </body>
 </html>

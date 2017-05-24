@@ -42,5 +42,12 @@ public interface BusinessService {
 	List<Book> findstorebook(int store_id);
 	List<Cloth> findstorecloth(int store_id);
 	List<Food> findstorefood(int store_id);
-
+	
+	//根据 书籍id 查找书籍
+	Book findbook(int book_id);
+	//根据 衣服 id 查找
+	Cloth findcloth(int cloth_id);
+	//根据 food_id 查找 
+	Food findfood(int food_id);
+	
 }

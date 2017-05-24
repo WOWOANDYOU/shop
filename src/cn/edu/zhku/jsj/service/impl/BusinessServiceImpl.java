@@ -116,4 +116,22 @@ public class BusinessServiceImpl implements BusinessService {
 		List<Food> foodlist = food_dao.findFood(store_id);
 		return foodlist;
 	}
+
+	@Override
+	public Book findbook(int book_id) {
+		Book book = book_dao.findbook(book_id);
+		return book;
+	}
+
+	@Override
+	public Cloth findcloth(int cloth_id) {
+		Cloth cloth = cloth_dao.findcloth(cloth_id);
+		return cloth;
+	}
+
+	@Override
+	public Food findfood(int food_id) {
+		Food food = food_dao.findfood(food_id);
+		return food;
+	}
 }

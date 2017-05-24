@@ -17,5 +17,6 @@ public interface ClothDao {
 	boolean update(Cloth cloth);
 
 	boolean delete(int cloth_id);
-
+	
+	Cloth findcloth(int cloth_id);
 }

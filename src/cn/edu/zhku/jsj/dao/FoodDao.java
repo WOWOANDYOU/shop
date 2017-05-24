@@ -17,5 +17,6 @@ public interface FoodDao {
 	boolean update(Food food);
 
 	boolean delete(int food_id);
-
+	
+	Food findfood(int food_id);
 }

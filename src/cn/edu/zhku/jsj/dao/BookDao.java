@@ -10,6 +10,8 @@ public interface BookDao {
 	int add(Book book);
 
 	List<Book> findBook(String book_name);
+	
+	Book findbook(int book_id);
 
 	List<Book> findAll();
 

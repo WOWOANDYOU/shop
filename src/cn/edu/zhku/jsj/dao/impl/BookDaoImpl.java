@@ -205,5 +205,28 @@ public class BookDaoImpl implements BookDao {
 		}
 		return booklist;
 	}
+
+	@Override
+	public Book findbook(int book_id) {
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		con = JdbcUtil.getCon();
+		List<Book> booklist = new LinkedList<Book>();
+		Book book = null;
+		try{
+			String sql = "select * from book where book_id=?";
+			pres = con.prepareStatement(sql);	
+			pres.setInt(1, book_id);
+			rs = pres.executeQuery();
+			booklist = ResultToBean.getBeanList(Book.class, rs); //调工具类 （封装 数据到 bean的工具类）
+			book = booklist.get(0);
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}finally{
+			JdbcUtil.release(con, pres, rs);
+		}
+		return book;
+	}
 	
 }

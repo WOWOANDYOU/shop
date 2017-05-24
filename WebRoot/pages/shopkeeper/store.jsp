@@ -39,7 +39,7 @@
 										<a href="modifygoodinfo.jsp?cloth_id=${cloth.cloth_id }">编辑</a>
 									</div>
 									<div class="good_delete">
-										<a href="deletegood.jsp?cloth_id=${cloth.cloth_id }">删除</a>
+										<a href="${pageContext.request.contentType }/servlet/DeletegoodServlet?cloth_id=${cloth.cloth_id }">删除</a>
 									</div>
 								</div>
 							</div>
@@ -67,10 +67,10 @@
 								<div class="good_price"><font class="price_font">￥<strong>${book.price }</strong></font></div>
 								<div class="good_manage">
 									<div class="good_modify">
-										<a href="modifygoodinfo.jsp?book_id=${book.book_id }">编辑</a>
+										<a href="${pageContext.request.contentType }/servlet/ModifyGoodServlet?book_id=${book.book_id }">编辑</a>
 									</div>
 									<div class="good_delete">
-										<a href="deletegood.jsp?book_id=${book.book_id }">删除</a>
+										<a href="${pageContext.request.contentType }/servlet/DeletegoodServlet?book_id=${book.book_id }">删除</a>
 									</div>
 								</div>
 							</div>
@@ -88,7 +88,7 @@
 					<c:forEach var="food" items="${foodlist }">
 						<div class="show_goods_div_in">
 							<div class="good_img">
-							<a href="sellgoodinfo.jsp?food_id=${food.food_id }">
+							<a href="${pageContext.request.contentType }/servlet/ModifyGoodServlet?food_id=${food.food_id }">
 							<img alt="picture" src="${pageContext.request.contextPath }/images/${food.images}" width="220px" height="250px">
 							</a>
 							</div>
@@ -98,10 +98,10 @@
 								<div class="good_price"><font class="price_font">￥<strong>${food.price }</strong></font></div>
 								<div class="good_manage">
 									<div class="good_modify">
-										<a href="modifygoodinfo.jsp?food_id=${food.food_id }">编辑</a>
+										<a href="${pageContext.request.contentType }/servlet/ModifyGoodServlet?food_id=${food.food_id }">编辑</a>
 									</div>
 									<div class="good_delete">
-										<a href="deletegood.jsp?food_id=${food.food_id }">删除</a>
+										<a href="${pageContext.request.contentType }/servlet/DeletegoodServlet?food_id=${food.food_id }">删除</a>
 									</div>
 								</div>
 							</div>

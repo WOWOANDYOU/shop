@@ -1,6 +1,7 @@
 package cn.edu.zhku.jsj.web.shopkeeper;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -8,9 +9,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.fileupload.FileUploadBase.FileSizeLimitExceededException;
 
+import cn.edu.zhku.jsj.daomain.Book;
+import cn.edu.zhku.jsj.daomain.Cloth;
 import cn.edu.zhku.jsj.daomain.Food;
 import cn.edu.zhku.jsj.formbean.FoodFormBean;
 import cn.edu.zhku.jsj.service.BusinessService;
@@ -24,6 +28,15 @@ public class AddFoodServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			String client_uuid = request.getParameter("uuid");
+			String server_uuid = (String) request.getSession().getAttribute("formuuidnum");
+			boolean b2 = WebUtil.isToken(client_uuid, server_uuid);
+			if(b2){
+				System.out.println("请不要重复提交表单");
+				request.getRequestDispatcher("/pages/shopkeeper/store.jsp").forward(request, response);
+				return;
+			}
+			request.getSession().removeAttribute("formuuidnum");
 			String imgsavepath = this.getServletContext().getRealPath("/images");
 			try {
 				Map map2 = WebUtil.doUploadFood(request, imgsavepath);
@@ -42,10 +55,18 @@ food.setStore_id(1);//测试用 由于 还没有店主登录进来  所以先 �
 
 					BusinessService bus = new BusinessServiceImpl();
 					int num = bus.addFood(food);
+					int store_id_2 = food.getStore_id();
 					if(num!=0){
-						request.setAttribute("message", "商品上架成功,3秒后返回 <meta http-equiv='refresh' content='3;url=/shop/pages/shopkeeper/store.jsp'");
-						request.setAttribute("prepath", "/pages/shopkeeper/store.jsp");
-						request.getRequestDispatcher("/pages/message.jsp").forward(request, response);
+						List<Book> booklist = bus.findstorebook(store_id_2);
+						List<Cloth> clothlist = bus.findstorecloth(store_id_2);
+						List<Food> foodlist = bus.findstorefood(store_id_2);
+						
+						HttpSession goodsession = request.getSession();
+						goodsession.setAttribute("booklist", booklist);
+						goodsession.setAttribute("clothlist", clothlist);
+						goodsession.setAttribute("foodlist",foodlist);
+						
+						request.getRequestDispatcher("/pages/shopkeeper/store.jsp").forward(request, response);
 						return;
 					}
 

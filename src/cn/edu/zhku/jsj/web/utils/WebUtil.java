@@ -88,6 +88,7 @@ public class WebUtil {
 			int substringnum = savefilename.lastIndexOf(",");
 			String savefilename2 = savefilename.substring(0, substringnum);
 			book.setImages(savefilename2);
+			System.out.println(formbean.getStore_id());
 			map.put("book", book);
 			return map;
 		}catch (FileUploadBase.FileSizeLimitExceededException e) {
@@ -232,4 +233,20 @@ public class WebUtil {
 		private static String generateredUuidname(String filename) {
 			return UUID.randomUUID().toString()+"_"+filename;
 		}
+		
+		public static boolean isToken(String client_uuid,String server_uuid) {
+			if(client_uuid==null){
+				return true;   //true 表示 重复提交表单
+			}
+			if(server_uuid==null){
+				return true;
+			}
+			if(!client_uuid.equals(server_uuid)){
+				return true;  
+			}
+			
+			return false;//false 表示 重复提交表单
+		}
+
+		
 }

@@ -18,7 +18,7 @@
 		</div>
 		<div class="add_good_in_down">
 			<form
-				action="${pageContext.request.contextPath }/servlet/AddBookServlet?store_id=${store.store_id}"
+				action="${pageContext.request.contextPath }/servlet/AddBookServlet?uuid=${formuuidnum}"
 				method="post" onsubmit="return checkoutfilename()"
 				enctype="multipart/form-data">
 				<input type="hidden" value="${store.store_id }" name="store_id">
@@ -90,7 +90,7 @@
 					</tr>
 					<tr>
 						<td colspan="2" align="center"><input type="submit"
-							value="发布"> <input type="reset" value="重置"></td>
+							value="发布" id="submit"> <input type="reset" value="重置"></td>
 					</tr>
 				</table>
 			</form>

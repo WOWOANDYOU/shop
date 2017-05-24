@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.fileupload.FileUploadBase.FileSizeLimitExceededException;
 
@@ -29,9 +30,18 @@ public class AddBookServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		String storeid = request.getParameter("store_id");
+		String client_uuid = request.getParameter("uuid");
+		String server_uuid = (String) request.getSession().getAttribute("formuuidnum");
+		boolean b2 = WebUtil.isToken(client_uuid, server_uuid);
+		if(b2){
+			System.out.println("请不要重复提交表单");
+			request.getRequestDispatcher("/pages/shopkeeper/store.jsp").forward(request, response);
+			return;
+		}
+		/*String storeid = request.getParameter("store_id");
 		int store_id = Integer.parseInt(storeid);
-		System.out.println(store_id);
+		System.out.println(store_id);*/
+		request.getSession().removeAttribute("formuuidnum");
 		String imgsavepath = this.getServletContext().getRealPath("/images");
 		try {
 			Map map2 = WebUtil.doUploadBook(request, imgsavepath);
@@ -49,16 +59,20 @@ book.setStore_id(1);//测试用 由于 还没有店主登录进来  所以先 �
 
 				BusinessService bus = new BusinessServiceImpl();
 				int num = bus.addBook(book);
+				int store_id_2 = book.getStore_id();
 				if(num!=0){
-					List<Book> booklist = bus.findstorebook(store_id);
-					List<Cloth> clothlist = bus.findstorecloth(store_id);
-					List<Food> foodlist = bus.findstorefood(store_id);
+					List<Book> booklist = bus.findstorebook(store_id_2);
+					List<Cloth> clothlist = bus.findstorecloth(store_id_2);
+					List<Food> foodlist = bus.findstorefood(store_id_2);
 					
 					//将查询到 该店铺的所有商品 传到 下一个页面（即是 店铺首页）
-					request.setAttribute("booklist", booklist);
+					/*request.setAttribute("booklist", booklist);
 					request.setAttribute("clothlist", clothlist);
-					request.setAttribute("foodlist",foodlist);
-					
+					request.setAttribute("foodlist",foodlist);*/
+					HttpSession goodsession = request.getSession();
+					goodsession.setAttribute("booklist", booklist);
+					goodsession.setAttribute("clothlist", clothlist);
+					goodsession.setAttribute("foodlist",foodlist);
 					/*request.setAttribute("message", "商品上架成功,3秒后返回 <meta http-equiv='refresh' content='3;url=/shop/pages/shopkeeper/store.jsp'");
 					request.setAttribute("prepath", "/pages/shopkeeper/store.jsp");*/
 					/*request.getRequestDispatcher("/pages/message.jsp").forward(request, response);*/

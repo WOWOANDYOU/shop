@@ -8,6 +8,13 @@ public class FoodFormBean {
 	private String description;
 	private float price;
 	private int totalnum;
+	private int store_id;
+	public int getStore_id() {
+		return store_id;
+	}
+	public void setStore_id(int store_id) {
+		this.store_id = store_id;
+	}
 	private Map<String,String> errormap = new HashMap<String,String>();
 	public String getFoodname() {
 		return foodname;

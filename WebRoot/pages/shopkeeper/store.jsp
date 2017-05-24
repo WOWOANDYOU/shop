@@ -22,18 +22,25 @@
 				<c:if test="${not empty clothlist}">
 					
 					<div id="show_goods_div_in_up">
-						<div class="title">衣服类:</div>
+						<div class="title"><strong>衣服类:</strong></div>
 					</div>
-					<c:forEach var="cloth" items="${Clothlist }">
+					<c:forEach var="cloth" items="${clothlist }">
 						<div class="show_goods_div_in">
-							<div class="good_img"><img alt="picture" src="${pageContext.request.contextPath }/images/${cloth.images}" width="220px" height="230px">
+							<div class="good_img">
+							<a href="sellgoodinfo.jsp?cloth_id=${cloth.cloth_id }">
+							<img alt="picture" src="${pageContext.request.contextPath }/images/${cloth.images}" width="220px" height="250px">
+							</a>
 							</div>
 							<div class="good_descrition">${cloth.description}</div>
 							<div class="good_price_big">
-								<div class="good_price">${cloth.price }</div>
+								<div class="good_price"><font class="price_font">￥<strong>${cloth.price }</strong></font></div>
 								<div class="good_manage">
-									<div class="good_delete"></div>
-									<div class="good_modify"></div>
+									<div class="good_modify">
+										<a href="modifygoodinfo.jsp?cloth_id=${cloth.cloth_id }">编辑</a>
+									</div>
+									<div class="good_delete">
+										<a href="deletegood.jsp?cloth_id=${cloth.cloth_id }">删除</a>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -44,19 +51,27 @@
 				<c:if test="${not empty booklist}">
 					<div id="show_goods_div_in_up">
 						<div class="title_up"></div>
-						<div class="title">书籍类:</div>
+						<div class="title"><strong>书籍类:</strong></div>
 						<div class="clear"></div>
 						
 					</div>
 					<c:forEach var="book" items="${booklist }">
 						<div class="show_goods_div_in">
-							<div class="good_img"><img alt="picture" src="${pageContext.request.contextPath }/images/${book.images}" width="220px" height="230px"></div>
+							<div class="good_img">
+							<a href="sellgoodinfo.jsp?book_id=${book.book_id }">
+							<img alt="picture" src="${pageContext.request.contextPath }/images/${book.images}" width="220px" height="250px">
+							</a>
+							</div>
 							<div class="good_descrition">${book.description}</div>
 							<div class="good_price_big">
-								<div class="good_price">￥${book.price }</div>
+								<div class="good_price"><font class="price_font">￥<strong>${book.price }</strong></font></div>
 								<div class="good_manage">
-									<div class="good_delete"></div>
-									<div class="good_modify"></div>
+									<div class="good_modify">
+										<a href="modifygoodinfo.jsp?book_id=${book.book_id }">编辑</a>
+									</div>
+									<div class="good_delete">
+										<a href="deletegood.jsp?book_id=${book.book_id }">删除</a>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -67,18 +82,27 @@
 				<c:if test="${not empty foodlist}">
 					<div id="show_goods_div_in_up">
 						<div class="title_up"></div>
-						<div class="title">食物类:</div>
+						<div class="title"><strong>食物类:</strong></div>
 						<div class="clear"></div>
 					</div>
 					<c:forEach var="food" items="${foodlist }">
 						<div class="show_goods_div_in">
-							<div class="good_img"></div>
-							<div class="good_descrition"></div>
+							<div class="good_img">
+							<a href="sellgoodinfo.jsp?food_id=${food.food_id }">
+							<img alt="picture" src="${pageContext.request.contextPath }/images/${food.images}" width="220px" height="250px">
+							</a>
+							</div>
+							
+							<div class="good_descrition">${food.description }</div>
 							<div class="good_price_big">
-								<div class="good_price"></div>
+								<div class="good_price"><font class="price_font">￥<strong>${food.price }</strong></font></div>
 								<div class="good_manage">
-									<div class="good_delete"></div>
-									<div class="good_modify"></div>
+									<div class="good_modify">
+										<a href="modifygoodinfo.jsp?food_id=${food.food_id }">编辑</a>
+									</div>
+									<div class="good_delete">
+										<a href="deletegood.jsp?food_id=${food.food_id }">删除</a>
+									</div>
 								</div>
 							</div>
 						</div>

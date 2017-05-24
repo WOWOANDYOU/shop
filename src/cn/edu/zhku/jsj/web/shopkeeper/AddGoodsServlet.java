@@ -1,11 +1,14 @@
 package cn.edu.zhku.jsj.web.shopkeeper;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import cn.edu.zhku.jsj.web.utils.TokenProcess;
 
 @WebServlet("/servlet/AddGoodsServlet")
 public class AddGoodsServlet extends HttpServlet {
@@ -17,9 +20,11 @@ public class AddGoodsServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String category = request.getParameter("category");
+		//生成表单唯一的编号
+		String formuuidnum = TokenProcess.getInstance().getUuidnum();
+		request.getSession().setAttribute("formuuidnum", formuuidnum);
 		if(category!=null && category.trim().equals("1")){  //1 表示食品类
 			request.getRequestDispatcher("/pages/shopkeeper/addFood.jsp").forward(request, response);
-
 			return;
 		}else if(category!=null && category.trim().equals("2")){ //2 表示衣服类
 			request.getRequestDispatcher("/pages/shopkeeper/addCloth.jsp").forward(request, response);

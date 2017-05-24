@@ -77,7 +77,7 @@
 					</tr>
 					<tr>
 						<td colspan="2" align="center"><input type="submit"
-							value="发布"> <input type="reset" value="重置"></td>
+							value="发布" id="submit"> <input type="reset" value="重置"></td>
 					</tr>
 				</table>
 			</form>

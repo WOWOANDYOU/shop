@@ -57,12 +57,15 @@
 				<div class="body_good_more">
 					<a href="servlet/Type_Show_servlet?type='Food'">更多</a>
 				</div>
+				<br>
+				<br>
+				<br>
 				<div class="body_good_total">
 					<c:forEach var="f" items="${sessionScope.body_list_f}">
 						<ul>
 							<li>
 								<div>
-									<a href="" target="_blank"> <img alt="" src="${f.images }">
+									<a href="" target="_blank"> <img alt="商品图片" src="${f.images }">
 									</a>
 								</div>
 								<div>
@@ -88,7 +91,7 @@
 						<ul>
 							<li>
 								<div>
-									<a href="" target="_blank"> <img alt="" src="${c.images }">
+									<a href="" target="_blank"> <img alt="商品图片" src="${c.images }">
 									</a>
 								</div>
 								<div>
@@ -106,12 +109,15 @@
 				<div class="body_good_more">
 					<a href="servlet/Type_Show_servlet?type='Book'">更多</a>
 				</div>
+				<br>
+				<br>
+				<br>
 				<div class="body_good_total">
 					<c:forEach var="b" items="${sessionScope.body_list_b}">
 						<ul>
 							<li>
 								<div>
-									<a href="" target="_blank"> <img alt="" src="${b.images }">
+									<a href="" target="_blank"> <img alt="商品图片" src="${b.images }">
 									</a>
 								</div>
 								<div>
@@ -131,9 +137,9 @@
 	
 
 
-<c:forTokens items="google,runoob,taobao" delims="," var="name" begin="1" end="2">
+<%-- <c:forTokens items="google,runoob,taobao" delims="," var="name" begin="1" end="2">
    <c:out value="${name}"/><p>
 </c:forTokens>
-
+ --%>
 </body>
 </html>

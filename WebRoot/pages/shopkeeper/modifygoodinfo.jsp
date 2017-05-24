@@ -2,7 +2,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@include file="store_nav.jsp"%>
 
-<div class="add_good_big">
+	<div class="add_good_big">
 	<div class="add_good_in">
 		<div class="add_good_in_up">
 			<div id="div_font_class">
@@ -55,7 +55,7 @@
 		</div>
 	</div>
 </div>
-<!-- <font style="font-size:18px;color:#ff4400">请完善上架食品信息:</font> -->
-</div>
-</body>
+	
+	</div>
+  </body>
 </html>

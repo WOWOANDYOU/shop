@@ -28,7 +28,11 @@ body {
 
 #container {
 	width: 980px;
+<<<<<<< HEAD
 	background-image: url("${pageContext.request.contextPath }/images/login.GIF");
+=======
+	background-image: url("${pageContext.request.contextPath}/images/login.GIF");
+>>>>>>> upstream/master
 	width: 1340px;
 	height: 540px;
 	margin: 5px 0 0 13px;
@@ -39,7 +43,11 @@ body {
 }
 
 #form table {
+<<<<<<< HEAD
 	background-image: url("${pageContext.request.contextPath }/images/login1.GIF");
+=======
+	background-image: url("${pageContext.request.contextPath}/images/login1.GIF");
+>>>>>>> upstream/master
 	width: 428px;
 	height: 298px;
 	position: absolute;

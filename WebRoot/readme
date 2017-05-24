@@ -65,9 +65,15 @@
 
 
 		
+		
+		修改：
+			店铺store 增加了 店铺的图片 字段
+			三种商品 的描述字段 varchar 长度 改为255 加长
+			用户密码长度 改为 255
 	1.3 为应用创建相应库和表
 		
 
+		CREATE DATABASE `shop` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 		use shop;
 		drop database shop;
 		create database shop;
@@ -83,7 +89,7 @@
 		create table user(
 		user_id varchar(20) primary key,
 		nickname varchar(20),
-		password varchar(20),
+		password varchar(255),
 		phonenum varchar(15),
 		email varchar(20), 
 		address varchar(20),
@@ -96,7 +102,8 @@
 		store_id int primary key auto_increment,
 		storename varchar(20),
 		owner_id varchar(20),
-		description varchar(100),
+		description varchar(255),
+		images varchar(200),
 		foreign key (owner_id) references user(user_id)
 		);
 		
@@ -110,7 +117,7 @@
 		version varchar(100),   
 		images varchar(255),
 		ISBN varchar(20),
-		description varchar(100),
+		description varchar(255),
 		store_id int,
 		foreign key (store_id) references store(store_id)
 		);
@@ -121,7 +128,7 @@
 		price float,
 		totalnum int,
 		images varchar(255),
-		description varchar(100),
+		description varchar(255),
 		store_id int,
 		foreign key (store_id ) references store(store_id)
 		);
@@ -135,7 +142,7 @@
 		size varchar(100),  
 		color varchar(10),        
 		images varchar(255),
-		description varchar(100),
+		description varchar(255),
 		store_id int,
 		foreign key (store_id ) references store(store_id)
 		);

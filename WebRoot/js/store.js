@@ -38,6 +38,9 @@ function checkoutfilename(){
 			return false;
 		}
 	}
+	var submit = document.getElementById("submit");
+	submit.disable = "disable";
+	return true;
 }
 
 function fileadd(){

@@ -213,7 +213,7 @@ ul,li,a:hover{
 	width:100%;
 	height:30px;
 	background-color: #000000;
-	/* overflow:hidden; */
+/* 	overflow:hidden; */
 }	
 
 #again_store_nav_big_mid{
@@ -374,27 +374,58 @@ ul,li,a:hover{
 	margin-top: 10px;
 }
 #show_goods_div{
-	width:950px;
-	height:500px;
+	width:1000px;
+	/* height:500px; */
 	margin:auto;
+}
+#nogoods{
+	width:100px;
+	height:50px;
+	margin:auto;
+}
+#nogoodsfont{
+	width:100px;
+	height:50px;
+	margin:auto;
+	margin-top:20px;
+}
+#show_goods_div_in_up{
+	width:1000px;
+	height:30px;
+	margin:auto;
+	overflow:hidden;
 }
 .show_goods_div_in{
 	width:225px;
-	height:360px;
+	height:340px;
 	float:left;
-	margin-top: 10px;
+	margin-top: 15px;
+	margin-left:15px;
+	border:1px solid #f5f5f5;
 	/* margin-left:100px; */
 }
+.show_goods_div_in:hover{
+	border:#f40 solid 1px; 
+}
+.price_font{
+	font-family:arial;
+	color:#ff4400;
+}
 
-
+.title{
+	float:left;
+}
 .clear{
 	clear:both;
 }
-
+.title_up{
+	width:950px;
+	height: 10px;
+}
 /*店铺商品具体展现*/
 .good_img{
 	width:220px;
-	height: 270px;
+	height: 250px;
 	margin: auto;
 }
 .good_descrition{
@@ -408,7 +439,7 @@ ul,li,a:hover{
 	margin: auto;
 }
 .good_price{
-	width:100px;
+	width:90px;
 	height: 40px;
 	float:left;
 }

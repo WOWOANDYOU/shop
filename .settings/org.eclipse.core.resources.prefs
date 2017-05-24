@@ -1,10 +1,7 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=upstream/master
 eclipse.preferences.version=1
 encoding//src/cn/edu/zhku/jsj/factory/DaoFactory.java=GB2312
-<<<<<<< HEAD
-<<<<<<< HEAD
+encoding//src/junit/test/FoodDaoTest.java=utf-8
 encoding/<project>=UTF-8
-=======
->>>>>>> 3bf1954899b0a9111d3e3346e221f3803295c2a9
-=======
-encoding/<project>=UTF-8
->>>>>>> upstream/master

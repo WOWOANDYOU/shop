@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.List;
+import java.util.Map;
 
 import cn.edu.zhku.jsj.dao.StoreDao;
 import cn.edu.zhku.jsj.daomain.Book;
@@ -22,11 +23,12 @@ public class StoreDaoImpl implements StoreDao {
 		ResultSet rs = null;
 		con = JdbcUtil.getCon();
 		try{
-			String sql = "insert into store values(null,?,?,?)";
+			String sql = "insert into store values(null,?,?,?,?)";
 			pres = con.prepareStatement(sql);
 			pres.setString(1, store.getStorename());
 			pres.setString(2, store.getOwner_id());
 			pres.setString(3, store.getDescription());
+			pres.setString(4, store.getImages());
 			
 			int num = pres.executeUpdate();
 			return num;
@@ -42,7 +44,6 @@ public class StoreDaoImpl implements StoreDao {
 	public List findProduce(int store_id,String produce_name){
 		return null;//三张表查找  存在 map集合里 
 	}
-	
 	
 	//对三种商品信息更新  重载
 	@Override

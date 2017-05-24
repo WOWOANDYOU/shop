@@ -106,4 +106,12 @@ public class UserDaoTest {
 			
 		}
 	}
+	
+	@Test
+	public void TestString(){
+		String str = "aadd,adsdfasf,";
+		int strnum = str.lastIndexOf(",");
+		String str1 = str.substring(0,strnum);
+		System.out.println(str1);
+	}
 }

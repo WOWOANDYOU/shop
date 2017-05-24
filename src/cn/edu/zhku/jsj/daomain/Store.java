@@ -5,7 +5,13 @@ public class Store {
 	private String storename;
 	private String owner_id; // 店铺所属人（店家）
 	private String description;
-
+	private String images;
+	public String getImages() {
+		return images;
+	}
+	public void setImages(String images) {
+		this.images = images;
+	}
 	public int getStore_id() {
 		return store_id;
 	}

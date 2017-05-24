@@ -9,7 +9,7 @@ import cn.edu.zhku.jsj.daomain.Food;
 
 public class FoodDaoTest {
 	FoodDaoImpl fooddao = new FoodDaoImpl();
-	@Test
+/*	@Test
 	public void addfoodtest(){
 		Food food = new Food();
 		food.setFoodname("五只松鼠");
@@ -22,12 +22,13 @@ public class FoodDaoTest {
 	}
 	@Test
 	public void findTest(){
-		List<Food> food = fooddao.find("只松鼠");
+		List<Food> food = fooddao.find("猪肉");
+		System.out.println(food.get(0));
 	}
 	
 	@Test
 	public void findAll(){
-		System.out.println(fooddao.findAll().get(1).getFoodname());
+		System.out.println(fooddao.findAll());
 	}
 	
 	@Test
@@ -43,5 +44,9 @@ public class FoodDaoTest {
 	@Test
 	public void deleteTest(){
 		fooddao.delete(2);
+	}*/
+	@Test
+	public void findtest(){
+		fooddao.findAll().get(0).getFoodname();
 	}
 }

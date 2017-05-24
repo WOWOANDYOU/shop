@@ -30,8 +30,7 @@ public class LoginServlet extends HttpServlet {
 		// 检验验证码信息是否正确
 		if (!client_checkcode.equals(server_checkcode)) {
 			session.setAttribute("checkcodemessage", "验证码错误");
-			request.getRequestDispatcher("/pages/user/login.jsp").forward(
-					request, response);
+			request.getRequestDispatcher("/pages/user/login.jsp").forward(request, response);
 			return;
 		}
 		// 登录检验
@@ -39,8 +38,7 @@ public class LoginServlet extends HttpServlet {
 		User user = login.login(user_id, password);
 		if (user == null) {
 			session.setAttribute("login", "用户名或密码错误");
-			request.getRequestDispatcher("/pages/user/login.jsp").forward(
-					request, response);
+			request.getRequestDispatcher("/pages/user/login.jsp").forward(request, response);
 			return;
 		}
 		session.setAttribute("message", "用户登录成功");

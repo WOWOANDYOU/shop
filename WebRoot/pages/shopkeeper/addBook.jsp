@@ -1,17 +1,24 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" import="cn.edu.zhku.jsj.daomain.Store" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@include file="store_nav.jsp"%>
+
+<!-- 所以如果是店主 进入到店铺 前 要去查数据库  将其信息 存在 request 域 或者 session域里边 因为要将属于该 店铺的商品 查出 并展现出来 -->
+<%
+	Store store = new Store();
+	store.setStore_id(1);
+	session.setAttribute("store", store);
+ %>
 
 <div class="add_good_big">
 	<div class="add_good_in">
 		<div class="add_good_in_up">
 			<div id="div_font_class">
-				<font style="font-size:18px;color:#ff4400">请完善上架衣服信息:</font>
+				<font style="font-size:18px;color:#ff4400">请完善上架书籍信息:</font>
 			</div>
 		</div>
 		<div class="add_good_in_down">
 			<form
-				action="${pageContext.request.contextPath }/servlet/AddClothServlet?uuid=${formuuidnum}"
+				action="${pageContext.request.contextPath }/servlet/AddBookServlet?uuid=${formuuidnum}"
 				method="post" onsubmit="return checkoutfilename()"
 				enctype="multipart/form-data">
 				<input type="hidden" value="${store.store_id }" name="store_id">
@@ -19,47 +26,53 @@
 				<table border="0px">
 					<tr>
 						<!-- 光标离开 后触发js函数 onblur="isInput(this.value)" -->
-						<th>衣服名称：</th>
-						<td><input type="text" name="clothname"></td>
-						<td><span> <font style="color:red;">${errormap.clothname }</font>
+						<th>书籍名称：</th>
+						<td><input type="text" name="bookname"></td>
+						<td><span> <font style="color:red;">${errormap.bookhname }</font>
 						</span></td>
 					</tr>
 					<tr>
-						<th>衣服单价：</th>
+						<th>书籍单价：</th>
 						<td><input type="text" name="price" placeholder="输入数字即可"></td>
 						<td><span> <font style="color:red;">${errormap.price }</font>
 						</span></td>
 					</tr>
 					<tr>
-						<th>衣服码数：</th> <!--  L,m,s -->
-						<td><input type="text" name="size" placeholder="码数之间用逗号隔开"></td>
-						<td><span> <font style="color:red;">${errormap.size }</font>
+						<th>出版社：</th> 
+						<td><input type="text" name="press"></td>
+						<td><span> <font style="color:red;">${errormap.press}</font>
 						</span></td>
 					</tr>
 					<tr>
-						<th>衣服颜色：</th> <!--  L,m,s -->
-						<td><input type="text" name="color" placeholder="颜色之间用逗号隔开"></td>
-						<td><span> <font style="color:red;">${errormap.color }</font>
+						<th>ISBN：</th> 
+						<td><input type="text" name="ISBN" placeholder="输入13位数字"></td>
+						<td><span> <font style="color:red;">${errormap.ISBN}</font>
 						</span></td>
 					</tr>
 					<tr>
-						<th>衣服款式：</th> <!-- 什么版本 清新版 帅气版啊之类的 -->
-						<td><input type="text" name="version" placeholder="款式之间用逗号隔开"></td>
+						<th>书籍作者：</th>
+						<td><input type="text" name="author" ></td>
+						<td><span> <font style="color:red;">${errormap.author }</font>
+						</span></td>
+					</tr>
+					<tr>
+						<th>书籍版本：</th> <!-- 什么版本 有无光盘 电子书之类的 -->
+						<td><input type="text" name="version" placeholder="版本之间用逗号隔开"></td>
 						<td><span> <font style="color:red;">${errormap.version }</font>
 						</span></td>
 					</tr>
 					<tr>
-						<th>商品库存：</th>
+						<th>书籍库存：</th>
 						<td><input type="text" name="totalnum" placeholder="输入数字即可"></td>
 						<td><span><font style="color:red;">${errormap.totalnum }</font></span></td>
 					</tr>
 					<tr>
-						<th>商品描述：</th>
+						<th>书籍描述：</th>
 						<td><textarea name="description" rows="5" cols="40"></textarea></td>
 						<td><span><font style="color:red;">${errormap.description }</font></span></td>
 					</tr>
 					<tr>
-						<th>衣服图片：</th>
+						<th>书籍图片：</th>
 						<td>
 							<input type="file" name="images" id="images">
 							
@@ -76,13 +89,8 @@
 						</td>
 					</tr>
 					<tr>
-<<<<<<< HEAD
-						<td colspan='2' align="center"><input type="submit"
-							value="发布"> <input type="reset" value="重置"></td>
-=======
 						<td colspan="2" align="center"><input type="submit"
 							value="发布" id="submit"> <input type="reset" value="重置"></td>
->>>>>>> upstream/master
 					</tr>
 				</table>
 			</form>

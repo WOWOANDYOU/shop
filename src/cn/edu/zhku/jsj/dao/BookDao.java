@@ -11,11 +11,15 @@ public interface BookDao {
 
 
 	List<Book> findBook(String book_name);
+	
+	Book findbook(int book_id);
 
 	List<Book> findAll();
 
 	boolean update(Book book);
 
 	boolean delete(int book_id);
+	
+	List<Book> findBook(int store_id);
 
 }

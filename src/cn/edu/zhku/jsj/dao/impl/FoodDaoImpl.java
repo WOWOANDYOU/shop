@@ -44,12 +44,16 @@ public class FoodDaoImpl implements FoodDao {
 		ResultSet rs = null;
 		con = JdbcUtil.getCon();
 		try{
-			String sql = "select * from food where foodname=?";
+			String sql = "select * from food where foodname like ?";
 			pres = con.prepareStatement(sql);
 			pres.setString(1, "%"+food_name+"%");
 			rs = pres.executeQuery();
 			List<Food> list = ResultToBean.getBeanList(Food.class, rs);
-			return list;
+			System.out.println(list.get(0));
+/*			if(!list.isEmpty()){
+				System.out.print("list空");
+			}
+*/			return list;
 		}catch(Exception e){
 			throw new RuntimeException(e);
 		}finally{
@@ -69,6 +73,9 @@ public class FoodDaoImpl implements FoodDao {
 			pres = con.prepareStatement(sql);
 			rs = pres.executeQuery();
 			foodlist = ResultToBean.getBeanList(Food.class, rs); //调工具类 （封装 数据到 bean的工具类）
+			if(foodlist.isEmpty()){
+				System.out.println("foodlist为空！！");
+			}
 			return foodlist;
 		}catch(Exception e){ 
 			throw new RuntimeException(e);
@@ -124,5 +131,47 @@ public class FoodDaoImpl implements FoodDao {
 			JdbcUtil.release(con, pres, rs);
 		}
 		return b;
+	}
+
+	@Override
+	public List<Food> findFood(int store_id) {
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		con = JdbcUtil.getCon();
+		try{
+			String sql = "select * from food where store_id=?";
+			pres = con.prepareStatement(sql);
+			pres.setInt(1, store_id);
+			rs = pres.executeQuery();
+			List<Food> foodlist = ResultToBean.getBeanList(Food.class, rs);
+			return foodlist;
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}finally{
+			JdbcUtil.release(con, pres, rs);
+		}
+	}
+
+	@Override
+	public Food findfood(int food_id) {
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		con = JdbcUtil.getCon();
+		try{
+			String sql = "select * from food where food_id=?";
+			pres = con.prepareStatement(sql);
+			pres.setInt(1, food_id);
+			rs = pres.executeQuery();
+			Food food = null;
+			List<Food> foodlist = ResultToBean.getBeanList(Food.class, rs);
+			food = foodlist.get(0);
+			return food;
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}finally{
+			JdbcUtil.release(con, pres, rs);
+		}
 	}
 }	

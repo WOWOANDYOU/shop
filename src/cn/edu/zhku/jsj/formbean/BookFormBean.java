@@ -119,6 +119,10 @@ public class BookFormBean {
 			errormap.put("ISBN", "请输入书的ISBN号");
 			return b;
 		}
+		if(this.ISBN.trim().length() != 13){
+			errormap.put("ISBN", "书的ISBN号为13位数");
+			return b;
+		}
 		if(this.description==null || this.description.trim().equals("")){
 			errormap.put("description", "请输入书的简介");
 			return b;
@@ -127,6 +131,7 @@ public class BookFormBean {
 			errormap.put("totalnum", "请输入书的库存量");
 			return b;
 		}
+		b = true;
 		return b;
 	}
 	

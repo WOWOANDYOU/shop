@@ -33,8 +33,11 @@ public class AddBookServlet extends HttpServlet {
 		String client_uuid = request.getParameter("uuid");
 		String server_uuid = (String) request.getSession().getAttribute("formuuidnum");
 		boolean b2 = WebUtil.isToken(client_uuid, server_uuid);
+		
+		BusinessService bus = new BusinessServiceImpl();
+		
 		if(b2){
-			System.out.println("请不要重复提交表单");
+			System.out.println("请不要 用刷新 重复添加书籍 （重复提交表单）");
 			request.getRequestDispatcher("/pages/shopkeeper/store.jsp").forward(request, response);
 			return;
 		}
@@ -57,7 +60,6 @@ public class AddBookServlet extends HttpServlet {
 				
 book.setStore_id(2);//测试用 由于 还没有店主登录进来  所以先 手动 赋值为 一个存在的店铺  到时候要删除！！
 
-				BusinessService bus = new BusinessServiceImpl();
 				int num = bus.addBook(book);
 				int store_id_2 = book.getStore_id();
 				if(num!=0){

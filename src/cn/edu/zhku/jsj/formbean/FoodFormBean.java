@@ -9,6 +9,14 @@ public class FoodFormBean {
 	private float price;
 	private int totalnum;
 	private int store_id;
+	
+	private int food_id;
+	public int getFood_id() {
+		return food_id;
+	}
+	public void setFood_id(int food_id) {
+		this.food_id = food_id;
+	}
 	public int getStore_id() {
 		return store_id;
 	}
@@ -69,5 +77,4 @@ public class FoodFormBean {
 		b = true;
 		return b;
 	}
-	
 }

@@ -95,13 +95,16 @@ public class ClothDaoImpl implements ClothDao {
 		ResultSet rs = null;
 		con = JdbcUtil.getCon();
 		try{
-			String sql = "update cloth set version=?,price=?,totalnum=?,description=? where cloth_id=?";
+			String sql = "update cloth set clothname=?,version=?,price=?,totalnum=?,description=?,size=?,color=? where cloth_id=?";
 			pres = con.prepareStatement(sql);
-			pres.setString(1, cloth.getVersion());
-			pres.setFloat(2, cloth.getPrice());
-			pres.setInt(3, cloth.getTotalnum());
-			pres.setString(4, cloth.getDescription());
-			pres.setInt(5, cloth.getCloth_id());
+			pres.setString(1, cloth.getClothname());
+			pres.setString(2, cloth.getVersion());
+			pres.setFloat(3, cloth.getPrice());
+			pres.setInt(4, cloth.getTotalnum());
+			pres.setString(5, cloth.getDescription());
+			pres.setString(6, cloth.getSize());
+			pres.setString(7, cloth.getColor());
+			pres.setInt(8, cloth.getCloth_id());
 			
 			int num = pres.executeUpdate();
 			if(num!=0){

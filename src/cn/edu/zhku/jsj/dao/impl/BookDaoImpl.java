@@ -119,14 +119,17 @@ public class BookDaoImpl implements BookDao {
 		ResultSet rs = null;
 		con = JdbcUtil.getCon();
 		try{
-			String sql = "update book set totalnum=?,price=?,version=?,description=? where book_id=?";
+			String sql = "update book set bookname=?,totalnum=?,price=?,version=?,description=?,press=?,author=? where book_id=?";
 			pres = con.prepareStatement(sql);
-			pres.setInt(1, book.getTotalnum());
-			pres.setFloat(2, book.getPrice());
-			pres.setString(3, book.getVersion());
-			pres.setString(4, book.getDescription());
-			pres.setInt(5, book.getBook_id());
-			int num =  pres.executeUpdate();
+			pres.setString(1, book.getBookname());
+			pres.setInt(2, book.getTotalnum());
+			pres.setFloat(3, book.getPrice());
+			pres.setString(4, book.getVersion());
+			pres.setString(5, book.getDescription());
+			pres.setString(6, book.getPress());
+			pres.setString(7, book.getAuthor());
+			pres.setInt(8, book.getBook_id());
+			int num =  pres.executeUpdate(); 
 			if(num!=0){
 				b = true;
 			}

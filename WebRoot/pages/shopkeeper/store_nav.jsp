@@ -97,11 +97,7 @@
 								<div id="store_nav_down">
 									<c:choose>
 										<c:when test="${empty user}">
-<<<<<<< HEAD:WebRoot/pages/store_nav.jsp
-											<a href="${pageContext.request.contextPath }/pages/shopkeeper/login.jsp">免费开店</a>
-=======
 											<a href="${pageContext.request.contextPath }/pages/user/login.jsp">免费开店</a>
->>>>>>> upstream/master:WebRoot/pages/shopkeeper/store_nav.jsp
 											<br>
 										</c:when>
 										<c:when test="${not empty user && user.role == 2}">
@@ -116,11 +112,8 @@
 
 									<c:choose>
 										<c:when test="${empty user}">
-<<<<<<< HEAD:WebRoot/pages/store_nav.jsp
-											<a href="${pageContext.request.contextPath }/pages/shopkeeper/login.jsp">已卖货品</a>
-=======
+
 											<a href="${pageContext.request.contextPath }/pages/user/login.jsp">已卖货品</a>
->>>>>>> upstream/master:WebRoot/pages/shopkeeper/store_nav.jsp
 										</c:when>
 										<c:when test="${not empty user && user.role == 2}">
 											<!-- 判断其是否为店家 2表示 为店家 那么进入店铺 -->
@@ -223,7 +216,6 @@
 					</div>
 				</div>
 			</div>
-			
 		</div>
 	
 			

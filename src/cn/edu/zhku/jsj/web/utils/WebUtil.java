@@ -88,7 +88,6 @@ public class WebUtil {
 			int substringnum = savefilename.lastIndexOf(",");
 			String savefilename2 = savefilename.substring(0, substringnum);
 			book.setImages(savefilename2);
-			System.out.println(formbean.getStore_id());
 			map.put("book", book);
 			return map;
 		}catch (FileUploadBase.FileSizeLimitExceededException e) {
@@ -182,7 +181,6 @@ public class WebUtil {
 						BeanUtils.setProperty(formbean, name, value);
 						BeanUtils.setProperty(cloth, name, value);// 将每个 普通输入项 数据封装到bean里 输入项的名字应该与bean属性名保持一致
 					}else{
-						
 						// 检查要求 ：上传表单要设计为  普通输入项 与 文件上传项 完全分开
 						if(num==0){  //第一次要检查普通数据 检查完后  num + 1 所以下次就不用再次检查了
 							if(!formbean.checkoutData()){  //如果用户 输入的数据 有误 那么返回 不在执行
@@ -245,7 +243,7 @@ public class WebUtil {
 				return true;  
 			}
 			
-			return false;//false 表示 重复提交表单
+			return false;//false 表示正常提交表单
 		}
 
 		

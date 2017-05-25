@@ -8,9 +8,9 @@ import cn.edu.zhku.jsj.dao.FoodDao;
 import cn.edu.zhku.jsj.dao.impl.BookDaoImpl;
 import cn.edu.zhku.jsj.dao.impl.ClothDaoImpl;
 import cn.edu.zhku.jsj.dao.impl.FoodDaoImpl;
-import cn.edu.zhku.jsj.daomain.Book;
-import cn.edu.zhku.jsj.daomain.Cloth;
-import cn.edu.zhku.jsj.daomain.Food;
+import cn.edu.zhku.jsj.domain.Book;
+import cn.edu.zhku.jsj.domain.Cloth;
+import cn.edu.zhku.jsj.domain.Food;
 
 public class Client_PartialSelectService {
 	private BookDao bd=new BookDaoImpl(); 

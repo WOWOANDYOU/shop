@@ -1,6 +1,6 @@
 package cn.edu.zhku.jsj.dao;
 
-import cn.edu.zhku.jsj.daomain.Operator;
+import cn.edu.zhku.jsj.domain.Operator;
 
 public interface OperatorDao {
 

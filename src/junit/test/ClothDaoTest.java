@@ -5,7 +5,7 @@ import java.util.List;
 import org.junit.Test;
 
 import cn.edu.zhku.jsj.dao.impl.ClothDaoImpl;
-import cn.edu.zhku.jsj.daomain.Cloth;
+import cn.edu.zhku.jsj.domain.Cloth;
 
 public class ClothDaoTest {
 	ClothDaoImpl clothdao = new ClothDaoImpl();

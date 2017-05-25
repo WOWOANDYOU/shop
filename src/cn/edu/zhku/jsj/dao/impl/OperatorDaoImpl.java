@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 
 import cn.edu.zhku.jsj.dao.OperatorDao;
-import cn.edu.zhku.jsj.daomain.Operator;
+import cn.edu.zhku.jsj.domain.Operator;
 import cn.edu.zhku.jsj.web.utils.JdbcUtil;
 
 public class OperatorDaoImpl implements OperatorDao {

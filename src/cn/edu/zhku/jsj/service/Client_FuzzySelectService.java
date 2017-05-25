@@ -10,10 +10,10 @@ import cn.edu.zhku.jsj.dao.impl.BookDaoImpl;
 import cn.edu.zhku.jsj.dao.impl.ClothDaoImpl;
 import cn.edu.zhku.jsj.dao.impl.FoodDaoImpl;
 import cn.edu.zhku.jsj.dao.impl.StoreDaoImpl;
-import cn.edu.zhku.jsj.daomain.Book;
-import cn.edu.zhku.jsj.daomain.Cloth;
-import cn.edu.zhku.jsj.daomain.Food;
-import cn.edu.zhku.jsj.daomain.Store;
+import cn.edu.zhku.jsj.domain.Book;
+import cn.edu.zhku.jsj.domain.Cloth;
+import cn.edu.zhku.jsj.domain.Food;
+import cn.edu.zhku.jsj.domain.Store;
 
 public class Client_FuzzySelectService {
 	private BookDao bd = new BookDaoImpl();

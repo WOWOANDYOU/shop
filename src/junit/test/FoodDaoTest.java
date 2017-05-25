@@ -5,7 +5,7 @@ import java.util.List;
 import org.junit.Test;
 
 import cn.edu.zhku.jsj.dao.impl.FoodDaoImpl;
-import cn.edu.zhku.jsj.daomain.Food;
+import cn.edu.zhku.jsj.domain.Food;
 
 public class FoodDaoTest {
 	FoodDaoImpl fooddao = new FoodDaoImpl();

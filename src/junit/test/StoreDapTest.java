@@ -3,7 +3,7 @@ package junit.test;
 import org.junit.Test;
 
 import cn.edu.zhku.jsj.dao.impl.StoreDaoImpl;
-import cn.edu.zhku.jsj.daomain.Store;
+import cn.edu.zhku.jsj.domain.Store;
 
 public class StoreDapTest {
 	@Test

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import cn.edu.zhku.jsj.daomain.Cloth;
+import cn.edu.zhku.jsj.domain.Cloth;
 import cn.edu.zhku.jsj.service.Client_PartialSelectService;
 
 public class index_servlet extends HttpServlet {

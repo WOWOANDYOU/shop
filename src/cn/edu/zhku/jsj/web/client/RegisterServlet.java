@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.beanutils.BeanUtils;
 
-import cn.edu.zhku.jsj.daomain.User;
+import cn.edu.zhku.jsj.domain.User;
 import cn.edu.zhku.jsj.exception.UserexistException;
 import cn.edu.zhku.jsj.service.BusinessService;
 import cn.edu.zhku.jsj.service.impl.BusinessServiceImpl;

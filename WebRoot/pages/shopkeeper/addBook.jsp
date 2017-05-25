@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" import="cn.edu.zhku.jsj.daomain.Store" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" import="cn.edu.zhku.jsj.domain.Store" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@include file="store_nav.jsp"%>
 

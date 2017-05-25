@@ -8,9 +8,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 import cn.edu.zhku.jsj.dao.BookDao;
-import cn.edu.zhku.jsj.daomain.Book;
-import cn.edu.zhku.jsj.daomain.Cloth;
-import cn.edu.zhku.jsj.daomain.Food;
+import cn.edu.zhku.jsj.domain.Book;
+import cn.edu.zhku.jsj.domain.Cloth;
+import cn.edu.zhku.jsj.domain.Food;
 import cn.edu.zhku.jsj.web.utils.JdbcUtil;
 import cn.edu.zhku.jsj.web.utils.ResultToBean;
 

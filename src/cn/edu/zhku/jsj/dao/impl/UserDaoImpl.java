@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import cn.edu.zhku.jsj.dao.UserDao;
-import cn.edu.zhku.jsj.daomain.User;
+import cn.edu.zhku.jsj.domain.User;
 import cn.edu.zhku.jsj.web.utils.JdbcUtil;
 
 public class UserDaoImpl implements UserDao {

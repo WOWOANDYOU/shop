@@ -5,7 +5,7 @@ import java.util.List;
 import org.junit.Test;
 
 import cn.edu.zhku.jsj.dao.impl.BookDaoImpl;
-import cn.edu.zhku.jsj.daomain.Book;
+import cn.edu.zhku.jsj.domain.Book;
 
 public class BookDaoTest {
 	BookDaoImpl bookdao = new BookDaoImpl();

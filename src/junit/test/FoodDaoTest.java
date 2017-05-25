@@ -47,6 +47,14 @@ public class FoodDaoTest {
 	}*/
 	@Test
 	public void findtest(){
-		fooddao.findAll().get(0).getFoodname();
+		List<Food> lf= fooddao.findAll();
+		for(Food f:lf){
+			System.out.println(f.getFoodname());
+		}
+	}
+	@Test
+	public void test(){
+		String s="";
+		System.out.println(s.toString());
 	}
 }

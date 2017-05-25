@@ -72,7 +72,7 @@
 									<a href="" target="_blank">${f.price}</a>
 								</div>
 								<div>
-									<a href="" target="_blank">${f.discription}</a>
+									<a href="" target="_blank">${f.description}</a>
 								</div>
 							</li>
 						</ul>

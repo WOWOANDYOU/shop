@@ -126,7 +126,7 @@ public class BookDaoImpl implements BookDao {
 			pres.setString(3, book.getVersion());
 			pres.setString(4, book.getDescription());
 			pres.setInt(5, book.getBook_id());
-			int num =  pres.executeUpdate();
+			int num =  pres.executeUpdate(); 
 			if(num!=0){
 				b = true;
 			}

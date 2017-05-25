@@ -40,8 +40,7 @@ body {
 }
 
 #form table {
-
-	background-image: url("${pageContext.request.contextPath}/images/login1.GIF");
+	background-image: url("${pageContext.request.contextPath }/images/login1.GIF");
 	width: 428px;
 	height: 298px;
 	position: absolute;

@@ -15,7 +15,7 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath }/css/index.css">
 </head>
-<frameset rows="5%,15%,80%" frameborder="no">
+<frameset rows="8%,18%,74%" frameborder="no">
 	<frame src="${pageContext.request.contextPath }/pages/user/header.jsp"
 		name="view_header">
 	<frame src="${pageContext.request.contextPath }/pages/user/header2.jsp"

@@ -36,12 +36,12 @@
 						<div class="header_left_user">
 							<div class="header_left_user_d-image">
 								<img class="header_left_user_image" alt="头像"
-									src="${sessionScope.user.image }">
+									src="${pageContext.request.contextPath}/images/${sessionScope.user.image }">
 							</div>
 							<div class="header_left_user_d-a">
 								<a class="header_left_user_a"
 									href="${pageContext.request.contextPath}/pages/user/UserInfo.jsp"
-									target="_top" onMouseOver="showUserInfo()">${sessionScope.user.nickname}</a>
+									target="_top" >${sessionScope.user.nickname}</a>
 							</div>
 						</div>
 					</c:otherwise>

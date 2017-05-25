@@ -52,11 +52,11 @@ public class ChangePassword extends HttpServlet implements Servlet {
 		int num=service.changePassword(user_id, password);
 		if(num!=0){
 		session.setAttribute("message", "密码修改成功");
-		request.getRequestDispatcher("/pages/message.jsp").forward(request, response);
+		request.getRequestDispatcher("/pages/user/message.jsp").forward(request, response);
 		return;
 		}
 			session.setAttribute("message", "服务器出错了，修改密码失败");
-			request.getRequestDispatcher("/pages/message.jsp").forward(request, response);
+			request.getRequestDispatcher("/pages/user/message.jsp").forward(request, response);
 		
 	}
 

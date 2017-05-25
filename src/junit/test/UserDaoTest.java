@@ -37,6 +37,41 @@ public class UserDaoTest {
 		}
 	}
 	
+	/*@Test
+	public void rsTest(){
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		con = JdbcUtil.getCon();
+		try{
+			String sql = "select * from book";
+			pres = con.prepareStatement(sql);
+			rs = pres.executeQuery();
+			
+			ResultSetMetaData rsmd = rs.getMetaData();
+			System.out.println("数据库列数 "+rsmd.getColumnCount());
+			String name = rsmd.getColumnLabel(1);
+			System.out.println(name);
+			System.out.println(rsmd.getColumnLabel(2));
+			
+			String name = "";
+			while(rs.next()){
+				for(int i=1;i<=rsmd.getColumnCount();i++){
+					name = rsmd.getColumnLabel(i);
+					Object value = rs.getObject(name);
+					Class<?> type = value.getClass();
+					System.out.println(type);
+				}
+				
+			}
+			
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}finally{
+			
+		}
+	}*/
+	
 	@Test
 	public void rsTest(){
 		Connection con = null;

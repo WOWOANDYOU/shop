@@ -8,7 +8,7 @@ public interface FoodDao {
 
 	int add(Food food);
 
-	Food find(String food_name);
+	List<Food> find(String food_name);
 
 	List<Food> findAll();
 

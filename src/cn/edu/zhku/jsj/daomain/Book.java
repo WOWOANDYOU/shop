@@ -25,7 +25,6 @@ public class Book {
 	public void setBook_id(int book_id) {
 		this.book_id = book_id;
 	}
-	
 	public String getBookname() {
 		return bookname;
 	}

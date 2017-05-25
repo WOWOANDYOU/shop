@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
 
@@ -28,7 +28,11 @@ body {
 
 #container {
 	width: 980px;
+<<<<<<< HEAD
+	background-image: url("${pageContext.request.contextPath }/images/login.GIF");
+=======
 	background-image: url("${pageContext.request.contextPath}/images/login.GIF");
+>>>>>>> upstream/master
 	width: 1340px;
 	height: 540px;
 	margin: 5px 0 0 13px;
@@ -39,7 +43,11 @@ body {
 }
 
 #form table {
+<<<<<<< HEAD
+	background-image: url("${pageContext.request.contextPath }/images/login1.GIF");
+=======
 	background-image: url("${pageContext.request.contextPath}/images/login1.GIF");
+>>>>>>> upstream/master
 	width: 428px;
 	height: 298px;
 	position: absolute;
@@ -54,7 +62,7 @@ body {
 
 <body>
 	<div id="a">
-		<a href="${pagecontext.request.contextpath }/index.jsp"
+		<a href="${pageContext.request.contextPath }/pages/user/index.jsp"
 			style="color:99BBFF"><h1>网上商城</a>
 	</div>
 	<div id="container">
@@ -92,7 +100,7 @@ body {
 						<td><input type="submit" value="登录"></td>
 						<td><input type="button" value="注册" onclick="dump()"></td>
 					</tr>
-					<tr><td></td><td></td><td><a href="${pageContext.request.contextPath }/pages/checkchangepassword.jsp" style="cursor: pointer">忘记密码</a></td></tr>
+					<tr><td></td><td></td><td><a href="${pageContext.request.contextPath }/pages/user/checkchangepassword.jsp" style="cursor: pointer">忘记密码</a></td></tr>
 
 				</table>
 			</form>

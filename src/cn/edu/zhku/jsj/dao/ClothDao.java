@@ -8,13 +8,16 @@ public interface ClothDao {
 
 	int add(Cloth cloth);
 
-	Cloth find(String cloth_name);
+
+	List<Cloth> find(String cloth_name);
+
 
 	List<Cloth> findAll();
 
 	List<Cloth> findCloth(int store_id);
 	
 	boolean update(Cloth cloth);
+
 
 	boolean delete(int cloth_id);
 	

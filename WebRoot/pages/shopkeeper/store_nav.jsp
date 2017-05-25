@@ -38,7 +38,7 @@
 					<ul id="nav_ul_2">
 						<li>
 							<div>
-								<a href="${pageContext.request.contextPath }/index.jsp">商城首页</a>
+								<a href="${pageContext.request.contextPath }/pages/user/index.jsp">商城首页</a>
 							</div>
 						</li>
 						<li>
@@ -70,11 +70,10 @@
 							<div class="li_down">
 								<c:choose>
 									<c:when test="${empty user}">
-										<a href="${pageContext.request.contextPath }/pages/user/login.jsp">购物车</a>
+										<a href="${pageContext.request.contextPath }/pages/shopkeeper/login.jsp">购物车</a>
 									</c:when>
 									<c:otherwise>
-										<a
-											href="${pageContext.request.contextPath }/pages/user/showCartGood.jsp">购物车</a>
+										<a href="${pageContext.request.contextPath }/pages/shopkeeper/showCartGood.jsp">购物车</a>
 									</c:otherwise>
 								</c:choose>
 							</div>
@@ -98,7 +97,11 @@
 								<div id="store_nav_down">
 									<c:choose>
 										<c:when test="${empty user}">
+<<<<<<< HEAD:WebRoot/pages/store_nav.jsp
+											<a href="${pageContext.request.contextPath }/pages/shopkeeper/login.jsp">免费开店</a>
+=======
 											<a href="${pageContext.request.contextPath }/pages/user/login.jsp">免费开店</a>
+>>>>>>> upstream/master:WebRoot/pages/shopkeeper/store_nav.jsp
 											<br>
 										</c:when>
 										<c:when test="${not empty user && user.role == 2}">
@@ -113,7 +116,11 @@
 
 									<c:choose>
 										<c:when test="${empty user}">
+<<<<<<< HEAD:WebRoot/pages/store_nav.jsp
+											<a href="${pageContext.request.contextPath }/pages/shopkeeper/login.jsp">已卖货品</a>
+=======
 											<a href="${pageContext.request.contextPath }/pages/user/login.jsp">已卖货品</a>
+>>>>>>> upstream/master:WebRoot/pages/shopkeeper/store_nav.jsp
 										</c:when>
 										<c:when test="${not empty user && user.role == 2}">
 											<!-- 判断其是否为店家 2表示 为店家 那么进入店铺 -->

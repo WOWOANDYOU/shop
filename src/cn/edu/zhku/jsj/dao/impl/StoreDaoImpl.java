@@ -12,6 +12,7 @@ import cn.edu.zhku.jsj.daomain.Cloth;
 import cn.edu.zhku.jsj.daomain.Food;
 import cn.edu.zhku.jsj.daomain.Store;
 import cn.edu.zhku.jsj.web.utils.JdbcUtil;
+import cn.edu.zhku.jsj.web.utils.ResultToBean;
 
 public class StoreDaoImpl implements StoreDao {
 	//添加店铺 开店
@@ -74,5 +75,23 @@ public class StoreDaoImpl implements StoreDao {
 		return false;
 	}	
 	
-	
+	public List<Store> find(String storename){
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		con = JdbcUtil.getCon();
+		List<Store> storelist;
+		try{
+			String sql = "select * from store where storename=?";
+			pres = con.prepareStatement(sql);
+			pres.setString(1, "%"+storename+"%");
+			rs = pres.executeQuery();
+			storelist = ResultToBean.getBeanList(Store.class, rs); //调工具类 （封装 数据到 bean的工具类）
+			return storelist;
+		}catch(Exception e){ 
+			throw new RuntimeException(e);
+		}finally{
+			JdbcUtil.release(con, pres, rs);
+		}
+	}
 }

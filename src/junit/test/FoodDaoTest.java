@@ -1,5 +1,7 @@
 package junit.test;
 
+import java.util.List;
+
 import org.junit.Test;
 
 import cn.edu.zhku.jsj.dao.impl.FoodDaoImpl;
@@ -7,7 +9,7 @@ import cn.edu.zhku.jsj.daomain.Food;
 
 public class FoodDaoTest {
 	FoodDaoImpl fooddao = new FoodDaoImpl();
-	@Test
+/*	@Test
 	public void addfoodtest(){
 		Food food = new Food();
 		food.setFoodname("五只松鼠");
@@ -20,13 +22,16 @@ public class FoodDaoTest {
 	}
 	@Test
 	public void findTest(){
+
 		Food food = fooddao.find("饼干");
 		System.out.println(food.getDescription());
 	}
 	
 	@Test
 	public void findAll(){
+
 		System.out.println(fooddao.findAll().get(0).getFoodname());
+
 	}
 	
 	@Test
@@ -42,5 +47,17 @@ public class FoodDaoTest {
 	@Test
 	public void deleteTest(){
 		fooddao.delete(2);
+	}*/
+	@Test
+	public void findtest(){
+		List<Food> lf= fooddao.findAll();
+		for(Food f:lf){
+			System.out.println(f.getFoodname());
+		}
+	}
+	@Test
+	public void test(){
+		String s="";
+		System.out.println(s.toString());
 	}
 }

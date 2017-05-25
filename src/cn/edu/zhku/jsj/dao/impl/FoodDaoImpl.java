@@ -3,6 +3,7 @@ package cn.edu.zhku.jsj.dao.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 import cn.edu.zhku.jsj.dao.FoodDao;
@@ -37,22 +38,22 @@ public class FoodDaoImpl implements FoodDao {
 	}
 	
 	@Override
-	public Food find(String food_name){
+	public List<Food> find(String food_name){
 		Connection con = null;
 		PreparedStatement pres = null;
 		ResultSet rs = null;
 		con = JdbcUtil.getCon();
 		try{
-			String sql = "select * from food where foodname=?";
+			String sql = "select * from food where foodname like ?";
 			pres = con.prepareStatement(sql);
-			pres.setString(1, food_name);
+			pres.setString(1, "%"+food_name+"%");
 			rs = pres.executeQuery();
 			List<Food> list = ResultToBean.getBeanList(Food.class, rs);
-			Food food = null;
-			if(!list.isEmpty()){
-				food = list.get(0);
+			System.out.println(list.get(0));
+/*			if(!list.isEmpty()){
+				System.out.print("list空");
 			}
-			return food;
+*/			return list;
 		}catch(Exception e){
 			throw new RuntimeException(e);
 		}finally{
@@ -72,6 +73,9 @@ public class FoodDaoImpl implements FoodDao {
 			pres = con.prepareStatement(sql);
 			rs = pres.executeQuery();
 			foodlist = ResultToBean.getBeanList(Food.class, rs); //调工具类 （封装 数据到 bean的工具类）
+			if(foodlist.isEmpty()){
+				System.out.println("foodlist为空！！");
+			}
 			return foodlist;
 		}catch(Exception e){ 
 			throw new RuntimeException(e);

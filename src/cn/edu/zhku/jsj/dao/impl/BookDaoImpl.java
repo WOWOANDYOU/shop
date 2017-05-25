@@ -3,12 +3,14 @@ package cn.edu.zhku.jsj.dao.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 import cn.edu.zhku.jsj.dao.BookDao;
 import cn.edu.zhku.jsj.daomain.Book;
 import cn.edu.zhku.jsj.daomain.Cloth;
+import cn.edu.zhku.jsj.daomain.Food;
 import cn.edu.zhku.jsj.web.utils.JdbcUtil;
 import cn.edu.zhku.jsj.web.utils.ResultToBean;
 
@@ -47,16 +49,17 @@ public class BookDaoImpl implements BookDao {
 	
 	@Override
 	public List<Book> findBook(String book_name){
+
+
 		Connection con = null;
 		PreparedStatement pres = null;
 		ResultSet rs = null;
 		con = JdbcUtil.getCon();
-		List<Book> list = new LinkedList<Book>();
-		Book book = null;
+		List <Book> list= new ArrayList();
+		Book book=null;
 		try{
-			/*String find_muzzy = "%?%";*/
-			/*pres.setString(1, "%"+filename+"%");   //模糊查询 的预编译设置参数 要 如此设置
-*/			String sql = "select * from book where book_name like ";
+			String sql = "select * from book where bookname like ?";
+
 			pres = con.prepareStatement(sql);
 			pres.setString(1, "%"+book_name+"%");
 			
@@ -75,6 +78,7 @@ public class BookDaoImpl implements BookDao {
 				book.setStore_id(rs.getInt("B_store_id"));
 				book.setVersion(rs.getString("B_version"));
 				list.add(book);
+				
 			}
 		}catch(Exception e){
 			throw new RuntimeException(e);
@@ -90,34 +94,21 @@ public class BookDaoImpl implements BookDao {
 		PreparedStatement pres = null;
 		ResultSet rs = null;
 		con = JdbcUtil.getCon();
-		List<Book> list = new LinkedList<Book>();
-		Book book = null;
+		List<Book> booklist;
 		try{
 			String sql = "select * from book";
-			pres = con.prepareStatement(sql);			
+			pres = con.prepareStatement(sql);
 			rs = pres.executeQuery();
-			
- 			while(rs.next()){
-				book = new Book();
-				book.setAuthor(rs.getString("author"));
-				book.setImages(rs.getString("B_images"));
-				book.setBook_id(rs.getInt("book_id"));
-				book.setBookname(rs.getString("bookname"));
-				book.setDescription(rs.getString("B_description"));
-				book.setISBN(rs.getString("ISBN"));
-				book.setPress(rs.getString("press"));
-				book.setPrice(rs.getFloat("B_price"));
-				book.setTotalnum(rs.getInt("totalnum"));
-				book.setStore_id(rs.getInt("B_store_id"));
-				book.setVersion(rs.getString("B_version"));
-				list.add(book);
+			booklist = ResultToBean.getBeanList(Book.class, rs); //调工具类 （封装 数据到 bean的工具类）
+			if(booklist.isEmpty()){
+				System.out.println("booklist为空！！");
 			}
-		}catch(Exception e){
+			return booklist;
+		}catch(Exception e){ 
 			throw new RuntimeException(e);
 		}finally{
 			JdbcUtil.release(con, pres, rs);
 		}
-		return list;
 	}
 	
 	@Override

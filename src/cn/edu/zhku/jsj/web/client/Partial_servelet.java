@@ -51,9 +51,6 @@ public class Partial_servelet extends HttpServlet {
 		}
 		if (str.equals("Food")) {
 			List<Food> list_f = CsS.select_f();
-			for(Food f:list_f){
-				System.out.print(f.getPrice());
-				}
 			request.getSession().setAttribute("body_list_f", list_f);
 			request.getSession().setAttribute("body_list_f_flag", true);
 			request.getSession().setAttribute("body_list_b_flag", false);

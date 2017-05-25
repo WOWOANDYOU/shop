@@ -70,14 +70,15 @@ public class ClothDaoImpl implements ClothDao {
 		PreparedStatement pres = null;
 		ResultSet rs = null;
 		con = JdbcUtil.getCon();
-		Cloth cloth = null;
 		List<Cloth> clothlist;
 		try{
 			String sql = "select * from cloth";
 			pres = con.prepareStatement(sql);
 			rs = pres.executeQuery();
-			
 			clothlist = ResultToBean.getBeanList(Cloth.class, rs); //调工具类 （封装 数据到 bean的工具类）
+			if(clothlist.isEmpty()){
+				System.out.println("clothlist为空！！");
+			}
 			return clothlist;
 		}catch(Exception e){ 
 			throw new RuntimeException(e);

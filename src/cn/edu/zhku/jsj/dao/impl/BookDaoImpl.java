@@ -10,6 +10,7 @@ import java.util.List;
 import cn.edu.zhku.jsj.dao.BookDao;
 import cn.edu.zhku.jsj.daomain.Book;
 import cn.edu.zhku.jsj.daomain.Cloth;
+import cn.edu.zhku.jsj.daomain.Food;
 import cn.edu.zhku.jsj.web.utils.JdbcUtil;
 import cn.edu.zhku.jsj.web.utils.ResultToBean;
 
@@ -93,34 +94,21 @@ public class BookDaoImpl implements BookDao {
 		PreparedStatement pres = null;
 		ResultSet rs = null;
 		con = JdbcUtil.getCon();
-		List<Book> list = new LinkedList<Book>();
-		Book book = null;
+		List<Book> booklist;
 		try{
 			String sql = "select * from book";
-			pres = con.prepareStatement(sql);			
+			pres = con.prepareStatement(sql);
 			rs = pres.executeQuery();
-			
- 			while(rs.next()){
-				book = new Book();
-				book.setAuthor(rs.getString("author"));
-				book.setImages(rs.getString("B_images"));
-				book.setBook_id(rs.getInt("book_id"));
-				book.setBookname(rs.getString("bookname"));
-				book.setDescription(rs.getString("B_description"));
-				book.setISBN(rs.getString("ISBN"));
-				book.setPress(rs.getString("press"));
-				book.setPrice(rs.getFloat("B_price"));
-				book.setTotalnum(rs.getInt("totalnum"));
-				book.setStore_id(rs.getInt("B_store_id"));
-				book.setVersion(rs.getString("B_version"));
-				list.add(book);
+			booklist = ResultToBean.getBeanList(Book.class, rs); //调工具类 （封装 数据到 bean的工具类）
+			if(booklist.isEmpty()){
+				System.out.println("booklist为空！！");
 			}
-		}catch(Exception e){
+			return booklist;
+		}catch(Exception e){ 
 			throw new RuntimeException(e);
 		}finally{
 			JdbcUtil.release(con, pres, rs);
 		}
-		return list;
 	}
 	
 	@Override

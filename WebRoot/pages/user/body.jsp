@@ -53,32 +53,7 @@
 			</form>
 		</div>
 		<div class="body_good">
-			<c:if test="${sessionScope.body_list_f_flag}">
-				<div class="body_good_more">
-					<a href="servlet/Type_Show_servlet?type='Food'">更多</a>
-				</div>
-				<br>
-				<br>
-				<br>
-				<div class="body_good_total">
-					<c:forEach var="f" items="${sessionScope.body_list_f}">
-						<ul>
-							<li>
-								<div>
-									<a href="" target="_blank"> <img alt="商品图片" src="${f.images }">
-									</a>
-								</div>
-								<div>
-									<a href="" target="_blank">${f.price}</a>
-								</div>
-								<div>
-									<a href="" target="_blank">${f.description}</a>
-								</div>
-							</li>
-						</ul>
-					</c:forEach>
-				</div>
-			</c:if>
+
 			<c:if test="${sessionScope.body_list_c_flag}">
 				<div class="body_good_more">
 					<a href="servlet/Type_Show_servlet?type='Cloth'">更多</a>
@@ -89,16 +64,22 @@
 				<div class="body_good_total">
 					<c:forEach var="c" items="${sessionScope.body_list_c}">
 						<ul>
-							<li>
+							<li class="body_good_total_c">
 								<div>
-									<a href="" target="_blank"> <img alt="商品图片" src="${c.images }">
+									<a
+										href="${pageContext.request.contextPath }/pages/user/Goods.jsp"
+										target="_blank"> <img alt="商品图片" src="${c.images }">
 									</a>
 								</div>
 								<div>
-									<a href="" target="_blank">${c.price}</a>
+									<a
+										href="${pageContext.request.contextPath }/pages/user/Goods.jsp"
+										target="_blank">${c.price}</a>
 								</div>
 								<div>
-									<a href="" target="_blank">${c.discription}</a>
+									<a
+										href="${pageContext.request.contextPath }/pages/user/Goods.jsp"
+										target="_blank">${c.description}</a>
 								</div>
 							</li>
 						</ul>
@@ -115,16 +96,54 @@
 				<div class="body_good_total">
 					<c:forEach var="b" items="${sessionScope.body_list_b}">
 						<ul>
-							<li>
+							<li class="body_good_total_b">
 								<div>
-									<a href="" target="_blank"> <img alt="商品图片" src="${b.images }">
+									<a
+										href="${pageContext.request.contextPath }/pages/user/Goods.jsp"
+										target="_blank"> <img alt="商品图片" src="${b.images }">
 									</a>
 								</div>
 								<div>
-									<a href="" target="_blank">${b.price}</a>
+									<a
+										href="${pageContext.request.contextPath }/pages/user/Goods.jsp"
+										target="_blank">${b.price}</a>
 								</div>
 								<div>
-									<a href="" target="_blank">${b.discription}</a>
+									<a
+										href="${pageContext.request.contextPath }/pages/user/Goods.jsp"
+										target="_blank">${b.description}</a>
+								</div>
+							</li>
+						</ul>
+					</c:forEach>
+				</div>
+			</c:if>
+			<c:if test="${sessionScope.body_list_f_flag}">
+				<div class="body_good_more">
+					<a href="servlet/Type_Show_servlet?type='Food'">更多</a>
+				</div>
+				<br>
+				<br>
+				<br>
+				<div class="body_good_total">
+					<c:forEach var="f" items="${sessionScope.body_list_f}">
+						<ul>
+							<li class="body_good_total_f">
+								<div>
+									<a
+										href="${pageContext.request.contextPath }/pages/user/Goods.jsp"
+										target="_blank"> <img alt="商品图片" src="${f.images }">
+									</a>
+								</div>
+								<div>
+									<a
+										href="${pageContext.request.contextPath }/pages/user/Goods.jsp"
+										target="_blank">${f.price}</a>
+								</div>
+								<div>
+									<a
+										href="${pageContext.request.contextPath }/pages/user/Goods.jsp"
+										target="_blank">${f.description}</a>
 								</div>
 							</li>
 						</ul>
@@ -133,11 +152,11 @@
 			</c:if>
 		</div>
 	</div>
-	
-	
 
 
-<%-- <c:forTokens items="google,runoob,taobao" delims="," var="name" begin="1" end="2">
+
+
+	<%-- <c:forTokens items="google,runoob,taobao" delims="," var="name" begin="1" end="2">
    <c:out value="${name}"/><p>
 </c:forTokens>
  --%>

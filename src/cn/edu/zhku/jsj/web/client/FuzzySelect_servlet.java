@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import cn.edu.zhku.jsj.daomain.Book;
-import cn.edu.zhku.jsj.daomain.Cloth;
-import cn.edu.zhku.jsj.daomain.Food;
-import cn.edu.zhku.jsj.daomain.Store;
+import cn.edu.zhku.jsj.domain.Book;
+import cn.edu.zhku.jsj.domain.Cloth;
+import cn.edu.zhku.jsj.domain.Food;
+import cn.edu.zhku.jsj.domain.Store;
 import cn.edu.zhku.jsj.service.Client_FuzzySelectService;
 
 public class FuzzySelect_servlet extends HttpServlet {

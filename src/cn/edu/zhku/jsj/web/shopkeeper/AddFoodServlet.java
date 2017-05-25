@@ -13,9 +13,9 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.fileupload.FileUploadBase.FileSizeLimitExceededException;
 
-import cn.edu.zhku.jsj.daomain.Book;
-import cn.edu.zhku.jsj.daomain.Cloth;
-import cn.edu.zhku.jsj.daomain.Food;
+import cn.edu.zhku.jsj.domain.Book;
+import cn.edu.zhku.jsj.domain.Cloth;
+import cn.edu.zhku.jsj.domain.Food;
 import cn.edu.zhku.jsj.formbean.FoodFormBean;
 import cn.edu.zhku.jsj.service.BusinessService;
 import cn.edu.zhku.jsj.service.impl.BusinessServiceImpl;

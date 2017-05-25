@@ -2,7 +2,7 @@ package cn.edu.zhku.jsj.dao;
 
 import java.util.List;
 
-import cn.edu.zhku.jsj.daomain.Cloth;
+import cn.edu.zhku.jsj.domain.Cloth;
 
 public interface ClothDao {
 

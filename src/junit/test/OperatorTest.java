@@ -5,7 +5,7 @@ import java.util.Date;
 import org.junit.Test;
 
 import cn.edu.zhku.jsj.dao.impl.OperatorDaoImpl;
-import cn.edu.zhku.jsj.daomain.Operator;
+import cn.edu.zhku.jsj.domain.Operator;
 
 public class OperatorTest {
 	@Test

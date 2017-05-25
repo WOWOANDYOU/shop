@@ -1,6 +1,6 @@
 package cn.edu.zhku.jsj.dao;
 
-import cn.edu.zhku.jsj.daomain.User;
+import cn.edu.zhku.jsj.domain.User;
 
 public interface UserDao {
 

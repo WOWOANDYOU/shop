@@ -1,4 +1,4 @@
-package cn.edu.zhku.jsj.daomain;
+package cn.edu.zhku.jsj.domain;
 
 public class Store {
 	private int store_id;

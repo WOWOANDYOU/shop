@@ -20,12 +20,13 @@ public class FoodDaoTest {
 	}
 	@Test
 	public void findTest(){
-		Food food = fooddao.find("只松鼠");
+		Food food = fooddao.find("饼干");
+		System.out.println(food.getDescription());
 	}
 	
 	@Test
 	public void findAll(){
-		System.out.println(fooddao.findAll().get(1).getFoodname());
+		System.out.println(fooddao.findAll().get(0).getFoodname());
 	}
 	
 	@Test

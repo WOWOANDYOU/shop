@@ -36,7 +36,7 @@
 								<div class="good_price"><font class="price_font">￥<strong>${cloth.price }</strong></font></div>
 								<div class="good_manage">
 									<div class="good_modify">
-										<a href="modifygoodinfo.jsp?cloth_id=${cloth.cloth_id }">编辑</a>
+										<a href="${pageContext.request.contentType }/servlet/BeforeModifyGoodServlet?cloth_id=${cloth.cloth_id }">编辑</a>
 									</div>
 									<div class="good_delete">
 										<a href="${pageContext.request.contentType }/servlet/DeletegoodServlet?cloth_id=${cloth.cloth_id }">删除</a>
@@ -67,7 +67,7 @@
 								<div class="good_price"><font class="price_font">￥<strong>${book.price }</strong></font></div>
 								<div class="good_manage">
 									<div class="good_modify">
-										<a href="${pageContext.request.contentType }/servlet/ModifyGoodServlet?book_id=${book.book_id }">编辑</a>
+										<a href="${pageContext.request.contentType }/servlet/BeforeModifyGoodServlet?book_id=${book.book_id }">编辑</a>
 									</div>
 									<div class="good_delete">
 										<a href="${pageContext.request.contentType }/servlet/DeletegoodServlet?book_id=${book.book_id }">删除</a>
@@ -88,7 +88,7 @@
 					<c:forEach var="food" items="${foodlist }">
 						<div class="show_goods_div_in">
 							<div class="good_img">
-							<a href="${pageContext.request.contentType }/servlet/ModifyGoodServlet?food_id=${food.food_id }">
+							<a href="${pageContext.request.contentType }/servlet/BeforeModifyGoodServlet?food_id=${food.food_id }">
 							<img alt="picture" src="${pageContext.request.contextPath }/images/${food.images}" width="220px" height="250px">
 							</a>
 							</div>

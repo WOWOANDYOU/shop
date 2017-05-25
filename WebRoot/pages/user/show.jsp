@@ -15,24 +15,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 
 <body>
-<c:forEach items="${sessionScope.list_c }" var="c">
-	<div>
-		<ul>
-			<li>
-				<div>
-					<a href="" target="_blank"> <img alt="" src="${c.images }">
-					</a>
-				</div>
-
-				<div>
-					<a href="" target="_blank"></a>
-				</div>
-				<div>
-					<a href="" target="_blank"></a>
-				</div>
-			</li>
-		</ul>
-	</div>
-</c:forEach>
+	<c:forEach items="${sessionScope.list_c }" var="c">
+		<div>
+			<ul>
+				<li>
+					<div>
+						<a href="${pageContext.request.contextPath }/pages/user/Goods.jsp"
+							target="_blank"> <img alt="商品图片" src="${c.images }">
+						</a>
+					</div>
+					<div>
+						<a href="${pageContext.request.contextPath }/pages/user/Goods.jsp"
+							target="_blank">${c.price}</a>
+					</div>
+					<div>
+						<a href="${pageContext.request.contextPath }/pages/user/Goods.jsp"
+							target="_blank">${c.description}</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</c:forEach>
 </body>
 </html>

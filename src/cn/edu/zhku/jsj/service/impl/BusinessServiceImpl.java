@@ -134,4 +134,20 @@ public class BusinessServiceImpl implements BusinessService {
 		Food food = food_dao.findfood(food_id);
 		return food;
 	}
+
+	@Override
+	public boolean updateBook(Book book) {
+		 return book_dao.update(book);
+		
+	}
+
+	@Override
+	public boolean updateFood(Food food) {
+		return food_dao.update(food);
+	}
+
+	@Override
+	public boolean updateCloth(Cloth cloth) {
+		return cloth_dao.update(cloth);
+	}
 }

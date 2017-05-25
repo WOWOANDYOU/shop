@@ -50,4 +50,9 @@ public interface BusinessService {
 	//根据 food_id 查找 
 	Food findfood(int food_id);
 	
+	//更新 商品的信息
+	boolean updateBook(Book book);
+	boolean updateFood(Food food);
+	boolean updateCloth(Cloth cloth);
+	
 }

@@ -14,6 +14,16 @@ public class BookFormBean {
 	private int store_id;  //外键 记住是哪家店的商品
 	private int totalnum;   //货品的库存量
 	
+	private int book_id;
+	public int getBook_id() {
+		return book_id;
+	}
+
+	public void setBook_id(int book_id) {
+		this.book_id = book_id;
+	}
+
+
 	private Map<String,String> errormap = new HashMap<String,String>();
 
 	public String getBookname() {

@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import cn.edu.zhku.jsj.daomain.Book;
 import cn.edu.zhku.jsj.daomain.Cloth;
@@ -24,25 +25,31 @@ public class BeforeModifyGoodServlet extends HttpServlet {
 		String moduuidnum = TokenProcess.getInstance().getUuidnum();
 		request.getSession().setAttribute("moduuidnum", moduuidnum);
 		Enumeration<String> enu = request.getParameterNames();
+		HttpSession session = request.getSession();
+		
 		if(enu.hasMoreElements()){
 			String param = enu.nextElement();
 			String value = request.getParameter(param);
 			
-			request.setAttribute("good_type",param);
+			request.getSession().setAttribute("good_type",param);
 			BusinessService bus = new BusinessServiceImpl();
-			
+			int store_id = 0;
 			int paramint = Integer.parseInt(value);
 			if(param!=null && param.trim().equals("book_id")){
 				Book book = bus.findbook(paramint);
-				request.setAttribute("modify_book", book);
+				store_id = book.getStore_id();
+				session.setAttribute("modify_book", book);
 			}else if(param!=null && param.trim().equals("food_id")){
 				Food food = bus.findfood(paramint);
-				request.setAttribute("modify_food", food);
+				store_id = food.getStore_id();
+				session.setAttribute("modify_food", food);
 			}else{
 				Cloth cloth = bus.findcloth(paramint);
-				request.setAttribute("modify_cloth", cloth);
+				store_id = cloth.getStore_id();
+				session.setAttribute("modify_cloth", cloth);
 			}
-			request.getRequestDispatcher("/pages/shopkeeper/modifygoodinfo.jsp?good_id="+value);
+			request.setAttribute("store_id", store_id);
+			request.getRequestDispatcher("/pages/shopkeeper/modifygoodinfo.jsp?good_id="+value).forward(request, response);
 			return;
 		}
 	}

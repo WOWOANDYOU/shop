@@ -92,12 +92,13 @@ public class FoodDaoImpl implements FoodDao {
 		ResultSet rs = null;
 		con = JdbcUtil.getCon();
 		try{
-			String sql = "update food set totalnum=?,price=?,description=? where food_id=?";
+			String sql = "update food set foodname=?,totalnum=?,price=?,description=? where food_id=?";
 			pres = con.prepareStatement(sql);
-			pres.setInt(1, food.getTotalnum());
-			pres.setFloat(2, food.getPrice());
-			pres.setString(3, food.getDescription());
-			pres.setInt(4, food.getFood_id());
+			pres.setString(1, food.getFoodname());
+			pres.setInt(2, food.getTotalnum());
+			pres.setFloat(3, food.getPrice());
+			pres.setString(4, food.getDescription());
+			pres.setInt(5, food.getFood_id());
 			int num =  pres.executeUpdate();
 			if(num!=0){
 				b = true;

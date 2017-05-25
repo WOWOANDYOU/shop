@@ -15,7 +15,8 @@ public class RegisterCheckBeanUtil {
 			while(en.hasMoreElements()){
 				String name=(String) en.nextElement();
 				String value=request.getParameter(name);
-				BeanUtils.setProperty(bean, name, value);
+				if(!name.trim().equals("uuid") || !name.trim().equals("moduuidnum"))
+					BeanUtils.setProperty(bean, name, value);
 			}
 			
 			return bean;

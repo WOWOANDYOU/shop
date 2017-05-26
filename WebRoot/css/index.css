@@ -33,27 +33,25 @@ table {
 }
 
 .header_right {
+	width:250px;
 	float: right;
 }
 
 .header_left_user {
 	height: 30px;
-	border: 1px solid red;
 }
 
 .header_left_user_d-image {
 	font-size: 13px; width : 30px;
 	height: 30px;
 	float: left;
-	border: 1px solid red;
 	width: 30px;
 }
 
 .header_left_user_d-a {
-	width: 30px;
+	width: 80px;
 	height: 30px;
 	float: left;
-	border: 1px solid red;
 }
 
 .header_left_user_image {
@@ -123,7 +121,7 @@ table {
 .header2_center_buttom {
 	margin: auto;
 	background-color: #ff7624;
-	border: 1px solid #ff7624;
+	border: none;
 }
 
 .header2_center_select {
@@ -155,7 +153,6 @@ table {
 	width: 1320px;
 	height: 50px;
 	margin: 1px auto;
-	border: 1px solid red;
 }
 
 .body_good {

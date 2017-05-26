@@ -16,44 +16,12 @@
 	href="${pageContext.request.contextPath }/css/index.css">
 <script type="text/javascript"
 	src="${pageContext.request.contextPath }/js/body.js">
-	
 </script>
 </head>
 
 <body>
 	<div class="body">
-		<div class="body_type">
-			<form id="body_type_form" action="servlet/Partial_servelet"
-				method="post">
-				<table>
-					<td><input id="body_type_selected" class="body_type_selected"
-						type="text" name="body_type_selected" /></td>
-					<c:choose>
-						<c:when test="${empty sessionScope.body_type_b1}">
-							<td><input id="body_type_b1" class="body_type_b1"
-								type="button" onclick="type_change1()" value="衣    服"></td>
-							<td><input id="body_type_b2" class="body_type_b2"
-								type="button" onclick="type_change2()" value="书    本"></td>
-							<td><input id="body_type_b3" class="body_type_b3"
-								type="button" onclick="type_change3()" value="食    物"></td>
-						</c:when>
-						<c:otherwise>
-							<td><input id="body_type_b1"
-								class="${sessionScope.body_type_b1}" type="button"
-								onclick="type_change1()" value="衣    服"></td>
-							<td><input id="body_type_b2"
-								class="${sessionScope.body_type_b2}" type="button"
-								onclick="type_change2()" value="书    本"></td>
-							<td><input id="body_type_b3"
-								class="${sessionScope.body_type_b3}" type="button"
-								onclick="type_change3()" value="食    物"></td>
-						</c:otherwise>
-					</c:choose>
-				</table>
-			</form>
-		</div>
 		<div class="body_good">
-
 			<c:if test="${sessionScope.body_list_c_flag}">
 				<div class="body_good_more">
 					<a href="servlet/Type_Show_servlet?type='Cloth'">更多</a>

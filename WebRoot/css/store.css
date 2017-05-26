@@ -235,18 +235,38 @@ ul,li,a:hover{
 .li_1_again{
 	width:80px;
 	float:left;
+	position:relative;
 }
 .li_2_again{
 	width:80px;
 	float:right;
-}
-.li_2_again{
 	margin-top:-9px;
 	position:relative;
 }
 
+
 #again_hidden_2{
 	display: none;
+}
+#again_hidden_3{
+	display: none;
+	
+}
+#again_store_catogry{
+	background-color: #000000;
+	position: absolute;top:0;right:0;
+	
+}
+#again_store_catogry a:hover{
+	color:#fb7728;
+	background-color:#242424;
+}
+/* #li_1_again_catogray{
+	position: relative;
+} */
+#li_1_again_catogray:hover #again_hidden_3{
+	display: block; 
+	
 }
 .li_2_again:hover #again_hidden_2{
 	display: block; 
@@ -272,6 +292,7 @@ ul,li,a:hover{
 }
 .li_1_again{
 	background-color:#000000;
+	position:relative;
 }
 .li_1_again a{
 	color:#ffffff;

@@ -211,6 +211,20 @@
 									</div>
 								</div>
 							</li>  --%>
+							<li class="li_1_again" id="li_1_again_catogray">
+								<div id="again_store_catogry">
+									<a href="#">商品分类</a>   <!--  store_id  进入店铺前 要查到 该店铺的 bean -->
+									<div id="again_hidden_3">
+										<a
+											href="${pageContext.request.contextPath }/servlet/CategroyServlet?goodtype=food&store_id=${store.store_id}">食品类</a><br>
+										<a
+											href="${pageContext.request.contextPath }/servlet/CategroyServlet?goodtype=cloth&store_id=${store.store_id}">衣服类</a><br>
+										<!-- 可能会出现的错误  user_id含有中文   参数为中文-->
+										<a
+											href="${pageContext.request.contextPath }/servlet/CategroyServlet?goodtype=book&store_id=${store.store_id}">书籍类</a>
+									</div>
+								</div>
+							</li>
 
 						</ul>
 						<ul class="ul_2">

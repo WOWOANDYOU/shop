@@ -150,4 +150,22 @@ public class BusinessServiceImpl implements BusinessService {
 	public boolean updateCloth(Cloth cloth) {
 		return cloth_dao.update(cloth);
 	}
+
+	@Override
+	public boolean deletebook(int book_id) {
+		boolean b = book_dao.delete(book_id);
+		return b;
+	}
+
+	@Override
+	public boolean deletefood(int food_id) {
+		boolean b = food_dao.delete(food_id);
+		return b;
+	}
+
+	@Override
+	public boolean deletecloth(int cloth_id) {
+		boolean b = cloth_dao.delete(cloth_id);
+		return b;
+	}
 }

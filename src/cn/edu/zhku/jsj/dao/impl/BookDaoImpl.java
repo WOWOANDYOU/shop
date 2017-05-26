@@ -177,21 +177,7 @@ public class BookDaoImpl implements BookDao {
 			pres.setInt(1, store_id);
 			rs = pres.executeQuery();
 			booklist = ResultToBean.getBeanList(Book.class, rs); //调工具类 （封装 数据到 bean的工具类）
- 			/*while(rs.next()){
-				book = new Book();
-				book.setAuthor(rs.getString("author"));
-				book.setImages(rs.getString("B_images"));
-				book.setBook_id(rs.getInt("book_id"));
-				book.setBookname(rs.getString("bookname"));
-				book.setDescription(rs.getString("B_description"));
-				book.setISBN(rs.getString("ISBN"));
-				book.setPress(rs.getString("press"));
-				book.setPrice(rs.getFloat("B_price"));
-				book.setTotalnum(rs.getInt("totalnum"));
-				book.setStore_id(rs.getInt("B_store_id"));
-				book.setVersion(rs.getString("B_version"));
-				list.add(book);
-			}*/
+ 			
 		}catch(Exception e){
 			throw new RuntimeException(e);
 		}finally{

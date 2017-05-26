@@ -55,4 +55,9 @@ public interface BusinessService {
 	boolean updateFood(Food food);
 	boolean updateCloth(Cloth cloth);
 	
+	//删除商品下架
+	boolean deletebook(int book_id);
+	boolean deletefood(int food_id);
+	boolean deletecloth(int cloth_id);
+	
 }

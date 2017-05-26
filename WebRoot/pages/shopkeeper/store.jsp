@@ -40,7 +40,7 @@
 										<a href="${pageContext.request.contextPath }/servlet/BeforeModifyGoodServlet?cloth_id=${cloth.cloth_id }">编辑</a>
 									</div>
 									<div class="good_delete">
-										<a href="${pageContext.request.contentType }/servlet/DeletegoodServlet?cloth_id=${cloth.cloth_id }">删除</a>
+										<a href="javascript:void(0)" onclick="isdelete('${pageContext.request.contextPath }/servlet/DeletegoodServlet','cloth_id','${cloth.cloth_id }')">删除</a>
 									</div>
 								</div>
 							</div>
@@ -72,7 +72,7 @@
 										<a href="${pageContext.request.contextPath }/servlet/BeforeModifyGoodServlet?book_id=${book.book_id }">编辑</a>
 									</div>
 									<div class="good_delete">
-										<a href="${pageContext.request.contextPath }/servlet/DeletegoodServlet?book_id=${book.book_id }">删除</a>
+										<a href="javascript:void(0)" onclick="isdelete('${pageContext.request.contextPath }/servlet/DeletegoodServlet','book_id','${book.book_id }')">删除</a>
 									</div>
 								</div>
 							</div>
@@ -104,7 +104,7 @@
 										<a href="${pageContext.request.contextPath }/servlet/BeforeModifyGoodServlet?food_id=${food.food_id }">编辑</a>
 									</div>
 									<div class="good_delete">
-										<a href="${pageContext.request.contextPath }/servlet/DeletegoodServlet?food_id=${food.food_id }">删除</a>
+										<a href="javascript:void(0)" onclick="isdelete('${pageContext.request.contextPath }/servlet/DeletegoodServlet','food_id','${food.food_id }')">删除</a>
 									</div>
 								</div>
 							</div>

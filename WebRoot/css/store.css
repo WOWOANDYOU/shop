@@ -108,6 +108,11 @@ body{
 	margin:auto;
 	height:120px;
 }
+#store_logo_div{
+	width:360px;
+	height:120px;
+	margin:auto;
+}
 #store_name_div_up{
 	height: 95px;
 	width:100%;

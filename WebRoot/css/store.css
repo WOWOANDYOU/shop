@@ -108,6 +108,11 @@ body{
 	margin:auto;
 	height:120px;
 }
+#store_logo_div{
+	width:360px;
+	height:120px;
+	margin:auto;
+}
 #store_name_div_up{
 	height: 95px;
 	width:100%;
@@ -230,18 +235,38 @@ ul,li,a:hover{
 .li_1_again{
 	width:80px;
 	float:left;
+	position:relative;
 }
 .li_2_again{
 	width:80px;
 	float:right;
-}
-.li_2_again{
 	margin-top:-9px;
 	position:relative;
 }
 
+
 #again_hidden_2{
 	display: none;
+}
+#again_hidden_3{
+	display: none;
+	
+}
+#again_store_catogry{
+	background-color: #000000;
+	position: absolute;top:0;right:0;
+	
+}
+#again_store_catogry a:hover{
+	color:#fb7728;
+	background-color:#242424;
+}
+/* #li_1_again_catogray{
+	position: relative;
+} */
+#li_1_again_catogray:hover #again_hidden_3{
+	display: block; 
+	
 }
 .li_2_again:hover #again_hidden_2{
 	display: block; 
@@ -267,6 +292,7 @@ ul,li,a:hover{
 }
 .li_1_again{
 	background-color:#000000;
+	position:relative;
 }
 .li_1_again a{
 	color:#ffffff;
@@ -440,22 +466,30 @@ ul,li,a:hover{
 	margin: auto;
 }
 .good_price{
-	width:90px;
+	width:60px;
 	height: 40px;
 	float:left;
 }
+.good_totalnum{
+	width:70px;
+	height:40px;
+	float:left;
+}
+.totalnum{
+	color:#9b9b9b;
+}
 .good_manage{
-	width:110px;
+	width:70px;
 	height: 40px;
 	float:right;
 }
 .good_delete{
-	width:50px;
+	width:35px;
 	height: 40px;
 	float:left;
 }
 .good_modify{
-	width:50px;
+	width:35px;
 	height: 40px;
 	float:right;
 }

@@ -34,12 +34,13 @@
 							<div class="good_descrition">${cloth.description}</div>
 							<div class="good_price_big">
 								<div class="good_price"><font class="price_font">￥<strong>${cloth.price }</strong></font></div>
+								<div class="good_totalnum"><font class="totalnum">库存:${cloth.totalnum }</font></div>
 								<div class="good_manage">
 									<div class="good_modify">
 										<a href="${pageContext.request.contextPath }/servlet/BeforeModifyGoodServlet?cloth_id=${cloth.cloth_id }">编辑</a>
 									</div>
 									<div class="good_delete">
-										<a href="${pageContext.request.contentType }/servlet/DeletegoodServlet?cloth_id=${cloth.cloth_id }">删除</a>
+										<a href="javascript:void(0)" onclick="isdelete('${pageContext.request.contextPath }/servlet/DeletegoodServlet','cloth_id','${cloth.cloth_id }')">删除</a>
 									</div>
 								</div>
 							</div>
@@ -65,12 +66,13 @@
 							<div class="good_descrition">${book.description}</div>
 							<div class="good_price_big">
 								<div class="good_price"><font class="price_font">￥<strong>${book.price }</strong></font></div>
+								<div class="good_totalnum"><font class="totalnum">库存:${book.totalnum }</font></div>
 								<div class="good_manage">
 									<div class="good_modify">
 										<a href="${pageContext.request.contextPath }/servlet/BeforeModifyGoodServlet?book_id=${book.book_id }">编辑</a>
 									</div>
 									<div class="good_delete">
-										<a href="${pageContext.request.contextPath }/servlet/DeletegoodServlet?book_id=${book.book_id }">删除</a>
+										<a href="javascript:void(0)" onclick="isdelete('${pageContext.request.contextPath }/servlet/DeletegoodServlet','book_id','${book.book_id }')">删除</a>
 									</div>
 								</div>
 							</div>
@@ -96,12 +98,13 @@
 							<div class="good_descrition">${food.description }</div>
 							<div class="good_price_big">
 								<div class="good_price"><font class="price_font">￥<strong>${food.price }</strong></font></div>
+								<div class="good_totalnum"><font class="totalnum">库存:${food.totalnum }</font></div>
 								<div class="good_manage">
 									<div class="good_modify">
 										<a href="${pageContext.request.contextPath }/servlet/BeforeModifyGoodServlet?food_id=${food.food_id }">编辑</a>
 									</div>
 									<div class="good_delete">
-										<a href="${pageContext.request.contextPath }/servlet/DeletegoodServlet?food_id=${food.food_id }">删除</a>
+										<a href="javascript:void(0)" onclick="isdelete('${pageContext.request.contextPath }/servlet/DeletegoodServlet','food_id','${food.food_id }')">删除</a>
 									</div>
 								</div>
 							</div>

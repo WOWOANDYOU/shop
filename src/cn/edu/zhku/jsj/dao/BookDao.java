@@ -21,5 +21,6 @@ public interface BookDao {
 	boolean delete(int book_id);
 	
 	List<Book> findBook(int store_id);
-
+	
+	
 }

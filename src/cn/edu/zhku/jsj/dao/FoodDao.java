@@ -19,4 +19,6 @@ public interface FoodDao {
 	boolean delete(int food_id);
 	
 	Food findfood(int food_id);
+	
+	List<Food> search_food(int store_id, String goodname);
 }

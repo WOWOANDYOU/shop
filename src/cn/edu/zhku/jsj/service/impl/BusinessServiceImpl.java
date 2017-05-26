@@ -168,4 +168,21 @@ public class BusinessServiceImpl implements BusinessService {
 		boolean b = cloth_dao.delete(cloth_id);
 		return b;
 	}
+
+	@Override
+	public List<Book> search_book(int store_id, String goodname) {
+		return book_dao.search_book(store_id, goodname);
+	}
+
+	@Override
+	public List<Food> search_food(int store_id, String goodname) {
+		return food_dao.search_food(store_id, goodname);
+	}
+
+	@Override
+	public List<Cloth> search_cloth(int store_id, String goodname) {
+		return cloth_dao.search_cloth(store_id, goodname);
+	}
+	
+	
 }

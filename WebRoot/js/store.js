@@ -84,3 +84,12 @@ function isdelete(path,goodtype,good_id){
 		}
 	}
 }
+function checkoutinput_key(){
+	var inputkey = document.getElementById("input_search_key");
+	var value = inputkey.value;
+	if(value==""){
+		alert("请输入搜索关键字");
+		return false;
+	}
+	return true;
+}

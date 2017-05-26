@@ -75,6 +75,19 @@ body{
 #search_text_field{
 	width: 282px;
 }
+#category_div_search{
+	float:left;
+	width:50px;
+}
+#search_div_right{
+	float:left;
+	width:230px;
+}
+#none_good{
+	width:200px;
+	height:50px;
+	margin:auto;
+}
 .input_class{
 	background-color: #fff;
     border: 0 none;

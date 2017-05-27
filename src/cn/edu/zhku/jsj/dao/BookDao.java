@@ -22,5 +22,5 @@ public interface BookDao {
 	
 	List<Book> findBook(int store_id);
 	
-	
+	List<Book> search_book(int store_id, String goodname);
 }

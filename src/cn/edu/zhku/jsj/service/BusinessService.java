@@ -60,4 +60,9 @@ public interface BusinessService {
 	boolean deletefood(int food_id);
 	boolean deletecloth(int cloth_id);
 	
+	
+	//模糊查询 在三张表中 根据关键字 查找出 某个商品  （本店 或者 全商城）
+	List<Book> search_book(int store_id,String goodname);
+	List<Food> search_food(int store_id,String goodname);
+	List<Cloth> search_cloth(int store_id,String goodname);
 }

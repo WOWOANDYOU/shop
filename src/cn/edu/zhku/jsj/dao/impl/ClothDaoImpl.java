@@ -188,4 +188,33 @@ public class ClothDaoImpl implements ClothDao {
 			JdbcUtil.release(con, pres, rs);
 		}
 	}
+
+	@Override
+	public List<Cloth> search_cloth(int store_id, String goodname) {
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		con = JdbcUtil.getCon();
+		List<Cloth> clothlist;
+		try{
+			String sql = "";
+			if(store_id!=0){
+				sql = "select * from cloth where store_id=? and clothname like ?";
+				pres = con.prepareStatement(sql);
+				pres.setInt(1, store_id);
+				pres.setString(2, "%"+goodname+"%");
+			}else{
+				sql = "select * from cloth where clothname like ?";
+				pres = con.prepareStatement(sql);
+				pres.setString(1, "%"+goodname+"%");
+			}
+			rs = pres.executeQuery();
+			clothlist = ResultToBean.getBeanList(Cloth.class, rs); //调工具类 （封装 数据到 bean的工具类）
+			return clothlist;
+		}catch(Exception e){ 
+			throw new RuntimeException(e);
+		}finally{
+			JdbcUtil.release(con, pres, rs);
+		}
+	}
 }	

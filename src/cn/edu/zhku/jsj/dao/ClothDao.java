@@ -22,4 +22,6 @@ public interface ClothDao {
 	boolean delete(int cloth_id);
 	
 	Cloth findcloth(int cloth_id);
+	
+	 List<Cloth> search_cloth(int store_id, String goodname);
 }

@@ -155,12 +155,24 @@
 						</div>
 						<div id="mid_up_right_search">
 							<div id="search_panel">
-								<form action="#" method="post" class="form_class">
+								<form action="${pageContext.request.contextPath }/servlet/InStoreSearchServlet" method="post" class="form_class"  target="_blank" onsubmit="return checkoutinput_key()">
+								<%-- <input type="hidden" value="${store.store_id }" name="store_id"> --%>
+								<!-- 测试 先用 2代替 -->
+								<input type="hidden" value="2" name="store_id">
+									<div id="search_text_field">
+										<div id="category_div_search">
+											<select name="search_cat">
+												<option value="store" selected>本店</option>
+												<option value="shop">商城</option>
+											</select>
+										</div>
+										<div id="search_div_right">
+											<input type="text" id="input_search_key" name="searchGoodname" class="input_class" placeholer="输入关键字搜索" />
+										</div>
+										
+									</div>
 									<div id="search_button">
 										<button class="btn_search_class" type="submit">搜索</button>
-									</div>
-									<div id="search_text_field">
-										<input type="text" name="searchGoodname" class="input_class">
 									</div>
 								</form>
 							</div>
@@ -191,7 +203,7 @@
 				<div id="again_store_nav_big">
 					<div id="again_store_nav_big_mid">
 						<ul class="ul_1">
-							<li class="li_1_again"><a href="">首页</a></li>
+							<li class="li_1_again"><a href="${pageContext.request.contextPath }/pages/shopkeeper/store.jsp">首页</a></li>
 
 							<li class="li_1_again"><a
 								href="${pageContext.request.contextPath }/pages/shopkeeper/show_store_info.jsp?store_id=${store_id }">关于我们</a></li>

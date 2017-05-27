@@ -34,7 +34,7 @@
 							<div class="body_good_total_c">
 									<div>
 										<a
-											href="${pageContext.request.contextPath }/pages/user/Goods.jsp?cloth_id=${c.cloth_id}"
+											href="Goods_servlet?cloth=${c.cloth_id}"
 											target="_blank"> <img class="body_good_total_c_img" alt="商品图片" src="${pageContext.request.contextPath }/images/${c.images }">
 										</a>
 									</div>

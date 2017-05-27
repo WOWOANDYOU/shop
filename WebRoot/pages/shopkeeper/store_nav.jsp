@@ -30,7 +30,7 @@
 										<a href="${pageContext.request.contextPath }/pages/user/register.jsp">免费注册</a>
 									</c:when>
 									<c:otherwise>
-										<a href="跳转到用户信息页面">${userLogin.nickname}</a>
+										<a href="跳转到用户信息页面">${user.nickname}</a>
 									</c:otherwise>
 								</c:choose>
 							</div>

@@ -69,9 +69,8 @@ table {
 }
 
 .header2_center_top {
-	text-align: left;
+	text-align: center;
 	height: 18px;
-	margin: auto;
 }
 
 .header2_center_top_Goods {
@@ -179,12 +178,31 @@ table {
 	weight: 500;
 	color: black;
 }
-
-.body_type_b1_action, .body_type_b2_action, .body_type_b3_action {
+.body_type_b1_action{
 	border: 1 solid black;
 	border-bottom: none;
 	width: 432;
-	background-color: red;
+	background-color: #ff0000;
+	font-size: 30;
+	font-family: 宋体;
+	weight: 500;
+	color: #ffffff;
+} 
+.body_type_b2_action{
+	border: 1 solid black;
+	border-bottom: none;
+	width: 432;
+	background-color: #0080c0;
+	font-size: 30;
+	font-family: 宋体;
+	weight: 500;
+	color: #ffffff;
+}
+.body_type_b3_action {
+	border: 1 solid black;
+	border-bottom: none;
+	width: 432;
+	background-color: #6fd728;
 	font-size: 30;
 	font-family: 宋体;
 	weight: 500;

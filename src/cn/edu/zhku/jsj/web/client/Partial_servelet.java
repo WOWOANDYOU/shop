@@ -23,8 +23,6 @@ public class Partial_servelet extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		PrintWriter out = response.getWriter();
 		String str = request.getParameter("body_type_selected");
 		Client_PartialSelectService CsS = new Client_PartialSelectService();
 		if (str.equals("Cloth")) {
@@ -51,8 +49,6 @@ public class Partial_servelet extends HttpServlet {
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/pages/user/body.jsp");
 		rd.forward(request, response);
-		out.flush();
-		out.close();
 	}
 
 }

@@ -23,6 +23,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-
+	<iframe src="${pageContext.request.contextPath }/pages/user/header.jsp" scrolling="no" style="border:none;width:100%;height:20%;">
+	</iframe>
+	<c:if test="${not empty sessionScope.Cloth }">
+	${sessionScope.Cloth.clothname }
+	<br>
+	${sessionScope.Cloth.price }元
+	</c:if>
   </body>
 </html>

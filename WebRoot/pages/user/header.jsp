@@ -118,34 +118,34 @@
 	<br>
 	<!-- body一部分（种类选择） -->
 	<div class="body_type">
-			<form id="body_type_form" action="servlet/Partial_servelet"
-				method="post" target="view_body">
-				<table>
-					<td><input id="body_type_selected" class="body_type_selected"
-						type="text" name="body_type_selected" /></td>
-					<c:choose>
-						<c:when test="${empty sessionScope.body_type_b1}">
-							<td><input id="body_type_b1" class="body_type_b1"
-								type="button" onclick="type_change1()" value="衣    服"></td>
-							<td><input id="body_type_b2" class="body_type_b2"
-								type="button" onclick="type_change2()" value="书    本"></td>
-							<td><input id="body_type_b3" class="body_type_b3"
-								type="button" onclick="type_change3()" value="食    物"></td>
-						</c:when>
-						<c:otherwise>
-							<td><input id="body_type_b1"
-								class="${sessionScope.body_type_b1}" type="button"
-								onclick="type_change1()" value="衣    服"></td>
-							<td><input id="body_type_b2"
-								class="${sessionScope.body_type_b2}" type="button"
-								onclick="type_change2()" value="书    本"></td>
-							<td><input id="body_type_b3"
-								class="${sessionScope.body_type_b3}" type="button"
-								onclick="type_change3()" value="食    物"></td>
-						</c:otherwise>
-					</c:choose>
-				</table>
-			</form>
-		</div>
+		<form id="body_type_form" action="servlet/Partial_servelet"
+			method="post" target="view_body">
+			<table>
+				<td><input id="body_type_selected" class="body_type_selected"
+					type="text" name="body_type_selected"/></td>
+				<c:choose>
+					<c:when test="${empty sessionScope.body_type_b1}">
+						<td><input id="body_type_b1" class="body_type_b1"
+							type="button" onclick="type_change1()" value="衣    服"></td>
+						<td><input id="body_type_b2" class="body_type_b2"
+							type="button" onclick="type_change2()" value="书    本"></td>
+						<td><input id="body_type_b3" class="body_type_b3"
+							type="button" onclick="type_change3()" value="食    物"></td>
+					</c:when>
+					<c:otherwise>
+						<td><input id="body_type_b1"
+							class="${sessionScope.body_type_b1}" type="button"
+							onclick="type_change1()" value="衣    服"></td>
+						<td><input id="body_type_b2"
+							class="${sessionScope.body_type_b2}" type="button"
+							onclick="type_change2()" value="书    本"></td>
+						<td><input id="body_type_b3"
+							class="${sessionScope.body_type_b3}" type="button"
+							onclick="type_change3()" value="食    物"></td>
+					</c:otherwise>
+				</c:choose>
+			</table>
+		</form>
+	</div>
 </body>
 </html>

@@ -16,6 +16,7 @@
 	href="${pageContext.request.contextPath }/css/index.css">
 <script type="text/javascript"
 	src="${pageContext.request.contextPath }/js/body.js">
+	
 </script>
 </head>
 
@@ -30,25 +31,28 @@
 				<br>
 				<br>
 				<div class="body_good_total">
-					<c:forEach var="c" items="${sessionScope.body_list_c}" begin="0" end="7">
-							<div class="body_good_total_c">
-									<div>
-										<a
-											href="Goods_servlet?cloth=${c.cloth_id}"
-											target="_blank"> <img class="body_good_total_c_img" alt="商品图片" src="${pageContext.request.contextPath }/images/${c.images }">
-										</a>
-									</div>
-									<div style="font-size:20;font-family:宋体;weight:400;width:190px;height:10px;">
-										<a
-											href="${pageContext.request.contextPath }/pages/user/Goods.jsp?cloth_id=${c.cloth_id}"
-											target="_blank">${c.price}元</a>
-									</div>
-									<div style="font-size:20;font-family:宋体;weight:200;float:left;width:110px;height:190px;text-align:left">
-										<a
-											href="${pageContext.request.contextPath }/pages/user/Goods.jsp?cloth_id=${c.cloth_id}"
-											target="_blank">${c.description}</a>
-									</div>
+					<c:forEach var="c" items="${sessionScope.body_list_c}" begin="0"
+						end="7">
+						<div class="body_good_total_c">
+							<div>
+								<a href="Goods_servlet?cloth=${c.cloth_id}" target="_blank">
+									<img class="body_good_total_c_img" alt="商品图片"
+									src="${pageContext.request.contextPath }/images/${c.images }">
+								</a>
 							</div>
+							<div
+								style="font-size:20;font-family:宋体;font-weight:400;width:190px;height:10px;">
+								<a
+									href="${pageContext.request.contextPath }/pages/user/Goods.jsp?cloth_id=${c.cloth_id}"
+									target="_blank" style="font-weight:500;color:red">￥${c.price}</a>
+							</div>
+							<div
+								style="font-size:20;font-family:宋体;font-weight:200;float:left;width:110px;height:190px;text-align:left">
+								<a	style="color:black;"
+									href="${pageContext.request.contextPath }/pages/user/Goods.jsp?cloth_id=${c.cloth_id}"
+									target="_blank">${c.description}</a>
+							</div>
+						</div>
 					</c:forEach>
 				</div>
 			</c:if>
@@ -60,25 +64,30 @@
 				<br>
 				<br>
 				<div class="body_good_total">
-					<c:forEach var="b" items="${sessionScope.body_list_b}" begin="0" end="7">
-							<div class="body_good_total_b">
-									<div>
-										<a
-											href="${pageContext.request.contextPath }/pages/user/Goods.jsp?book_id=${b.book_id}"
-											target="_blank"> <img class="body_good_total_b_img" alt="商品图片" src="${pageContext.request.contextPath }/images/${b.images }">
-										</a>
-									</div>
-									<div style="font-size:20;font-family:宋体;weight:400;width:190px;height:10px">
-										<a
-											href="${pageContext.request.contextPath }/pages/user/Goods.jsp?book_id=${b.book_id}"
-											target="_blank">${b.price}元</a>
-									</div>
-									<div style="font-size:20;font-family:宋体;weight:200;float:left;width:110px;height:190px;text-align:left">
-										<a
-											href="${pageContext.request.contextPath }/pages/user/Goods.jsp?book_id=${b.book_id}"
-											target="_blank">${b.description}</a>
-									</div>
+					<c:forEach var="b" items="${sessionScope.body_list_b}" begin="0"
+						end="7">
+						<div class="body_good_total_b">
+							<div>
+								<a
+									href="${pageContext.request.contextPath }/pages/user/Goods.jsp?book_id=${b.book_id}"
+									target="_blank"> <img class="body_good_total_b_img"
+									alt="商品图片"
+									src="${pageContext.request.contextPath }/images/${b.images }">
+								</a>
 							</div>
+							<div
+								style="font-size:20;font-family:宋体;font-weight:400;width:190px;height:10px">
+								<a
+									href="${pageContext.request.contextPath }/pages/user/Goods.jsp?book_id=${b.book_id}"
+									target="_blank" style="font-weight:500;color:red">￥${b.price}</a>
+							</div>
+							<div
+								style="font-size:20;font-family:宋体;font-weight:200;float:left;width:110px;height:190px;text-align:left">
+								<a	style="color:black;"
+									href="${pageContext.request.contextPath }/pages/user/Goods.jsp?book_id=${b.book_id}"
+									target="_blank">${b.description}</a>
+							</div>
+						</div>
 					</c:forEach>
 				</div>
 			</c:if>
@@ -90,25 +99,30 @@
 				<br>
 				<br>
 				<div class="body_good_total">
-					<c:forEach var="f" items="${sessionScope.body_list_f}" begin="0" end="7"> 
-							<div class="body_good_total_f" style="display:inline">
-									<div>
-										<a
-											href="${pageContext.request.contextPath }/pages/user/Goods.jsp?food_id=${f.food_id}"
-											target="_blank"> <img class="body_good_total_f_img" alt="商品图片" src="${pageContext.request.contextPath }/images/${f.images }">
-										</a>
-									</div>
-									<div style="font-size:20;font-family:宋体;weight:400;width:190px;height:10px">
-										<a
-											href="${pageContext.request.contextPath }/pages/user/Goods.jsp?food_id=${f.food_id}"
-											target="_blank">${f.price}元</a>
-									</div>
-									<div style="font-size:20;font-family:宋体;weight:200;float:left;width:110px;height:190px;text-align:left">
-										<a style="color:black;"
-											href="${pageContext.request.contextPath }/pages/user/Goods.jsp?food_id=${f.food_id}"
-											target="_blank">${f.description}</a>
-									</div>
+					<c:forEach var="f" items="${sessionScope.body_list_f}" begin="0"
+						end="7">
+						<div class="body_good_total_f" style="display:inline">
+							<div>
+								<a
+									href="${pageContext.request.contextPath }/pages/user/Goods.jsp?food_id=${f.food_id}"
+									target="_blank"> <img class="body_good_total_f_img"
+									alt="商品图片"
+									src="${pageContext.request.contextPath }/images/${f.images }">
+								</a>
 							</div>
+							<div
+								style="font-size:20;font-family:宋体;font-weight:400;width:190px;height:10px">
+								<a
+									href="${pageContext.request.contextPath }/pages/user/Goods.jsp?food_id=${f.food_id}"
+									target="_blank" style="font-weight:500;color:red">￥${f.price}</a>
+							</div>
+							<div
+								style="font-size:20;font-family:宋体;font-weight:200;float:left;width:110px;height:190px;text-align:left">
+								<a style="color:black;"
+									href="${pageContext.request.contextPath }/pages/user/Goods.jsp?food_id=${f.food_id}"
+									target="_blank">${f.description}</a>
+							</div>
+						</div>
 					</c:forEach>
 				</div>
 			</c:if>

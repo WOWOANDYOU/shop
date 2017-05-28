@@ -195,18 +195,26 @@
 			<div id="store_info_div">
 				<div id="store_name_div">
 					<div id="store_logo_div">
+					<c:choose>
+					<c:when test="${empty store.images }">
 						<img alt="store_logo"
 							src="${pageContext.request.contextPath }/images/store_logo.jpg"
 							width="350px" height="120px" style="align:center" />
+					</c:when>
+					<c:otherwise>
+						<img alt="store_logo"
+								src="${pageContext.request.contextPath }/images/${store.images}"
+								width="350px" height="120px" style="align:center" />
+					</c:otherwise>
+					</c:choose>
 					</div>
 				</div>
 				<div id="again_store_nav_big">
 					<div id="again_store_nav_big_mid">
-						<ul class="ul_1">
-							<li class="li_1_again"><a href="${pageContext.request.contextPath }/pages/shopkeeper/store.jsp">首页</a></li>
-
+						<ul class="ul_1"><!-- pages/shopkeeper/store.jsp -->
+							<li class="li_1_again"><a href="${pageContext.request.contextPath }/servlet/AddGoodsServlet?store_id=2">首页</a></li>
 							<li class="li_1_again"><a
-								href="${pageContext.request.contextPath }/pages/shopkeeper/show_store_info.jsp?store_id=${store_id }">关于我们</a></li>
+								href="${pageContext.request.contextPath }/pages/shopkeeper/show_store_info.jsp?store_id=${store.store_id}">关于我们</a></li><%--测试先用2 代替 ${store_id } --%>
 
 							<!-- 分类显示 不好做先 不做 -->
 							<%-- <li class="li_1_again">

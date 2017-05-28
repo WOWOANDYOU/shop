@@ -28,7 +28,9 @@
 						<div class="show_goods_div_in">
 							<div class="good_img">
 							<a href="sellgoodinfo.jsp?cloth_id=${cloth.cloth_id }">
-							<img alt="picture" src="${pageContext.request.contextPath }/images/${cloth.images}" width="220px" height="250px">
+							<c:forTokens var="cloth2" items="${cloth.images }" delims="," begin="0" end="0">
+							<img alt="picture" src="${pageContext.request.contextPath }/images/${cloth2}" width="220px" height="250px">
+							</c:forTokens>
 							</a>
 							</div>
 							<div class="good_descrition">${cloth.description}</div>
@@ -39,7 +41,7 @@
 									<div class="good_modify">
 										<a href="${pageContext.request.contextPath }/servlet/BeforeModifyGoodServlet?cloth_id=${cloth.cloth_id }">编辑</a>
 									</div>
-									<div class="good_delete">
+									 <div class="good_delete">
 										<a href="javascript:void(0)" onclick="isdelete('${pageContext.request.contextPath }/servlet/DeletegoodServlet','cloth_id','${cloth.cloth_id }')">删除</a>
 									</div>
 								</div>

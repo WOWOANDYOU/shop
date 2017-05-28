@@ -24,7 +24,9 @@
 						<div class="show_goods_div_in">
 							<div class="good_img">
 							<a href="sellgoodinfo.jsp?cloth_id=${cloth.cloth_id }">
-							<img alt="picture" src="${pageContext.request.contextPath }/images/${cloth.images}" width="220px" height="250px">
+							<c:forTokens var="images" items="${cloth.images }" delims="," begin="0" end="0">
+							<img alt="picture" src="${pageContext.request.contextPath }/images/${images}" width="220px" height="250px">
+							</c:forTokens>
 							</a>
 							</div>
 							<div class="good_descrition">${cloth.description}</div>

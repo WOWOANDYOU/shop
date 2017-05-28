@@ -5,6 +5,7 @@ import java.util.List;
 import cn.edu.zhku.jsj.domain.Book;
 import cn.edu.zhku.jsj.domain.Cloth;
 import cn.edu.zhku.jsj.domain.Food;
+import cn.edu.zhku.jsj.domain.Order;
 import cn.edu.zhku.jsj.domain.Store;
 import cn.edu.zhku.jsj.domain.User;
 import cn.edu.zhku.jsj.exception.UserexistException;
@@ -65,4 +66,14 @@ public interface BusinessService {
 	List<Book> search_book(int store_id,String goodname);
 	List<Food> search_food(int store_id,String goodname);
 	List<Cloth> search_cloth(int store_id,String goodname);
+	
+	//展现店铺信息
+	Store finstoreinfo(int store_id);
+	//修改店铺信息
+	boolean updatestore_info(Store store);
+	//根据店铺的id 在 订单表中 查找出 该店铺的所有订单
+	List<Order> getOrder(int store_id);
+	
+	//添加订单
+	int addOrder(Order order);
 }

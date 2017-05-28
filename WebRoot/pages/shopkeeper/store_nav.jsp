@@ -213,10 +213,10 @@
 					<div id="again_store_nav_big_mid">
 						<ul class="ul_1"><!-- pages/shopkeeper/store.jsp -->
 							<li class="li_1_again"><a href="${pageContext.request.contextPath }/servlet/AddGoodsServlet?store_id=2">首页</a></li>
-							<li class="li_1_again"><a
-								href="${pageContext.request.contextPath }/pages/shopkeeper/show_store_info.jsp?store_id=${store.store_id}">关于我们</a></li><%--测试先用2 代替 ${store_id } --%>
-
-							<!-- 分类显示 不好做先 不做 -->
+							<li class="li_1_again"><a     
+								href="${pageContext.request.contextPath }/servlet/AddFoodServlet?store_id=2">关于我们</a></li><%--测试先用2 代替 ${store_id } --%>
+<%-- ${store.store_id} --%>
+							<!-- 分类显示 不好做先 不做 -->    <%-- pages/shopkeeper/show_store_info.jsp?store_id=${store.store_id} --%>
 							<%-- <li class="li_1_again">
 								<div id="again_store_to_keeper">
 									<a href="进入可以修改店铺信息的页面  modify_store.jsp">所有分类</a>
@@ -251,15 +251,17 @@
 							<%-- <c:if test="${user.role==2 }">   如果是店主那么 显示管理店铺的 操作 --%>
 							<li class="li_2_again">
 								<div id="again_store_to_keeper">
-									<a href="进入可以修改店铺信息的页面  modify_store.jsp">店铺管理</a>
+									<a href="">店铺管理</a>
 									<div id="again_hidden_2">
 										<a
 											href="${pageContext.request.contextPath }/pages/shopkeeper/add_goods.jsp">添加商品</a><br>
 										<a
-											href="${pageContext.request.contextPath }/pages/shopkeeper/modify_store.jsp">店铺管理</a><br>
-										<!-- 可能会出现的错误  user_id含有中文   参数为中文-->
+											href="${pageContext.request.contextPath }/servlet/AddClothServlet?store_id=2">店铺管理</a><br>
+										<!-- 可能会出现的错误  user_id含有中文   参数为中文    ${store.store_id}-->
 										<a
-											href="${pageContext.request.contextPath }/pages/shopkeeper/store_order_manage.jsp?user_id=${user.user_id}">订单管理</a>
+											href="${pageContext.request.contextPath }/servlet/AddBookServlet?store_id=2">订单管理
+											</a>
+											<%-- pages/shopkeeper/store_order_manage.jsp?user_id=${user.user_id} --%>
 									</div>
 								</div>
 							</li>

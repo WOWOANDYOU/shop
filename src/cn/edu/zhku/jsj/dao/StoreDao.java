@@ -30,5 +30,11 @@ public interface StoreDao {
 	boolean delete(Cloth cloth);
 	//查找店铺名为storename的店铺
 	List<Store> find(String storename);
+	
+	Store findstoreinfo(int store_id);
+	
+	boolean updatestore(Store store);
+	
+	
 
 }

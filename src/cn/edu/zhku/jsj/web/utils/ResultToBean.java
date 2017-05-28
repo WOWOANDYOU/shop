@@ -3,6 +3,7 @@ package cn.edu.zhku.jsj.web.utils;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +30,7 @@ public class ResultToBean {
 				此时,getColumnName(3) == "description";而getColumnLabel(3) == "relatedDescription"。
 				如果你想将ResultSet的结果映射到HashMap中，注意一定使用getColumnLabel，而不要用getColumnName。*/
 				columnNames[i] = rsmd.getColumnLabel(i + 1);  // rsmd.getColumnLabel(i) 就是输出 响应的的列名
+				System.out.println(columnNames[i]);
 				//所以columnNaes 存放的就是 所有的列的名字
 			}
 
@@ -45,6 +47,7 @@ public class ResultToBean {
 						continue;
 					}
 					Object value = rs.getObject(columnNames[i]);
+					System.out.print(columnNames[i]);
 /*					System.out.print(columnNames[i]);
 					System.out.println(":\nvalue:"+value.getClass());*/
 					//这里是获取数据库字段的类型
@@ -53,15 +56,18 @@ public class ResultToBean {
 					field = clazz.getDeclaredField(columnNames[i]);
 /*					System.out.println("field:"+field.getType());*/
 					Class<?> beanType = field.getType();
-					
+					System.out.println(dbType);
 					//如果发生从数据库获取到得类型跟javaBean类型不同，先按String类型取  然后在转换为 具体的类型
 					if(beanType!=dbType){
 						/*System.out.println("beantype!=dbtype");*/
 						value = rs.getString(columnNames[i]);
 						if(dbType.getSimpleName().equals("Integer")){
 							value = Integer.parseInt((String)value);
+						}else if(dbType.getSimpleName().equals("Float")){
+							value = Float.parseFloat((String) value);
 						}else{
-							value =Float.parseFloat((String) value);
+							System.out.println(value);
+							value = Timestamp.valueOf((String)value).getTime();
 						}
 				 	}
 					String setMethodName = "set" + firstUpperCase(columnNames[i]);

@@ -16,6 +16,7 @@ import org.apache.commons.fileupload.FileUploadBase.FileSizeLimitExceededExcepti
 import cn.edu.zhku.jsj.domain.Book;
 import cn.edu.zhku.jsj.domain.Cloth;
 import cn.edu.zhku.jsj.domain.Food;
+import cn.edu.zhku.jsj.domain.Order;
 import cn.edu.zhku.jsj.formbean.BookFormBean;
 import cn.edu.zhku.jsj.service.BusinessService;
 import cn.edu.zhku.jsj.service.impl.BusinessServiceImpl;
@@ -23,9 +24,13 @@ import cn.edu.zhku.jsj.web.utils.WebUtil;
 @WebServlet("/servlet/AddBookServlet")
 public class AddBookServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	BusinessService bus = new BusinessServiceImpl();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		String storeid = request.getParameter("store_id");
+		int store_id = Integer.parseInt(storeid);
+		List<Order> orderlist = bus.getOrder(store_id);
+		request.getRequestDispatcher("/pages/shopkeeper/store_order_manage.jsp").forward(request, response);
+		return;
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -34,7 +39,7 @@ public class AddBookServlet extends HttpServlet {
 		String server_uuid = (String) request.getSession().getAttribute("formuuidnum");
 		boolean b2 = WebUtil.isToken(client_uuid, server_uuid);
 		
-		BusinessService bus = new BusinessServiceImpl();
+		
 		
 		if(b2){
 			System.out.println("请不要 用刷新 重复添加书籍 （重复提交表单）");

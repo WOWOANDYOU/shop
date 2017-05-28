@@ -6,7 +6,7 @@
 	<div id="add_store_in">
 		<div id="add_store_in_in">
 			<div id="add_store_in_left_2">
-				<c:choose>
+					<c:choose>
 					<c:when test="${empty store_info.images }">
 					<img alt="picture" src="${pageContext.request.contextPath }/images/store_logo.jpg" height="100px" width="200px">
 					</c:when>
@@ -17,21 +17,20 @@
 				</div>
 			</div>
 			<div id="add_store_in_right">
-			<form action="${pageContext.request.contextPath }/servlet/Modify_store_infoServlet" method="post">
-			<input type="hidden" name="store_id" value="${store_id }">
-				<table align="center" style="width:250px">
+				<table align="center">
 					<tr>
 						<th class="th_wight">店名：</th>
-						<td><input type="text" name="storename" value="${store_info.storename }"></td>
+						<td>${store_info.storename }</td>
 					</tr>
-					
-					<tr><%-- <input type="text" name="description" value=""> --%>
+					<tr>
+						<th class="th_wight">掌柜：</th>
+						<td>${store_info.owner_id }</td>
+					</tr>
+					<tr>
 						<th class="th_wight">描述：</th>
-						<td><textarea name="description" rows="4" cols="16">${store_info.description }</textarea></td>
+						<td>${store_info.description }</td>
 					</tr>
-					<tr><td colspan="2" align="center"><input type="submit" value="修改"><input type="reset" value="重置"></td></tr>
 				</table>
-			</form>
 			</div>
 		</div>
 	</div>

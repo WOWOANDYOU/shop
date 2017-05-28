@@ -13,6 +13,7 @@ import cn.edu.zhku.jsj.dao.UserDao;
 import cn.edu.zhku.jsj.domain.Book;
 import cn.edu.zhku.jsj.domain.Cloth;
 import cn.edu.zhku.jsj.domain.Food;
+import cn.edu.zhku.jsj.domain.Order;
 import cn.edu.zhku.jsj.domain.Store;
 import cn.edu.zhku.jsj.domain.User;
 import cn.edu.zhku.jsj.exception.UserexistException;
@@ -183,6 +184,26 @@ public class BusinessServiceImpl implements BusinessService {
 	public List<Cloth> search_cloth(int store_id, String goodname) {
 		return cloth_dao.search_cloth(store_id, goodname);
 	}
-	
+
+	@Override
+	public Store finstoreinfo(int store_id) {
+		return store_dao.findstoreinfo(store_id);
+	}
+
+	@Override
+	public boolean updatestore_info(Store store) {
+		return store_dao.updatestore(store);
+	}
+
+	@Override
+	public List<Order> getOrder(int store_id) {
+		return order_dao.getstore_Orders(store_id);
+	}
+
+	@Override
+	public int addOrder(Order order) {
+		int num = order_dao.add(order);
+		return num;
+	}
 	
 }

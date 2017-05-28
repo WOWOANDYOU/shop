@@ -16,6 +16,7 @@ import org.apache.commons.fileupload.FileUploadBase.FileSizeLimitExceededExcepti
 import cn.edu.zhku.jsj.domain.Book;
 import cn.edu.zhku.jsj.domain.Cloth;
 import cn.edu.zhku.jsj.domain.Food;
+import cn.edu.zhku.jsj.domain.Store;
 import cn.edu.zhku.jsj.formbean.FoodFormBean;
 import cn.edu.zhku.jsj.service.BusinessService;
 import cn.edu.zhku.jsj.service.impl.BusinessServiceImpl;
@@ -25,7 +26,13 @@ import cn.edu.zhku.jsj.web.utils.WebUtil;
 public class AddFoodServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 
+		String storeid =  request.getParameter("store_id");
+		int store_id = Integer.parseInt(storeid);
+		BusinessService bus = new BusinessServiceImpl();
+		Store store = bus.finstoreinfo(store_id);
+		request.setAttribute("store_info", store);
+		request.getRequestDispatcher("/pages/shopkeeper/show_store_info.jsp").forward(request, response);
+		return;
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			String client_uuid = request.getParameter("uuid");

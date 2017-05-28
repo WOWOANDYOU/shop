@@ -12,5 +12,8 @@ public interface OrderDao {
 	List<Map> findAll();
 
 	boolean delete(int order_id);
-
+	
+	List<Order> getstore_Orders(int store_id);
+	
+	
 }

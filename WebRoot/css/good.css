@@ -1,0 +1,136 @@
+@CHARSET "UTF-8";
+.Goods{
+	border:1px solid red;
+}
+.Goods_good{
+	width:1360px;
+	border:1px solid green;
+}
+.Goods_good_i{
+	float:left;
+	width:475px;
+	height:430px;
+	border:1px solid blue;
+}
+.Goods_good_i_cimg{
+	width:475px;
+	height:350px;
+	border:1px solid red;
+}
+.Goods_good_i_bimg{
+	border:1px solid red;
+}
+.Goods_good_type{
+	width:660px;
+	height:430px;
+	float:left;
+	border:1px solid red;
+}
+.Goods_good_type_title{
+	float:left;
+	width:650px;
+	height:65px;
+	margin:5px;
+	border:1px solid green;
+	font-size:18px;
+	font-weight:600;
+}
+.Goods_good_type_price{
+	float:left;
+	width:650px;
+	height:65px;
+	margin:5px;
+	border:1px solid green;
+	color:red;
+	font-size:20px;
+	font-weight:900;
+}
+.Goods_good_type_c{
+	float:left;
+	width:660px;
+	height:71px;
+	border:1px solid blue;
+}
+.Goods_good_type_c_color{
+	float:left;
+	width:70px;
+	height:32px;
+	float:left;
+	border:1px solid black;
+	cursor:pointer;
+	margin:10px;
+}
+.Goods_good_type_c_color_selected{
+	width:210px;
+	height:71px;
+	float:left;
+	border:1px solid black;
+	background-color:red;
+	font-color:white;
+	cursor:pointer;	
+}
+.Goods_good_type_v{
+	float:left;
+	width:660px;
+	height:71px;
+	border:1px solid blue;
+}
+.Goods_good_type_v_version{
+	float:left;
+	width:70px;
+	height:32px;
+	border:1px solid black;
+	cursor:pointer;
+	margin:10px;
+}
+.Goods_good_type_num{
+	float:left;
+	position:relative;
+	left:130px;
+	width:530px;
+	height:61px;
+	border:1px solid green;
+}
+.Goods_good_type_num_b1,.Goods_good_type_num_b2{
+	margin:10px;
+	font-size:20px;
+	width:32px;
+	height:32px;
+	cursor:pointer;
+}
+.Goods_good_type_num_text{
+	text-align:center;
+	width:31px;
+	height:32px;
+}
+.Goods_good_type_pay{
+	float:left;
+	text-align:center;
+	width:660px;
+	height:57px;
+	border:1px solid green;
+}
+.Goods_good_type_pay_b1{
+	width:220px;
+	height:38px;
+	background-color:#ff8000;
+	cursor:pointer;
+}
+.Goods_good_type_pay_b1:hover{
+	width:220px;
+	height:38px;
+	background-color:#ff8040;
+	cursor:pointer;
+}
+.Goods_good_type_pay_b2{
+	width:220px;
+	height:38px;
+	background-color:#fd0227;
+	cursor:pointer;
+}
+.Goods_good_type_pay_b2:hover{
+	width:220px;
+	height:38px;
+	background-color:#ff0000;
+	cursor:pointer;
+}

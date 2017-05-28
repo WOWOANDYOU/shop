@@ -69,52 +69,56 @@ table {
 }
 
 .header2_center_top {
-	text-align: center;
+	text-align: left;
 	height: 18px;
 }
 
 .header2_center_top_Goods {
-	display: inline;
-	height: 24px;
-	width: 50px;
+	float:left;
+	height: 20px;
+	width: 40px;
 	font-size: 15px;
 	font-family: 宋体;
 	weight: 300px;
 	border: 1px solid #ff7624;
+	cursor:default;
 }
 
 .header2_center_top_Shop {
-	display: inline;
-	height: 24px;
-	width: 50px;
+	float:left;
+	height: 20px;
+	width: 40px;
 	font-size: 15x;
 	font-family: 宋体;
 	weight: 300px;
 	border: 1px solid #ff7624;
+	cursor:default;
 }
 
 .header2_center_top_Goods_selected {
-	display: inline;
-	height: 24px;
-	width: 50px;
+	float:left;
+	height: 20px;
+	width: 40px;
 	color: white;
 	font-size: 15px;
 	font-family: 宋体;
 	weight: 300px;
 	background-color: #ff7624;
 	border: 1px solid #ff7624;
+	cursor:default;
 }
 
 .header2_center_top_Shop_selected {
-	display: inline;
-	height: 24px;
-	width: 50px;
+	float:left;
+	height: 20px;
+	width: 40px;
 	color: white;
 	font-size: 15x;
 	font-family: 宋体;
 	weight: 300px;
 	background-color: #ff7624;
 	border: 1px solid #ff7624;
+	cursor:default;
 }
 
 .header2_center_buttom {
@@ -141,6 +145,7 @@ table {
 	color: #ffffff;
 	weight: 200;
 	border: 0px;
+	cursor:pointer;
 }
 /***************第三块 ********************/
 .body {

@@ -28,7 +28,11 @@ public class StoreDaoImpl implements StoreDao {
 			pres.setString(1, store.getStorename());
 			pres.setString(2, store.getOwner_id());
 			pres.setString(3, store.getDescription());
+<<<<<<< HEAD
+			pres.setInt(4, store.getControl());
+=======
 			pres.setString(4, store.getImages());
+>>>>>>> upstream/master
 			
 			int num = pres.executeUpdate();
 			return num;

@@ -37,11 +37,16 @@ public class RegisterServlet extends HttpServlet {
 		try {
 			BeanUtils.copyProperties(user, bean);
 			register.adduser(user);
+<<<<<<< HEAD
+			request.setAttribute("message", "注册成功,三秒后自动跳回首页");
+			request.getRequestDispatcher("/pages/message.jsp").forward(request, response);;
+=======
 			request.setAttribute("message", "注册成功");
 
 			request.getSession().setAttribute("login_result", true);
 			request.getSession().setAttribute("user", user);
 			request.getRequestDispatcher("/pages/user/message.jsp").forward(request, response);;
+>>>>>>> upstream/master
 			return;
 		} catch (UserexistException e) {
 			bean.getErrors().put("user_id","用户已存在");
@@ -49,8 +54,13 @@ public class RegisterServlet extends HttpServlet {
 			request.getRequestDispatcher("/pages/user/register.jsp").forward(request, response);;
 		}catch(Exception e){
 			e.printStackTrace();
+<<<<<<< HEAD
+			request.setAttribute("message", "对不起，服务器出错，注册失败，三秒后自动跳回首页");
+			request.getRequestDispatcher("/pages/message.jsp").forward(request, response);;
+=======
 			request.setAttribute("message", "对不起，服务器出错，注册失败");
 			request.getRequestDispatcher("/pages/user/message.jsp").forward(request, response);;
+>>>>>>> upstream/master
 		}
 	}
 

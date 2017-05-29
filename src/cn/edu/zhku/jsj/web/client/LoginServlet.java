@@ -43,9 +43,9 @@ public class LoginServlet extends HttpServlet {
 			request.getRequestDispatcher("/pages/login.jsp").forward(request, response);
 			return;
 		}
-		session.setAttribute("message", "用户登录成功");
+		session.setAttribute("message", "用户登录成功，三秒后自动跳回首页");
 		session.setAttribute("user", user);
-		response.sendRedirect(request.getContextPath()+"/index.jsp");
+		request.getRequestDispatcher("/pages/message.jsp").forward(request, response);;
 	}
 
 	

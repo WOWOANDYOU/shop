@@ -516,3 +516,49 @@ ul,li,a:hover{
 	height: 40px;
 	float:right;
 }
+#box{
+	float:left;
+	width:660px;
+	height:400px;
+	position:relative;          
+}
+#tab{
+	width:500px;
+	height:40px;
+	/* margin:0 auto; */
+	float:left;
+}
+
+#tab li{
+	float:left;
+	width:100px;
+	height:26px;
+}
+
+#tab .list{ 
+    border-left:1px solid #dddddd;
+    border-right:1px solid #dddddd;
+    position:relative;
+    z-index:1;
+}
+#hide div{
+      width:950px;
+      height:300px;
+      position:absolute;
+      left:40px;
+      top:42px;
+      border:1px solid #dddddd;
+      font-size:12px;
+      line-height:350px;
+      text-align:center;   
+}
+/* #hide .hd1{
+	display:block;
+} */
+.order_button{
+	background-color: white;
+    border-bottom: medium none;
+    color: #ff621e;
+    font-size: 16px;
+    width: 100px;
+}

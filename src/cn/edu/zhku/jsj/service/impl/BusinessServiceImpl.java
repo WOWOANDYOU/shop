@@ -205,5 +205,11 @@ public class BusinessServiceImpl implements BusinessService {
 		int num = order_dao.add(order);
 		return num;
 	}
+
+	@Override
+	public List<Order> getBFOrder(int store_id, int states) {
+		return order_dao.getstore_BFOrders(store_id,states);
+	}
+
 	
 }

@@ -1,3 +1,15 @@
+function allorder(){
+	document.getElementById("order_input_1").value = "0";   /*0 表示该店铺的所有订单 包括未发货 以及发货了的*/
+	document.getElementById("order_form").submit();
+}
+function beforeorder(){
+	document.getElementById("order_input_1").value = "2";   /*2 表示 未发货*/
+	document.getElementById("order_form").submit();
+}
+function finishorder(){
+	document.getElementById("order_input_1").value = "3"; /*3 表示 已发货*/
+	document.getElementById("order_form").submit();
+}
 function changeTitle(storename) {
 	document.title = storename; /* 页面加载就改变 页面的title */
 }
@@ -93,3 +105,4 @@ function checkoutinput_key(){
 	}
 	return true;
 }
+

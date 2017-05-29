@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.beanutils.BeanUtils;
 
-import cn.edu.zhku.jsj.daomain.User;
+import cn.edu.zhku.jsj.domain.User;
 import cn.edu.zhku.jsj.exception.UserexistException;
 import cn.edu.zhku.jsj.service.BusinessService;
 import cn.edu.zhku.jsj.service.impl.BusinessServiceImpl;
@@ -25,11 +25,11 @@ public class RegisterServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		//将表的数据提交到RegisterCheckBean
 		RegisterCheckBean bean=RegisterCheckBeanUtil.registerBean(request, RegisterCheckBean.class);
-	
+		
 		//检验用户注册提交的数据
 		if(bean.validate()!=true){
 			request.getSession().setAttribute("RegisterCheckBean", bean);
-			request.getRequestDispatcher("/pages/register.jsp").forward(request, response);
+			request.getRequestDispatcher("/pages/user/register.jsp").forward(request, response);
 			return;
 		}
 		User user=new User();
@@ -37,17 +37,30 @@ public class RegisterServlet extends HttpServlet {
 		try {
 			BeanUtils.copyProperties(user, bean);
 			register.adduser(user);
+<<<<<<< HEAD
 			request.setAttribute("message", "注册成功,三秒后自动跳回首页");
 			request.getRequestDispatcher("/pages/message.jsp").forward(request, response);;
+=======
+			request.setAttribute("message", "注册成功");
+
+			request.getSession().setAttribute("login_result", true);
+			request.getSession().setAttribute("user", user);
+			request.getRequestDispatcher("/pages/user/message.jsp").forward(request, response);;
+>>>>>>> upstream/master
 			return;
 		} catch (UserexistException e) {
 			bean.getErrors().put("user_id","用户已存在");
 			request.getSession().setAttribute("RegisterCheckBean", bean);
-			request.getRequestDispatcher("/pages/register.jsp").forward(request, response);;
+			request.getRequestDispatcher("/pages/user/register.jsp").forward(request, response);;
 		}catch(Exception e){
 			e.printStackTrace();
+<<<<<<< HEAD
 			request.setAttribute("message", "对不起，服务器出错，注册失败，三秒后自动跳回首页");
 			request.getRequestDispatcher("/pages/message.jsp").forward(request, response);;
+=======
+			request.setAttribute("message", "对不起，服务器出错，注册失败");
+			request.getRequestDispatcher("/pages/user/message.jsp").forward(request, response);;
+>>>>>>> upstream/master
 		}
 	}
 

@@ -1,7 +1,11 @@
 package cn.edu.zhku.jsj.dao;
 
+<<<<<<< HEAD
 import cn.edu.zhku.jsj.daomain.Store;
 import cn.edu.zhku.jsj.daomain.User;
+=======
+import cn.edu.zhku.jsj.domain.User;
+>>>>>>> upstream/master
 
 public interface UserDao {
 

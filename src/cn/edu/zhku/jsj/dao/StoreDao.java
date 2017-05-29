@@ -2,10 +2,10 @@ package cn.edu.zhku.jsj.dao;
 
 import java.util.List;
 
-import cn.edu.zhku.jsj.daomain.Book;
-import cn.edu.zhku.jsj.daomain.Cloth;
-import cn.edu.zhku.jsj.daomain.Food;
-import cn.edu.zhku.jsj.daomain.Store;
+import cn.edu.zhku.jsj.domain.Book;
+import cn.edu.zhku.jsj.domain.Cloth;
+import cn.edu.zhku.jsj.domain.Food;
+import cn.edu.zhku.jsj.domain.Store;
 
 public interface StoreDao {
 
@@ -28,5 +28,13 @@ public interface StoreDao {
 	boolean delete(Food food);
 
 	boolean delete(Cloth cloth);
+	//查找店铺名为storename的店铺
+	List<Store> find(String storename);
+	
+	Store findstoreinfo(int store_id);
+	
+	boolean updatestore(Store store);
+	
+	
 
 }

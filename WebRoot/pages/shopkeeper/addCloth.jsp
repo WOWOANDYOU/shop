@@ -11,7 +11,7 @@
 		</div>
 		<div class="add_good_in_down">
 			<form
-				action="${pageContext.request.contextPath }/servlet/AddClothServlet"
+				action="${pageContext.request.contextPath }/servlet/AddClothServlet?uuid=${formuuidnum}"
 				method="post" onsubmit="return checkoutfilename()"
 				enctype="multipart/form-data">
 				<input type="hidden" value="${store.store_id }" name="store_id">
@@ -76,8 +76,9 @@
 						</td>
 					</tr>
 					<tr>
+
 						<td colspan="2" align="center"><input type="submit"
-							value="发布"> <input type="reset" value="重置"></td>
+							value="发布" id="submit"> <input type="reset" value="重置"></td>
 					</tr>
 				</table>
 			</form>
@@ -85,6 +86,5 @@
 	</div>
 </div>
 <!-- <font style="font-size:18px;color:#ff4400">请完善上架食品信息:</font> -->
-</div>
 </body>
 </html>

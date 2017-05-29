@@ -5,7 +5,7 @@ import java.util.List;
 import org.junit.Test;
 
 import cn.edu.zhku.jsj.dao.impl.ClothDaoImpl;
-import cn.edu.zhku.jsj.daomain.Cloth;
+import cn.edu.zhku.jsj.domain.Cloth;
 
 public class ClothDaoTest {
 	ClothDaoImpl clothdao = new ClothDaoImpl();
@@ -26,8 +26,14 @@ public class ClothDaoTest {
 	
 	@Test
 	public void findClothTest(){
-		Cloth cloth = clothdao.find("秋衣款");
-		
+		Cloth cloth = (Cloth) clothdao.find("秋衣款");
+	}
+	@Test
+	public void findname(){
+		List<Cloth> lc=clothdao.findAll();
+		for(Cloth cl:lc){
+			System.out.println(cl.getClothname());
+		}
 	}
 	@Test
 	public void findallTest(){
@@ -52,4 +58,5 @@ public class ClothDaoTest {
 		int cloth_id = 2;
 		clothdao.delete(cloth_id);
 	}
+	
 }

@@ -13,6 +13,15 @@ public class ClothFormBean {
 	private int store_id;
 	private int totalnum;
 	
+	private int cloth_id;
+	
+	public int getCloth_id() {
+		return cloth_id;
+	}
+	public void setCloth_id(int cloth_id) {
+		this.cloth_id = cloth_id;
+	}
+
 	private Map<String,String> errormap = new HashMap<String,String>();
 	
 	

@@ -3,11 +3,12 @@ package cn.edu.zhku.jsj.dao.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 import cn.edu.zhku.jsj.dao.FoodDao;
-import cn.edu.zhku.jsj.daomain.Cloth;
-import cn.edu.zhku.jsj.daomain.Food;
+import cn.edu.zhku.jsj.domain.Cloth;
+import cn.edu.zhku.jsj.domain.Food;
 import cn.edu.zhku.jsj.web.utils.JdbcUtil;
 import cn.edu.zhku.jsj.web.utils.ResultToBean;
 
@@ -37,22 +38,22 @@ public class FoodDaoImpl implements FoodDao {
 	}
 	
 	@Override
-	public Food find(String food_name){
+	public List<Food> find(String food_name){
 		Connection con = null;
 		PreparedStatement pres = null;
 		ResultSet rs = null;
 		con = JdbcUtil.getCon();
 		try{
-			String sql = "select * from food where foodname=?";
+			String sql = "select * from food where foodname like ?";
 			pres = con.prepareStatement(sql);
-			pres.setString(1, food_name);
+			pres.setString(1, "%"+food_name+"%");
 			rs = pres.executeQuery();
 			List<Food> list = ResultToBean.getBeanList(Food.class, rs);
-			Food food = null;
-			if(!list.isEmpty()){
-				food = list.get(0);
+			System.out.println(list.get(0));
+/*			if(!list.isEmpty()){
+				System.out.print("list空");
 			}
-			return food;
+*/			return list;
 		}catch(Exception e){
 			throw new RuntimeException(e);
 		}finally{
@@ -72,6 +73,9 @@ public class FoodDaoImpl implements FoodDao {
 			pres = con.prepareStatement(sql);
 			rs = pres.executeQuery();
 			foodlist = ResultToBean.getBeanList(Food.class, rs); //调工具类 （封装 数据到 bean的工具类）
+			if(foodlist.isEmpty()){
+				System.out.println("foodlist为空！！");
+			}
 			return foodlist;
 		}catch(Exception e){ 
 			throw new RuntimeException(e);
@@ -88,12 +92,13 @@ public class FoodDaoImpl implements FoodDao {
 		ResultSet rs = null;
 		con = JdbcUtil.getCon();
 		try{
-			String sql = "update food set totalnum=?,price=?,description=? where food_id=?";
+			String sql = "update food set foodname=?,totalnum=?,price=?,description=? where food_id=?";
 			pres = con.prepareStatement(sql);
-			pres.setInt(1, food.getTotalnum());
-			pres.setFloat(2, food.getPrice());
-			pres.setString(3, food.getDescription());
-			pres.setInt(4, food.getFood_id());
+			pres.setString(1, food.getFoodname());
+			pres.setInt(2, food.getTotalnum());
+			pres.setFloat(3, food.getPrice());
+			pres.setString(4, food.getDescription());
+			pres.setInt(5, food.getFood_id());
 			int num =  pres.executeUpdate();
 			if(num!=0){
 				b = true;
@@ -127,5 +132,76 @@ public class FoodDaoImpl implements FoodDao {
 			JdbcUtil.release(con, pres, rs);
 		}
 		return b;
+	}
+
+	@Override
+	public List<Food> findFood(int store_id) {
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		con = JdbcUtil.getCon();
+		try{
+			String sql = "select * from food where store_id=?";
+			pres = con.prepareStatement(sql);
+			pres.setInt(1, store_id);
+			rs = pres.executeQuery();
+			List<Food> foodlist = ResultToBean.getBeanList(Food.class, rs);
+			return foodlist;
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}finally{
+			JdbcUtil.release(con, pres, rs);
+		}
+	}
+
+	@Override
+	public Food findfood(int food_id) {
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		con = JdbcUtil.getCon();
+		try{
+			String sql = "select * from food where food_id=?";
+			pres = con.prepareStatement(sql);
+			pres.setInt(1, food_id);
+			rs = pres.executeQuery();
+			Food food = null;
+			List<Food> foodlist = ResultToBean.getBeanList(Food.class, rs);
+			food = foodlist.get(0);
+			return food;
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}finally{
+			JdbcUtil.release(con, pres, rs);
+		}
+	}
+
+	@Override
+	public List<Food> search_food(int store_id, String goodname) {
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		con = JdbcUtil.getCon();
+		List<Food> foodlist = null;
+		try{
+			String sql = "";
+			if(store_id!=0){
+				sql = "select * from food where store_id=? and foodname like ?";
+				pres = con.prepareStatement(sql);
+				pres.setInt(1, store_id);
+				pres.setString(2, "%"+goodname+"%");
+			}else{
+				sql = "select * from food where foodname like ?";
+				pres = con.prepareStatement(sql);
+				pres.setString(1, "%"+goodname+"%");
+			}
+			rs = pres.executeQuery();
+			foodlist = ResultToBean.getBeanList(Food.class, rs);
+			return foodlist;
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}finally{
+			JdbcUtil.release(con, pres, rs);
+		}
 	}
 }	

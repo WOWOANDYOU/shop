@@ -4,13 +4,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.List;
+import java.util.Map;
 
 import cn.edu.zhku.jsj.dao.StoreDao;
-import cn.edu.zhku.jsj.daomain.Book;
-import cn.edu.zhku.jsj.daomain.Cloth;
-import cn.edu.zhku.jsj.daomain.Food;
-import cn.edu.zhku.jsj.daomain.Store;
+import cn.edu.zhku.jsj.domain.Book;
+import cn.edu.zhku.jsj.domain.Cloth;
+import cn.edu.zhku.jsj.domain.Food;
+import cn.edu.zhku.jsj.domain.Store;
 import cn.edu.zhku.jsj.web.utils.JdbcUtil;
+import cn.edu.zhku.jsj.web.utils.ResultToBean;
 
 public class StoreDaoImpl implements StoreDao {
 	//添加店铺 开店
@@ -26,7 +28,11 @@ public class StoreDaoImpl implements StoreDao {
 			pres.setString(1, store.getStorename());
 			pres.setString(2, store.getOwner_id());
 			pres.setString(3, store.getDescription());
+<<<<<<< HEAD
 			pres.setInt(4, store.getControl());
+=======
+			pres.setString(4, store.getImages());
+>>>>>>> upstream/master
 			
 			int num = pres.executeUpdate();
 			return num;
@@ -42,7 +48,6 @@ public class StoreDaoImpl implements StoreDao {
 	public List findProduce(int store_id,String produce_name){
 		return null;//三张表查找  存在 map集合里 
 	}
-	
 	
 	//对三种商品信息更新  重载
 	@Override
@@ -74,5 +79,68 @@ public class StoreDaoImpl implements StoreDao {
 		return false;
 	}	
 	
-	
+	public List<Store> find(String storename){
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		con = JdbcUtil.getCon();
+		List<Store> storelist;
+		try{
+			String sql = "select * from store where storename=?";
+			pres = con.prepareStatement(sql);
+			pres.setString(1, "%"+storename+"%");
+			rs = pres.executeQuery();
+			storelist = ResultToBean.getBeanList(Store.class, rs); //调工具类 （封装 数据到 bean的工具类）
+			return storelist;
+		}catch(Exception e){ 
+			throw new RuntimeException(e);
+		}finally{
+			JdbcUtil.release(con, pres, rs);
+		}
+	}
+
+	@Override
+	public Store findstoreinfo(int store_id) {
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		con = JdbcUtil.getCon();
+		List<Store> storelist;
+		try{
+			String sql = "select * from store where store_id=?";
+			pres = con.prepareStatement(sql);
+			pres.setInt(1, store_id);
+			rs = pres.executeQuery();
+			storelist = ResultToBean.getBeanList(Store.class, rs); //调工具类 （封装 数据到 bean的工具类）
+			return storelist.get(0);
+		}catch(Exception e){ 
+			throw new RuntimeException(e);
+		}finally{
+			JdbcUtil.release(con, pres, rs);
+		}
+	}
+
+	@Override
+	public boolean updatestore(Store store) {
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		con = JdbcUtil.getCon();
+		boolean b = false;
+		try{
+			String sql = "update store set description=?,storename=? where store_id=?";
+			pres = con.prepareStatement(sql);
+			pres.setString(1, store.getDescription());
+			pres.setString(2, store.getStorename());
+			pres.setInt(3, store.getStore_id());
+			int num = pres.executeUpdate();
+			if(num!=0)
+				b = true;
+			return b;
+		}catch(Exception e){ 
+			throw new RuntimeException(e);
+		}finally{
+			JdbcUtil.release(con, pres, rs);
+		}
+	}
 }

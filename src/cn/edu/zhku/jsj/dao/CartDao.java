@@ -3,7 +3,7 @@ package cn.edu.zhku.jsj.dao;
 import java.util.List;
 import java.util.Map;
 
-import cn.edu.zhku.jsj.daomain.Cart;
+import cn.edu.zhku.jsj.domain.Cart;
 
 public interface CartDao {
 

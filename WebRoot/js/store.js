@@ -38,6 +38,9 @@ function checkoutfilename(){
 			return false;
 		}
 	}
+	var submit = document.getElementById("submit");
+	submit.disable = "disable";
+	return true;
 }
 
 function fileadd(){
@@ -59,4 +62,34 @@ function fileadd(){
 	btn.onclick = function del(){
 		this.parentNode.parentNode.removeChild(this.parentNode);
 	}
+}
+function isdelete(path,goodtype,good_id){
+	if(goodtype=='cloth_id'){
+		var b = window.confirm("你确定下架该类衣服吗？");
+		if(b==true){
+			window.location.href = path+"?"+goodtype+"="+good_id;
+		}
+	}
+	
+	if(goodtype=='book_id'){
+		var b = window.confirm("你确定下架该类书籍吗？");
+		if(b==true){
+			window.location.href = path+"?"+goodtype+"="+good_id;
+		}
+	}
+	if(goodtype=='food_id'){
+		var b = window.confirm("你确定下架该类食品吗？");
+		if(b==true){
+			window.location.href = path+"?"+goodtype+"="+good_id;
+		}
+	}
+}
+function checkoutinput_key(){
+	var inputkey = document.getElementById("input_search_key");
+	var value = inputkey.value;
+	if(value==""){
+		alert("请输入搜索关键字");
+		return false;
+	}
+	return true;
 }

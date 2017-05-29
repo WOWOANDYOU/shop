@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
 
@@ -9,7 +9,7 @@
 <script type="text/javascript">
 	function dump() {
 
-		window.location.href = "${pageContext.request.contextPath}/pages/register.jsp";
+		window.location.href = "${pageContext.request.contextPath}/pages/user/register.jsp";
 	}
 </script>
 <script type="text/javascript">
@@ -28,7 +28,8 @@ body {
 
 #container {
 	width: 980px;
-	background-image: url("../images/login.GIF");
+	background-image: url("${pageContext.request.contextPath }/images/login.GIF");
+
 	width: 1340px;
 	height: 540px;
 	margin: 5px 0 0 13px;
@@ -39,7 +40,7 @@ body {
 }
 
 #form table {
-	background-image: url("../images/login1.GIF");
+	background-image: url("${pageContext.request.contextPath }/images/login1.GIF");
 	width: 428px;
 	height: 298px;
 	position: absolute;
@@ -54,7 +55,7 @@ body {
 
 <body>
 	<div id="a">
-		<a href="${pagecontext.request.contextpath }/index.jsp"
+		<a href="${pageContext.request.contextPath }/pages/user/index.jsp"
 			style="color:99BBFF"><h1>网上商城</a>
 	</div>
 	<div id="container">
@@ -92,7 +93,7 @@ body {
 						<td><input type="submit" value="登录"></td>
 						<td><input type="button" value="注册" onclick="dump()"></td>
 					</tr>
-					<tr><td></td><td></td><td><a href="${pageContext.request.contextPath }/pages/checkchangepassword.jsp" style="cursor: pointer">忘记密码</a></td></tr>
+					<tr><td></td><td></td><td><a href="${pageContext.request.contextPath }/pages/user/checkchangepassword.jsp" style="cursor: pointer">忘记密码</a></td></tr>
 
 				</table>
 			</form>

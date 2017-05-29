@@ -1,4 +1,4 @@
-package cn.edu.zhku.jsj.daomain;
+package cn.edu.zhku.jsj.domain;
 
 public class Book {
 	private int book_id;
@@ -25,7 +25,6 @@ public class Book {
 	public void setBook_id(int book_id) {
 		this.book_id = book_id;
 	}
-	
 	public String getBookname() {
 		return bookname;
 	}

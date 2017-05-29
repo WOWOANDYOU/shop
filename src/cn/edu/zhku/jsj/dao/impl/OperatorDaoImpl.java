@@ -10,8 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.edu.zhku.jsj.dao.OperatorDao;
+<<<<<<< HEAD
 import cn.edu.zhku.jsj.daomain.Operator;
 import cn.edu.zhku.jsj.daomain.Store;
+=======
+import cn.edu.zhku.jsj.domain.Operator;
+>>>>>>> upstream/master
 import cn.edu.zhku.jsj.web.utils.JdbcUtil;
 
 public class OperatorDaoImpl implements OperatorDao {

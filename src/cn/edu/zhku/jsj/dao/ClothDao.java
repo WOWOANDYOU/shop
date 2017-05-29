@@ -2,18 +2,26 @@ package cn.edu.zhku.jsj.dao;
 
 import java.util.List;
 
-import cn.edu.zhku.jsj.daomain.Cloth;
+import cn.edu.zhku.jsj.domain.Cloth;
 
 public interface ClothDao {
 
 	int add(Cloth cloth);
 
-	Cloth find(String cloth_name);
+
+	List<Cloth> find(String cloth_name);
+
 
 	List<Cloth> findAll();
 
+	List<Cloth> findCloth(int store_id);
+	
 	boolean update(Cloth cloth);
 
-	boolean delete(int cloth_id);
 
+	boolean delete(int cloth_id);
+	
+	Cloth findcloth(int cloth_id);
+	
+	 List<Cloth> search_cloth(int store_id, String goodname);
 }

@@ -8,7 +8,7 @@ import java.sql.ResultSetMetaData;
 import org.junit.Test;
 
 import cn.edu.zhku.jsj.dao.impl.UserDaoImpl;
-import cn.edu.zhku.jsj.daomain.User;
+import cn.edu.zhku.jsj.domain.User;
 import cn.edu.zhku.jsj.exception.UserexistException;
 import cn.edu.zhku.jsj.service.BusinessService;
 import cn.edu.zhku.jsj.service.impl.BusinessServiceImpl;
@@ -36,6 +36,41 @@ public class UserDaoTest {
 			e.printStackTrace();
 		}
 	}
+	
+	/*@Test
+	public void rsTest(){
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		con = JdbcUtil.getCon();
+		try{
+			String sql = "select * from book";
+			pres = con.prepareStatement(sql);
+			rs = pres.executeQuery();
+			
+			ResultSetMetaData rsmd = rs.getMetaData();
+			System.out.println("数据库列数 "+rsmd.getColumnCount());
+			String name = rsmd.getColumnLabel(1);
+			System.out.println(name);
+			System.out.println(rsmd.getColumnLabel(2));
+			
+			String name = "";
+			while(rs.next()){
+				for(int i=1;i<=rsmd.getColumnCount();i++){
+					name = rsmd.getColumnLabel(i);
+					Object value = rs.getObject(name);
+					Class<?> type = value.getClass();
+					System.out.println(type);
+				}
+				
+			}
+			
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}finally{
+			
+		}
+	}*/
 	
 	@Test
 	public void rsTest(){
@@ -70,5 +105,13 @@ public class UserDaoTest {
 		}finally{
 			
 		}
+	}
+	
+	@Test
+	public void TestString(){
+		String str = "aadd,adsdfasf,";
+		int strnum = str.lastIndexOf(",");
+		String str1 = str.substring(0,strnum);
+		System.out.println(str1);
 	}
 }

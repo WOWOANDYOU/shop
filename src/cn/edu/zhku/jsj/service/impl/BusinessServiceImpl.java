@@ -10,12 +10,21 @@ import cn.edu.zhku.jsj.dao.OperatorDao;
 import cn.edu.zhku.jsj.dao.OrderDao;
 import cn.edu.zhku.jsj.dao.StoreDao;
 import cn.edu.zhku.jsj.dao.UserDao;
+<<<<<<< HEAD
 import cn.edu.zhku.jsj.daomain.Book;
 import cn.edu.zhku.jsj.daomain.Cloth;
 import cn.edu.zhku.jsj.daomain.Food;
 import cn.edu.zhku.jsj.daomain.Operator;
 import cn.edu.zhku.jsj.daomain.Store;
 import cn.edu.zhku.jsj.daomain.User;
+=======
+import cn.edu.zhku.jsj.domain.Book;
+import cn.edu.zhku.jsj.domain.Cloth;
+import cn.edu.zhku.jsj.domain.Food;
+import cn.edu.zhku.jsj.domain.Order;
+import cn.edu.zhku.jsj.domain.Store;
+import cn.edu.zhku.jsj.domain.User;
+>>>>>>> upstream/master
 import cn.edu.zhku.jsj.exception.UserexistException;
 import cn.edu.zhku.jsj.factory.DaoFactory;
 import cn.edu.zhku.jsj.service.BusinessService;
@@ -147,7 +156,114 @@ public class BusinessServiceImpl implements BusinessService {
 		int num = cloth_dao.add(cloth);
 		return num;
 	}
+
+	@Override
+	public List<Book> findstorebook(int store_id) {
+		List<Book> booklist = book_dao.findBook(store_id);
+		return booklist;
+	}
+
+	@Override
+	public List<Cloth> findstorecloth(int store_id) {
+		List<Cloth> clothlist = cloth_dao.findCloth(store_id);
+		return clothlist;
+	}
+
+	@Override
+	public List<Food> findstorefood(int store_id) {
+		List<Food> foodlist = food_dao.findFood(store_id);
+		return foodlist;
+	}
+
+	@Override
+	public Book findbook(int book_id) {
+		Book book = book_dao.findbook(book_id);
+		return book;
+	}
+
+	@Override
+	public Cloth findcloth(int cloth_id) {
+		Cloth cloth = cloth_dao.findcloth(cloth_id);
+		return cloth;
+	}
+
+	@Override
+	public Food findfood(int food_id) {
+		Food food = food_dao.findfood(food_id);
+		return food;
+	}
+
+	@Override
+	public boolean updateBook(Book book) {
+		 return book_dao.update(book);
+		
+	}
+
+	@Override
+	public boolean updateFood(Food food) {
+		return food_dao.update(food);
+	}
+
+	@Override
+	public boolean updateCloth(Cloth cloth) {
+		return cloth_dao.update(cloth);
+	}
+
+	@Override
+	public boolean deletebook(int book_id) {
+		boolean b = book_dao.delete(book_id);
+		return b;
+	}
+
+	@Override
+	public boolean deletefood(int food_id) {
+		boolean b = food_dao.delete(food_id);
+		return b;
+	}
+
+	@Override
+	public boolean deletecloth(int cloth_id) {
+		boolean b = cloth_dao.delete(cloth_id);
+		return b;
+	}
+
+	@Override
+	public List<Book> search_book(int store_id, String goodname) {
+		return book_dao.search_book(store_id, goodname);
+	}
+
+	@Override
+	public List<Food> search_food(int store_id, String goodname) {
+		return food_dao.search_food(store_id, goodname);
+	}
+
+	@Override
+	public List<Cloth> search_cloth(int store_id, String goodname) {
+		return cloth_dao.search_cloth(store_id, goodname);
+	}
+
+	@Override
+	public Store finstoreinfo(int store_id) {
+		return store_dao.findstoreinfo(store_id);
+	}
+
+	@Override
+	public boolean updatestore_info(Store store) {
+		return store_dao.updatestore(store);
+	}
+
+	@Override
+	public List<Order> getOrder(int store_id) {
+		return order_dao.getstore_Orders(store_id);
+	}
+
+	@Override
+	public int addOrder(Order order) {
+		int num = order_dao.add(order);
+		return num;
+	}
 	
+<<<<<<< HEAD
 	//添加管理员
 	public int addOperator(Operator operator){
 		String password=Md5.md5(operator.getPassword());
@@ -163,4 +279,6 @@ public class BusinessServiceImpl implements BusinessService {
 		return operator;
 	}
 	 
+=======
+>>>>>>> upstream/master
 }

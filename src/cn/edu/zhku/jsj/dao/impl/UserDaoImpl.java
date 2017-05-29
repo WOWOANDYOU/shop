@@ -6,8 +6,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import cn.edu.zhku.jsj.dao.UserDao;
+<<<<<<< HEAD
 import cn.edu.zhku.jsj.daomain.Store;
 import cn.edu.zhku.jsj.daomain.User;
+=======
+import cn.edu.zhku.jsj.domain.User;
+>>>>>>> upstream/master
 import cn.edu.zhku.jsj.web.utils.JdbcUtil;
 
 public class UserDaoImpl implements UserDao {
@@ -22,8 +26,8 @@ public class UserDaoImpl implements UserDao {
 
 		try {
 			String sql = "insert into user values(?,?,?,?,?,?,?,?,?)";
-			pres = con.prepareStatement(sql);
-			pres.setString(1, user.getUser_id());// user_id 表示 用户的账号
+			pres = con.prepareStatement(sql);   
+			pres.setString(1, user.getUser_id());//user_id 表示 用户的账号 
 			pres.setString(2, user.getNickname());
 			pres.setString(3, user.getPassword());
 			pres.setString(4, user.getPhonenum());

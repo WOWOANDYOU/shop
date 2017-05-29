@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import cn.edu.zhku.jsj.dao.CartDao;
-import cn.edu.zhku.jsj.daomain.Cart;
+import cn.edu.zhku.jsj.domain.Cart;
 
 public class CartDaoImpl implements CartDao {
 	//顾客选中物品加入购物车

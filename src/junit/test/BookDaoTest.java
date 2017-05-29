@@ -1,11 +1,14 @@
 package junit.test;
 
+import java.util.List;
+
 import org.junit.Test;
 
 import cn.edu.zhku.jsj.dao.impl.BookDaoImpl;
-import cn.edu.zhku.jsj.daomain.Book;
+import cn.edu.zhku.jsj.domain.Book;
 
 public class BookDaoTest {
+	BookDaoImpl bookdao = new BookDaoImpl();
 	@Test
 	public void addTest(){
 		Book book = new Book();
@@ -35,12 +38,17 @@ public class BookDaoTest {
 		book.setPrice(40);
 		book.setVersion("有电子书;有光盘;没光盘");
 		book.setDescription("2改");
-		BookDaoImpl bookdao = new BookDaoImpl();
 		bookdao.update(book);
 	}
 	@Test
 	public void deleteTest(){
-		BookDaoImpl bookdao = new BookDaoImpl();
 		bookdao.delete(3);
+	}
+	@Test
+	public void find(){
+		List<Book> lb=bookdao.findAll();
+		for(Book b:lb){
+			System.out.println(b.getBookname());
+		}
 	}
 }

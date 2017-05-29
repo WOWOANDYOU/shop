@@ -1,4 +1,4 @@
-package cn.edu.zhku.jsj.daomain;
+package cn.edu.zhku.jsj.domain;
 
 import java.util.Date;
 
@@ -8,11 +8,17 @@ public class Order {
 	private int store_id;    //外键 记住订单是哪个店铺的
 	private String user_id;//外键 记住这个购物车是哪个 用户的
 	private int quantity;//商品数量
-	private Date ordertime;  //下单时间
+	private long ordertime;  //下单时间
 	private int state;   //订单状态  1代表 未付款 2代表 已付款 3代表 已发货 
 	private float price;    //订单总价	
 	public int getOrder_id() {
 		return order_id;
+	}
+	public long getOrdertime() {
+		return ordertime;
+	}
+	public void setOrdertime(long ordertime) {
+		this.ordertime = ordertime;
 	}
 	public void setOrder_id(int order_id) {
 		this.order_id = order_id;
@@ -41,12 +47,7 @@ public class Order {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public Date getOrdertime() {
-		return ordertime;
-	}
-	public void setOrdertime(Date ordertime) {
-		this.ordertime = ordertime;
-	}
+	
 	public int getState() {
 		return state;
 	}

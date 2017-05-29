@@ -3,12 +3,16 @@ package cn.edu.zhku.jsj.dao.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 import cn.edu.zhku.jsj.dao.BookDao;
-import cn.edu.zhku.jsj.daomain.Book;
+import cn.edu.zhku.jsj.domain.Book;
+import cn.edu.zhku.jsj.domain.Cloth;
+import cn.edu.zhku.jsj.domain.Food;
 import cn.edu.zhku.jsj.web.utils.JdbcUtil;
+import cn.edu.zhku.jsj.web.utils.ResultToBean;
 
 public class BookDaoImpl implements BookDao {
 	
@@ -45,16 +49,17 @@ public class BookDaoImpl implements BookDao {
 	
 	@Override
 	public List<Book> findBook(String book_name){
+
+
 		Connection con = null;
 		PreparedStatement pres = null;
 		ResultSet rs = null;
 		con = JdbcUtil.getCon();
-		List<Book> list = new LinkedList<Book>();
-		Book book = null;
+		List <Book> list= new ArrayList();
+		Book book=null;
 		try{
-			/*String find_muzzy = "%?%";*/
-			/*pres.setString(1, "%"+filename+"%");   //模糊查询 的预编译设置参数 要 如此设置
-*/			String sql = "select * from book where book_name like ";
+			String sql = "select * from book where bookname like ?";
+
 			pres = con.prepareStatement(sql);
 			pres.setString(1, "%"+book_name+"%");
 			
@@ -73,6 +78,7 @@ public class BookDaoImpl implements BookDao {
 				book.setStore_id(rs.getInt("B_store_id"));
 				book.setVersion(rs.getString("B_version"));
 				list.add(book);
+				
 			}
 		}catch(Exception e){
 			throw new RuntimeException(e);
@@ -88,34 +94,21 @@ public class BookDaoImpl implements BookDao {
 		PreparedStatement pres = null;
 		ResultSet rs = null;
 		con = JdbcUtil.getCon();
-		List<Book> list = new LinkedList<Book>();
-		Book book = null;
+		List<Book> booklist;
 		try{
 			String sql = "select * from book";
-			pres = con.prepareStatement(sql);			
+			pres = con.prepareStatement(sql);
 			rs = pres.executeQuery();
-			
- 			while(rs.next()){
-				book = new Book();
-				book.setAuthor(rs.getString("author"));
-				book.setImages(rs.getString("B_images"));
-				book.setBook_id(rs.getInt("book_id"));
-				book.setBookname(rs.getString("bookname"));
-				book.setDescription(rs.getString("B_description"));
-				book.setISBN(rs.getString("ISBN"));
-				book.setPress(rs.getString("press"));
-				book.setPrice(rs.getFloat("B_price"));
-				book.setTotalnum(rs.getInt("totalnum"));
-				book.setStore_id(rs.getInt("B_store_id"));
-				book.setVersion(rs.getString("B_version"));
-				list.add(book);
+			booklist = ResultToBean.getBeanList(Book.class, rs); //调工具类 （封装 数据到 bean的工具类）
+			if(booklist.isEmpty()){
+				System.out.println("booklist为空！！");
 			}
-		}catch(Exception e){
+			return booklist;
+		}catch(Exception e){ 
 			throw new RuntimeException(e);
 		}finally{
 			JdbcUtil.release(con, pres, rs);
 		}
-		return list;
 	}
 	
 	@Override
@@ -126,14 +119,17 @@ public class BookDaoImpl implements BookDao {
 		ResultSet rs = null;
 		con = JdbcUtil.getCon();
 		try{
-			String sql = "update book set totalnum=?,price=?,version=?,description=? where book_id=?";
+			String sql = "update book set bookname=?,totalnum=?,price=?,version=?,description=?,press=?,author=? where book_id=?";
 			pres = con.prepareStatement(sql);
-			pres.setInt(1, book.getTotalnum());
-			pres.setFloat(2, book.getPrice());
-			pres.setString(3, book.getVersion());
-			pres.setString(4, book.getDescription());
-			pres.setInt(5, book.getBook_id());
-			int num =  pres.executeUpdate();
+			pres.setString(1, book.getBookname());
+			pres.setInt(2, book.getTotalnum());
+			pres.setFloat(3, book.getPrice());
+			pres.setString(4, book.getVersion());
+			pres.setString(5, book.getDescription());
+			pres.setString(6, book.getPress());
+			pres.setString(7, book.getAuthor());
+			pres.setInt(8, book.getBook_id());
+			int num =  pres.executeUpdate(); 
 			if(num!=0){
 				b = true;
 			}
@@ -167,5 +163,78 @@ public class BookDaoImpl implements BookDao {
 		}
 		return b;
 	}
-	
+
+	@Override
+	public List<Book> findBook(int store_id) {
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		con = JdbcUtil.getCon();
+		List<Book> booklist = new LinkedList<Book>();
+		try{
+			String sql = "select * from book where store_id=?";
+			pres = con.prepareStatement(sql);	
+			pres.setInt(1, store_id);
+			rs = pres.executeQuery();
+			booklist = ResultToBean.getBeanList(Book.class, rs); //调工具类 （封装 数据到 bean的工具类）
+ 			
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}finally{
+			JdbcUtil.release(con, pres, rs);
+		}
+		return booklist;
+	}
+
+	@Override
+	public Book findbook(int book_id) {
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		con = JdbcUtil.getCon();
+		List<Book> booklist = new LinkedList<Book>();
+		Book book = null;
+		try{
+			String sql = "select * from book where book_id=?";
+			pres = con.prepareStatement(sql);	
+			pres.setInt(1, book_id);
+			rs = pres.executeQuery();
+			booklist = ResultToBean.getBeanList(Book.class, rs); //调工具类 （封装 数据到 bean的工具类）
+			book = booklist.get(0);
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}finally{
+			JdbcUtil.release(con, pres, rs);
+		}
+		return book;
+	}
+
+	@Override
+	public List<Book> search_book(int store_id, String goodname) {
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		con = JdbcUtil.getCon();
+		List<Book> booklist = null;
+		try{
+			String sql = "";
+			if(store_id!=0){ 
+				sql = "select * from book where store_id=? and bookname like ?";
+				pres = con.prepareStatement(sql);
+				pres.setInt(1, store_id);
+				pres.setString(2, "%"+goodname+"%");
+			}else{
+				sql = "select * from book where bookname like ?";
+				pres = con.prepareStatement(sql);
+				pres.setString(1, "%"+goodname+"%");
+			}
+			rs = pres.executeQuery();
+			booklist = ResultToBean.getBeanList(Book.class, rs); //调工具类 （封装 数据到 bean的工具类）
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}finally{
+			JdbcUtil.release(con, pres, rs);
+		}
+		return booklist;
+	}
 }

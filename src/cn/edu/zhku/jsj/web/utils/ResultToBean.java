@@ -3,10 +3,9 @@ package cn.edu.zhku.jsj.web.utils;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
-
-import cn.edu.zhku.jsj.daomain.Cloth;
 
 import com.mysql.jdbc.ResultSetMetaData;
 
@@ -31,6 +30,7 @@ public class ResultToBean {
 				此时,getColumnName(3) == "description";而getColumnLabel(3) == "relatedDescription"。
 				如果你想将ResultSet的结果映射到HashMap中，注意一定使用getColumnLabel，而不要用getColumnName。*/
 				columnNames[i] = rsmd.getColumnLabel(i + 1);  // rsmd.getColumnLabel(i) 就是输出 响应的的列名
+				System.out.println(columnNames[i]);
 				//所以columnNaes 存放的就是 所有的列的名字
 			}
 
@@ -40,20 +40,34 @@ public class ResultToBean {
 				// 反射, 从ResultSet绑定到JavaBean
 				for (int i = 0; i < counts; i++) {
 					// 根据 rs 列名 ，组装javaBean里边的其中一个set方法，object 就是数据库第一行第一列的数据了
+					String sss=rs.getString(columnNames[i]);
+/*					System.out.println(i+":"+sss);*/
+					if(null==sss){
+						/*System.out.println(sss+"为空 跳过");*/
+						continue;
+					}
 					Object value = rs.getObject(columnNames[i]);
+					System.out.print(columnNames[i]);
+/*					System.out.print(columnNames[i]);
+					System.out.println(":\nvalue:"+value.getClass());*/
 					//这里是获取数据库字段的类型
 					Class<?> dbType = value.getClass();
 					//设置参数类型，此类型应该跟javaBean 里边的类型一样，而不是取数据库里边的类型
 					field = clazz.getDeclaredField(columnNames[i]);
+/*					System.out.println("field:"+field.getType());*/
 					Class<?> beanType = field.getType();
-					
+					System.out.println(dbType);
 					//如果发生从数据库获取到得类型跟javaBean类型不同，先按String类型取  然后在转换为 具体的类型
 					if(beanType!=dbType){
+						/*System.out.println("beantype!=dbtype");*/
 						value = rs.getString(columnNames[i]);
 						if(dbType.getSimpleName().equals("Integer")){
 							value = Integer.parseInt((String)value);
+						}else if(dbType.getSimpleName().equals("Float")){
+							value = Float.parseFloat((String) value);
 						}else{
-							value =Float.parseFloat((String) value);
+							System.out.println(value);
+							value = Timestamp.valueOf((String)value).getTime();
 						}
 				 	}
 					String setMethodName = "set" + firstUpperCase(columnNames[i]);
@@ -61,7 +75,7 @@ public class ResultToBean {
 					Method m = t.getClass().getMethod(setMethodName,beanType);
 					// 第二个参数是传给set方法数据；如果是get方法可以不写
 					m.invoke(t, value);
-				}
+					}
 				lists.add(t);
 			}
 		} catch (Exception e) {

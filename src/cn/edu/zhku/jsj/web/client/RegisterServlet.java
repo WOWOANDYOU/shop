@@ -37,6 +37,7 @@ public class RegisterServlet extends HttpServlet {
 		try {
 			BeanUtils.copyProperties(user, bean);
 			register.adduser(user);
+
 			request.setAttribute("message", "注册成功");
 
 			request.getSession().setAttribute("login_result", true);

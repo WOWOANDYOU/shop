@@ -69,3 +69,12 @@ function dec_num(){
 	t.value-=1;
 	}
 }
+function checknum(){
+	var tt=document.getElementById("Goods_good_type_num_text");
+	if(tt.value==null||tt.value==""){
+		tt.value+=1;
+	}
+}
+function intoStore(){
+	document.getElementById("Goods_shop_s_storename").click();
+}

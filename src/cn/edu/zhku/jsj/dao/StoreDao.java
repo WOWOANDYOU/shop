@@ -6,6 +6,7 @@ import cn.edu.zhku.jsj.domain.Book;
 import cn.edu.zhku.jsj.domain.Cloth;
 import cn.edu.zhku.jsj.domain.Food;
 import cn.edu.zhku.jsj.domain.Store;
+import cn.edu.zhku.jsj.domain.User;
 
 public interface StoreDao {
 
@@ -30,5 +31,9 @@ public interface StoreDao {
 	boolean delete(Cloth cloth);
 	//查找店铺名为storename的店铺
 	List<Store> find(String storename);
+	//找到店铺所有者的信息
+	User findowner(String owner_id);
+	
+	Store findstore(int store_id);
 
 }

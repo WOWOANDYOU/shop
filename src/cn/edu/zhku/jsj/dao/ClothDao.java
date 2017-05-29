@@ -3,6 +3,7 @@ package cn.edu.zhku.jsj.dao;
 import java.util.List;
 
 import cn.edu.zhku.jsj.domain.Cloth;
+import cn.edu.zhku.jsj.domain.Store;
 
 public interface ClothDao {
 
@@ -23,5 +24,7 @@ public interface ClothDao {
 	
 	Cloth findcloth(int cloth_id);
 	
-	 List<Cloth> search_cloth(int store_id, String goodname);
+	List<Cloth> search_cloth(int store_id, String goodname);
+	 
+	Store findcloth_store(int cloth_id);
 }

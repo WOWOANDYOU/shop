@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import cn.edu.zhku.jsj.domain.Book;
 import cn.edu.zhku.jsj.domain.Cloth;
 import cn.edu.zhku.jsj.domain.Food;
+import cn.edu.zhku.jsj.domain.Store;
+import cn.edu.zhku.jsj.domain.User;
 import cn.edu.zhku.jsj.service.Client_FuzzySelectService;
 import cn.edu.zhku.jsj.service.Good_selectService;
 
@@ -45,18 +47,39 @@ public class Goods_servlet extends HttpServlet {
 			request.getSession().setAttribute("Cloth", c);
 			request.getSession().setAttribute("Food", null);
 			request.getSession().setAttribute("Book", null);
+			request.getSession().setAttribute("Cloth_f", true);
+			request.getSession().setAttribute("Food_f", false);
+			request.getSession().setAttribute("Book_f", false);
+			Store store=GsS.findbook_store(value);
+			request.getSession().setAttribute("store", store);
+			User user=GsS.findowner(store.getOwner_id());
+			request.getSession().setAttribute("owner", user);
 		}
 		if(pName.equals("food")){
 			Food f = GsS.findfood(value);
 			request.getSession().setAttribute("Cloth", null);
 			request.getSession().setAttribute("Food", f);
 			request.getSession().setAttribute("Book", null);
+			request.getSession().setAttribute("Cloth_f", false);
+			request.getSession().setAttribute("Food_f", true);
+			request.getSession().setAttribute("Book_f", false);
+			Store store=GsS.findfood_store(value);
+			request.getSession().setAttribute("store", store);
+			User user=GsS.findowner(store.getOwner_id());
+			request.getSession().setAttribute("owner", user);
 		}
 		if(pName.equals("book")){
 			Book b = GsS.findbook(value);
 			request.getSession().setAttribute("Cloth", null);
 			request.getSession().setAttribute("Food", null);
 			request.getSession().setAttribute("Book", b);
+			request.getSession().setAttribute("Cloth_f", false);
+			request.getSession().setAttribute("Food_f", false);
+			request.getSession().setAttribute("Book_f", true);
+			Store store=GsS.findbook_store(value);
+			request.getSession().setAttribute("store", store);
+			User user=GsS.findowner(store.getOwner_id());
+			request.getSession().setAttribute("owner", user);
 		}
 		RequestDispatcher rd = request.getRequestDispatcher("/pages/user/Goods.jsp");
 		rd.forward(request, response);

@@ -125,7 +125,7 @@
 					type="text" name="body_type_selected"/></td>
 				<c:choose>
 					<c:when test="${empty sessionScope.body_type_b1}">
-						<td><input id="body_type_b1" class="body_type_b1"
+						<td><input id="body_type_b1" class="body_type_b1_action"
 							type="button" onclick="type_change1()" value="衣    服"></td>
 						<td><input id="body_type_b2" class="body_type_b2"
 							type="button" onclick="type_change2()" value="书    本"></td>

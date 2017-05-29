@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import cn.edu.zhku.jsj.dao.impl.BookDaoImpl;
 import cn.edu.zhku.jsj.domain.Book;
+import cn.edu.zhku.jsj.domain.Store;
 
 public class BookDaoTest {
 	BookDaoImpl bookdao = new BookDaoImpl();
@@ -50,5 +51,10 @@ public class BookDaoTest {
 		for(Book b:lb){
 			System.out.println(b.getBookname());
 		}
+	}
+	@Test
+	public void findstore(){
+		Store s=bookdao.findbook_store(1);
+		System.out.println(s.getStorename());
 	}
 }

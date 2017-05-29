@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'test.jsp' starting page</title>
+    <title>My JSP 'test2.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -24,12 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-   <% String str="123,456,789,101112";
-   	  request.getSession().setAttribute("s", str);
-   	  RequestDispatcher rd=request.getRequestDispatcher("test2.jsp");
-   	  rd.forward(request, response);
-    %>
-    test
+  test2
     <c:forTokens items="${s }" delims="," var="n" varStatus="vS">
     ${n }:${vS.count }<br>
     </c:forTokens>

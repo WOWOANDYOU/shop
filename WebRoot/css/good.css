@@ -60,6 +60,9 @@
 	text-align:center;
 	font-weight:500;
 }
+.Goods_good_type_t{
+	display:none;
+}
 .Goods_good_type_price{
 	float:left;
 	width:560px;
@@ -68,6 +71,9 @@
 	color:red;
 	font-size:20px;
 	font-weight:900;
+}
+.Goods_good_type_price_text{
+	display:none;
 }
 .Goods_good_type_c{
 	float:left;
@@ -82,15 +88,18 @@
 	border:1px solid black;
 	cursor:pointer;
 	margin:10px;
+	font-weight:500;
+	text-align:center;
 }
 .Goods_good_type_c_color_selected{
-	width:210px;
-	height:71px;
 	float:left;
+	width:70px;
+	height:32px;
 	border:1px solid black;
-	background-color:red;
-	font-color:white;
 	cursor:pointer;	
+	margin:10px;
+	font-weight:500;
+	background-color:#c0c0c0;
 }
 .Goods_good_type_v{
 	float:left;
@@ -99,11 +108,24 @@
 }
 .Goods_good_type_v_version{
 	float:left;
-	width:70px;
+	width:75px;
 	height:32px;
 	border:1px solid black;
 	cursor:pointer;
 	margin:10px;
+	font-weight:500;
+	text-align:center;
+}
+.Goods_good_type_v_version_selected{
+	float:left;
+	width:75px;
+	height:32px;
+	border:1px solid black;
+	cursor:pointer;
+	margin:10px;
+	font-weight:500;
+	background-color:#c0c0c0;
+	text-align:center;	
 }
 .Goods_good_type_num{
 	float:left;
@@ -130,6 +152,9 @@
 	text-align:center;
 	width:660px;
 	height:57px;
+}
+#Goods_good_type_pay_text{
+	display:none;
 }
 .Goods_good_type_pay_b1{
 	width:220px;

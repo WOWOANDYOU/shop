@@ -57,14 +57,16 @@
 					<div class="Goods_good_type_left">价格:</div>
 					<div class="Goods_good_type_price">￥${Cloth.price }</div>
 					<div class="Goods_good_type_left">颜色:</div>
-					<form action="购买servlet" method="post">
+					<form id="Goods_good_type_form_c" action="PayOrIntoCart_servlet" method="post">
+					<input type="text" class="Goods_good_type_t" name="Goods_good_type_t" value="cloth">
+					<input type="text" class="Goods_good_type_price_text" name="Goods_good_type_price_text" value="${Cloth.price }">
 						<div class="Goods_good_type_c">
 							<c:forTokens items="${Cloth.color }" delims="," var="cv"
 								varStatus="cvs">
-								<div class="Goods_good_type_c_color"
+								<div class="Goods_good_type_c_color" id="Goods_good_type_c_color${cvs.count }"
 									onclick="color_selected(${cvs.count})">
 									<input type="radio" id="Goods_good_type_c_color${cvs.count}"
-										name="Goods_good_type_c_color" value="${cv}">${cv}
+										name="Goods_good_type_c_color" value="${cv}" style="display:none">${cv}
 								</div>
 							</c:forTokens>
 						</div>
@@ -72,10 +74,10 @@
 						<div class="Goods_good_type_v">
 							<c:forTokens items="${Cloth.version }" delims="," var="vv"
 								varStatus="vvs">
-								<div class="Goods_good_type_v_version"
+								<div class="Goods_good_type_v_version" id="Goods_good_type_v_version${vvs.count}"
 									onclick="version_selected(${vvs.count})">
 									<input type="radio" id="Goods_good_type_v_version${vvs.count}"
-										name="Goods_good_type_v_version" value="${vv}">${vv}
+										name="Goods_good_type_v_version" value="${vv}" style="display:none;">${vv}
 								</div>
 							</c:forTokens>
 						</div>
@@ -83,14 +85,15 @@
 						<div class="Goods_good_type_num">
 							<input class="Goods_good_type_num_b1" type="button" value="-"
 								onclick="dec_num()"> <input
-								class="Goods_good_type_num_text" id="Goods_good_type_num_text"
+								class="Goods_good_type_num_text" id="Goods_good_type_num_text" name="Goods_good_type_num_text"
 								type="text" value="1" onkeydown="checkit()" onblur="checknum()"> <input
 								class="Goods_good_type_num_b2" type="button" value="+"
 								onclick="add_num()">
 						</div>
 						<div class="Goods_good_type_pay">
-							<input class="Goods_good_type_pay_b1" type="button" value="立即购买">
-							<input class="Goods_good_type_pay_b2" type="button" value="加入购物车">
+							<input type="text" name="BusinessType" id="Goods_good_type_pay_text">					
+							<input class="Goods_good_type_pay_b1" type="button" value="立即购买" onclick="payit_c()">
+							<input class="Goods_good_type_pay_b2" type="button" value="加入购物车" onclick="intoCart_c()">
 						</div>
 					</form>
 				</div>
@@ -128,15 +131,17 @@
 					<div class="Goods_good_type_title">${Book.description }</div>
 					<div class="Goods_good_type_left">价格:</div>
 					<div class="Goods_good_type_price">￥${Book.price }</div>
-					<form action="购买servlet" method="post">
+					<form id="Goods_good_type_form_b" action="PayOrIntoCart_servlet" method="post">
+						<input type="text" class="Goods_good_type_t" name="Goods_good_type_t" value="book">
+						<input type="text" class="Goods_good_type_price_text" name="Goods_good_type_price_text" value="${Book.price }">
 						<div class="Goods_good_type_left">套餐:</div>
 						<div class="Goods_good_type_v">
-							<c:forTokens items="${Book.version }" delims="；" var="vv"
+							<c:forTokens items="${Book.version }" delims=";" var="vv"
 								varStatus="vvs">
-								<div class="Goods_good_type_v_version"
+								<div class="Goods_good_type_v_version" id="Goods_good_type_v_version${vvs.count}"
 									onclick="version_selected(${vvs.count})">
 									<input type="radio" id="Goods_good_type_v_version${vvs.count}"
-										name="Goods_good_type_v_version" value="${vv}">${vv}
+										name="Goods_good_type_v_version" value="${vv}"style="display:none;">${vv}
 								</div>
 							</c:forTokens>
 						</div>
@@ -144,14 +149,15 @@
 						<div class="Goods_good_type_num">
 							<input class="Goods_good_type_num_b1" type="button" value="-"
 								onclick="dec_num()"> <input
-								class="Goods_good_type_num_text" id="Goods_good_type_num_text"
+								class="Goods_good_type_num_text" id="Goods_good_type_num_text" name="Goods_good_type_num_text"
 								type="text" value="1" onkeydown="checkit()" onblur="checknum()"> <input
 								class="Goods_good_type_num_b2" type="button" value="+"
 								onclick="add_num()">
 						</div>
 						<div class="Goods_good_type_pay">
-							<input class="Goods_good_type_pay_b1" type="button" value="立即购买">
-							<input class="Goods_good_type_pay_b2" type="button" value="加入购物车">
+							<input type="text" name="BusinessType" id="Goods_good_type_pay_text">					
+							<input class="Goods_good_type_pay_b1" type="button" value="立即购买" onclick="payit_b()">
+							<input class="Goods_good_type_pay_b2" type="button" value="加入购物车" onclick="intoCart_b()">
 						</div>
 					</form>
 				</div>
@@ -189,27 +195,28 @@
 					<div class="Goods_good_type_title">${Food.description }</div>
 					<div class="Goods_good_type_left">价格:</div>
 					<div class="Goods_good_type_price">￥${Food.price }</div>
-					<div class="Goods_good_type_left">颜色:</div>
-					<form action="购买servlet" method="post">
+					<form id="Goods_good_type_form_f" action="PayOrIntoCart_servlet" method="post">
+						<input type="text" class="Goods_good_type_t" name="Goods_good_type_t" value="food">
+						<input type="text" class="Goods_good_type_price_text" name="Goods_good_type_price_text" value="${Food.price }">
 						<div class="Goods_good_type_left">数量:</div>
 						<div class="Goods_good_type_num">
 							<input class="Goods_good_type_num_b1" type="button" value="-"
 								onclick="dec_num()"> <input
-								class="Goods_good_type_num_text" id="Goods_good_type_num_text"
+								class="Goods_good_type_num_text" id="Goods_good_type_num_text" name="Goods_good_type_num_text"
 								type="text" value="1" onkeydown="checkit()" onblur="checknum()"> <input
 								class="Goods_good_type_num_b2" type="button" value="+"
 								onclick="add_num()">
 						</div>
 						<div class="Goods_good_type_pay">
-							<input class="Goods_good_type_pay_b1" type="button" value="立即购买">
-							<input class="Goods_good_type_pay_b2" type="button" value="加入购物车">
+							<input type="text" name="BusinessType" id="Goods_good_type_pay_text">					
+							<input class="Goods_good_type_pay_b1" type="button" value="立即购买" onclick="payit_f()">
+							<input class="Goods_good_type_pay_b2" type="button" value="加入购物车" onclick="intoCart_f()">
 						</div>
 					</form>
 				</div>
 			</c:if>
 		</div>
 	</div>
-${sessionScope.user.nickname}
 	<div class="Goods_shop">
 		<div class="Goods_shop_i">
 			<a href="${pageContext.request.contextPath }/intoStore_servlet?store=${sessionScope.store.store_id}" target="_blank"> 

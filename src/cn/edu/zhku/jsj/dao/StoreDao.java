@@ -35,5 +35,10 @@ public interface StoreDao {
 	User findowner(String owner_id);
 	
 	Store findstore(int store_id);
+	
+	Store findstoreinfo(int store_id);
+	
+	boolean updatestore(Store store);
+	
 
 }

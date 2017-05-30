@@ -3,9 +3,9 @@ package cn.edu.zhku.jsj.dao.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import cn.edu.zhku.jsj.dao.UserDao;
+import cn.edu.zhku.jsj.domain.Store;
 import cn.edu.zhku.jsj.domain.User;
 import cn.edu.zhku.jsj.web.utils.JdbcUtil;
 
@@ -41,7 +41,7 @@ public class UserDaoImpl implements UserDao {
 		}
 	}
 
-	// 注册时查找 是否已经存在
+	// 注册时查找 是否已经存在,更新个人资料时用于更新session中的user
 	@Override
 	public User find(String user_id) {
 		Connection con = null;
@@ -160,6 +160,82 @@ public class UserDaoImpl implements UserDao {
 			int num = pres.executeUpdate();
 			return num;
 		} catch (Exception e) {
+			throw new RuntimeException(e);
+		} finally {
+			JdbcUtil.release(con, pres, rs);
+		}
+	}
+	
+	//用户开店，在用户的数据库中增加身份证号，店主身份
+	public int update_user(String user_id,String cardID,int role){
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		con = JdbcUtil.getCon();
+		try{
+			String sql="update user set cardID=?,role=? where user_id=?";
+			pres = con.prepareStatement(sql);
+			pres.setString(1, cardID);
+			pres.setInt(2, role);
+			pres.setString(3, user_id);
+			int num = pres.executeUpdate();
+			return num;
+		}catch (Exception e) {
+			throw new RuntimeException(e);
+		} finally {
+			JdbcUtil.release(con, pres, rs);
+		}
+		
+	}
+	
+	//用户修改个人资料
+	public int changeInformation(User user){
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		con = JdbcUtil.getCon();
+		try{
+			String sql="update user set phonenum=?,email=?,nickname=?,address=? where user_id=?";
+			pres = con.prepareStatement(sql);
+			pres.setString(1, user.getPhonenum());
+			pres.setString(2, user.getEmail());
+			pres.setString(3, user.getNickname());
+			pres.setString(4, user.getAddress());
+			pres.setString(5, user.getUser_id());
+			int num = pres.executeUpdate();
+			return num;
+		}catch (Exception e) {
+			throw new RuntimeException(e);
+		} finally {
+			JdbcUtil.release(con, pres, rs);
+		}
+		
+	}
+	
+	//用户登录后查看我的店铺
+	public Store myStore(String owner_id){
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		con = JdbcUtil.getCon();
+		String sql="select * from Store where owner_id=?";
+		try{
+			
+			pres = con.prepareStatement(sql);
+			
+			pres.setString(1, owner_id);
+			rs = pres.executeQuery();
+			Store store=null;
+			while(rs.next()){
+				store=new Store();
+				store.setControl(rs.getInt("control"));
+				store.setDescription(rs.getString("description"));
+				store.setOwner_id(rs.getString("owner_id"));
+				store.setStore_id(rs.getInt("store_id"));
+				store.setStorename(rs.getString("storename"));
+			}
+			return store;
+		}catch (Exception e) {
 			throw new RuntimeException(e);
 		} finally {
 			JdbcUtil.release(con, pres, rs);

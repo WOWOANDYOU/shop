@@ -70,6 +70,7 @@
 			店铺store 增加了 店铺的图片 字段
 			三种商品 的描述字段 varchar 长度 改为255 加长
 			用户密码长度 改为 255
+			Orders 表的user_id 字段长度 改为50
 	1.3 为应用创建相应库和表
 		
 
@@ -104,6 +105,7 @@
 		owner_id varchar(20),
 		description varchar(255),
 		images varchar(200),
+		control int,
 		foreign key (owner_id) references user(user_id)
 		);
 		
@@ -160,7 +162,7 @@
 		create table Orders(
 		order_id int primary key auto_increment,
 		good_id int,
-		user_id varchar(20),
+		user_id varchar(50),
 		store_id int,
 		quantity int,
 		ordertime datetime,

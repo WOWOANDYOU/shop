@@ -47,7 +47,6 @@ public class LoginServlet extends HttpServlet {
 		response.sendRedirect(request.getContextPath()
 				+ "/pages/user/index.jsp");
 	}
-
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);

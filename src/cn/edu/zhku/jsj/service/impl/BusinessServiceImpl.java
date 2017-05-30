@@ -13,6 +13,8 @@ import cn.edu.zhku.jsj.dao.UserDao;
 import cn.edu.zhku.jsj.domain.Book;
 import cn.edu.zhku.jsj.domain.Cloth;
 import cn.edu.zhku.jsj.domain.Food;
+import cn.edu.zhku.jsj.domain.Operator;
+import cn.edu.zhku.jsj.domain.Order;
 import cn.edu.zhku.jsj.domain.Store;
 import cn.edu.zhku.jsj.domain.User;
 import cn.edu.zhku.jsj.exception.UserexistException;
@@ -65,16 +67,64 @@ public class BusinessServiceImpl implements BusinessService {
 		return user;
 	}
 	
+	//用户登录时，查看自己的店铺
+	public Store findMyStore(String owner_id){
+		Store store=user_dao.myStore(owner_id);
+		return store;
+	}
+	
+	//管理员的查看店铺的信息
+	public List storeInformation(){
+		List list=ope_dao.Information();
+		return list;
+	}
+	
+	//店铺管理，查封与解封
+	public int storecontrol(int control,String storename){
+		int num=ope_dao.control(control, storename);
+		return num;
+	}
+	
 	//用户忘记密码，修改密码
 	public int changePassword(String user_id,String password){
 		int num=user_dao.change(user_id, password);
 		return num;
 	}
 	
+	//注册开店
+	public int registerEmplooyer(String user_id ,String cardID ,int role){
+		int num=user_dao.update_user(user_id, cardID, role);
+		return num;
+	}
+	
+	//管理员根据店铺名查找店铺
+	public Store operator_find(String storename){
+		Store store=ope_dao.operator_FindStore(storename);
+		return store;
+	}
+	
 	//开店铺   
 	@Override
 	public int addStore(Store store){
 		int num = store_dao.add(store);
+		return num;
+	}
+	
+	//用户修改个人信息
+	public int changemessage(User user){
+		int num=user_dao.changeInformation(user);
+		return num;
+	}
+	
+	//用户修改个人资料后，更新session中的user
+	public User findInformation(String user_id){
+		User user=user_dao.find(user_id);
+		return user;
+	}
+	
+	//管理员的登录时间的数据库
+	public int setTime(Operator operator){
+		int num=ope_dao.Time(operator);
 		return num;
 	}
 	
@@ -183,6 +233,47 @@ public class BusinessServiceImpl implements BusinessService {
 	public List<Cloth> search_cloth(int store_id, String goodname) {
 		return cloth_dao.search_cloth(store_id, goodname);
 	}
+
+	@Override
+	public Store finstoreinfo(int store_id) {
+		return store_dao.findstoreinfo(store_id);
+	}
+
+	@Override
+	public boolean updatestore_info(Store store) {
+		return store_dao.updatestore(store);
+	}
+
+	@Override
+	public List<Order> getOrder(int store_id) {
+		return order_dao.getstore_Orders(store_id);
+	}
+
+	@Override
+	public int addOrder(Order order) {
+		int num = order_dao.add(order);
+		return num;
+	}
+
+	@Override
+	public List<Order> getBFOrder(int store_id, int states) {
+		return order_dao.getstore_BFOrders(store_id,states);
+	}
+
 	
+	//添加管理员
+	public int addOperator(Operator operator){
+		String password=Md5.md5(operator.getPassword());
+		operator.setPassword(password);
+		int num=ope_dao.add(operator);
+		return num;
+	}
 	
+	//管理员登录
+	public Operator findOperator(String name,String password){
+		password=Md5.md5(password);
+		Operator operator=ope_dao.find(name, password);
+		return operator;
+	}
+
 }

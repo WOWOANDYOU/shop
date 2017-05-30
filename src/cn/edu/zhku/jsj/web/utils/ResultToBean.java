@@ -3,6 +3,7 @@ package cn.edu.zhku.jsj.web.utils;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,15 +54,17 @@ public class ResultToBean {
 					field = clazz.getDeclaredField(columnNames[i]);
 /*					System.out.println("field:"+field.getType());*/
 					Class<?> beanType = field.getType();
-					
 					//如果发生从数据库获取到得类型跟javaBean类型不同，先按String类型取  然后在转换为 具体的类型
 					if(beanType!=dbType){
 						/*System.out.println("beantype!=dbtype");*/
 						value = rs.getString(columnNames[i]);
 						if(dbType.getSimpleName().equals("Integer")){
 							value = Integer.parseInt((String)value);
+						}else if(dbType.getSimpleName().equals("Float")){
+							value = Float.parseFloat((String) value);
 						}else{
-							value =Float.parseFloat((String) value);
+							System.out.println(value);
+							value = Timestamp.valueOf((String)value).getTime();
 						}
 				 	}
 					String setMethodName = "set" + firstUpperCase(columnNames[i]);

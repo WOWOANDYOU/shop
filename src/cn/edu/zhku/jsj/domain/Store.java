@@ -5,7 +5,15 @@ public class Store {
 	private String storename;
 	private String owner_id; // 店铺所属人（店家）
 	private String description;
+	private int control;  //判断管理员是否封铺了，0表示没封，1表示封了
 	private String images;
+	
+	public int getControl() {
+		return control;
+	}
+	public void setControl(int control) {
+		this.control = control;
+	}
 	public String getImages() {
 		return images;
 	}

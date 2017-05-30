@@ -16,6 +16,7 @@ import org.apache.commons.fileupload.FileUploadBase.FileSizeLimitExceededExcepti
 import cn.edu.zhku.jsj.domain.Book;
 import cn.edu.zhku.jsj.domain.Cloth;
 import cn.edu.zhku.jsj.domain.Food;
+import cn.edu.zhku.jsj.domain.Store;
 import cn.edu.zhku.jsj.formbean.ClothFormBean;
 import cn.edu.zhku.jsj.service.BusinessService;
 import cn.edu.zhku.jsj.service.impl.BusinessServiceImpl;
@@ -25,7 +26,14 @@ import cn.edu.zhku.jsj.web.utils.WebUtil;
 public class AddClothServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		String storeid =  request.getParameter("store_id");
+		int store_id = Integer.parseInt(storeid);
+		BusinessService bus = new BusinessServiceImpl();
+		Store store = bus.finstoreinfo(store_id);
+		request.setAttribute("store_info", store);
+		request.setAttribute("store_id", store_id);
+		request.getRequestDispatcher("/pages/shopkeeper/modify_store.jsp").forward(request, response);
+		return;
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");

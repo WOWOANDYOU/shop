@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import cn.edu.zhku.jsj.domain.Book;
 import cn.edu.zhku.jsj.domain.Cloth;
 import cn.edu.zhku.jsj.domain.Food;
+import cn.edu.zhku.jsj.domain.Order;
 import cn.edu.zhku.jsj.service.BusinessService;
 import cn.edu.zhku.jsj.service.impl.BusinessServiceImpl;
 
@@ -21,6 +22,22 @@ public class InStoreSearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String order_type = request.getParameter("order_type");
+		int states = Integer.parseInt(order_type);
+		String storeid = request.getParameter("store_id");
+		int store_id = Integer.parseInt(storeid);
+		BusinessService bus = new BusinessServiceImpl();
+		List<Order> listorder = null;
+		if("0".equals(order_type)){
+			//查询该店铺的所有订单
+			listorder = bus.getOrder(store_id);
+		}
+		if("2".equals(order_type) || "3".equals(order_type)){
+			listorder = bus.getBFOrder(store_id, states);
+		}
+		request.setAttribute("roderlist", listorder);
+		request.getRequestDispatcher("/pages/shopkeeper/store_order_manage.jsp").forward(request, response);
+		return;
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

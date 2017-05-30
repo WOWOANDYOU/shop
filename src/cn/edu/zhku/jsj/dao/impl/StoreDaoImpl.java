@@ -24,13 +24,13 @@ public class StoreDaoImpl implements StoreDao {
 		ResultSet rs = null;
 		con = JdbcUtil.getCon();
 		try{
-			String sql = "insert into store values(null,?,?,?,?)";
+			String sql = "insert into store values(null,?,?,?,?,?)";
 			pres = con.prepareStatement(sql);
 			pres.setString(1, store.getStorename());
 			pres.setString(2, store.getOwner_id());
 			pres.setString(3, store.getDescription());
 			pres.setString(4, store.getImages());
-			
+			pres.setInt(5, store.getControl());
 			int num = pres.executeUpdate();
 			return num;
 		}catch(Exception e){
@@ -97,24 +97,45 @@ public class StoreDaoImpl implements StoreDao {
 	}
 	@Override
 	public User findowner(String owner_id){
+	Connection con = null;
+	PreparedStatement pres = null;
+	ResultSet rs = null;
+	con = JdbcUtil.getCon();
+	List<User> userlist;
+	User u = new User(); 
+	try{
+		String sql = "select * from user where user_id=?";
+		pres = con.prepareStatement(sql);
+		pres.setString(1,owner_id);
+		rs = pres.executeQuery();
+		userlist = ResultToBean.getBeanList(User.class, rs); //调工具类 （封装 数据到 bean的工具类）
+		if(userlist.isEmpty()){
+			System.out.print("userlist空");
+		}else{
+		u = userlist.get(0);
+		}
+		return u;
+	}catch(Exception e){ 
+		throw new RuntimeException(e);
+	}finally{
+		JdbcUtil.release(con, pres, rs);
+	}
+}
+
+	@Override
+	public Store findstoreinfo(int store_id) {
 		Connection con = null;
 		PreparedStatement pres = null;
 		ResultSet rs = null;
 		con = JdbcUtil.getCon();
-		List<User> userlist;
-		User u = new User(); 
+		List<Store> storelist;
 		try{
-			String sql = "select * from user where user_id=?";
+			String sql = "select * from store where store_id=?";
 			pres = con.prepareStatement(sql);
-			pres.setString(1,owner_id);
+			pres.setInt(1, store_id);
 			rs = pres.executeQuery();
-			userlist = ResultToBean.getBeanList(User.class, rs); //调工具类 （封装 数据到 bean的工具类）
-			if(userlist.isEmpty()){
-				System.out.print("userlist空");
-			}else{
-			u = userlist.get(0);
-			}
-			return u;
+			storelist = ResultToBean.getBeanList(Store.class, rs); //调工具类 （封装 数据到 bean的工具类）
+			return storelist.get(0);
 		}catch(Exception e){ 
 			throw new RuntimeException(e);
 		}finally{
@@ -141,11 +162,35 @@ public class StoreDaoImpl implements StoreDao {
 			s = storelist.get(0);
 			}
 			return s;
+	}catch(Exception e){ 
+		throw new RuntimeException(e);
+	}finally{
+		JdbcUtil.release(con, pres, rs);
+	}
+	}
+
+	@Override
+	public boolean updatestore(Store store) {
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		con = JdbcUtil.getCon();
+		boolean b = false;
+		try{
+			String sql = "update store set description=?,storename=? where store_id=?";
+			pres = con.prepareStatement(sql);
+			pres.setString(1, store.getDescription());
+			pres.setString(2, store.getStorename());
+			pres.setInt(3, store.getStore_id());
+			int num = pres.executeUpdate();
+			if(num!=0)
+				b = true;
+			return b;
 		}catch(Exception e){ 
 			throw new RuntimeException(e);
 		}finally{
 			JdbcUtil.release(con, pres, rs);
 		}
 	}
-	
+
 }

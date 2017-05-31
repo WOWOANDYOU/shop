@@ -38,33 +38,38 @@ table {
 }
 
 .header_left_user {
+	width : 60px;
 	height: 30px;
 }
 
 .header_left_user_d-image {
-	font-size: 13px; width : 30px;
+	font-size: 13px; 
+	width : 60px;
 	height: 30px;
 	float: left;
 	width: 30px;
 }
 
 .header_left_user_d-a {
-	width: 80px;
+	width: 30px;
 	height: 30px;
 	float: left;
 }
 
 .header_left_user_image {
-	width: 30px;
-	height: 30px;
+	margin:2px;
+	width: 51px;
+	height: 51px;
 }
 /***************第二块 ********************/
 .header2_left {
-	width: 350;
+	width: 145px;
 }
 
 .header2_center {
-	float: left;
+	position:absolute;
+	top:30px;
+	left:400px;
 	height: 80px;
 }
 
@@ -153,6 +158,9 @@ table {
 }
 
 .body_type {
+	position:absolute;
+	top:110px;
+	left:30px;
 	width: 1320px;
 	height: 50px;
 	margin: 1px auto;

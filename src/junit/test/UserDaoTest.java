@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
+import java.util.Calendar;
+import java.util.Date;
 
 import org.junit.Test;
 
@@ -113,5 +115,10 @@ public class UserDaoTest {
 		int strnum = str.lastIndexOf(",");
 		String str1 = str.substring(0,strnum);
 		System.out.println(str1);
+	}
+	@Test
+	public void time(){
+		Calendar cal = Calendar.getInstance();
+		System.out.println((cal.get(Calendar.MONTH)+1)+"月"+cal.get(Calendar.DAY_OF_MONTH)+"日"+cal.get(Calendar.HOUR)+":"+cal.get(Calendar.MINUTE)+":"+cal.get(Calendar.SECOND));
 	}
 }

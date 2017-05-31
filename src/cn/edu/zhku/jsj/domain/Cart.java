@@ -1,10 +1,10 @@
-﻿package cn.edu.zhku.jsj.domain;
+package cn.edu.zhku.jsj.domain;
 
 public class Cart {
 	private int cart_id;
 	private int good_id;
 	private String type;//记录从哪个（种类）表查找
-	private int user_id;//外键 记住这个购物车是哪个 用户的
+	private String user_id;//外键 记住这个购物车是哪个 用户的
 	private int quantity;//商品数量
 	//private float unitprice;//商品单价
 	private float totalprice;//小计 每种商品价格 * 数量
@@ -29,10 +29,10 @@ public class Cart {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public int getUser_id() {
+	public String getUser_id() {
 		return user_id;
 	}
-	public void setUser_id(int user_id) {
+	public void setUser_id(String user_id) {
 		this.user_id = user_id;
 	}
 	public int getQuantity() {

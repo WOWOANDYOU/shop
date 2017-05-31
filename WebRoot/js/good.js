@@ -67,14 +67,14 @@ function payit_c(){
 	for(var i=0;i<paytype.length;i++){
 		paytype.item(i).value="pay";
 	}
-	document.getElementsByName("Goods_good_type_form_c").commit();
+	document.getElementById("Goods_good_type_form_c").submit();
 }
 function intoCart_c(){
 	var paytype=document.getElementsByName("BusinessType");
 	for(var i=0;i<paytype.length;i++){
 		paytype.item(i).value="intocart";
 	}
-	document.getElementsByName("Goods_good_type_form_c").commit();
+	document.getElementById("Goods_good_type_form_c").submit();
 }
 //书本的
 function payit_b(){
@@ -82,14 +82,14 @@ function payit_b(){
 	for(var i=0;i<paytype.length;i++){
 		paytype.item(i).value="pay";
 	}
-	document.getElementsByName("Goods_good_type_form_b").commit();
+	document.getElementById("Goods_good_type_form_b").submit();
 }
 function intoCart_b(){
 	var paytype=document.getElementsByName("BusinessType");
 	for(var i=0;i<paytype.length;i++){
 		paytype.item(i).value="intocart";
 	}
-	document.getElementsByName("Goods_good_type_form_b").commit();
+	document.getElementById("Goods_good_type_form_b").submit();
 }
 //食物的
 function payit_f(){
@@ -97,12 +97,12 @@ function payit_f(){
 	for(var i=0;i<paytype.length;i++){
 		paytype.item(i).value="pay";
 	}
-	document.getElementsByName("Goods_good_type_form_f").commit();
+	document.getElementById("Goods_good_type_form_f").submit();
 }
 function intoCart_f(){
 	var paytype=document.getElementsByName("BusinessType");
 	for(var i=0;i<paytype.length;i++){
 		paytype.item(i).value="intocart";
 	}
-	document.getElementsByName("Goods_good_type_form_f").commit();
+	document.getElementById("Goods_good_type_form_f").submit();
 }

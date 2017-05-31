@@ -1,16 +1,38 @@
 package cn.edu.zhku.jsj.dao.impl;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.List;
 import java.util.Map;
 
 import cn.edu.zhku.jsj.dao.CartDao;
 import cn.edu.zhku.jsj.domain.Cart;
+import cn.edu.zhku.jsj.web.utils.JdbcUtil;
 
 public class CartDaoImpl implements CartDao {
 	//顾客选中物品加入购物车
 	@Override
 	public int add(Cart cart){
-		return 0;
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		con = JdbcUtil.getCon();
+		try{
+			String sql = "insert into cart values(null,?,?,?,?,?)";
+			pres = con.prepareStatement(sql);
+			pres.setInt(1, cart.getGood_id());
+			pres.setString(2, cart.getUser_id());
+			pres.setInt(3, cart.getQuantity());
+			pres.setFloat(4,cart.getTotalprice());
+			pres.setString(5, cart.getVersion());
+			int num = pres.executeUpdate();
+			return num;
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}finally{
+			JdbcUtil.release(con, pres, rs);
+		}
 	}
 	
 	@Override

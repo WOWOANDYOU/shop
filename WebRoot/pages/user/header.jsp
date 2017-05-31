@@ -16,12 +16,14 @@
 	href="${pageContext.request.contextPath }/css/index.css">
 <script type="text/javascript"
 	src="${pageContext.request.contextPath }/js/header.js">
+	
 </script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath }/js/header2.js"></script>
 </head>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath }/js/body.js">
+	
 </script>
 <body>
 	<div class="header">
@@ -37,36 +39,54 @@
 					</c:when>
 					<c:otherwise>
 						<div class="header_left_user">
-							<div class="header_left_user_d-image">
-								<img class="header_left_user_image" alt="头像"
-									src="${pageContext.request.contextPath}/images/${sessionScope.user.image }">
-							</div>
-							<div class="header_left_user_d-a">
+							<div class="header_left_user_d-a" onmouseover="userinfo()"
+								onmouseout="hidit()">
 								<a class="header_left_user_a"
 									href="${pageContext.request.contextPath}/pages/user/UserInfo.jsp"
 									target="_blank">${sessionScope.user.nickname}</a>
 							</div>
 						</div>
+						<div class="header_left_userinfo" id="header_left_userinfo"
+							style="width:130px;float:left;height:55px;border:2px solid #c0c0c0;display:none"
+							onmouseover="userinfo()" onmouseout="hidit()">
+							<div class="header_left_user_d-image">
+								<img class="header_left_user_image" alt="头像"
+									src="${pageContext.request.contextPath}/images/${sessionScope.user.image }">
+							</div>
+							<div class="header_left_userinfo_out"
+								style="float:right;width:70px;height:55px;text-align:right;">
+								<a style="font-size:10px;" href="">退出</a>
+							</div>
+						</div>
+							<li class="header_right">
+								<div class="header_right_cart" style="display:inline">
+									<a class="header_right_order_a"
+										href="${pageContext.request.contextPath}/pages/user/cart.jsp"
+										target="_blank"> 我的购物车</a>
+								</div>
+								<div class="header_right_order" style="display:inline">
+									<a class="header_right_order_a"
+										href="${pageContext.request.contextPath}/pages/user/Order.jsp"
+										target="_blank"> 我的订单</a>
+								</div> <c:choose>
+									<c:when test="${sessionScope.user.role==2}">
+										<div class="header_right_merchant" style="display:inline">
+											<a class="header_right_merchant_a"
+												href="${pageContext.request.contextPath}/pages/shopkeeper/store.jsp"
+												target="_blank"> 卖家中心</a>
+										</div>
+									</c:when>
+									<c:otherwise>
+										<div class="header_right_merchant" style="display:inline">
+											<a class="header_right_merchant_a"
+												href="${pageContext.request.contextPath}/pages/user/store_register.jsp"
+												target="_blank"> 我要开店</a>
+										</div>
+									</c:otherwise>
+								</c:choose>
+							</li>
 					</c:otherwise>
 				</c:choose>
-			<li class="header_right">
-				<div class="header_right_cart" style="display:inline">
-					<a class="header_right_order_a"
-						href="${pageContext.request.contextPath}/pages/user/cart.jsp"
-						target="_blank"> 我的购物车</a>
-				</div>
-				<div class="header_right_order" style="display:inline">
-					<a class="header_right_order_a"
-						href="${pageContext.request.contextPath}/pages/user/Order.jsp"
-						target="_blank"> 我的订单</a>
-				</div>
-				<div class="header_right_merchant" style="display:inline">
-					<a class="header_right_merchant_a"
-						href="${pageContext.request.contextPath}/pages/shopkeeper/store.jsp"
-						target="_blank"> 卖家中心</a>
-				</div>
-				<div></div>
-			</li>
 		</ul>
 	</div>
 	<br>
@@ -77,7 +97,7 @@
 				href="${pageContext.request.contextPath }/pages/user/index.jsp"
 				target="_top"> <img alt="商城图标"
 					src="${pageContext.request.contextPath}/images/taobao.jpg"
-					style="width:145px;height:55px;text-align:center;">
+					style="position:absolute;left:220px;top:30px;width:145px;height:55px;text-align:center;">
 			</a></li>
 			<li>
 				<div class="header2_center">
@@ -122,7 +142,7 @@
 			method="post" target="view_body">
 			<table>
 				<td><input id="body_type_selected" class="body_type_selected"
-					type="text" name="body_type_selected"/></td>
+					type="text" name="body_type_selected" /></td>
 				<c:choose>
 					<c:when test="${empty sessionScope.body_type_b1}">
 						<td><input id="body_type_b1" class="body_type_b1_action"

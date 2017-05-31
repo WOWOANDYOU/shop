@@ -16,16 +16,36 @@
 	href="${pageContext.request.contextPath }/css/index.css">
 <script type="text/javascript"
 	src="${pageContext.request.contextPath }/js/header.js">
-	
 </script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath }/js/header2.js"></script>
 </head>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath }/js/body.js">
-	
 </script>
-<body>
+<script type="text/javascript">
+function cart_ajax()
+{
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+/*  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    }*/
+  }
+xmlhttp.open("GET","${pageContext.request.contextPath}/cartnum_servlet",true);
+xmlhttp.send();
+}
+</script>
+<body onload="cart_ajax()">
 	<div class="header">
 		<ul class="header_ul">
 			<li class="header_left"><c:choose>
@@ -62,7 +82,7 @@
 								<div class="header_right_cart" style="display:inline">
 									<a class="header_right_order_a"
 										href="${pageContext.request.contextPath}/pages/user/cart.jsp"
-										target="_blank"> 我的购物车</a>
+										target="_blank"> 我的购物车<span style="color:red;font-weight:500;font-size:15px;">${sessionScope.cartnum }</span></a>
 								</div>
 								<div class="header_right_order" style="display:inline">
 									<a class="header_right_order_a"

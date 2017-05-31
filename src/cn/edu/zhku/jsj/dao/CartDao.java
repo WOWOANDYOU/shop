@@ -17,4 +17,6 @@ public interface CartDao {
 
 	boolean delete(int cart_id);
 
+	int countCart(String user_id);
+
 }

@@ -53,6 +53,27 @@ public class CartDaoImpl implements CartDao {
 	public boolean delete(int cart_id){ 
 		return false;
 	}
-	
+	@Override
+	public int countCart(String user_id){
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		con = JdbcUtil.getCon();
+		try{
+			int num=0;
+			String sql = "select count(*) as num from cart where user_id=?";
+			pres = con.prepareStatement(sql);
+			pres.setString(1, user_id);
+			rs = pres.executeQuery();
+			while(rs.next()){
+			num=rs.getInt("num");
+			}
+			return num;
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}finally{
+			JdbcUtil.release(con, pres, rs);
+		}
+	}
 	
 }

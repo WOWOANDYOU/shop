@@ -13,4 +13,8 @@ public class CartService {
 		}
 		return false;
 	}
+	public int countCart(String user_id){
+		int num=cd.countCart(user_id);
+		return num;
+	}
 }

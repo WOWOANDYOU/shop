@@ -180,6 +180,7 @@ public class OrderDaoImpl implements OrderDao {
 			JdbcUtil.release(con, pres, rs);
 		}
 	}
+
 	public boolean updateState2(int order_id) {
 		Connection con = null;
 		PreparedStatement pres = null;

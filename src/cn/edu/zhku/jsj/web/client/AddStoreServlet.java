@@ -56,6 +56,8 @@ public class AddStoreServlet extends HttpServlet {
 			request.getRequestDispatcher("/pages/user/message.jsp").forward(request, response);
 			return;
 		}
+		user=service.findInformation(user.getUser_id());
+		session.setAttribute("user",user);
 		session.setAttribute("message", "店铺注册成功，三秒后自动跳回首页");
 		request.getRequestDispatcher("/pages/user/message.jsp").forward(request, response);
 		

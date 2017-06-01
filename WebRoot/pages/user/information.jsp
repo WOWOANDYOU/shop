@@ -17,7 +17,7 @@ body {
 }
 #container {
 	width: 980px;
-	background-image: url("../images/information.jpg");
+	background-image: url("${pageContext.request.contextPath }/images/information.jpg");
 	width: 1024px;
 	height: 768px;
 	margin: 0px 0 0 175px;

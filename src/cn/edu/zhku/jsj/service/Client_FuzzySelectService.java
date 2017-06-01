@@ -25,7 +25,7 @@ public class Client_FuzzySelectService {
 		List<Book> list = bd.findBook(str);
 		return list;
 	}
-
+	
 	public List<Food> select_f(String str) {
 		List<Food> list = fd.find(str);
 		return list;

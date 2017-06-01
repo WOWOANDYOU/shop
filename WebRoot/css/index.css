@@ -21,7 +21,7 @@ table {
 .header, .header2 {
 	text-align: center;
 	font-size: 15px;
-	font-weight: 100px;
+	font-weight: 100;
 }
 
 .header {
@@ -33,19 +33,20 @@ table {
 }
 
 .header_right {
+	width:250px;
 	float: right;
 }
 
 .header_left_user {
+	width : 60px;
 	height: 30px;
-	border: 1px solid red;
 }
 
 .header_left_user_d-image {
-	font-size: 13px; width : 30px;
+	font-size: 13px; 
+	width : 60px;
 	height: 30px;
 	float: left;
-	border: 1px solid red;
 	width: 30px;
 }
 
@@ -53,77 +54,82 @@ table {
 	width: 30px;
 	height: 30px;
 	float: left;
-	border: 1px solid red;
 }
 
 .header_left_user_image {
-	width: 30px;
-	height: 30px;
+	margin:2px;
+	width: 51px;
+	height: 51px;
 }
 /***************第二块 ********************/
 .header2_left {
-	width: 350;
+	width: 145px;
 }
 
 .header2_center {
-	float: left;
+	position:absolute;
+	top:30px;
+	left:400px;
 	height: 80px;
 }
 
 .header2_center_top {
 	text-align: left;
 	height: 18px;
-	margin: auto;
 }
 
 .header2_center_top_Goods {
-	display: inline;
-	height: 24px;
-	width: 50px;
+	float:left;
+	height: 20px;
+	width: 40px;
 	font-size: 15px;
 	font-family: 宋体;
-	weight: 300px;
+	font-weight: 300;
 	border: 1px solid #ff7624;
+	cursor:default;
 }
 
 .header2_center_top_Shop {
-	display: inline;
-	height: 24px;
-	width: 50px;
+	float:left;
+	height: 20px;
+	width: 40px;
 	font-size: 15x;
 	font-family: 宋体;
-	weight: 300px;
+	font-weight: 300;
 	border: 1px solid #ff7624;
+	cursor:default;
 }
 
 .header2_center_top_Goods_selected {
-	display: inline;
-	height: 24px;
-	width: 50px;
+	float:left;
+	height: 20px;
+	width: 40px;
 	color: white;
 	font-size: 15px;
 	font-family: 宋体;
-	weight: 300px;
+	font-weight: 300;
 	background-color: #ff7624;
 	border: 1px solid #ff7624;
+	cursor:default;
 }
 
 .header2_center_top_Shop_selected {
-	display: inline;
-	height: 24px;
-	width: 50px;
+	float:left;
+	height: 20px;
+	width: 40px;
 	color: white;
 	font-size: 15x;
 	font-family: 宋体;
-	weight: 300px;
+	font-weight: 300;
 	background-color: #ff7624;
 	border: 1px solid #ff7624;
+	cursor:default;
 }
 
 .header2_center_buttom {
 	margin: auto;
 	background-color: #ff7624;
-	border: 1px solid #ff7624;
+	border: none;
 }
 
 .header2_center_select {
@@ -142,26 +148,29 @@ table {
 	font-size: 10px;
 	font-family: 黑体;
 	color: #ffffff;
-	weight: 200;
+	font-weight: 200;
 	border: 0px;
+	cursor:pointer;
 }
 /***************第三块 ********************/
 .body {
 	text-align: center;
-	border: 1px solid green;
 }
 
 .body_type {
+	position:absolute;
+	top:120px;
+	left:30px;
 	width: 1320px;
 	height: 50px;
 	margin: 1px auto;
-	border: 1px solid red;
 }
 
 .body_good {
-	width: 1320px;
+	margin-left:18px;
+	width: 1300px;
 	height: 500px;
-	border: 1px solid red;
+	border: 3px solid #ff8080;
 }
 
 .body_type_b1 {
@@ -179,23 +188,43 @@ table {
 	background-color: white;
 	font-size: 30;
 	font-family: 宋体;
-	weight: 500;
+	font-weight: 500;
 	color: black;
+	cursor:pointer;	
 }
-
-.body_type_b1_action, .body_type_b2_action, .body_type_b3_action {
-	border: 1 solid black;
+.body_type_b1_action{
 	border-bottom: none;
-	width: 432;
-	background-color: red;
-	font-size: 30;
+	width: 432px;
+	background-color: #ff0000;
+	font-size: 30px;
 	font-family: 宋体;
-	weight: 500;
+	font-weight: 500;
 	color: #ffffff;
+	cursor:pointer;	
+} 
+.body_type_b2_action{
+	border-bottom: none;
+	width:432px;
+	background-color: #0080c0;
+	font-size: 30px;
+	font-family: 宋体;
+	font-weight: 500;
+	color: #ffffff;
+	cursor:pointer;	
+}
+.body_type_b3_action {
+	border-bottom: none;
+	width: 432px;
+	background-color: #6fd728;
+	font-size: 30px;
+	font-family: 宋体;
+	font-weight: 500;
+	color: #ffffff;
+	cursor:pointer;	
 }
 
 .body_type_selected {
-	display: none;
+	display:none;
 }
 
 .body_good_more {
@@ -205,20 +234,19 @@ table {
 	height: 20px;
 	font-size: 20px;
 	font-family: 黑体;
-	weight: 300;
+	font-weight: 300;
 	padding: 10px;
-	border: 1px solid red;
 }
 
 .body_good_total{
-	width: 1320px;
+	width: 1300px;
 	height: 435px;
-	border: 1px solid blue;
+	border-top: 3px solid #0080ff;
 }
 .body_good_total_c,.body_good_total_b,.body_good_total_f{
-	margin:1px;
+	margin:1.5px;
 	float:left;
-	border: 1px solid blue;
+	border: 1px solid #c0c0c0;
 	width:320px;
 	height:210px;
 }

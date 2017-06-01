@@ -3,12 +3,14 @@ package cn.edu.zhku.jsj.dao.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.management.RuntimeErrorException;
 
 import cn.edu.zhku.jsj.dao.ClothDao;
 import cn.edu.zhku.jsj.domain.Cloth;
+import cn.edu.zhku.jsj.domain.Store;
 import cn.edu.zhku.jsj.web.utils.JdbcUtil;
 import cn.edu.zhku.jsj.web.utils.ResultToBean;
 
@@ -51,9 +53,10 @@ public class ClothDaoImpl implements ClothDao {
 		con = JdbcUtil.getCon();
 		List<Cloth> clothlist;
 		try{
-			String sql = "select * from cloth where clothname=?";
+			String sql = "select * from cloth where clothname like ? or description like ?";
 			pres = con.prepareStatement(sql);
 			pres.setString(1, "%"+cloth_name+"%");
+			pres.setString(2, "%"+cloth_name+"%");
 			rs = pres.executeQuery();
 			clothlist = ResultToBean.getBeanList(Cloth.class, rs); //调工具类 （封装 数据到 bean的工具类）
 			return clothlist;
@@ -216,5 +219,31 @@ public class ClothDaoImpl implements ClothDao {
 		}finally{
 			JdbcUtil.release(con, pres, rs);
 		}
+	}
+	@Override
+	public Store findcloth_store(int cloth_id) {
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		con = JdbcUtil.getCon();
+		List<Store> storelist = new LinkedList<Store>();
+		Store s=new Store();
+		try{
+			String sql = "select * from store where store_id=(select store_id from book where cloth_id=?)";
+			pres = con.prepareStatement(sql);	
+			pres.setInt(1, cloth_id);
+			rs = pres.executeQuery();
+			storelist = ResultToBean.getBeanList(Store.class, rs); //调工具类 （封装 数据到 bean的工具类）
+			if(storelist.isEmpty()){
+				System.out.println("storelist为空！！");
+			}else{
+			s=storelist.get(0);
+			}
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}finally{
+			JdbcUtil.release(con, pres, rs);
+		}
+		return s;
 	}
 }	

@@ -24,10 +24,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<input type="button" value="已发货" onclick="state3()">
   	</div>
     <table id="state1_t">
-    <tr><td>订单号</td><td>商品ID</td><td>店铺ID</td><td>商品数量</td><td>交易时间</td><td>交易总金额</td></tr>
+    <tr><td>订单号</td><td>商品ID</td><td>店铺ID</td><td>商品数量</td><td>交易时间</td><td>交易总金额</td><td>操作</td></tr>
     <c:forEach items="${sessionScope.orderlist }" var="ol">
     <c:if test="${ol.state eq 1}">
-    <tr><td>${ol.order_id }</td><td>${ol.good_id }</td><td>${ol.store_id }</td><td>${ol.quantity }</td><td>${ol.ordertime }</td><td>${ol.price }</td></tr>
+    <tr><td>${ol.order_id }</td><td>${ol.good_id }</td><td>${ol.store_id }</td><td>${ol.quantity }</td><td>${ol.ordertime }</td><td>${ol.price }</td><td><a id="delete_a" href="${pageContext.request.contextPath }/order_delete_servlet?order_id=${ol.order_id }" style="display:none"></a><div onclick="deleteit()" style="cursor:pointer;">取消订单</div></td></tr>
     </c:if>
     </c:forEach>
     </table>

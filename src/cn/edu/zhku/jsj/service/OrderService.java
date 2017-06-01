@@ -18,4 +18,7 @@ public class OrderService {
 		lo=od.findOrder(user_id);
 		return lo;
 	}
+	public void deleteorder(int order_id){
+		od.delete(order_id);
+	}
 }

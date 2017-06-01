@@ -53,7 +53,24 @@ public class OrderDaoImpl implements OrderDao {
 	}
 	@Override
 	public boolean delete(int order_id){
-		return false;
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		try{
+			con = JdbcUtil.getCon();
+			String sql = "delete from orders where order_id=?";
+			pres = con.prepareStatement(sql);
+			pres.setInt(1, order_id);
+			int num = pres.executeUpdate();
+			if(num!=0)
+				return true;
+			else
+				return false;
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}finally{
+			JdbcUtil.release(con, pres, rs);
+		}
 	}
 	@Override
 	public List<Order> getstore_Orders(int store_id) {

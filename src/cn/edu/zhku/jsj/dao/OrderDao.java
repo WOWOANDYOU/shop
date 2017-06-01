@@ -23,5 +23,5 @@ public interface OrderDao {
 	List<Order> findOrder(String user_id);
 
 	List<Order> findOrder(String user_id, int state);
-	
+	boolean deleteorder(int order_id);
 }

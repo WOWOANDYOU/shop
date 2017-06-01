@@ -45,7 +45,13 @@
 											<font style="colot:#c6c6c6">去发货</font>
 										</c:otherwise>
 									</c:choose>
-									<a href="#">删除</a>
+									
+									<c:if test="${order_item.state==2 }">
+										<font style="colot:#c6c6c6">删除</font>
+									</c:if>
+									<c:if test="${order_item.state==3 }">
+										<a href="${pageContext.request.contextPath }/servlet/StoreOrderServlet?order_id=${order_item.order_id}">删除</a>
+									</c:if>
 								</td>
 								        				
 	               			</tr>

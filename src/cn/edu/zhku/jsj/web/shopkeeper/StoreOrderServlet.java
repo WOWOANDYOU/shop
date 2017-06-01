@@ -20,8 +20,19 @@ public class StoreOrderServlet extends HttpServlet {
        
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		String orderid = request.getParameter("order_id");
+		int order_id = Integer.parseInt(orderid);
+		BusinessService bus = new BusinessServiceImpl();
+		boolean b = bus.deleteOrder(order_id);
+		if(b){
+			request.setAttribute("message","删除成功！3秒后 跳回 店铺页面 <meta http-equiv='refresh' content='3;url=/shop/pages/shopkeeper/store.jsp'>");
+		}else{
+			request.setAttribute("message","删除失败！3秒后 跳回 店铺页面 <meta http-equiv='refresh' content='3;url=/shop/pages/shopkeeper/store.jsp'>");
+		}
+		request.getRequestDispatcher("/pages/user/message.jsp").forward(request, response);
+		return;
 	}
+	
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

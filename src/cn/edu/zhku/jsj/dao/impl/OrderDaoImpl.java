@@ -223,6 +223,27 @@ public class OrderDaoImpl implements OrderDao {
 			JdbcUtil.release(con, pres, rs);
 		}
 	}
+	@Override
+	public boolean deleteorder(int order_id) {
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		try{
+			con = JdbcUtil.getCon();
+			String sql = "delete from Orders where order_id=?";
+			pres = con.prepareStatement(sql);
+			pres.setInt(1, order_id);
+			int num = pres.executeUpdate();
+			if(num!=0)
+				return true;
+			else
+				return false;
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}finally{
+			JdbcUtil.release(con, pres, rs);
+		}
+	}
 	
 	
 }

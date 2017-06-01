@@ -292,5 +292,10 @@ public class BusinessServiceImpl implements BusinessService {
 		return order_dao.getstore_Orders2(order_id);
 	}
 
+	@Override
+	public boolean deleteOrder(int order_id) {
+		return order_dao.deleteorder(order_id);
+	}
+
 
 }

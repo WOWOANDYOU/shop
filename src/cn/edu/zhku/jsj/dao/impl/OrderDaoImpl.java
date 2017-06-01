@@ -175,6 +175,12 @@ public class OrderDaoImpl implements OrderDao {
 			rs = pres.executeQuery();
 			listorder = ResultToBean.getBeanList(Order.class, rs);
 			return listorder;
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}finally{
+			JdbcUtil.release(con, pres, rs);
+		}
+	}
 
 	public boolean updateState2(int order_id) {
 		Connection con = null;

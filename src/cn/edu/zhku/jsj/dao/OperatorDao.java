@@ -1,13 +1,9 @@
 package cn.edu.zhku.jsj.dao;
 
-<<<<<<< HEAD
 import java.util.List;
 
-import cn.edu.zhku.jsj.daomain.Operator;
-import cn.edu.zhku.jsj.daomain.Store;
-=======
 import cn.edu.zhku.jsj.domain.Operator;
->>>>>>> upstream/master
+import cn.edu.zhku.jsj.domain.Store;
 
 public interface OperatorDao {
 

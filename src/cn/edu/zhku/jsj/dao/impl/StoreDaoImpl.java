@@ -23,16 +23,13 @@ public class StoreDaoImpl implements StoreDao {
 		ResultSet rs = null;
 		con = JdbcUtil.getCon();
 		try{
-			String sql = "insert into store values(null,?,?,?,?)";
+			String sql = "insert into store values(null,?,?,?,?,?)";
 			pres = con.prepareStatement(sql);
 			pres.setString(1, store.getStorename());
 			pres.setString(2, store.getOwner_id());
 			pres.setString(3, store.getDescription());
-<<<<<<< HEAD
 			pres.setInt(4, store.getControl());
-=======
-			pres.setString(4, store.getImages());
->>>>>>> upstream/master
+			pres.setString(5, store.getImages());
 			
 			int num = pres.executeUpdate();
 			return num;

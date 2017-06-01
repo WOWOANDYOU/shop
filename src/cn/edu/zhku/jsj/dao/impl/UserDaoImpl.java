@@ -3,15 +3,10 @@ package cn.edu.zhku.jsj.dao.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import cn.edu.zhku.jsj.dao.UserDao;
-<<<<<<< HEAD
-import cn.edu.zhku.jsj.daomain.Store;
-import cn.edu.zhku.jsj.daomain.User;
-=======
+import cn.edu.zhku.jsj.domain.Store;
 import cn.edu.zhku.jsj.domain.User;
->>>>>>> upstream/master
 import cn.edu.zhku.jsj.web.utils.JdbcUtil;
 
 public class UserDaoImpl implements UserDao {
@@ -224,13 +219,12 @@ public class UserDaoImpl implements UserDao {
 		ResultSet rs = null;
 		con = JdbcUtil.getCon();
 		String sql="select * from Store where owner_id=?";
+		Store store=null;
 		try{
-			
 			pres = con.prepareStatement(sql);
-			
 			pres.setString(1, owner_id);
 			rs = pres.executeQuery();
-			Store store=null;
+			
 			while(rs.next()){
 				store=new Store();
 				store.setControl(rs.getInt("control"));

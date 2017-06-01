@@ -10,21 +10,13 @@ import cn.edu.zhku.jsj.dao.OperatorDao;
 import cn.edu.zhku.jsj.dao.OrderDao;
 import cn.edu.zhku.jsj.dao.StoreDao;
 import cn.edu.zhku.jsj.dao.UserDao;
-<<<<<<< HEAD
-import cn.edu.zhku.jsj.daomain.Book;
-import cn.edu.zhku.jsj.daomain.Cloth;
-import cn.edu.zhku.jsj.daomain.Food;
-import cn.edu.zhku.jsj.daomain.Operator;
-import cn.edu.zhku.jsj.daomain.Store;
-import cn.edu.zhku.jsj.daomain.User;
-=======
 import cn.edu.zhku.jsj.domain.Book;
 import cn.edu.zhku.jsj.domain.Cloth;
 import cn.edu.zhku.jsj.domain.Food;
+import cn.edu.zhku.jsj.domain.Operator;
 import cn.edu.zhku.jsj.domain.Order;
 import cn.edu.zhku.jsj.domain.Store;
 import cn.edu.zhku.jsj.domain.User;
->>>>>>> upstream/master
 import cn.edu.zhku.jsj.exception.UserexistException;
 import cn.edu.zhku.jsj.factory.DaoFactory;
 import cn.edu.zhku.jsj.service.BusinessService;
@@ -263,7 +255,6 @@ public class BusinessServiceImpl implements BusinessService {
 		return num;
 	}
 	
-<<<<<<< HEAD
 	//添加管理员
 	public int addOperator(Operator operator){
 		String password=Md5.md5(operator.getPassword());
@@ -278,7 +269,4 @@ public class BusinessServiceImpl implements BusinessService {
 		Operator operator=ope_dao.find(name, password);
 		return operator;
 	}
-	 
-=======
->>>>>>> upstream/master
 }

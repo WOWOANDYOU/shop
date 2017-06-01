@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.beanutils.BeanUtils;
 
-import cn.edu.zhku.jsj.daomain.User;
+import cn.edu.zhku.jsj.domain.User;
 import cn.edu.zhku.jsj.service.BusinessService;
 import cn.edu.zhku.jsj.service.impl.BusinessServiceImpl;
 import cn.edu.zhku.jsj.web.utils.InformationBean;

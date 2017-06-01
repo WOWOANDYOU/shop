@@ -1,21 +1,15 @@
 package cn.edu.zhku.jsj.dao.impl;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
 import cn.edu.zhku.jsj.dao.OperatorDao;
-<<<<<<< HEAD
-import cn.edu.zhku.jsj.daomain.Operator;
-import cn.edu.zhku.jsj.daomain.Store;
-=======
 import cn.edu.zhku.jsj.domain.Operator;
->>>>>>> upstream/master
+import cn.edu.zhku.jsj.domain.Store;
 import cn.edu.zhku.jsj.web.utils.JdbcUtil;
 
 public class OperatorDaoImpl implements OperatorDao {

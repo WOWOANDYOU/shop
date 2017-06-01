@@ -2,21 +2,13 @@ package cn.edu.zhku.jsj.service;
 
 import java.util.List;
 
-<<<<<<< HEAD
-import cn.edu.zhku.jsj.daomain.Book;
-import cn.edu.zhku.jsj.daomain.Cloth;
-import cn.edu.zhku.jsj.daomain.Food;
-import cn.edu.zhku.jsj.daomain.Operator;
-import cn.edu.zhku.jsj.daomain.Store;
-import cn.edu.zhku.jsj.daomain.User;
-=======
 import cn.edu.zhku.jsj.domain.Book;
 import cn.edu.zhku.jsj.domain.Cloth;
 import cn.edu.zhku.jsj.domain.Food;
+import cn.edu.zhku.jsj.domain.Operator;
 import cn.edu.zhku.jsj.domain.Order;
 import cn.edu.zhku.jsj.domain.Store;
 import cn.edu.zhku.jsj.domain.User;
->>>>>>> upstream/master
 import cn.edu.zhku.jsj.exception.UserexistException;
 
 public interface BusinessService {
@@ -72,14 +64,12 @@ public interface BusinessService {
 	// 添加 衣服
 	int addCloth(Cloth cloth);
 	
-<<<<<<< HEAD
 	//添加管理员
 	int addOperator(Operator operator);
 	
 	//管理员登录
 	Operator findOperator(String name,String password);
 
-=======
 	//店铺 展现所有 商品 （三种商品）
 	List<Book> findstorebook(int store_id);
 	List<Cloth> findstorecloth(int store_id);
@@ -117,5 +107,4 @@ public interface BusinessService {
 	
 	//添加订单
 	int addOrder(Order order);
->>>>>>> upstream/master
 }

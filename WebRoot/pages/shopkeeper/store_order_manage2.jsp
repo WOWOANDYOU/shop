@@ -39,7 +39,7 @@
 								<td>
 									<c:choose>
 										<c:when test="${order_item.state==2 }">
-											<a href="">去发货</a>
+											<a href="${pageContext.request.contextPath }/servlet/Go_goodServlet?order_id=${order_item.order_id}">去发货</a>
 										</c:when>
 										<c:otherwise>
 											<font style="colot:#c6c6c6">去发货</font>

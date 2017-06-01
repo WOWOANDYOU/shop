@@ -122,19 +122,19 @@ xmlhttp.send();
 			<li>
 				<div class="header2_center">
 					<form id="select_form" action="servlet/FuzzySelect_servlet"
-						target="view_body" method="post">
+						target="_blank" method="post">
 						<div class="header2_center_top">
 							<div class="header2_center_top_Goods_selected"
 								id="header2_center_top_Goods" onclick="Goodselect()">
 								<input id="header2_center_top_Goods_radio"
-									name="header2_center_top_type_radio" style="display: none"
-									type="radio" checked>商品
+									name="header2_center_top_type_radio" style="display:none"
+									type="radio" value="商品" checked>商品
 							</div>
 							<div class="header2_center_top_Shop" id="header2_center_top_Shop"
 								onclick="Shopselect()">
 								<input id="header2_center_top_Shop_radio"
-									name="header2_center_top_type_radio" style="display: none"
-									type="radio">店铺
+									name="header2_center_top_type_radio" style="display:none"
+									type="radio" value="店铺">店铺
 							</div>
 						</div>
 						<div class="header2_center_buttom">

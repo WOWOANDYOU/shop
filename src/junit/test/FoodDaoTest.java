@@ -60,4 +60,11 @@ public class FoodDaoTest {
 		String s="";
 		System.out.println(s.toString());
 	}
+	@Test
+	public void find(){
+		List<Food> lf=fooddao.find("鸡");
+		for(Food f:lf){
+		System.out.println(f.getFoodname());
+		}
+	}
 }

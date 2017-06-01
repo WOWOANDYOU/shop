@@ -83,9 +83,10 @@ public class StoreDaoImpl implements StoreDao {
 		con = JdbcUtil.getCon();
 		List<Store> storelist;
 		try{
-			String sql = "select * from store where storename=?";
+			String sql = "select * from store where storename like ? or description like ?";
 			pres = con.prepareStatement(sql);
 			pres.setString(1, "%"+storename+"%");
+			pres.setString(2, "%"+storename+"%");
 			rs = pres.executeQuery();
 			storelist = ResultToBean.getBeanList(Store.class, rs); //调工具类 （封装 数据到 bean的工具类）
 			return storelist;

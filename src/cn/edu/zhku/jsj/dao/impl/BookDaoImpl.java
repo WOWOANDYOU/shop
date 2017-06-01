@@ -59,11 +59,10 @@ public class BookDaoImpl implements BookDao {
 		List <Book> list= new ArrayList();
 		Book book=null;
 		try{
-			String sql = "select * from book where bookname like ?";
-
+			String sql = "select * from book where bookname like ? or description like ?";
 			pres = con.prepareStatement(sql);
 			pres.setString(1, "%"+book_name+"%");
-			
+			pres.setString(2, "%"+book_name+"%");
 			rs = pres.executeQuery();
 			if(rs.next()){
 				book = new Book();

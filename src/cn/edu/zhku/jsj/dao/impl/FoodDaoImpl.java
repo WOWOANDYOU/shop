@@ -46,12 +46,12 @@ public class FoodDaoImpl implements FoodDao {
 		ResultSet rs = null;
 		con = JdbcUtil.getCon();
 		try{
-			String sql = "select * from food where foodname like ?";
+			String sql = "select * from food where foodname like ? or description like ?";
 			pres = con.prepareStatement(sql);
 			pres.setString(1, "%"+food_name+"%");
+			pres.setString(2, "%"+food_name+"%");
 			rs = pres.executeQuery();
 			List<Food> list = ResultToBean.getBeanList(Food.class, rs);
-			System.out.println(list.get(0));
 /*			if(!list.isEmpty()){
 				System.out.print("list空");
 			}

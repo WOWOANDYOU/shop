@@ -53,9 +53,10 @@ public class ClothDaoImpl implements ClothDao {
 		con = JdbcUtil.getCon();
 		List<Cloth> clothlist;
 		try{
-			String sql = "select * from cloth where clothname=?";
+			String sql = "select * from cloth where clothname like ? or description like ?";
 			pres = con.prepareStatement(sql);
 			pres.setString(1, "%"+cloth_name+"%");
+			pres.setString(2, "%"+cloth_name+"%");
 			rs = pres.executeQuery();
 			clothlist = ResultToBean.getBeanList(Cloth.class, rs); //调工具类 （封装 数据到 bean的工具类）
 			return clothlist;

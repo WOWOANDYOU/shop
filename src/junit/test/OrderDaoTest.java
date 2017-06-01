@@ -22,9 +22,7 @@ public class OrderDaoTest {
 		o.setUser_id("我就是叨叨");
 		o.setState(2);
 		int num = bus.addOrder(o);
-		if(num!=0){
-			System.out.println("插入成功");
-		}
+		
 		
 	}
 	@Test 

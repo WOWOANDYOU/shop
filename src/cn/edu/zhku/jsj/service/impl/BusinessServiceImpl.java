@@ -284,7 +284,13 @@ public class BusinessServiceImpl implements BusinessService {
 
 	@Override
 	public boolean updateOrder_state_2(int order_id) {
-		return false;
+		return order_dao.updateState2(order_id);
 	}
+
+	@Override
+	public Order getOrder2(int order_id) {
+		return order_dao.getstore_Orders2(order_id);
+	}
+
 
 }

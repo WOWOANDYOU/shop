@@ -22,7 +22,17 @@ public class InStoreSearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		String orderid = request.getParameter("order_id");
+		int order_id = Integer.parseInt(orderid);
+		BusinessService bus = new BusinessServiceImpl();
+		boolean b = bus.updateOrder_state_2(order_id);
+		if(b){
+			request.setAttribute("message","发货成功！3秒后 跳回 店铺页面 <meta http-equiv='refresh' content='3;url=/shop/pages/shopkeeper/store.jsp'>");
+		}else{
+			request.setAttribute("message","发货失败！3秒后 跳回 店铺页面 <meta http-equiv='refresh' content='3;url=/shop/pages/shopkeeper/store.jsp'>");
+		}
+		request.getRequestDispatcher("/pages/user/message.jsp").forward(request, response);
+		return;
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

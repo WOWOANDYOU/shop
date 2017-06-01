@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.edu.zhku.jsj.domain.Order;
+import cn.edu.zhku.jsj.domain.User;
 import cn.edu.zhku.jsj.service.BusinessService;
 import cn.edu.zhku.jsj.service.impl.BusinessServiceImpl;
 
@@ -25,12 +27,19 @@ public class Go_goodServlet extends HttpServlet {
 		String orderid = request.getParameter("order_id");
 		int order_id = Integer.parseInt(orderid);
 		BusinessService bus = new BusinessServiceImpl();
-		boolean b = bus.updateOrder_state_2(order_id);
-		if(b){
+	/*	boolean b = bus.updateOrder_state_2(order_id);*/
+		Order o = bus.getOrder2(order_id);
+		String user_id = o.getUser_id();
+		User user = bus.findInformation(user_id);
+		request.setAttribute("order_user_info", o);
+		request.setAttribute("order_user", user);
+		request.getRequestDispatcher("/pages/shopkeeper/go_to_customs.jsp").forward(request, response);
+		return;
+		/*if(b){
 			request.setAttribute("message","发货成功！3秒后 跳回 店铺页面 <meta http-equiv='refresh' content='3;url=/shop/pages/shopkeeper/store.jsp'>");
 			request.getRequestDispatcher("/pages/user/message.jsp").forward(request, response);
 			return;
-		}
+		}*/
 	}
 
 	/**

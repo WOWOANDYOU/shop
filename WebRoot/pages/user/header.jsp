@@ -86,7 +86,7 @@ xmlhttp.send();
 								</div>
 								<div class="header_right_order" style="display:inline">
 									<a class="header_right_order_a"
-										href="${pageContext.request.contextPath}/pages/user/Order.jsp"
+										href="${pageContext.request.contextPath}/intoOrderServlet"
 										target="_blank"> 我的订单</a>
 								</div> <c:choose>
 									<c:when test="${sessionScope.user.role==2}">

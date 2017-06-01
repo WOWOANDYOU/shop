@@ -58,3 +58,14 @@ function checkselected() {
 		b.disable = false;
 	}
 }
+//全选
+function allselect(){
+	var c=document.getElementsByName("cart_single_checkbox_c");
+	for(var i=0;i<c.length;i++){
+		c[i].click();
+	}
+}
+//结算
+function submitit(){
+	document.getElementById("cart_form").submit();
+}

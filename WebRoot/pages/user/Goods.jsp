@@ -8,7 +8,6 @@
 	href="${pageContext.request.contextPath }/css/good.css">
 <script type="text/javascript"
 	src="${pageContext.request.contextPath }/js/good.js">
-	
 </script>
 <script type="text/javascript">
 	function checkmessage() {

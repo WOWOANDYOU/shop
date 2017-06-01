@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +24,7 @@ public class OrderDaoImpl implements OrderDao {
 		/*Order order = null;*/
 		try{
 			con = JdbcUtil.getCon();
-			String sql = "insert into Orders values(null,?,?,?,?,?,?,?)";
+			String sql = "insert into orders values(null,?,?,?,?,?,?,?)";
 			pres = con.prepareStatement(sql);
 			pres.setInt(1, order.getGood_id());
 			pres.setString(2, order.getUser_id());
@@ -52,7 +53,24 @@ public class OrderDaoImpl implements OrderDao {
 	}
 	@Override
 	public boolean delete(int order_id){
-		return false;
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		try{
+			con = JdbcUtil.getCon();
+			String sql = "delete from orders where order_id=?";
+			pres = con.prepareStatement(sql);
+			pres.setInt(1, order_id);
+			int num = pres.executeUpdate();
+			if(num!=0)
+				return true;
+			else
+				return false;
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}finally{
+			JdbcUtil.release(con, pres, rs);
+		}
 	}
 	@Override
 	public List<Order> getstore_Orders(int store_id) {
@@ -63,7 +81,7 @@ public class OrderDaoImpl implements OrderDao {
 		/*Order order = null;*/
 		try{
 			con = JdbcUtil.getCon();
-			String sql = "select * from Orders where store_id=?";
+			String sql = "select * from orders where store_id=?";
 			pres = con.prepareStatement(sql);
 			pres.setInt(1, store_id);
 			rs = pres.executeQuery();
@@ -84,7 +102,7 @@ public class OrderDaoImpl implements OrderDao {
 		/*Order order = null;*/
 		try{
 			con = JdbcUtil.getCon();
-			String sql = "select * from Orders where store_id=? and state=?";
+			String sql = "select * from orders where store_id=? and state=?";
 			pres = con.prepareStatement(sql);
 			pres.setInt(1, store_id);
 			pres.setInt(2, states);
@@ -113,6 +131,27 @@ public class OrderDaoImpl implements OrderDao {
 				return true;
 			else
 				return false;
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}finally{
+			JdbcUtil.release(con, pres, rs);
+		}
+	}
+	@Override
+	public List<Order> findOrder(String user_id) {
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		List<Order> listorder = new LinkedList<Order>();
+		Order order = new Order();
+		try{
+			con = JdbcUtil.getCon();
+			String sql = "select * from orders where user_id=?";
+			pres = con.prepareStatement(sql);
+			pres.setString(1, user_id);
+			rs = pres.executeQuery();
+			listorder = ResultToBean.getBeanList(Order.class, rs);
+			return listorder;
 		}catch(Exception e){
 			throw new RuntimeException(e);
 		}finally{

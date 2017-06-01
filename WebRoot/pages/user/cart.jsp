@@ -43,14 +43,16 @@
 		scrolling="no" style="border:none;width:100%;height:20%;"> </iframe>
 	<div class="cart">
 		<div class="cart_allselect">
-			<input type="checkbox">全选
+			<input type="checkbox" onclick="allselect()">全选
 		</div>
+		<form id="cart_form" action="${pageContext.request.contextPath }/OrderServlet" method="post">
 		<c:forEach items="${cartlist}" var="map">
 			<div class="cart_single">
 				<div class="cart_single_checkbox">
+				
 					<input type="checkbox" name="cart_single_checkbox_c"
 						onclick="checkselected()"
-						style="float:left;margin-left:30px;margin-top:30px;">
+						style="float:left;margin-left:30px;margin-top:30px;" value="${map.cart_id}">
 				</div>
 				<c:forTokens items="${map.images}" delims="," var="image"
 					 begin="0" end="0">
@@ -84,9 +86,10 @@
 				</div>
 			</div>
 		</c:forEach>
+		</form>
 		<div class="cart_pay">
 			<input class="cart_pay_b" id="cart_pay_b" type="button" value="结算( )"
-				onload="checkselected()">
+				onload="checkselected()" onclick="submitit()">
 		</div>
 	</div>
 </body>

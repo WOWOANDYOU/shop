@@ -115,5 +115,5 @@ public interface BusinessService {
 	
 	//更新 order 的支付状态
 	boolean updateOrder_state(int order_id);
-
+	boolean updateOrder_state_2(int order_id);
 }

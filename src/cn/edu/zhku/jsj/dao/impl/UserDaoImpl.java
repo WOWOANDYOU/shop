@@ -48,7 +48,6 @@ public class UserDaoImpl implements UserDao {
 		PreparedStatement pres = null;
 		ResultSet rs = null;
 		con = JdbcUtil.getCon();
-
 		try {
 			String sql = "select * from user where user_id=?";
 			pres = con.prepareStatement(sql);

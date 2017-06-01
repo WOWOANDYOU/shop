@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -203,5 +202,49 @@ public class OrderDaoImpl implements OrderDao {
 			JdbcUtil.release(con, pres, rs);
 		}
 	}
+	@Override
+	public Order getstore_Orders2(int order_id) {
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		Order order = null;
+		List<Order> listorder = new LinkedList<Order>();
+		try{
+			con = JdbcUtil.getCon();
+			String sql = "select * from Orders where order_id=?";
+			pres = con.prepareStatement(sql);
+			pres.setInt(1, order_id);
+			rs = pres.executeQuery();
+			listorder = ResultToBean.getBeanList(Order.class, rs);
+			order = listorder.get(0);
+			return order;
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}finally{
+			JdbcUtil.release(con, pres, rs);
+		}
+	}
+	@Override
+	public boolean deleteorder(int order_id) {
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		try{
+			con = JdbcUtil.getCon();
+			String sql = "delete from Orders where order_id=?";
+			pres = con.prepareStatement(sql);
+			pres.setInt(1, order_id);
+			int num = pres.executeUpdate();
+			if(num!=0)
+				return true;
+			else
+				return false;
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}finally{
+			JdbcUtil.release(con, pres, rs);
+		}
+	}
+	
 	
 }

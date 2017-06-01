@@ -112,8 +112,9 @@ public interface BusinessService {
 	
 	//查找 店铺 未处理以及处理的订单
 	List<Order> getBFOrder(int store_id,int states);
-	
+	Order getOrder2(int order_id);
 	//更新 order 的支付状态
 	boolean updateOrder_state(int order_id);
 	boolean updateOrder_state_2(int order_id);
+	boolean deleteOrder(int order_id);
 }

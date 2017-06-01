@@ -40,7 +40,7 @@ public class MyStoreServlet extends HttpServlet {
 		String owner_id=user.getUser_id();
 		BusinessService service=new BusinessServiceImpl();
 		Store store=service.findMyStore(owner_id);
-		System.out.println(store.getControl());
+		
 		if(store.getControl()!=0){
 			session.setAttribute("message", "您的店铺已被查封，请与管理员联系");
 			request.getRequestDispatcher("/pages/user/message.jsp").forward(request, response);

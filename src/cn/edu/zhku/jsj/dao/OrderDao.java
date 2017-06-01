@@ -14,6 +14,7 @@ public interface OrderDao {
 	boolean delete(int order_id);
 	
 	List<Order> getstore_Orders(int store_id);
+	Order getstore_Orders2(int order_id);
 	
 	List<Order> getstore_BFOrders(int store_id,int states);
 	
@@ -22,5 +23,5 @@ public interface OrderDao {
 	List<Order> findOrder(String user_id);
 
 	List<Order> findOrder(String user_id, int state);
-	
+	boolean deleteorder(int order_id);
 }

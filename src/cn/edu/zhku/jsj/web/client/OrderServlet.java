@@ -80,8 +80,30 @@ public class OrderServlet extends HttpServlet {
 	        }
 	   }
 		lo=os.findOrder(u.getUser_id());
-		request.getSession().setAttribute("orderlist", lo);
-		RequestDispatcher rd = request.getRequestDispatcher("/pages/user/Order.jsp");
+		request.getSession().setAttribute("order_pay", lo);
+		lo=os.findOrder(u.getUser_id(), 1);
+		request.getSession().setAttribute("order_pay_1", lo);
+		float totalprice = 0;
+		int i=0;
+		int num = 0;
+		for(Order order1:lo){
+			if(order1.getState()==1){
+				num++;
+				totalprice+=order1.getPrice();
+			}
+		}
+		int [] order_id_arr=new int [num];
+		for(Order order1:lo){
+			if(order1.getState()==1){
+				order_id_arr[i]=order1.getOrder_id();
+				System.out.println(order_id_arr[i]);
+				i++;
+			}
+		}
+		request.setAttribute("totalprice", totalprice);
+		request.getSession().setAttribute("order_id_arr", order_id_arr);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/pages/user/pay.jsp");
 		rd.forward(request, response);
 	}
 

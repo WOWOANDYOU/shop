@@ -81,7 +81,7 @@
 					<a id="cart_delete${map.cart_id}"
 						href="${pageContext.request.contextPath }/cart_delete_servlet?cart_id=${map.cart_id}"
 						style="display:none"></a>
-					<div onclick="deleteit(${map.cart_id})"
+					<div onclick="deleteit(${map.cart_id},'${pageContext.request.contextPath }/pages/user/cart.jsp')"
 						style="cursor:pointer;font-size:18px;margin:10px;text-align:right;">删除</div>
 				</div>
 			</div>

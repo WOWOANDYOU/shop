@@ -30,10 +30,10 @@ function checknum() {
 	}
 }
 // 删除购物项弹窗
-function deleteit(str) {
+function deleteit(str,str2) {
 	if (confirm("确定删除该订单吗？")) {
 		document.getElementById("cart_delete" + str).click();
-		location.replace(location.href);
+		window.replace(str2);
 	}
 }
 // 检查购物车项的选择情况
@@ -47,15 +47,15 @@ function checkselected() {
 		}
 	}
 	if (count == 0) {
+		b.disabled = true;
 		b.value = "结算()";
 		b.style.backgroundColor = "white";
 		b.style.color = "black";
-		b.disable = true;
 	} else {
 		b.value = "结算(" + count + ")";
 		b.style.backgroundColor = "red";
 		b.style.color = "white";
-		b.disable = false;
+		b.disabled = false;
 	}
 }
 //全选

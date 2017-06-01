@@ -159,6 +159,23 @@ public class OrderDaoImpl implements OrderDao {
 		}
 	}
 	@Override
+
+	public List<Order> findOrder(String user_id,int state) {
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		List<Order> listorder = new LinkedList<Order>();
+		Order order = new Order();
+		try{
+			con = JdbcUtil.getCon();
+			String sql = "select * from orders where user_id=? and state=?";
+			pres = con.prepareStatement(sql);
+			pres.setString(1, user_id);
+			pres.setInt(2, state);
+			rs = pres.executeQuery();
+			listorder = ResultToBean.getBeanList(Order.class, rs);
+			return listorder;
+
 	public boolean updateState2(int order_id) {
 		Connection con = null;
 		PreparedStatement pres = null;

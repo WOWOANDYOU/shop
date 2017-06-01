@@ -26,11 +26,11 @@
 							<div>
 								<c:choose>
 									<c:when test="${empty user}">
-										<a href="跳转到登录页面">亲，请登录</a>
-										<a href="注册页面">免费注册</a>
+										<a href="${pageContext.request.contextPath }/pages/user/login.jsp">亲，请登录</a>
+										<a href="${pageContext.request.contextPath }/pages/user/register.jsp">免费注册</a>
 									</c:when>
 									<c:otherwise>
-										<a href="跳转到用户信息页面">${userLogin.nickname}</a>
+										<a href="${pageContext.request.contextPath }/servlet/ChangeInformationServlet">${user.nickname}</a>
 									</c:otherwise>
 								</c:choose>
 							</div>
@@ -148,7 +148,7 @@
 				<div id="in_mid_find">
 					<div id="mid_up">
 						<div id="mid_up_left">
-							<a href="${pageContext.request.contextPath }/index.jsp"><img
+							<a href="${pageContext.request.contextPath }/pages/user/index.jsp"><img
 								alt="logo"
 								src="${pageContext.request.contextPath }/images/logo2.jpg"
 								width="210px" height="50px" /></a>

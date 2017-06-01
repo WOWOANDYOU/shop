@@ -56,7 +56,7 @@ body {
 <body>
 	<div id="a">
 		<a href="${pageContext.request.contextPath }/pages/user/index.jsp"
-			style="color:99BBFF"><h1>网上商城</a>
+			style="color:99BBFF"><h1>网上商城</h1></a>
 	</div>
 	<div id="container">
 
@@ -68,7 +68,7 @@ body {
 				<table>
 
 					<tr>
-						<th colspan="3"><h1>登录</th>
+						<th colspan="3"><h1>登录</h1></th>
 					</tr>
 					<tr>
 						<td>账号：</td>

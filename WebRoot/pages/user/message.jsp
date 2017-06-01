@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="refresh"
-	content="3;url=http://localhost:8080${pageContext.request.contextPath }/index.jsp">
+	content="3;url=http://localhost:8080${pageContext.request.contextPath }/pages/user/index.jsp">
 <title>message</title>
 <style type="text/css">
 body{

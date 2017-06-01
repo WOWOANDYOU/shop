@@ -254,6 +254,12 @@ public class BusinessServiceImpl implements BusinessService {
 		int num = order_dao.add(order);
 		return num;
 	}
+
+	@Override
+	public List<Order> getBFOrder(int store_id, int states) {
+		return order_dao.getstore_BFOrders(store_id,states);
+	}
+
 	
 	//添加管理员
 	public int addOperator(Operator operator){
@@ -269,4 +275,11 @@ public class BusinessServiceImpl implements BusinessService {
 		Operator operator=ope_dao.find(name, password);
 		return operator;
 	}
+
+
+	@Override
+	public boolean updateOrder_state(int order_id) {
+		return order_dao.updateState(order_id);
+	}
+
 }

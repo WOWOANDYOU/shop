@@ -30,20 +30,27 @@ public class FuzzySelect_servlet extends HttpServlet {
 		String select = (String)request.getParameter("select");
 		Client_FuzzySelectService CsS = new Client_FuzzySelectService();
 		System.out.print(type);
+		if(select!=""||!select.isEmpty()){
 		if (type.equals("商品")) {
 			List<Book> list_b = CsS.select_b(select);
-			request.getSession().setAttribute("list_b", list_b);
+			request.getSession().setAttribute("Fuzzlist_b", list_b);
 			List<Food> list_f = CsS.select_f(select);
-			request.getSession().setAttribute("list_f", list_f);
+			request.getSession().setAttribute("Fuzzlist_f", list_f);
 			List<Cloth> list_c = CsS.select_c(select);
-			request.getSession().setAttribute("list_c", list_c);
+			request.getSession().setAttribute("Fuzzlist_c", list_c);
+			request.getSession().setAttribute("Fuzz_flag","goods");
 		} else if (type.equals("店铺")) {
 			List<Store> list_s = CsS.select_s(select);
-			request.getSession().setAttribute("list_s", list_s);
+			request.getSession().setAttribute("Fuzzlist_s", list_s);
+			request.getSession().setAttribute("Fuzz_flag","stores");
 		}
 		RequestDispatcher rd = request
 				.getRequestDispatcher("/pages/user/show.jsp");
 		rd.forward(request, response);
+		}else{
+		RequestDispatcher rd = request.getRequestDispatcher("/pages/user/index.jsp");
+		rd.forward(request, response);
+		}
 		out.flush();
 		out.close();
 	}

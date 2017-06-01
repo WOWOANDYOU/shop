@@ -15,5 +15,8 @@ public interface OrderDao {
 	
 	List<Order> getstore_Orders(int store_id);
 	
+	List<Order> getstore_BFOrders(int store_id,int states);
+	
+	boolean updateState(int order_id);
 	
 }

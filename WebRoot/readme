@@ -104,7 +104,8 @@
 		storename varchar(20),
 		owner_id varchar(20),
 		description varchar(255),
-		images varchar(200),
+		images varchar(255),
+		control int,
 		foreign key (owner_id) references user(user_id)
 		);
 		

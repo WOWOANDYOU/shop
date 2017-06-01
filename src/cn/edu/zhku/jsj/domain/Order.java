@@ -1,6 +1,7 @@
 package cn.edu.zhku.jsj.domain;
 
-import java.util.Date;
+import java.sql.Timestamp;
+
 
 public class Order {
 	private int order_id;
@@ -11,6 +12,11 @@ public class Order {
 	private long ordertime;  //下单时间
 	private int state;   //订单状态  1代表 未付款 2代表 已付款 3代表 已发货 
 	private float price;    //订单总价	
+	
+	public Timestamp getTime(){
+		return new Timestamp(this.getOrdertime());
+	}
+	
 	public int getOrder_id() {
 		return order_id;
 	}

@@ -17,7 +17,7 @@ body {
 #container {
 	width: 980px;
 	text-align: center;
-	background-image: url("../images/register.jpg");
+	background-image: url("../../images/register.jpg");
 	width: 1024px;
 	height: 768px;
 	margin: 0 0 0 170px;
@@ -43,7 +43,7 @@ position: absolute;
 
 <body>
 	<div id="container">
-	<div id=mark><h1 style="color:9966ff"><a href="${pageContext.request.contextPath }/index.jsp" style="cursor: pointer">网上商城</a></h1></div>
+	<div id=mark><h1 style="color:9966ff"><a href="${pageContext.request.contextPath }/pages/user/index.jsp" style="cursor: pointer">网上商城</a></h1></div>
 		<form
 			action="${pageContext.request.contextPath }/servlet/RegisterServlet"
 			method="post">

@@ -33,7 +33,7 @@ public class ChangeInformationServlet extends HttpServlet {
 				InformationBean.class);
 		if (bean.validate() != true) {
 			session.setAttribute("information", bean);
-			request.getRequestDispatcher("/pages/information.jsp").forward(
+			request.getRequestDispatcher("/pages/user/information.jsp").forward(
 					request, response);
 			return;
 		}
@@ -46,12 +46,12 @@ public class ChangeInformationServlet extends HttpServlet {
 			user=service.findInformation(user.getUser_id());
 			session.setAttribute("user", user);
 			session.setAttribute("message", "资料修改成功，三秒后返回首页");
-			request.getRequestDispatcher("/pages/message.jsp").forward(request, response);
+			request.getRequestDispatcher("/pages/user/message.jsp").forward(request, response);
 
 		} catch (Exception e) {
 
 			session.setAttribute("message", "服务器出错，修改资料失败，三秒后返回首页");
-			request.getRequestDispatcher("/pages/message.jsp").forward(request, response);
+			request.getRequestDispatcher("/pages/user/message.jsp").forward(request, response);
 		}
 	}
 

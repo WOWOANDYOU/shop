@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
+
 <head>
 <title>My JSP 'Goods.jsp' starting page</title>
 <link rel="stylesheet" type="text/css"
@@ -278,11 +279,5 @@
 				onclick="intoStore()" value="进入店铺">
 		</div>
 	</div>
-	<%--<a href="${pageContext.request.contextPath }/pages/login.jsp">用户登录</a>
-    <a href="${pageContext.request.contextPath }/pages/store_register.jsp">店铺注册</a>
-    <a href="${pageContext.request.contextPath }/pages/information.jsp">个人资料</a>
-    <a href="${pageContext.request.contextPath }/servlet/Cancel_Login">注销账号</a>
-    <a href="${pageContext.request.contextPath }/servlet/MyStoreServlet">我的店铺</a> --%>
 </body>
-
 </html>

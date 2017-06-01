@@ -35,10 +35,20 @@
 						end="7">
 						<div class="body_good_total_c">
 							<div>
+							<c:if test="${empty c.images }">
+								<a
+									href="Goods_servlet?cloth=${c.cloth_id}"
+									target="_blank"> <img class="body_good_total_f_img"
+									alt="商品图片"
+									src="${pageContext.request.contextPath }/images/aaaaa">
+								</a>
+								</c:if>
+							<c:forTokens items="${c.images }" var="image" delims="," begin="0" end="0">
 								<a href="Goods_servlet?cloth=${c.cloth_id}" target="_blank">
 									<img class="body_good_total_c_img" alt="商品图片"
-									src="${pageContext.request.contextPath }/images/${c.images }">
+									src="${pageContext.request.contextPath }/images/${image }">
 								</a>
+								</c:forTokens>
 							</div>
 							<div
 								style="font-size:20;font-family:宋体;font-weight:400;width:190px;height:10px;">
@@ -66,12 +76,22 @@
 						end="7">
 						<div class="body_good_total_b">
 							<div>
+							<c:if test="${empty b.images }">
+								<a
+									href="Goods_servlet?book=${b.book_id}"
+									target="_blank"> <img class="body_good_total_f_img"
+									alt="商品图片"
+									src="${pageContext.request.contextPath }/images/aaaaa">
+								</a>
+								</c:if>
+							<c:forTokens items="${b.images }" var="image" delims="," begin="0" end="0">
 								<a
 									href="Goods_servlet?book=${b.book_id}"
 									target="_blank"> <img class="body_good_total_b_img"
 									alt="商品图片"
-									src="${pageContext.request.contextPath }/images/${b.images }">
+									src="${pageContext.request.contextPath }/images/${image }">
 								</a>
+								</c:forTokens>
 							</div>
 							<div
 								style="font-size:20;font-family:宋体;font-weight:400;width:190px;height:10px">
@@ -101,12 +121,22 @@
 						end="7">
 						<div class="body_good_total_f" style="display:inline">
 							<div>
+							<c:if test="${empty f.images}">
 								<a
 									href="Goods_servlet?food=${f.food_id}"
 									target="_blank"> <img class="body_good_total_f_img"
 									alt="商品图片"
-									src="${pageContext.request.contextPath }/images/${f.images }">
+									src="${pageContext.request.contextPath }/images/aaaaa">
 								</a>
+								</c:if>
+							<c:forTokens items="${f.images }" var="image" delims="," begin="0" end="0">
+								<a
+									href="Goods_servlet?food=${f.food_id}"
+									target="_blank"> <img class="body_good_total_f_img"
+									alt="商品图片"
+									src="${pageContext.request.contextPath }/images/${image}">
+								</a>
+								</c:forTokens>
 							</div>
 							<div
 								style="font-size:20;font-family:宋体;font-weight:400;width:190px;height:10px">

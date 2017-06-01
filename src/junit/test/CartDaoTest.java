@@ -11,4 +11,8 @@ public class CartDaoTest {
 	public void count(){
 		System.out.println(cd.countCart("aaa"));
 	}
+	@Test
+	public void all(){
+		System.out.println(cd.findAll("aaa"));
+	}
 }

@@ -10,13 +10,13 @@ public interface CartDao {
 	//顾客选中物品加入购物车
 	int add(Cart cart);
 
-	List<Map> findAll();
-
 	//修改商品的数量
 	boolean update(int cart_id, int quantity);
 
 	boolean delete(int cart_id);
 
 	int countCart(String user_id);
+
+	List<Map> findAll(String user_id);
 
 }

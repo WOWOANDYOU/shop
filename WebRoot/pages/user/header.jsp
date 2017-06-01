@@ -50,7 +50,7 @@ xmlhttp.send();
 		<ul class="header_ul">
 			<li class="header_left"><c:choose>
 					<c:when
-						test="${empty sessionScope.login_result||sessionScope.login_result=='false'}">
+						test="${empty user}">
 						<div class="header_left_browser">
 							<a class="header_left_browser_a"
 								href="${pageContext.request.contextPath }/pages/user/login.jsp"
@@ -75,14 +75,14 @@ xmlhttp.send();
 							</div>
 							<div class="header_left_userinfo_out"
 								style="float:right;width:70px;height:55px;text-align:right;">
-								<a style="font-size:10px;" href="">退出</a>
+								<a style="font-size:10px;" href="退出登录的servlet" target="_top">退出</a>
 							</div>
 						</div>
 							<li class="header_right">
 								<div class="header_right_cart" style="display:inline">
 									<a class="header_right_order_a"
-										href="${pageContext.request.contextPath}/pages/user/cart.jsp"
-										target="_blank"> 我的购物车<span style="color:red;font-weight:500;font-size:15px;">${sessionScope.cartnum }</span></a>
+										href="${pageContext.request.contextPath}/Cart_servlet"
+										target="_blank"> 我的购物车<span style="color:red;font-weight:900;font-size:15px;">${sessionScope.cartnum }</span></a>
 								</div>
 								<div class="header_right_order" style="display:inline">
 									<a class="header_right_order_a"

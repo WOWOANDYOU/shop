@@ -1,0 +1,14 @@
+@CHARSET "UTF-8";
+.cart_single_num_b1,.cart_single_num_b2{
+	margin:10px;
+	font-size:20px;
+	width:32px;
+	height:32px;
+	cursor:pointer;
+}
+.cart_single_num_text{
+	text-align:center;
+	width:31px;
+	height:32px;
+	ime-mode:Disabled
+}

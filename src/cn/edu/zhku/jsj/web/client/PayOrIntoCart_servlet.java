@@ -70,7 +70,7 @@ public class PayOrIntoCart_servlet extends HttpServlet {
 					c.setGood_id(cloth_id);
 					c.setQuantity(num);
 					c.setTotalprice(num * price);
-					c.setType(BusinessType);
+					c.setType("cloth");
 					c.setUser_id(user_id);
 					c.setVersion(color + ";" + version);
 				}
@@ -86,7 +86,7 @@ public class PayOrIntoCart_servlet extends HttpServlet {
 					c.setGood_id(book_id);
 					c.setQuantity(num);
 					c.setTotalprice(num * price);
-					c.setType(BusinessType);
+					c.setType("book");
 					c.setUser_id(user_id);
 					c.setVersion(version);
 				}
@@ -100,7 +100,7 @@ public class PayOrIntoCart_servlet extends HttpServlet {
 					c.setGood_id(food_id);
 					c.setQuantity(num);
 					c.setTotalprice(num * price);
-					c.setType(BusinessType);
+					c.setType("food");
 					c.setUser_id(user_id);
 				}
 				message = cs.addCart(c);

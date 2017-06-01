@@ -229,7 +229,7 @@ public class ClothDaoImpl implements ClothDao {
 		List<Store> storelist = new LinkedList<Store>();
 		Store s=new Store();
 		try{
-			String sql = "select * from store where store_id=(select store_id from book where cloth_id=?)";
+			String sql = "select * from store where store_id=(select store_id from cloth where cloth_id=?)";
 			pres = con.prepareStatement(sql);	
 			pres.setInt(1, cloth_id);
 			rs = pres.executeQuery();

@@ -181,7 +181,7 @@
 					<div id="mid_down">
 						<p class="p_class">
 							<span class="left_span"> <span class="left_span"></span> <span
-								class="left_span">店铺：</span> <span class="left_span">${user }</span>
+								class="left_span">店铺：</span> <span class="left_span">${store.storename }&nbsp;&nbsp;</span>
 								<span class="left_span"> <a
 									href="${pageContext.request.contextPath }/pages/shopkeeper/store.jsp">进入店铺</a>
 							</span>
@@ -248,7 +248,7 @@
 
 						</ul>
 						<ul class="ul_2">
-							<%-- <c:if test="${user.role==2 }">   如果是店主那么 显示管理店铺的 操作 --%>
+							<c:if test="${user.role==2 }">   <!-- 如果是店主那么 显示管理店铺的 操作 -->
 							<li class="li_2_again">
 								<div id="again_store_to_keeper">
 									<a href="">店铺管理</a>
@@ -265,7 +265,7 @@
 									</div>
 								</div>
 							</li>
-							<%-- </c:if> --%>
+							</c:if>
 						</ul>
 					</div>
 				</div>

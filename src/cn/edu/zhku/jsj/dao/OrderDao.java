@@ -20,5 +20,7 @@ public interface OrderDao {
 	boolean updateState(int order_id);
 
 	List<Order> findOrder(String user_id);
+
+	List<Order> findOrder(String user_id, int state);
 	
 }

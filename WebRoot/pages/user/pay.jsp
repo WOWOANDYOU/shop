@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
@@ -17,16 +17,23 @@
   		<div id="order_pay_down">
   			 <form action="${pageContext.request.contextPath }/servlet/PayRequestServlet" method="post">
 	      		<table width="60%" align="center">
+	      		<c:forEach items="${order_pay}" var="order_pay1">
+	      		<c:if test="${order_pay1.state==1 }">
 	      		<tr>  <!-- order_pay  支付的 order_pay  存在session 里边 -->
-	      			<th>订单编号</th><td>${order_pay.order_id }</td>
+	      			<th>订单编号</th><td>${order_pay1.order_id }</td>
+	      		</tr>
+	      		</c:if>
+	      		<tr>
+	      			<th>订单总价</th><td>${order_pay1.price }(￥元)</td>
 	      		</tr>
 	      		<tr>
-	      			<th>订单总价</th><td>${order_pay.price }(￥元)</td>
+	      			<th>商品数量</th><td>${order_pay1.quantity }</td>
 	      		</tr>
+	      		</c:forEach>
 	      		<tr>
-	      			<th>商品数量</th><td>${order_pay.quantity }</td>
+	      			<th>总价</th><td>${totalprice }</td>
 	      		</tr>
-				<input type="hidden" name="orderid" value="${order.order_id }">
+				<input type="hidden" name="orderid" value="${order_pay_1.get(0).order_id }">
 	    		<input type="hidden" name="money" value="0.01">  <!--  测试用 只能是 小额 -->
 				<tr><td><br/></td></tr>
 				<tr>

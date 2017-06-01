@@ -55,15 +55,22 @@ public class PaymentResponse extends HttpServlet {
 				//支付成功后 update order 表  将状态改为 已支付 2
 				BusinessService bus = new BusinessServiceImpl();
 				Order o = (Order) request.getSession().getAttribute("order_pay");
-				bus.updateOrder_state(o.getOrder_id());
-				response.setHeader("Refresh", "3;url='/shop/pages/user/index.jsp'");
+				int [] order_id_arr = (int[]) request.getSession().getAttribute("order_id_arr");
+				for(int i=0;i<order_id_arr.length;i++){
+					System.out.println(order_id_arr[i]);
+					bus.updateOrder_state(order_id_arr[i]);
+				}
+				request.getSession().setAttribute("message", "支付成功,3秒后跳回首页  <meta http-equiv='refresh' content='3;url=/shop/pages/user/index.jsp'>");
+				response.sendRedirect("/shop/pages/user/message.jsp");
 				return;
 			}
 			if("2".equals(r9_BType)){
 				response.getWriter().write("success");
 			}
+			
 		}
 	}
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

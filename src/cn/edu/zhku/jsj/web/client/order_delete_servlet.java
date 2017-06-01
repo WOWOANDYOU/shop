@@ -47,7 +47,7 @@ public class order_delete_servlet extends HttpServlet {
 		os.deleteorder(order_id);
 		List<Order> lo=new ArrayList<Order>();
 		lo=os.findOrder(u.getUser_id());
-		request.getSession().setAttribute("orderlist", lo);
+		request.getSession().setAttribute("order_pay", lo);
 		RequestDispatcher rd = request.getRequestDispatcher("/pages/user/Order.jsp");
 		rd.forward(request, response);
 		

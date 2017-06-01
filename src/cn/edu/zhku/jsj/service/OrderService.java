@@ -21,4 +21,8 @@ public class OrderService {
 	public void deleteorder(int order_id){
 		od.delete(order_id);
 	}
+	public List<Order> findOrder(String user_id,int state){
+		lo=od.findOrder(user_id,state);
+		return lo;
+	}
 }

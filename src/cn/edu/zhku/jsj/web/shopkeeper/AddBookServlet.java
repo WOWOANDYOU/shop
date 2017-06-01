@@ -29,7 +29,8 @@ public class AddBookServlet extends HttpServlet {
 		String storeid = request.getParameter("store_id");
 		int store_id = Integer.parseInt(storeid);
 		List<Order> orderlist = bus.getOrder(store_id);
-		request.getRequestDispatcher("/pages/shopkeeper/store_order_manage.jsp").forward(request, response);
+		request.setAttribute("orderlist", orderlist);
+		request.getRequestDispatcher("/pages/shopkeeper/store_order_manage2.jsp").forward(request, response);
 		return;
 	}
 

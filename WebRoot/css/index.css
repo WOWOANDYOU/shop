@@ -227,3 +227,23 @@ table {
 	width:190px;
 	height:170px;
 }
+
+#order_pay{
+	height:630;
+	width:950px;
+	margin:auto;
+	background-color:#f6f6f6;
+}
+#order_pay_up{
+	height:40;
+	width:100px;
+	margin:auto;
+	margin:auto;
+}
+#order_pay_down table,tr,th,td{
+	align:left;
+	width:480px;
+}
+.bank_id{
+	text-align:left;
+}

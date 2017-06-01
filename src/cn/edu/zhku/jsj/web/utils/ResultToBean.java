@@ -62,8 +62,9 @@ public class ResultToBean {
 							value = Integer.parseInt((String)value);
 						}else if(dbType.getSimpleName().equals("Float")){
 							value = Float.parseFloat((String) value);
+						}else if(dbType.getSimpleName().equals("String")){
+							//如果是String 类型的话那么就 不做什么
 						}else{
-							System.out.println(value);
 							value = Timestamp.valueOf((String)value).getTime();
 						}
 				 	}

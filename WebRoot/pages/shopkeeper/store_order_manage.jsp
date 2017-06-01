@@ -5,11 +5,11 @@
 <div id="add_store_big">
 	<div id="add_store_in">
 		<div id="add_store_in_in_2">
-		<div id="box"> 
-			<form action="${pageContext.request.contextPath }/servlet/InStoreSearchServlet?store_id=${store.store_id}" id="order_form">
+		<div id="box"> <%-- ${store.store_id} --%>
+			<form action="${pageContext.request.contextPath }/servlet/StoreOrderServlet?store_id=2" id="order_form" method="post">
 			<input type="hidden" id="order_input_1" name="order_type">
 				<div id="tab">
-		            <ul id="ul">
+		            <ul id="ul_haha">
 		                <li class="list"><input onclick="allorder()" type="button" value="所有订单" class="order_button"></li>
 		                <li><input onclick="beforeorder()" type="button" value="未处理订单" class="order_button"></li>
 		                <li><input onclick="finishorder()" type="button" value="已处理订单" class="order_button"></li>

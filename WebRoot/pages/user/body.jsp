@@ -24,9 +24,6 @@
 	<div class="body">
 		<div class="body_good">
 			<c:if test="${sessionScope.body_list_c_flag}">
-				<div class="body_good_more">
-					<a href="servlet/Type_Show_servlet?type='Cloth'">更多</a>
-				</div>
 				<br>
 				<br>
 				<br>
@@ -65,9 +62,6 @@
 				</div>
 			</c:if>
 			<c:if test="${sessionScope.body_list_b_flag}">
-				<div class="body_good_more">
-					<a href="servlet/Type_Show_servlet?type='Book'">更多</a>
-				</div>
 				<br>
 				<br>
 				<br>
@@ -110,9 +104,6 @@
 				</div>
 			</c:if>
 			<c:if test="${sessionScope.body_list_f_flag}">
-				<div class="body_good_more">
-					<a href="servlet/Type_Show_servlet?type='Food'">更多</a>
-				</div>
 				<br>
 				<br>
 				<br>

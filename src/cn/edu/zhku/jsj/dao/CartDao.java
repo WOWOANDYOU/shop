@@ -19,4 +19,6 @@ public interface CartDao {
 
 	List<Map> findAll(String user_id);
 
+	Cart findCart(int cart_id);
+
 }

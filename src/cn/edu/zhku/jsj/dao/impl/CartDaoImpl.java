@@ -11,7 +11,9 @@ import java.util.Map;
 
 import cn.edu.zhku.jsj.dao.CartDao;
 import cn.edu.zhku.jsj.domain.Cart;
+import cn.edu.zhku.jsj.domain.Cloth;
 import cn.edu.zhku.jsj.web.utils.JdbcUtil;
+import cn.edu.zhku.jsj.web.utils.ResultToBean;
 
 public class CartDaoImpl implements CartDao {
 	// 顾客选中物品加入购物车
@@ -162,5 +164,26 @@ public class CartDaoImpl implements CartDao {
 			JdbcUtil.release(con, pres, rs);
 		}
 	}
-
+	@Override
+	public Cart findCart(int cart_id) {
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		con = JdbcUtil.getCon();
+		Cart c=new Cart();
+		List<Cart> cartlist=new ArrayList<Cart>();
+		try {
+			String sql = "select * from cart where cart_id=?";
+			pres = con.prepareStatement(sql);
+			pres.setInt(1, cart_id);
+			rs = pres.executeQuery();
+			cartlist = ResultToBean.getBeanList(Cart.class, rs); //调工具类 （封装 数据到 bean的工具类）
+			c=cartlist.get(0);
+			return c;
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		} finally {
+			JdbcUtil.release(con, pres, rs);
+		}
+	}
 }

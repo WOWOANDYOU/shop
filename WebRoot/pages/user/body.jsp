@@ -28,8 +28,7 @@
 				<br>
 				<br>
 				<div class="body_good_total">
-					<c:forEach var="c" items="${sessionScope.body_list_c}" begin="0"
-						end="7">
+					<c:forEach var="c" items="${sessionScope.body_list_c}">
 						<div class="body_good_total_c">
 							<div>
 							<c:if test="${empty c.images }">
@@ -66,8 +65,7 @@
 				<br>
 				<br>
 				<div class="body_good_total">
-					<c:forEach var="b" items="${sessionScope.body_list_b}" begin="0"
-						end="7">
+					<c:forEach var="b" items="${sessionScope.body_list_b}">
 						<div class="body_good_total_b">
 							<div>
 							<c:if test="${empty b.images }">
@@ -108,8 +106,7 @@
 				<br>
 				<br>
 				<div class="body_good_total">
-					<c:forEach var="f" items="${sessionScope.body_list_f}" begin="0"
-						end="7">
+					<c:forEach var="f" items="${sessionScope.body_list_f}">
 						<div class="body_good_total_f" style="display:inline">
 							<div>
 							<c:if test="${empty f.images}">

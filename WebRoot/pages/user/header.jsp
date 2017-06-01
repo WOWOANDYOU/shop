@@ -62,7 +62,7 @@ xmlhttp.send();
 							<div class="header_left_user_d-a" onmouseover="userinfo()"
 								onmouseout="hidit()">
 								<a class="header_left_user_a"
-									href="${pageContext.request.contextPath}/pages/user/UserInfo.jsp"
+									href="${pageContext.request.contextPath}/pages/user/information.jsp"
 									target="_blank">${sessionScope.user.nickname}</a>
 							</div>
 						</div>

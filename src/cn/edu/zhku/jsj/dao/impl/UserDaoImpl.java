@@ -219,13 +219,12 @@ public class UserDaoImpl implements UserDao {
 		ResultSet rs = null;
 		con = JdbcUtil.getCon();
 		String sql="select * from Store where owner_id=?";
+		Store store=null;
 		try{
-			
 			pres = con.prepareStatement(sql);
-			
 			pres.setString(1, owner_id);
 			rs = pres.executeQuery();
-			Store store=null;
+			
 			while(rs.next()){
 				store=new Store();
 				store.setControl(rs.getInt("control"));

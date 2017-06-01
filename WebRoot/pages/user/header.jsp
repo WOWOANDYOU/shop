@@ -75,7 +75,7 @@ xmlhttp.send();
 							</div>
 							<div class="header_left_userinfo_out"
 								style="float:right;width:70px;height:55px;text-align:right;">
-								<a style="font-size:10px;" href="退出登录的servlet" target="_top">退出</a>
+								<a style="font-size:10px;" href="${pageContext.request.contextPath}/servlet/Cancel_Login" target="_top">退出</a>
 							</div>
 						</div>
 							<li class="header_right">
@@ -92,7 +92,7 @@ xmlhttp.send();
 									<c:when test="${sessionScope.user.role==2}">
 										<div class="header_right_merchant" style="display:inline">
 											<a class="header_right_merchant_a"
-												href="${pageContext.request.contextPath}/pages/shopkeeper/store.jsp"
+												href="${pageContext.request.contextPath }/servlet/MyStoreServlet"
 												target="_blank"> 卖家中心</a>
 										</div>
 									</c:when>

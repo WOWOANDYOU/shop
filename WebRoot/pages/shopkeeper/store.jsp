@@ -27,7 +27,7 @@
 					<c:forEach var="cloth" items="${clothlist }">
 						<div class="show_goods_div_in">
 							<div class="good_img">
-							<a href="sellgoodinfo.jsp?cloth_id=${cloth.cloth_id }">
+							<a href="${pageContext.request.contextPath }/Goods_servlet?cloth=${cloth.cloth_id }">
 							<c:forTokens var="cloth2" items="${cloth.images }" delims="," begin="0" end="0">
 							<img alt="picture" src="${pageContext.request.contextPath }/images/${cloth2}" width="220px" height="250px">
 							</c:forTokens>
@@ -38,12 +38,14 @@
 								<div class="good_price"><font class="price_font">￥<strong>${cloth.price }</strong></font></div>
 								<div class="good_totalnum"><font class="totalnum">库存:${cloth.totalnum }</font></div>
 								<div class="good_manage">
-									<div class="good_modify">
-										<a href="${pageContext.request.contextPath }/servlet/BeforeModifyGoodServlet?cloth_id=${cloth.cloth_id }">编辑</a>
-									</div>
-									 <div class="good_delete">
-										<a href="javascript:void(0)" onclick="isdelete('${pageContext.request.contextPath }/servlet/DeletegoodServlet','cloth_id','${cloth.cloth_id }')">删除</a>
-									</div>
+									<c:if test="${user.role==2 }">
+										<div class="good_modify">
+											<a href="${pageContext.request.contextPath }/servlet/BeforeModifyGoodServlet?cloth_id=${cloth.cloth_id }">编辑</a>
+										</div>
+										 <div class="good_delete">
+											<a href="javascript:void(0)" onclick="isdelete('${pageContext.request.contextPath }/servlet/DeletegoodServlet','cloth_id','${cloth.cloth_id }')">删除</a>
+										</div>
+									</c:if>
 								</div>
 							</div>
 						</div>
@@ -61,7 +63,7 @@
 					<c:forEach var="book" items="${booklist }">
 						<div class="show_goods_div_in">
 							<div class="good_img">
-							<a href="sellgoodinfo.jsp?book_id=${book.book_id }">
+							<a href="${pageContext.request.contextPath }/Goods_servlet?book=${book.book_id }">
 							<img alt="picture" src="${pageContext.request.contextPath }/images/${book.images}" width="220px" height="250px">
 							</a>
 							</div>
@@ -70,12 +72,14 @@
 								<div class="good_price"><font class="price_font">￥<strong>${book.price }</strong></font></div>
 								<div class="good_totalnum"><font class="totalnum">库存:${book.totalnum }</font></div>
 								<div class="good_manage">
-									<div class="good_modify">
-										<a href="${pageContext.request.contextPath }/servlet/BeforeModifyGoodServlet?book_id=${book.book_id }">编辑</a>
-									</div>
-									<div class="good_delete">
-										<a href="javascript:void(0)" onclick="isdelete('${pageContext.request.contextPath }/servlet/DeletegoodServlet','book_id','${book.book_id }')">删除</a>
-									</div>
+									<c:if test="${user.role==2 }">
+										<div class="good_modify">
+											<a href="${pageContext.request.contextPath }/servlet/BeforeModifyGoodServlet?book_id=${book.book_id }">编辑</a>
+										</div>
+										<div class="good_delete">
+											<a href="javascript:void(0)" onclick="isdelete('${pageContext.request.contextPath }/servlet/DeletegoodServlet','book_id','${book.book_id }')">删除</a>
+										</div>
+									</c:if>
 								</div>
 							</div>
 						</div>
@@ -92,7 +96,7 @@
 					<c:forEach var="food" items="${foodlist }">
 						<div class="show_goods_div_in">
 							<div class="good_img">
-							<a href="${pageContext.request.contextPath }/servlet/BeforeModifyGoodServlet?food_id=${food.food_id }">
+							<a href="${pageContext.request.contextPath }/Goods_servlet?food=${food.food_id }">
 							<img alt="picture" src="${pageContext.request.contextPath }/images/${food.images}" width="220px" height="250px">
 							</a>
 							</div>
@@ -102,12 +106,14 @@
 								<div class="good_price"><font class="price_font">￥<strong>${food.price }</strong></font></div>
 								<div class="good_totalnum"><font class="totalnum">库存:${food.totalnum }</font></div>
 								<div class="good_manage">
+								<c:if test="${user.role==2 }">
 									<div class="good_modify">
 										<a href="${pageContext.request.contextPath }/servlet/BeforeModifyGoodServlet?food_id=${food.food_id }">编辑</a>
 									</div>
 									<div class="good_delete">
 										<a href="javascript:void(0)" onclick="isdelete('${pageContext.request.contextPath }/servlet/DeletegoodServlet','food_id','${food.food_id }')">删除</a>
 									</div>
+								</c:if>
 								</div>
 							</div>
 						</div>

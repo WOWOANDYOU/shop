@@ -34,14 +34,14 @@ public class AddStoreServlet extends HttpServlet {
 		//判断信息的输入格式有没有错误
 		if(bean.validate()!=true){
 			session.setAttribute("StroeRegisterBean", bean);
-			request.getRequestDispatcher("/pages/store_register.jsp").forward(request, response);
+			request.getRequestDispatcher("/pages/user/store_register.jsp").forward(request, response);
 			return;
 		}
 		//输入信息无误，进行注册
 		User user=(User) session.getAttribute("user");
 		if(user==null){
 			session.setAttribute("message", "请先登录再注册店铺，三秒后返回首页");
-			request.getRequestDispatcher("/pages/message.jsp").forward(request, response);
+			request.getRequestDispatcher("/pages/user/message.jsp").forward(request, response);
 			return;
 		}
 		String user_id=user.getUser_id();
@@ -51,12 +51,13 @@ public class AddStoreServlet extends HttpServlet {
 		store.setStorename(bean.getStorename());
 		BusinessService service=new BusinessServiceImpl();
 		if(service.addStore(store)==0||service.registerEmplooyer(user_id, bean.getCardID(), bean.getRole())==0){
-			session.setAttribute("message", "服务器出错，注册失败，三秒后自动跳回首页");
-			request.getRequestDispatcher("/pages/message.jsp").forward(request, response);
+			session.setAttribute("message", "服务器出错，注册失败，三秒后自动跳回首页 <meta http-equiv='refresh' content='3;url=/shop/pages/user/index.jsp'>");
+
+			request.getRequestDispatcher("/pages/user/message.jsp").forward(request, response);
 			return;
 		}
 		session.setAttribute("message", "店铺注册成功，三秒后自动跳回首页");
-		request.getRequestDispatcher("/pages/message.jsp").forward(request, response);
+		request.getRequestDispatcher("/pages/user/message.jsp").forward(request, response);
 		
 		
 	}

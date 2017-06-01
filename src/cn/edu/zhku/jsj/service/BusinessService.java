@@ -2,7 +2,6 @@ package cn.edu.zhku.jsj.service;
 
 import java.util.List;
 
-import javax.ws.rs.HEAD;
 
 import cn.edu.zhku.jsj.domain.Book;
 import cn.edu.zhku.jsj.domain.Cloth;
@@ -109,6 +108,7 @@ public interface BusinessService {
 	
 	//添加订单
 	int addOrder(Order order);
+
 	
 	//查找 店铺 未处理以及处理的订单
 	List<Order> getBFOrder(int store_id,int states);

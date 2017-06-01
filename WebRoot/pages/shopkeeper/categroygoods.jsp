@@ -16,7 +16,7 @@
 							<c:forEach var="cloth" items="${clothlist_cat }">
 							<div class="show_goods_div_in">
 							<div class="good_img">
-							<a href="sellgoodinfo.jsp?cloth_id=${cloth.cloth_id }">
+							<a href="${pageContext.request.contextPath }/Goods_servlet?cloth=${cloth.cloth_id }">
 							<c:forTokens var="images2" items="${cloth.images }" delims="," begin="0" end="0">
 							<img alt="picture" src="${pageContext.request.contextPath }/images/${images2}" width="220px" height="250px">
 							</c:forTokens>
@@ -53,7 +53,7 @@
 							<c:forEach var="book" items="${booklist_cat }">
 								<div class="show_goods_div_in">
 								<div class="good_img">
-								<a href="sellgoodinfo.jsp?book_id=${book.book_id }">
+								<a href="${pageContext.request.contextPath }/Goods_servlet?book=${book.book_id }">
 								<img alt="picture" src="${pageContext.request.contextPath }/images/${book.images}" width="220px" height="250px">
 								</a>
 								</div>
@@ -88,7 +88,7 @@
 							<c:forEach var="food" items="${foodlist_cat }">
 						<div class="show_goods_div_in">
 							<div class="good_img">
-							<a href="${pageContext.request.contextPath }/servlet/BeforeModifyGoodServlet?food_id=${food.food_id }">
+							<a href="${pageContext.request.contextPath }/Goods_servlet?food=${food.food_id }">
 							<img alt="picture" src="${pageContext.request.contextPath }/images/${food.images}" width="220px" height="250px">
 							</a>
 							</div>

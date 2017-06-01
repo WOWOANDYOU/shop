@@ -46,6 +46,7 @@ public class intoStore_servlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String store_id=request.getParameter("store");
+		System.out.println(store_id);
 		if(store_id!=null){
 		BusinessService bus = new BusinessServiceImpl();
 		Store_selectService SsS=new Store_selectService();

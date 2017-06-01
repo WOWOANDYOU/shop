@@ -24,14 +24,13 @@ public class CartDaoImpl implements CartDao {
 		ResultSet rs = null;
 		con = JdbcUtil.getCon();
 		try {
-			String sql = "insert into cart values(null,?,?,?,?,?,?)";
+			String sql = "insert into cart values(null,?,?,?,?,?)";
 			pres = con.prepareStatement(sql);
 			pres.setInt(1, cart.getGood_id());
 			pres.setString(2, cart.getUser_id());
 			pres.setInt(3, cart.getQuantity());
 			pres.setFloat(4, cart.getTotalprice());
-			pres.setString(5, cart.getType());
-			pres.setString(6, cart.getVersion());
+			pres.setString(5, cart.getVersion());
 			int num = pres.executeUpdate();
 			return num;
 		} catch (Exception e) {

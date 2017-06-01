@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="refresh"
-	content="3;url=http://localhost:8080${pageContext.request.contextPath }/index.jsp">
+	content="3;url=http://localhost:8080${pageContext.request.contextPath }/pages/user/index.jsp">
 <title>message</title>
 <style type="text/css">
 body{
@@ -42,7 +42,7 @@ left:300;
 			src="${pageContext.request.contextPath }/images/message.GIF">
 	</div>
 	<div id="message"><h1>${message }</h1><br>
-	<a href="${pageContext.request.contextPath }/index.jsp"><h3>返回首页</h3></a>
+	<a href="${pageContext.request.contextPath }/pages/user/index.jsp"><h3>返回首页</h3></a>
 	</div>
 	</center>
 	</dir>

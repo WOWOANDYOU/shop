@@ -50,7 +50,7 @@ public class Goods_servlet extends HttpServlet {
 			request.getSession().setAttribute("Cloth_f", true);
 			request.getSession().setAttribute("Food_f", false);
 			request.getSession().setAttribute("Book_f", false);
-			Store store=GsS.findbook_store(value);
+			Store store=GsS.findcloth_store(value);
 			request.getSession().setAttribute("store", store);
 			User user=GsS.findowner(store.getOwner_id());
 			request.getSession().setAttribute("owner", user);

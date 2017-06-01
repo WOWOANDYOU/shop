@@ -9,6 +9,7 @@ import cn.edu.zhku.jsj.domain.Cart;
 
 public class CartService {
 	private CartDao cd=new CartDaoImpl();
+	private Cart c=new Cart();
 	private boolean mess=false;
 	public boolean addCart(Cart cart){
 		int message=cd.add(cart);
@@ -32,5 +33,9 @@ public class CartService {
 	public boolean updatecart(int cart_id,int quantity){
 		mess=cd.update(cart_id, quantity);
 		return mess;
+	}
+	public Cart findcart(int cart_id){
+		c=cd.findCart(cart_id);
+		return c;
 	}
 }

@@ -18,5 +18,7 @@ public interface OrderDao {
 	List<Order> getstore_BFOrders(int store_id,int states);
 	
 	boolean updateState(int order_id);
+
+	List<Order> findOrder(String user_id);
 	
 }

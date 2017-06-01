@@ -2,13 +2,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
+
 <head>
 <title>My JSP 'Goods.jsp' starting page</title>
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath }/css/good.css">
 <script type="text/javascript"
 	src="${pageContext.request.contextPath }/js/good.js">
-	
 </script>
 <script type="text/javascript">
 	function checkmessage() {
@@ -279,7 +279,6 @@
 				onclick="intoStore()" value="进入店铺">
 		</div>
 	</div>
-	
-</body>
 
+</body>
 </html>

@@ -51,7 +51,7 @@ public class ChangePassword extends HttpServlet implements Servlet {
 		password=Md5.md5(password);
 		int num=service.changePassword(user_id, password);
 		if(num!=0){
-		session.setAttribute("message", "密码修改成功");
+		session.setAttribute("message", "密码修改成功,三秒后返回首页");
 		request.getRequestDispatcher("/pages/user/message.jsp").forward(request, response);
 		return;
 		}

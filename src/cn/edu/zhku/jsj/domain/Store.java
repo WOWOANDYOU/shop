@@ -14,6 +14,7 @@ public class Store {
 	public void setControl(int control) {
 		this.control = control;
 	}
+
 	public String getImages() {
 		return images;
 	}

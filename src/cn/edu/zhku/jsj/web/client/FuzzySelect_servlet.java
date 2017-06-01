@@ -29,7 +29,6 @@ public class FuzzySelect_servlet extends HttpServlet {
 		String type = (String)request.getParameter("header2_center_top_type_radio");
 		String select = (String)request.getParameter("select");
 		Client_FuzzySelectService CsS = new Client_FuzzySelectService();
-		System.out.print(type);
 		if(select!=""||!select.isEmpty()){
 		if (type.equals("商品")) {
 			List<Book> list_b = CsS.select_b(select);

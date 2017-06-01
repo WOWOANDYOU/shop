@@ -21,7 +21,7 @@ public class Cancel_Login extends HttpServlet {
 		HttpSession session=request.getSession(false);
 		session.removeAttribute("user");
 		session.setAttribute("message", "用户注销成功，三秒后返回首页");
-		request.getRequestDispatcher("/pages/message.jsp").forward(request, response);
+		request.getRequestDispatcher("/pages/user/message.jsp").forward(request, response);
 	}
 
 	

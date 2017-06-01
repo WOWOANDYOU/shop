@@ -17,7 +17,7 @@ body {
 #container {
 	width: 980px;
 	text-align: center;
-	background-image: url("../images/register.jpg");
+	background-image: url("../../images/register.jpg");
 	width: 1024px;
 	height: 768px;
 	margin: 0 0 0 170px;

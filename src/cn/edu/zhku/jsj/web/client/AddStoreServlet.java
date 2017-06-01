@@ -52,6 +52,7 @@ public class AddStoreServlet extends HttpServlet {
 		BusinessService service=new BusinessServiceImpl();
 		if(service.addStore(store)==0||service.registerEmplooyer(user_id, bean.getCardID(), bean.getRole())==0){
 			session.setAttribute("message", "服务器出错，注册失败，三秒后自动跳回首页 <meta http-equiv='refresh' content='3;url=/shop/pages/user/index.jsp'>");
+
 			request.getRequestDispatcher("/pages/user/message.jsp").forward(request, response);
 			return;
 		}

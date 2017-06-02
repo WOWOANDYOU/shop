@@ -117,4 +117,8 @@ public interface BusinessService {
 	boolean updateOrder_state(int order_id);
 	boolean updateOrder_state_2(int order_id);
 	boolean deleteOrder(int order_id);
+	
+	
+	//
+	public Store findstore_id(String user_id);
 }

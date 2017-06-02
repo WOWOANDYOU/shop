@@ -33,7 +33,6 @@
 								src="${pageContext.request.contextPath }/images/${icv}">
 						</c:forTokens>
 					</div>
-					<div class="Goods_good_i_bimg"></div>
 					<c:forTokens items="${Cloth.images }" var="isv" delims=","
 						varStatus="isvs" begin="0" end="0">
 						<div class="Goods_good_simg_selected" id="Goods_good_simg0">

@@ -16,7 +16,7 @@
 	
 </script>
 </head>
-<body onload="changeTitle(${store.storename})">
+<body onload="changeTitle(${store.storename},${empty store},'${pageContext.request.contextPath }/pages/user/login.jsp')">
 	<div id="container">
 		<div id="store_nav_big">
 			<div id="store_nav">
@@ -153,12 +153,13 @@
 								src="${pageContext.request.contextPath }/images/logo2.jpg"
 								width="210px" height="50px" /></a>
 						</div>
+						
 						<div id="mid_up_right_search">
 							<div id="search_panel">
 								<form action="${pageContext.request.contextPath }/servlet/InStoreSearchServlet" method="post" class="form_class"  target="_blank" onsubmit="return checkoutinput_key()">
 								<%-- <input type="hidden" value="${store.store_id }" name="store_id"> --%>
 								<!-- 测试 先用 2代替 -->
-								<input type="hidden" value="2" name="store_id">
+								<input type="hidden" value="${store.store_id }" name="store_id">
 									<div id="search_text_field">
 										<div id="category_div_search">
 											<select name="search_cat">
@@ -196,7 +197,7 @@
 				<div id="store_name_div">
 					<div id="store_logo_div">
 					<c:choose>
-					<c:when test="${empty store.images }">
+					<c:when test="${empty store.images || store.images==0}">
 						<img alt="store_logo"
 							src="${pageContext.request.contextPath }/images/store_logo.jpg"
 							width="350px" height="120px" style="align:center" />
@@ -212,9 +213,9 @@
 				<div id="again_store_nav_big">
 					<div id="again_store_nav_big_mid">
 						<ul class="ul_1"><!-- pages/shopkeeper/store.jsp -->
-							<li class="li_1_again"><a href="${pageContext.request.contextPath }/servlet/AddGoodsServlet?store_id=2">首页</a></li>
+							<li class="li_1_again"><a href="${pageContext.request.contextPath }/servlet/AddGoodsServlet?store_id=${store.store_id}">首页</a></li>
 							<li class="li_1_again"><a     
-								href="${pageContext.request.contextPath }/servlet/AddFoodServlet?store_id=2">关于我们</a></li><%--测试先用2 代替 ${store_id } --%>
+								href="${pageContext.request.contextPath }/servlet/AddFoodServlet?store_id=${store.store_id}">关于我们</a></li><%--测试先用2 代替 ${store_id } --%>
 <%-- ${store.store_id} --%>
 							<!-- 分类显示 不好做先 不做 -->    <%-- pages/shopkeeper/show_store_info.jsp?store_id=${store.store_id} --%>
 							<%-- <li class="li_1_again">
@@ -256,10 +257,10 @@
 										<a
 											href="${pageContext.request.contextPath }/pages/shopkeeper/add_goods.jsp">添加商品</a><br>
 										<a
-											href="${pageContext.request.contextPath }/servlet/AddClothServlet?store_id=2">店铺管理</a><br>
+											href="${pageContext.request.contextPath }/servlet/AddClothServlet?store_id=${store.store_id}">店铺管理</a><br>
 										<!-- 可能会出现的错误  user_id含有中文   参数为中文    ${store.store_id}-->
 										<a
-											href="${pageContext.request.contextPath }/servlet/AddBookServlet?store_id=2">订单管理
+											href="${pageContext.request.contextPath }/servlet/AddBookServlet?store_id=${store.store_id}">订单管理
 											</a>
 											<%-- pages/shopkeeper/store_order_manage.jsp?user_id=${user.user_id} --%>
 									</div>

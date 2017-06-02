@@ -51,7 +51,7 @@ public class PayOrIntoCart_servlet extends HttpServlet {
 		if (u != null) {
 			String user_id = u.getUser_id();
 			if (BusinessType.equals("pay")) {// 立即支付
-
+				
 			} else if (BusinessType.equals("intocart")) {// 加入购物车
 				Cart c = new Cart();
 				CartService cs = new CartService();

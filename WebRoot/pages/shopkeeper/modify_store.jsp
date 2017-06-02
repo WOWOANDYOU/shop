@@ -7,7 +7,7 @@
 		<div id="add_store_in_in">
 			<div id="add_store_in_left_2">
 				<c:choose>
-					<c:when test="${empty store_info.images }">
+					<c:when test="${empty store_info.images || store_info.images==0}">
 					<img alt="picture" src="${pageContext.request.contextPath }/images/store_logo.jpg" height="100px" width="200px">
 					</c:when>
 					<c:otherwise>

@@ -92,7 +92,7 @@ public class OrderServlet extends HttpServlet {
 				totalprice+=order1.getPrice();
 			}
 		}
-		int [] order_id_arr=new int [num];
+		int [] order_id_arr=new int [num+1];
 		for(Order order1:lo){
 			if(order1.getState()==1){
 				order_id_arr[i]=order1.getOrder_id();

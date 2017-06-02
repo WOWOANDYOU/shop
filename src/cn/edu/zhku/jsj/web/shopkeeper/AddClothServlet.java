@@ -37,6 +37,10 @@ public class AddClothServlet extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
+		Store store = null;
+		store= (Store) request.getSession().getAttribute("store");
+		int store_id = store.getStore_id();
+		
 		String client_uuid = request.getParameter("uuid");
 		String server_uuid = (String) request.getSession().getAttribute("formuuidnum");
 		boolean b2 = WebUtil.isToken(client_uuid, server_uuid);
@@ -60,8 +64,8 @@ public class AddClothServlet extends HttpServlet {
 				//图片 由于用 UUID 名  数据库 存放路径 大小设为 255 最多 可能只能存 5张图片
 				
 				
-cloth.setStore_id(2);//测试用 由于 还没有店主登录进来  所以先 手动 赋值为 一个存在的店铺  到时候要删除！！
-
+/*cloth.setStore_id(store_id);//测试用 由于 还没有店主登录进来  所以先 手动 赋值为 一个存在的店铺  到时候要删除！！
+*/				cloth.setStore_id(store_id);
 				BusinessService bus = new BusinessServiceImpl();
 				int num = bus.addCloth(cloth);
 				int store_id_2 = cloth.getStore_id();

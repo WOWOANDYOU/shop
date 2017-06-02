@@ -10,12 +10,13 @@
 	height:430px;
 }
 .Goods_good_i_cimg{
-	width:475px;
+	margin-left:10px;
+	width:400px;
 	height:350px;
 	border:1px solid red;
 }
 #Goods_good_i_cimg_img{
-	width:475px;
+	width:400px;
 	height:350px;
 }
 .Goods_good_simg{

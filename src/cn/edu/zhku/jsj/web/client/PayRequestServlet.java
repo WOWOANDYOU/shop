@@ -26,6 +26,8 @@ public class PayRequestServlet extends HttpServlet {
 		String p0_Cmd = "Buy";
 		String p1_MerId = PayConfig.getValue("p1_MerId");
 		String p2_Order = request.getParameter("orderid");
+		System.out.println(p2_Order);
+		
 		String p3_Amt = request.getParameter("money");
 		String p4_Cur = "CNY";
 		String p5_Pid = "";

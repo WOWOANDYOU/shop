@@ -33,7 +33,7 @@
 	      		<tr>
 	      			<th>总价</th><td>${totalprice }</td>
 	      		</tr>
-				<input type="hidden" name="orderid" value="${order_pay_1.get(0).order_id }">
+				<input type="hidden" name="orderid" value="${order_pay_1.get(0).order_id }${order_pay_1.get(1).order_id}">
 	    		<input type="hidden" name="money" value="0.01">  <!--  测试用 只能是 小额 -->
 				<tr><td><br/></td></tr>
 				<tr>

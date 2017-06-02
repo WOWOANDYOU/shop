@@ -194,5 +194,25 @@ public class StoreDaoImpl implements StoreDao {
 			JdbcUtil.release(con, pres, rs);
 		}
 	}
+	@Override
+	public Store findstoreinfo(String user_id) {
+		Connection con = null;
+		PreparedStatement pres = null;
+		ResultSet rs = null;
+		con = JdbcUtil.getCon();
+		List<Store> storelist;
+		try{
+			String sql = "select * from store where owner_id=?";
+			pres = con.prepareStatement(sql);
+			pres.setString(1, user_id);
+			rs = pres.executeQuery();
+			storelist = ResultToBean.getBeanList(Store.class, rs); //调工具类 （封装 数据到 bean的工具类）
+			return storelist.get(0);
+		}catch(Exception e){ 
+			throw new RuntimeException(e);
+		}finally{
+			JdbcUtil.release(con, pres, rs);
+		}
+	}
 
 }

@@ -3,11 +3,6 @@
 <%@include file="store_nav.jsp"%>
 
 <!-- 所以如果是店主 进入到店铺 前 要去查数据库  将其信息 存在 request 域 或者 session域里边 因为要将属于该 店铺的商品 查出 并展现出来 -->
-<%
-	Store store = new Store();
-	store.setStore_id(1);
-	session.setAttribute("store", store);
- %>
 
 <div class="add_good_big">
 	<div class="add_good_in">

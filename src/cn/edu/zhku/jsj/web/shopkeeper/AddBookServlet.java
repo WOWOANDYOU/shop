@@ -17,6 +17,7 @@ import cn.edu.zhku.jsj.domain.Book;
 import cn.edu.zhku.jsj.domain.Cloth;
 import cn.edu.zhku.jsj.domain.Food;
 import cn.edu.zhku.jsj.domain.Order;
+import cn.edu.zhku.jsj.domain.Store;
 import cn.edu.zhku.jsj.formbean.BookFormBean;
 import cn.edu.zhku.jsj.service.BusinessService;
 import cn.edu.zhku.jsj.service.impl.BusinessServiceImpl;
@@ -36,12 +37,13 @@ public class AddBookServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
+		Store store = null;
+		store= (Store) request.getSession().getAttribute("store");
+		int store_id = store.getStore_id();
+		
 		String client_uuid = request.getParameter("uuid");
 		String server_uuid = (String) request.getSession().getAttribute("formuuidnum");
 		boolean b2 = WebUtil.isToken(client_uuid, server_uuid);
-		
-		
-		
 		if(b2){
 			System.out.println("请不要 用刷新 重复添加书籍 （重复提交表单）");
 			request.getRequestDispatcher("/pages/shopkeeper/store.jsp").forward(request, response);
@@ -63,8 +65,12 @@ public class AddBookServlet extends HttpServlet {
 				/*Food food = (Food) map2.get("food");*/
 				Book book = (Book)map2.get("book");
 				//图片 由于用 UUID 名  数据库 存放路径 大小设为 255 最多 可能只能存 5张图片
+			
 				
-book.setStore_id(2);//测试用 由于 还没有店主登录进来  所以先 手动 赋值为 一个存在的店铺  到时候要删除！！
+/*book.setStore_id(2);//测试用 由于 还没有店主登录进来  所以先 手动 赋值为 一个存在的店铺  到时候要删除！！
+*/				book.setStore_id(store_id);
+
+System.out.println("ahahaah"+store_id);
 
 				int num = bus.addBook(book);
 				int store_id_2 = book.getStore_id();

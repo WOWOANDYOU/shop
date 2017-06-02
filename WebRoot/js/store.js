@@ -10,8 +10,12 @@ function finishorder(){
 	document.getElementById("order_input_1").value = "3"; /*3 表示 已发货*/
 	document.getElementById("order_form").submit();
 }
-function changeTitle(storename) {
+function changeTitle(storename,store,url) {
 	document.title = storename; /* 页面加载就改变 页面的title */
+	if(store==true){
+		window.replace(url);
+	}
+	alert(store);
 }
 function isselected(){
 	var myselect = document.getElementById("category2");

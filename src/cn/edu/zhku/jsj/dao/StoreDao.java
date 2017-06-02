@@ -39,6 +39,11 @@ public interface StoreDao {
 	Store findstoreinfo(int store_id);
 	
 	boolean updatestore(Store store);
+
+	Store findstoreinfo(String user_id);
+
+	
+	
 	
 
 }

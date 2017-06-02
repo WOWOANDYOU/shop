@@ -297,5 +297,10 @@ public class BusinessServiceImpl implements BusinessService {
 		return order_dao.deleteorder(order_id);
 	}
 
+	@Override
+	public Store findstore_id(String user_id) {
+		return store_dao.findstoreinfo(user_id);
+	}
+
 
 }

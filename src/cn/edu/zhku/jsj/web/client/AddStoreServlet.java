@@ -1,6 +1,7 @@
 package cn.edu.zhku.jsj.web.client;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import cn.edu.zhku.jsj.domain.Book;
+import cn.edu.zhku.jsj.domain.Cloth;
+import cn.edu.zhku.jsj.domain.Food;
 import cn.edu.zhku.jsj.domain.Store;
 import cn.edu.zhku.jsj.domain.User;
 import cn.edu.zhku.jsj.service.BusinessService;
@@ -52,12 +56,20 @@ public class AddStoreServlet extends HttpServlet {
 		BusinessService service=new BusinessServiceImpl();
 		if(service.addStore(store)==0||service.registerEmplooyer(user_id, bean.getCardID(), bean.getRole())==0){
 			session.setAttribute("message", "服务器出错，注册失败，三秒后自动跳回首页 <meta http-equiv='refresh' content='3;url=/shop/pages/user/index.jsp'>");
-
 			request.getRequestDispatcher("/pages/user/message.jsp").forward(request, response);
 			return;
 		}
+		store = service.findstore_id(user_id);
+		session.setAttribute("store", store);
 		user=service.findInformation(user.getUser_id());
 		session.setAttribute("user",user);
+		List<Book> booklist = service.findstorebook(store.getStore_id());
+		List<Cloth> clothlist = service.findstorecloth(store.getStore_id());
+		List<Food> foodlist = service.findstorefood(store.getStore_id());
+		HttpSession goodsession = request.getSession();
+		goodsession.setAttribute("booklist", booklist);
+		goodsession.setAttribute("clothlist", clothlist);
+		goodsession.setAttribute("foodlist",foodlist);
 		session.setAttribute("message", "店铺注册成功，三秒后自动跳回首页");
 		request.getRequestDispatcher("/pages/user/message.jsp").forward(request, response);
 		

@@ -25,7 +25,7 @@ public class CategroyServlet extends HttpServlet {
 		//store_id要传进来  现在测试 先手动赋值 为 2  因为 下现在只有 一个 2号店铺
 		/*String store_id = request.getParameter("store_id");
 		int storeid = Integer.parseInt(store_id);*/
-		int storeid = 2;
+		int storeid = Integer.parseInt(request.getParameter("store_id"));
 		BusinessService bus = new BusinessServiceImpl();
 		HttpSession cat_session = request.getSession();
 		request.setAttribute("good_cat_type", goodtype); 

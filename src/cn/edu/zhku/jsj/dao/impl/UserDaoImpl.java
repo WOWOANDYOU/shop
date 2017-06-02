@@ -217,7 +217,7 @@ public class UserDaoImpl implements UserDao {
 		PreparedStatement pres = null;
 		ResultSet rs = null;
 		con = JdbcUtil.getCon();
-		String sql="select * from Store where owner_id=?";
+		String sql="select * from store where owner_id=?";
 		Store store=null;
 		try{
 			pres = con.prepareStatement(sql);
